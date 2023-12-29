@@ -1,23 +1,31 @@
 ---
 const path = Astro.url.pathname;
+const pages = {
+  "Home":"/",
+  "Clinic":"/clinic",
+  "Services":"/services",
+  "Team":"/team",
+  "Messages":"/messages",
+  "Contact":"/contact"
+}
 ---
 
 <nav class="flex justify-center items-center w-full h-full">
   <ul class="flex italic flex-wrap justify-center">
     <li>
-      <a href="/" class="navItem">Inicio</a>
+      <a href={pages.Home} class="navItem">Inicio</a>
     </li>
     <li>
       <a
-        href="/clinic"
-        class=`navItem ${path == "/clinic" ? "bg-slate-500" : "bg-slate-200"}`
+        href={pages.Clinic}
+        class=`navItem ${path == "/clinic" ? "bg-slate-500" : ''}`
         >Nuestra Clínica</a
       >
     </li>
-    <li><a href="/Services" class="navItem">Servicios</a></li>
-    <li><a href="/Team" class="navItem">Nuestro Equipo</a></li>
-    <li><a href="/Messages" class="navItem">Testimonios</a></li>
-    <li><a href="/Contact" class="navItem">Contacto</a></li>
+    <li><a href={pages.Services} class="navItem">Servicios</a></li>
+    <li><a href={pages.Team} class="navItem">Nuestro Equipo</a></li>
+    <li><a href={pages.Messages} class="navItem">Testimonios</a></li>
+    <li><a href={pages.Contact} class="navItem">Contacto</a></li>
   </ul>
 </nav>
 
