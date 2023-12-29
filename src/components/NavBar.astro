@@ -1,0 +1,31 @@
+---
+const path = Astro.url.pathname;
+---
+
+<nav class="flex justify-center items-center w-full h-full">
+  <ul class="flex">
+    <li>
+      <a href="/" class="navItem">Inicio</a>
+    </li>
+    <li>
+      <a
+        href="/clinic"
+        class=`navItem ${path == "/clinic" ? "bg-slate-500" : "bg-slate-200"}`
+        >Nuestra Clínica</a
+      >
+    </li>
+    <li><a href="/Services" class="navItem">Servicios</a></li>
+    <li><a href="/Team" class="navItem">Nuestro Equipo</a></li>
+    <li><a href="/Messages" class="navItem">Testimonios</a></li>
+    <li><a href="/Contact" class="navItem">Contacto</a></li>
+  </ul>
+</nav>
+
+<style>
+  .navItem {
+    padding: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
