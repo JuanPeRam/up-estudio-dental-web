@@ -1,29 +1,31 @@
 ---
 const path = Astro.url.pathname;
 import {paths} from '@/constants/pages'
+const selectedClass = "font-bold border-b"
 ---
 
-<nav class="flex justify-center items-center w-full h-full">
+<nav class="flex justify-center items-center z-50 sticky top-0 left-0 bg-white/50 w-full" id="header-nav">
   <ul class="flex italic flex-wrap justify-center">
     <li>
-      <a href={paths.Home} class="navItem">Inicio</a>
+      <a href={paths.Home} 
+      class=`nav-item ${path === paths.Home ? selectedClass : ""}`>Inicio</a>
     </li>
     <li>
       <a
         href={paths.Clinic}
-        class=`navItem ${path == "/clinic" ? "bg-slate-500" : ''}`
+        class=`nav-item ${path === paths.Clinic ? selectedClass : ''}`
         >Nuestra Clínica</a
       >
     </li>
-    <li><a href={paths.Services} class="navItem">Servicios</a></li>
-    <li><a href={paths.Team} class="navItem">Nuestro Equipo</a></li>
-    <li><a href={paths.Messages} class="navItem">Testimonios</a></li>
-    <li><a href={paths.Contact} class="navItem">Contacto</a></li>
+    <li><a href={paths.Services} class=`nav-item ${path === paths.Services ? selectedClass:""}`>Servicios</a></li>
+    <li><a href={paths.Team} class=`nav-item ${path === paths.Team ? selectedClass:""}`>Nuestro Equipo</a></li>
+    <li><a href={paths.Messages} class=`nav-item ${path === paths.Messages ? selectedClass:""}`>Testimonios</a></li>
+    <li><a href={paths.Contact} class=`nav-item ${path === paths.Contact ? selectedClass:""}`>Contacto</a></li>
   </ul>
 </nav>
 
 <style>
-  .navItem {
+  .nav-item {
     padding: 1.25rem;
     display: flex;
     justify-content: center;
