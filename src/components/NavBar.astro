@@ -42,7 +42,7 @@ const selectedClass = "font-bold border-b";
     Object.entries(paths).map(([key,value])=>(
       <li>
         <a href={value} 
-        class=`nav-item ${path === value ? selectedClass : ""}`
+        class=`nav-item before:bg-primary hover:border-b-[primary] ${path === value ? selectedClass : ""}`
         >
           {key}
         </a>
@@ -76,5 +76,20 @@ const selectedClass = "font-bold border-b";
     justify-content: center;
     align-items: center;
     width: fit-content;
+    position: relative;
+  }
+
+  .nav-item::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    transition: width 0.3s ease;
+  }
+
+  .nav-item:hover::before {
+    width: 100%;
   }
 </style>
