@@ -59,13 +59,9 @@ const selectedClass = "font-bold border-b";
     function addMenuHandler(){
       const menu_opener = document.getElementById("menu-opener");
       const menu = document.getElementById("menu-navbar");
-      if (menu_opener) {
-        menu_opener.addEventListener("click", () => {
-          if (menu) {
-            menu.classList.toggle("invisible");
-          }
-        });
-      }
+      menu_opener?.addEventListener("click", () => {
+        menu?.classList.toggle("invisible");
+      });
     }
     document.addEventListener('astro:after-swap', ()=>{
       addMenuHandler()
