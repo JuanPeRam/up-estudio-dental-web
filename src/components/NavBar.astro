@@ -35,14 +35,14 @@ const selectedClass = "font-bold border-b";
     </svg>
   </button>
   <ul
-    class="italic flex flex-wrap md:justify-end justify-center md:bg-transparent items-center invisible md:visible md:flex md:flex-row flex-col fixed md:relative top-0 left-0 h-screen w-full z-20 gap-5 bg-secondary/70 md:gap-0 md:h-fit text-white md:p-0"
+    class="italic flex md:before:hidden flex-wrap md:justify-end justify-center md:bg-transparent items-center invisible md:visible md:flex md:flex-row flex-col fixed md:relative top-0 left-0 h-screen w-full z-20 gap-5 md:gap-0 md:h-fit text-white md:p-0"
     id="menu-navbar"
   >
   {
     Object.entries(paths).map(([key,value])=>(
       <li>
         <a href={value} 
-        class=`nav-item before:bg-primary hover:border-b-[primary] ${path === value ? selectedClass : ""}`
+        class=`nav-item before:bg-primary hover:font-bold ${path === value ? selectedClass : ""}`
         >
           {key}
         </a>
@@ -61,6 +61,7 @@ const selectedClass = "font-bold border-b";
       const menu = document.getElementById("menu-navbar");
       menu_opener?.addEventListener("click", () => {
         menu?.classList.toggle("invisible");
+        menu?.classList.toggle('visible')
       });
     }
     document.addEventListener('astro:after-swap', ()=>{
@@ -70,6 +71,25 @@ const selectedClass = "font-bold border-b";
 </script>
 
 <style>
+  #menu-navbar::before{
+    content: '';
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 0;
+    height: 0;
+    background: rgba(0, 0, 0, 0.90);
+    transition: all .3s ease;
+    border-radius: 50%;
+  }
+
+  #menu-navbar.visible::before{
+    width: 100vh;
+    height: 100vh;
+    top: 0;
+    right: 0;
+  }
+
   .nav-item {
     padding: 0.95rem;
     display: flex;
