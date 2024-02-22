@@ -5,6 +5,10 @@ export default {
 		extend: {
 			fontFamily:{
 				sans: ["Libre Baskerville"]
+			},
+			colors:  {
+				primary: '#fff',
+				
 			}
 		},
 	},
