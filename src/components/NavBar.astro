@@ -1,5 +1,6 @@
 ---
-const path = Astro.url.pathname;
+let path = Astro.url.pathname.replace(/\/$/, "");
+if (path == "") path = "/";
 import { paths } from "@/constants/pages";
 console.log(path);
 ---
