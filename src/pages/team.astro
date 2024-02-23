@@ -22,7 +22,7 @@ import team from "../db/team";
                                 alt={`${row.name} picture`}
                                 class="object-cover w-full h-full"
                             />
-                            <div class="absolute top-0 left-0 w-full h-full invisible backdrop-blur-md group-hover:visible transition-transform p-5 bg-contrast/40">
+                            <div class="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 group-hover:backdrop-blur-md p-5 bg-contrast/40 transition-all">
                                 {row.description}
                             </div>
                         </div>
