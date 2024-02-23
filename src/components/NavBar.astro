@@ -35,7 +35,7 @@ import { paths } from "@/constants/pages";
     </svg>
   </button>
   <ul
-    class="italic flex md:before:hidden before:bg-secondary/80 flex-wrap md:justify-end justify-center md:bg-transparent items-center invisible md:visible md:flex md:flex-row flex-col fixed md:relative top-0 left-0 h-screen w-full z-20 gap-5 md:gap-0 md:h-fit text-white md:p-0"
+    class="italic flex md:before:hidden md:opacity-100 opacity-0 before:bg-secondary/80 flex-wrap md:justify-end justify-center md:bg-transparent items-center invisible md:visible md:flex md:flex-row flex-col fixed md:relative top-0 left-0 h-screen w-full z-20 gap-5 md:gap-0 md:h-fit text-white md:p-0"
     id="menu-navbar"
   >
     {
@@ -43,7 +43,7 @@ import { paths } from "@/constants/pages";
         <li>
           <a
             href={value}
-            class={`nav-item before:bg-primary hover:font-bold ${path === value ? "font-bold border-b" : ""}`}
+            class={`nav-item w-fit relative flex jsutify-center items-center p-4 before:bg-primary hover:font-bold ${path === value ? "font-bold border-b" : ""}`}
           >
             {key}
           </a>
@@ -72,6 +72,12 @@ import { paths } from "@/constants/pages";
 </script>
 
 <style>
+  #menu-navbar {
+    transition: opacity 0.45s ease;
+  }
+  #menu-navbar.visible {
+    opacity: 1;
+  }
   #menu-navbar::before {
     content: "";
     position: absolute;
@@ -88,15 +94,6 @@ import { paths } from "@/constants/pages";
     height: 100vh;
     top: 0;
     right: 10%;
-  }
-
-  .nav-item {
-    padding: 0.95rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: fit-content;
-    position: relative;
   }
 
   .nav-item::before {
