@@ -18,10 +18,10 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="img/up-logo.png" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{`Up Estudio Dental y estética - ${title}`}</title>
     <ViewTransitions />
   </head>
-  <body class="bg-secondary w-full">
+  <body class="bg-secondary w-full text-primary">
     <NavBar />
     <slot />
     <style is:global>

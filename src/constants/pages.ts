@@ -2,7 +2,7 @@ const paths = {
   "Home": "/",
   "Clínica": "/clinic",
   "Servicios": "/services",
-  "Equipo": "/team",
+  "Nuestro Equipo": "/team",
   "Opiniones": "/messages",
   "Contacto": "/contact"
 }

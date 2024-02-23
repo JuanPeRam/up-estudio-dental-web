@@ -38,51 +38,52 @@ const selectedClass = "font-bold border-b";
     class="italic flex md:before:hidden before:bg-secondary/80 flex-wrap md:justify-end justify-center md:bg-transparent items-center invisible md:visible md:flex md:flex-row flex-col fixed md:relative top-0 left-0 h-screen w-full z-20 gap-5 md:gap-0 md:h-fit text-white md:p-0"
     id="menu-navbar"
   >
-  {
-    Object.entries(paths).map(([key,value])=>(
-      <li>
-        <a href={value} 
-        class=`nav-item before:bg-primary hover:font-bold ${path === value ? selectedClass : ""}`
-        >
-          {key}
-        </a>
-      </li>
-    ))
-  }
+    {
+      Object.entries(paths).map(([key, value]) => (
+        <li>
+          <a
+            href={value}
+            class={`nav-item before:bg-primary hover:font-bold ${path === value ? selectedClass : ""}`}
+          >
+            {key}
+          </a>
+        </li>
+      ))
+    }
   </ul>
   <a class="w-20 hover:cursor-pointer" href="/">
-    <img src="img/up-logo.png">
+    <img src="img/up-logo.png" />
   </a>
 </nav>
 
 <script>
-    function addMenuHandler(){
-      const menu_opener = document.getElementById("menu-opener");
-      const menu = document.getElementById("menu-navbar");
-      menu_opener?.addEventListener("click", () => {
-        menu?.classList.toggle("invisible");
-        menu?.classList.toggle('visible')
-      });
-    }
-    document.addEventListener('astro:after-swap', ()=>{
-      addMenuHandler()
-    })
-    addMenuHandler()
+  function addMenuHandler() {
+    const menu_opener = document.getElementById("menu-opener");
+    const menu = document.getElementById("menu-navbar");
+    menu_opener?.addEventListener("click", () => {
+      menu?.classList.toggle("invisible");
+      menu?.classList.toggle("visible");
+    });
+  }
+  document.addEventListener("astro:after-swap", () => {
+    addMenuHandler();
+  });
+  addMenuHandler();
 </script>
 
 <style>
-  #menu-navbar::before{
-    content: '';
+  #menu-navbar::before {
+    content: "";
     position: absolute;
     top: 40px;
     right: 40px;
     width: 0;
     height: 0;
-    transition: all .45s ease;
+    transition: all 0.45s ease;
     border-radius: 50%;
   }
 
-  #menu-navbar.visible::before{
+  #menu-navbar.visible::before {
     width: 100vh;
     height: 100vh;
     top: 0;
@@ -98,8 +99,8 @@ const selectedClass = "font-bold border-b";
     position: relative;
   }
 
-  .nav-item::before{
-    content: '';
+  .nav-item::before {
+    content: "";
     position: absolute;
     left: 0;
     bottom: 0;

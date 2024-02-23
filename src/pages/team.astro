@@ -1,0 +1,53 @@
+---
+import Layout from "../layouts/Layout.astro";
+import team from "../db/team";
+---
+
+<Layout
+    title="Nuestro Equipo"
+    description="Les presentamos a nuestro maravilloso equipo. Compuesto por grandes profesionales con gran experiencia en el sector."
+>
+    <section class="w-full flex justify-center mt-24 flex-col p-10">
+        <header>
+            <h1 class="text-5xl text-center uppercase">Nuestro Equipo</h1>
+            <p></p>
+        </header>
+        <section class="flex flex-wrap gap-32 justify-center my-10">
+            {
+                team.map((row) => (
+                    <article class="team-card w-[25rem] flex flex-col justify-center rounded-md  overflow-hidden backdrop-blur-sm items-center h-fit">
+                        <div class="h-[29rem] w-full relative group">
+                            <img
+                                src={row.picture}
+                                alt={`${row.name} picture`}
+                                class="object-cover w-full h-full"
+                            />
+                            <div class="absolute top-0 left-0 w-full h-full invisible backdrop-blur-md group-hover:visible transition-transform p-5 bg-contrast/40">
+                                {row.description}
+                            </div>
+                        </div>
+
+                        <div class="h-[10rem] p-5 flex flex-col items-start justify-between w-full bg-contrast/20">
+                            <h2 class="text-2xl font-bold">{row.name}</h2>
+                            {row.roles && (
+                                <div class="flex gap-2">
+                                    {row.roles.map((role) => (
+                                        <div class=" text-xs">{role}</div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    </article>
+                ))
+            }
+        </section>
+    </section>
+
+    <style>
+        .team-card {
+            box-shadow:
+                7px 7px 0px rgb(25, 25, 25),
+                12px 10px 0px rgb(60, 60, 60);
+        }
+    </style>
+</Layout>
