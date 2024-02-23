@@ -1,7 +1,7 @@
 ---
 const path = Astro.url.pathname;
 import { paths } from "@/constants/pages";
-const selectedClass = "font-bold border-b";
+console.log(path);
 ---
 
 <nav
@@ -43,7 +43,7 @@ const selectedClass = "font-bold border-b";
         <li>
           <a
             href={value}
-            class={`nav-item before:bg-primary hover:font-bold ${path === value ? selectedClass : ""}`}
+            class={`nav-item before:bg-primary hover:font-bold ${path === value ? "font-bold border-b" : ""}`}
           >
             {key}
           </a>
