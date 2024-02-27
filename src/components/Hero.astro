@@ -1,18 +1,37 @@
 <section
-  class="bg-no-repeat bg-cover bg-center w-full min-h-dvh text-white text-pretty flex justify-between p-16 items-center flex-col text-left"
-  style="background-image: url('img/UP-Gallery/Up-Board.jpg');"
+  class="bg-no-repeat bg-cover bg-center w-full min-h-dvh text-white text-pretty flex justify-center flex-col text-left bg-contrast"
+  id="hero-section"
 >
-  <header class="mt-10 text-center shadow-2xl p-5 backdrop-blur-xl rounded-xl transition-all animate-fade-in animation-delay-[2s]">
-    <p
-      class="font-[700] text-xl w-full text-[rgb(241,241,241)]"
-    >
-      ¡Bienvenid@s!
-    </p>
-    <h1 class="text-5xl font-[900] uppercase my-8 w-full ">
-      Up Estudio Dental y Estética
-    </h1>
-  </header>
-  <button class="rounded-sm bg-corporative/50 px-5 py-3 hover:shadow-xl hover:bg-corporative transition-all border">
-    Hola
-  </button>
+  <article class="p-5">
+    <header>
+      <p
+        class="font-[700] text-xl text-[rgb(241,241,241)]"
+      >
+        ¡Bienvenid@s!
+      </p>
+      <h1 class="text-5xl font-[900] uppercase my-8">
+        Up Estudio Dental y Estética
+      </h1>
+    </header>
+    <article class="font-[500] text-sm text-pretty md:text-base min-h-24 max-w-5xl text-primary/90">
+      <p>En UpestudioDental, estamos comprometidos a brindarte una experiencia dental excepcional y de calidad.</p>
+    </article>
+    <article class="flex mt-5 flex-wrap items-center gap-x-[30%] gap-y-5">
+      <section class="flex items-end">
+        <button class="p-4 shadow-md rounded-3xl bg-primary/80 text-secondary font-bold hover:bg-primary hover:shadow-2xl md:text-base text-sm">
+          Pide tu cita
+        </button>
+        <p class="text-xs">*Consulta los horarios </p>
+      </section>
+      <section>
+        <button class="p-4 shadow-md rounded-3xl font-bold bg-secondary/90 hover:bg-secondary hover:shadow-2xl md:text-base text-sm">Pulsa</button>
+      </section>
+    </article>
+  </article>
 </section>
+
+<style>
+  #hero-section{
+    background-image: linear-gradient(to top right, rgba(19, 19, 19, 0.363), rgba(88, 88, 88, 0.671)), url('img/UP-Gallery/Up-Board.jpg');
+  }
+</style>

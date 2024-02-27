@@ -1,4 +1,4 @@
-import InstagramIcon from "@/icons/InstagramIcon.jsx"
+import InstagramIcon from "@/icons/InstagramIcon"
 import TikTokIcon from '@/icons/TikTokIcon'
 
 type SocialType = {

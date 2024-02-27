@@ -23,7 +23,8 @@ import team from "../db/team";
                                 class="object-cover w-full h-full"
                                 loading="lazy"
                             />
-                            <div class="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 group-hover:backdrop-blur-md p-5 bg-contrast/40 duration-75 transition-[opacity] text-pretty overflow-auto">
+                            <div class="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 group-hover:backdrop-blur-md p-5 bg-contrast/40 text-pretty overflow-auto" 
+                            id="member-description">
                                 {row.description}
                             </div>
                         </div>
@@ -49,6 +50,10 @@ import team from "../db/team";
             box-shadow:
                 7px 7px 0px rgb(25, 25, 25),
                 12px 10px 0px rgb(60, 60, 60);
+        }
+
+        #member-description{
+            transition: opacity .2s ease;
         }
     </style>
 </Layout>
