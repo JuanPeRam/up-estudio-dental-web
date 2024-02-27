@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.3.4",
+    "@astrojs/react": "^3.0.10",
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource/libre-baskerville": "^5.0.8",
     "astro": "^4.0.8",

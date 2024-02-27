@@ -21,8 +21,9 @@ import team from "../db/team";
                                 src={row.picture}
                                 alt={`${row.name} picture`}
                                 class="object-cover w-full h-full"
+                                loading="lazy"
                             />
-                            <div class="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 group-hover:backdrop-blur-md p-5 bg-contrast/40 transition-all text-pretty overflow-auto">
+                            <div class="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 group-hover:backdrop-blur-md p-5 bg-contrast/40 duration-75 transition-[opacity] text-pretty overflow-auto">
                                 {row.description}
                             </div>
                         </div>

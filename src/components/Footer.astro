@@ -1,0 +1,19 @@
+---
+import socials from '@/constants/socials'
+---
+
+<footer class="bg-contrast border-t p-5">
+    <nav>
+        <ul class="flex flex-row gap-x-6 items-center">
+            {
+                socials.map((media)=>(
+                    <li class="">
+                        <a href={media.link} aria-label={`${media.name} oficial de la clínica`} class="hover:bg-corporative p-5 rounded-full hover:scale-125 hover:font-bold transition inline-block" rel="noopener" target="_blank">
+                            <media.svg />
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </nav>
+</footer>
