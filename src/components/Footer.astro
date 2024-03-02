@@ -1,19 +1,32 @@
 ---
 import socials from '@/constants/socials'
+import ClinicInfo from '@/components/ClinicInfo.astro'
+import Iframe from './Iframe.astro'
 ---
 
-<footer class="bg-contrast border-t p-5">
-    <nav>
-        <ul class="flex flex-row gap-x-6 items-center">
-            {
-                socials.map((media)=>(
-                    <li class="">
-                        <a href={media.link} aria-label={`${media.name} oficial de la clínica`} class="hover:bg-corporative p-3 rounded-full hover:scale-125 hover:font-bold transition inline-block" rel="noopener" target="_blank">
-                            <media.svg width='30' height="30"/>
-                        </a>
-                    </li>
-                ))
-            }
-        </ul>
-    </nav>
+<footer class="bg-contrast border-t p-5 flex justify-evenly flex-wrap items-start gap-5">
+    <section class="flex flex-col items-center gap-2">
+        <h2 class="text-lg md:text-xl">CONTÁCTANOS</h2>
+        <ClinicInfo/>
+    </section>
+    <section class="flex flex-col items-center gap-2">
+        <h2 class="text-lg md:text-xl">ENCUÉNTRANOS</h2>
+        <Iframe/>
+    </section>
+    <section class="flex flex-col justify-start items-center h-full text-center gap-2">
+        <h2 class="text-lg md:text-xl">SÍGUENOS EN NUESTRAS REDES</h2>
+        <nav>
+            <ul class="flex flex-row gap-x-6 items-center">
+                {
+                    socials.map((media)=>(
+                        <li class="">
+                            <a href={media.link} aria-label={`${media.name} oficial de la clínica`} class="hover:bg-corporative p-3 rounded-full hover:scale-125 hover:font-bold transition inline-block" rel="noopener" target="_blank">
+                                <media.svg width='30' height="30"/>
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </nav>
+    </section>
 </footer>

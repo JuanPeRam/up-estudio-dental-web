@@ -1,4 +1,6 @@
+import FacebookIcon from "@/icons/FacebookIcon"
 import InstagramIcon from "@/icons/InstagramIcon"
+import LinkedInIcon from "@/icons/LinkedInIcon"
 import TikTokIcon from '@/icons/TikTokIcon'
 
 type SocialType = {
@@ -17,6 +19,11 @@ const socials: SocialType[] = [
         name: "TikTok",
         link: "https://www.tiktok.com/@upestudiodental",
         svg: TikTokIcon
+    },
+    {
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/up-estudio-dental-y-estética-636620280/",
+        svg: LinkedInIcon
     }
 ]
 
