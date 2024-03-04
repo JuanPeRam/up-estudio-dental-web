@@ -8,5 +8,5 @@ const Icon = props.variant === 'Home' ? HomeIcon : TelephoneIcon
 ---
 
 <div class="font-bold">
-    <a href={`tel:${phoneNumber}`} class="flex gap-2 hover:bg-secondary/80 rounded-md p-2 transition-colors items-center" aria-label="Link para llamar al número de teléfono de la clínica"><Icon height={25} width={25}/>{phoneNumber}</a>
+    <a href={`tel:${phoneNumber}`} class="flex gap-2 hover:bg-contrast/80 rounded-md p-2 transition-colors items-center" aria-label="Link para llamar al número de teléfono de la clínica"><Icon height={25} width={25}/>{phoneNumber}</a>
 </div>
