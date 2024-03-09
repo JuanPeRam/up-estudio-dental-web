@@ -27,7 +27,7 @@ const { title, description } = Astro.props;
     <main>
       <slot />
     </main>
-    <Footer/>
+    <Footer />
     <style is:global>
       #header-nav {
         animation: blur linear both;
@@ -35,7 +35,7 @@ const { title, description } = Astro.props;
         animation-range: 0 100vh;
       }
 
-      * {
+      html {
         scroll-behavior: smooth;
       }
 
@@ -47,6 +47,30 @@ const { title, description } = Astro.props;
           background: rgba(255, 255, 255, 0.26);
           backdrop-filter: blur(10px);
         }
+      }
+
+      ::-webkit-scrollbar {
+        width: 10px;
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: theme("colors.primary");
+        border: 2px solid transparent;
+        background-clip: content-box;
+      }
+
+      ::-webkit-scrollbar-thumb:active {
+        background-color: #666;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--background-image);
+      }
+
+      ::-webkit-scrollbar-corner {
+        background: var(--background-image);
       }
     </style>
   </body>

@@ -3,9 +3,12 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*":["src/*"]
+      "@/*": [
+        "src/*"
+      ]
     },
-    "jsx":"react",
-    "module": "ESNext"
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "jsxImportSource": "react"
   }
 }
