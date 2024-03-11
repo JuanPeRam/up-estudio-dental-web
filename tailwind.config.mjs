@@ -10,7 +10,7 @@ export default {
 			colors: {
 				primary: '#fff',
 				secondary: '#121212',
-				contrast: '#4d4d4d',
+				contrast: '#2d2d2d',
 				corporative: '#77c6c1'
 
 			}
