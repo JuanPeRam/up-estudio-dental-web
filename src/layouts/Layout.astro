@@ -1,6 +1,7 @@
 ---
 import NavBar from "@/components/NavBar.astro";
 import Footer from "@/components/Footer.astro";
+import License from "@/components/License.astro";
 import { ViewTransitions } from "astro:transitions";
 import "@fontsource/libre-baskerville";
 interface Props {
@@ -28,6 +29,7 @@ const { title, description } = Astro.props;
       <slot />
     </main>
     <Footer />
+    <License />
     <style is:global>
       #header-nav {
         animation: blur linear both;
