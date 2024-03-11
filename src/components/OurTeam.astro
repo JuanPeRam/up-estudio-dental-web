@@ -1,0 +1,87 @@
+---
+import team from "../db/team";
+---
+
+<section
+  class="w-full flex justify-center pt-20 flex-col relative bg-cover bg-center"
+  id="team-section"
+>
+  <header>
+    <h1 class="text-5xl text-center uppercase">Nuestro Equipo</h1>
+    <p></p>
+  </header>
+  <section class="flex flex-wrap gap-32 justify-center my-10">
+    {
+      team.map((row) => (
+        <article class="w-[20rem] sm:w-[25rem] team-card flex-col justify-center rounded-md  overflow-hidden backdrop-blur-sm items-center h-fit shadow-md flex">
+          <div class="h-[29rem] w-full relative group">
+            <img
+              src={row.picture}
+              alt={`${row.name} picture`}
+              class="object-cover w-full h-full"
+              loading="lazy"
+            />
+            <div
+              class="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 group-hover:backdrop-blur-md p-5 bg-contrast/40 text-pretty overflow-auto"
+              id="member-description"
+            >
+              {row.description}
+            </div>
+          </div>
+
+          <div class="h-[10rem] p-5 flex flex-col items-start justify-between w-full bg-contrast/80">
+            <h2 class="text-2xl font-bold">{row.name}</h2>
+            {row.roles && (
+              <div class="flex gap-2">
+                {row.roles.map((role) => (
+                  <div class=" text-xs">{role}</div>
+                ))}
+              </div>
+            )}
+          </div>
+        </article>
+      ))
+    }
+  </section>
+</section>
+
+<script>
+  function init() {
+    const scrollImages = document.querySelectorAll<HTMLElement>(".team-card");
+
+    function updateOpacity() {
+      const windowHeight = window.innerHeight;
+      const triggerHeight = windowHeight * 0.6; // Altura a partir de la cual la escala debe ser 0
+
+      scrollImages.forEach((div) => {
+        const divTop = div.getBoundingClientRect().top;
+        let scale = 1;
+
+        if (divTop > triggerHeight) {
+          scale = 1 - (divTop - triggerHeight) / triggerHeight; // Escala gradual si el div está debajo de la altura de activación
+        } else {
+          scale = 1; // Si el div está más arriba de la altura de activación, la escala es 1
+        }
+        if (scale < 0) scale = 0;
+        div.style.transform = `scale(${scale})`;
+        div.style.opacity = scale.toString();
+      });
+    }
+
+    window.addEventListener("scroll", updateOpacity);
+    window.addEventListener("resize", updateOpacity); // Actualizar opacidad en caso de cambio de tamaño de la ventana
+    updateOpacity();
+  }
+
+  // Initialize on first load
+  init();
+
+  // Re-initialize after swapping pages
+  document.addEventListener("astro:after-swap", init);
+</script>
+
+<style>
+  #member-description {
+    transition: opacity 0.2s ease;
+  }
+</style>
