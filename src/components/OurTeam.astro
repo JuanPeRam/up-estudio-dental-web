@@ -6,11 +6,11 @@ import team from "../db/team";
   class="w-full flex justify-center pt-20 flex-col relative"
   id="team-section"
 >
-  <img
+  <!--<img
     src="img/UP-Gallery/Office2.jpg"
     alt=""
     class="fixed top-0 -z-10 w-full object-cover brightness-50 h-full"
-  />
+  /> -->
   <header class="animate-slide-in-bottom">
     <h1 class="text-5xl text-center uppercase">Nuestro Equipo</h1>
     <p></p>
@@ -90,5 +90,14 @@ import team from "../db/team";
 <style>
   #member-description {
     transition: opacity 0.2s ease;
+  }
+
+  #team-section {
+    background-image: url("img/UP-Gallery/Office2.jpg");
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 </style>
