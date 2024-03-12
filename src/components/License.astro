@@ -9,9 +9,25 @@ const currentYear = new Date().getFullYear();
   <a
     href="https://www.google.com/search?client=opera-gx&q=up+estudio+dental+y+estetica&sourceid=opera&ie=UTF-8&oe=UTF-8"
     target="_blank"
-    class="hover:underline transition"
+    class="relative before:bg-primary"
   >
     Up Estudio Dental y Estética S.L
   </a>
   <p>Todos los derechos reservados.</p>
 </footer>
+
+<style>
+  footer a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 0;
+    height: 1px;
+    transition: all 0.2s ease;
+  }
+
+  footer a:hover::before {
+    width: 100%;
+  }
+</style>

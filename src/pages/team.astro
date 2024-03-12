@@ -1,11 +1,30 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import OurTeam from "../components/OurTeam.astro";
+import Header from "@/components/Header.astro";
 ---
 
 <Layout
   title="Nuestro Equipo"
   description="Les presentamos a nuestro maravilloso equipo. Compuesto por grandes profesionales con gran experiencia en el sector."
 >
-  <OurTeam />
+  <section>
+    <Header
+      title="Nuestro Equipo"
+      description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium ducimus veniam nam explicabo minus assumenda ea, placeat harum? Expedita blanditiis vel cum, velit quam nam. Saepe placeat numquam aliquam eveniet?"
+      styles="bg-secondary/80"
+    />
+    <OurTeam />
+  </section>
 </Layout>
+
+<style>
+  section {
+    background-image: url("img/UP-Gallery/Office2.jpg");
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>
