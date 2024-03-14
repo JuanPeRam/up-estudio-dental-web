@@ -7,6 +7,7 @@ import { paths } from "@/constants/pages";
 <nav
   class="flex justify-between flex-row-reverse items-center z-50 fixed top-0 left-0 w-full px-5"
   id="header-nav"
+  transition:animate="initial"
 >
   <button
     id="menu-opener"
@@ -43,7 +44,7 @@ import { paths } from "@/constants/pages";
         <li>
           <a
             href={value}
-            class={`nav-item w-fit relative flex jsutify-center items-center p-4 before:bg-primary hover:font-bold ${path === value ? "font-bold border-b" : ""}`}
+            class={`nav-item w-fit relative flex jsutify-center items-center px-4 py-3 before:bg-primary hover:font-bold ${path === value ? "font-bold border-b" : ""}`}
           >
             {key}
           </a>

@@ -1,5 +1,5 @@
 ---
-import team from "../db/team";
+import { team } from "../db/team";
 ---
 
 <section
@@ -11,13 +11,17 @@ import team from "../db/team";
   >
     {
       team.map((row) => (
-        <article class="w-[20rem] sm:w-[25rem] team-card flex-col justify-center rounded-lg transition-shadow overflow-hidden backdrop-blur-sm items-center h-fit shadow-lg flex hover:shadow-xl ">
+        <a
+          class="w-[20rem] sm:w-[25rem] team-card flex-col justify-center rounded-lg transition-shadow overflow-hidden backdrop-blur-sm items-center h-fit shadow-lg flex hover:shadow-xl "
+          href={`member/${row.id}`}
+        >
           <div class="h-[29rem] w-full relative group">
             <img
               src={row.picture}
               alt={`${row.name} picture`}
               class="object-cover w-full h-full"
               loading="lazy"
+              transition:name={`${row.id}-image`}
             />
             <div
               class="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 group-hover:backdrop-blur-md p-5 bg-contrast/40 text-pretty overflow-auto"
@@ -37,7 +41,7 @@ import team from "../db/team";
               </div>
             )}
           </div>
-        </article>
+        </a>
       ))
     }
   </section>
