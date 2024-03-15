@@ -12,34 +12,29 @@ import { team } from "../db/team";
     {
       team.map((row) => (
         <a
-          class="w-[20rem] sm:w-[25rem] team-card flex-col justify-center rounded-lg transition-shadow overflow-hidden backdrop-blur-sm items-center h-fit shadow-lg flex hover:shadow-xl "
+          class="w-[20rem] sm:w-[25rem] team-card flex-col justify-center rounded-lg transition-shadow overflow-hidden backdrop-blur-sm items-center h-fit shadow-lg flex hover:shadow-2xl group"
           href={`member/${row.id}`}
         >
-          <div class="h-[29rem] w-full relative group">
+          <div class="h-[29rem] w-full relative">
             <img
               src={row.picture}
               alt={`${row.name} picture`}
-              class="object-cover w-full h-full"
+              class="object-cover w-full h-full group-hover:brightness-110 transition"
               loading="lazy"
               transition:name={`${row.id}-image`}
             />
-            <div
-              class="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100 group-hover:backdrop-blur-md p-5 bg-contrast/40 text-pretty overflow-auto"
-              id="member-description"
-            >
-              {row.description}
-            </div>
           </div>
 
-          <div class="h-[10rem] p-5 flex flex-col items-start justify-between w-full bg-contrast/80">
+          <div class="h-[10rem] p-5 flex flex-col items-start justify-between w-full bg-contrast/80 group-hover:bg-contrast transition">
             <h2 class="text-2xl font-bold">{row.name}</h2>
-            {row.roles && (
+            <div class="flex justify-between w-full items-center">
               <div class="flex gap-2">
-                {row.roles.map((role) => (
+                {row.roles?.map((role) => (
                   <div class=" text-xs">{role}</div>
                 ))}
               </div>
-            )}
+              <div class="text-sm group-hover:underline">{`Mostrar más`}</div>
+            </div>
           </div>
         </a>
       ))

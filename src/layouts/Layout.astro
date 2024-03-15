@@ -43,16 +43,12 @@ const { title, description } = Astro.props;
         align-items: center;
       }
 
-      html {
-        scroll-behavior: smooth;
-      }
-
       @keyframes blur {
         to {
           box-shadow:
             0px 5px 50px -5px hsla(0, 0%, 100%, 0.1),
             0px 0px 0 1px hsla(0, 0%, 100%, 0.1);
-          background: rgba(255, 255, 255, 0.26);
+          background: #2d2d2d56;
           backdrop-filter: blur(10px);
         }
       }
