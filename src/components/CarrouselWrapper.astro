@@ -16,13 +16,14 @@ import CarrouselAstro from "@/components/Carrousel.astro";
     const carousel = document.getElementById("carrousel");
     const carouselAstro = document.getElementById("carrouselAstro");
     const width = window.innerWidth;
-
-    if (width >= 750) {
-      carousel.style.display = "block";
-      carouselAstro.style.display = "none";
-    } else {
-      carousel.style.display = "none";
-      carouselAstro.style.display = "block";
+    if (carousel && carouselAstro) {
+      if (width >= 750) {
+        carousel.style.display = "block";
+        carouselAstro.style.display = "none";
+      } else {
+        carousel.style.display = "none";
+        carouselAstro.style.display = "block";
+      }
     }
   }
 
