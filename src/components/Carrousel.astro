@@ -5,7 +5,7 @@ const carrouselLink = "https://codepen.io/onion2k/pen/xxZYBVj";
 function randomSort(a: any, b: any) {
   return Math.random() - 0, 5;
 }
-const randomizedGallery = gallery.slice().toSorted(randomSort);
+const randomizedGallery = gallery.slice().sort(randomSort);
 ---
 
 <section

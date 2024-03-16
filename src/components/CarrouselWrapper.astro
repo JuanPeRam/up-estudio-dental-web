@@ -30,4 +30,6 @@ import CarrouselAstro from "@/components/Carrousel.astro";
   window.addEventListener("DOMContentLoaded", handleResize);
   window.addEventListener("resize", handleResize);
   document.addEventListener("astro:after-swap", handleResize);
+
+  handleResize();
 </script>

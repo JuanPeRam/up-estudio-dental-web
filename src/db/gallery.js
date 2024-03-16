@@ -62,10 +62,6 @@ const gallery = [
         src: `${images_path}/Kitchen4.jpg`
     },
     {
-        name: 'Mchine.jpg',
-        src: `${images_path}/Mchine.jpg`
-    },
-    {
         name: 'Office.jpg',
         src: `${images_path}/Office.jpg`
     },
