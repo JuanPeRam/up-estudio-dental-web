@@ -90,16 +90,8 @@ const gallery = [
         src: `${images_path}/Up-Cabin.jpeg`
     },
     {
-        name: 'Up-Chairs.jpg',
-        src: `${images_path}/Up-Chairs.jpg`
-    },
-    {
         name: 'Up-Entry.jpg',
         src: `${images_path}/Up-Entry.jpg`
-    },
-    {
-        name: 'Uplogo.webp',
-        src: `${images_path}/Uplogo.webp`
     },
     {
         name: 'Up-Machine.jpg',
