@@ -13,7 +13,10 @@ const randomizedGallery = gallery.slice().sort(randomSort);
   id="carrousel-section"
 >
   <article class="flex flex-col items-center justify-center px-5">
-    <section class="flex slider w-full h-[60vh] rounded-md">
+    <p class="text-sm text-left w-full" id="slider-top-text">
+      Deslice hacia la derecha para ver más imágenes
+    </p>
+    <section class="flex slider w-full h-[60vh] rounded-md" id="sliderAs">
       {
         randomizedGallery.map((image) => (
           <img
@@ -26,6 +29,27 @@ const randomizedGallery = gallery.slice().sort(randomSort);
     </section>
   </article>
 </section>
+
+<script defer>
+  function init() {
+    const slider = document.getElementById("sliderAs");
+    const sliderTopText = document.getElementById("slider-top-text");
+
+    console.log(slider);
+    slider.addEventListener("scroll", () => {
+      let opacityValue = 1 - slider.scrollLeft / 500;
+      opacityValue = Math.max(0, opacityValue);
+      sliderTopText.style.opacity = opacityValue;
+    });
+
+    sliderTopText.addEventListener("click", () => {
+      console.log("clicked");
+    });
+  }
+
+  document.addEventListener("astro:after-swap", init);
+  init();
+</script>
 
 <style>
   .slider {
