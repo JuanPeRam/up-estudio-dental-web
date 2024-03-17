@@ -12,8 +12,10 @@ const randomizedGallery = gallery.slice().sort(randomSort);
   class="w-full flex flex-col items-center justify-center pb-10"
   id="carrousel-section"
 >
-  <article class="flex flex-col items-center justify-center px-5">
-    <p class="text-sm text-left w-full" id="slider-top-text">
+  <article
+    class="flex flex-col items-center justify-center px-5 overflow-hidden"
+  >
+    <p class="text-sm text-right w-full" id="slider-top-text">
       Deslice hacia la derecha para ver más imágenes
     </p>
     <section class="flex slider w-full h-[60vh] rounded-md" id="sliderAs">
@@ -35,15 +37,13 @@ const randomizedGallery = gallery.slice().sort(randomSort);
     const slider = document.getElementById("sliderAs");
     const sliderTopText = document.getElementById("slider-top-text");
 
-    console.log(slider);
     slider.addEventListener("scroll", () => {
-      let opacityValue = 1 - slider.scrollLeft / 500;
+      let opacityValue = 1 - slider.scrollLeft / 100;
       opacityValue = Math.max(0, opacityValue);
       sliderTopText.style.opacity = opacityValue;
-    });
 
-    sliderTopText.addEventListener("click", () => {
-      console.log("clicked");
+      if (slider.scrollLeft < 80)
+        sliderTopText.style.transform = `translateX(-${slider.scrollLeft}px)`;
     });
   }
 
