@@ -20,8 +20,9 @@ const randomizedGallery = gallery.slice().sort(randomSort);
     </p>
     <section class="flex slider w-full h-[60vh] rounded-md" id="sliderAs">
       {
-        randomizedGallery.map((image) => (
+        randomizedGallery.map((image, index) => (
           <img
+            decoding={index == 0 ? "async" : "sync"}
             src={image.src}
             alt={image.name}
             class="object-cover left-0 sticky rounded-sm object-center w-full"
