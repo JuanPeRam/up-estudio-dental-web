@@ -1,13 +1,22 @@
 ---
-import PhoneComponent from '@/components/PhoneComponent.astro'
+import PhoneComponent from "@/components/PhoneComponent.astro";
 ---
 
-
-<article class="flex flex-col justify-center items-center gap-2 text-center text-sm md:text-base">
-    <p>C. Andrómeda, 48, 28938 Móstoles, Madrid, España</p>
-    <p class="flex flex-wrap text-center items-center justify-center gap-0.5">Correo Electrónico: <a href="mailto:info@upestudiodental.com" class="hover:bg-corporative transition p-2 rounded-md" aria-label="Correo Electrónico de la clínica">info@upestudiodental.com</a> </p>
-    <div class="w-fit flex flex-col gap-2">
-        <PhoneComponent variant="Home" phoneNumber=919931329 />
-        <PhoneComponent phoneNumber=649039327 />
-    </div>
+<article
+  class="flex flex-col justify-center items-center gap-2 text-center text-sm md:text-base"
+>
+  <a href="https://g.co/kgs/uj6iDgM" target="_blank" class="hover:underline"
+    >C. Andrómeda, 48, 28938 Móstoles, Madrid, España</a
+  >
+  <p class="flex flex-wrap text-center items-center justify-center gap-0.5">
+    Correo Electrónico <a
+      href="mailto:info@upestudiodental.com"
+      class="hover:bg-corporative/80 transition p-2 rounded-md"
+      aria-label="Correo Electrónico de la clínica">info@upestudiodental.com</a
+    >
+  </p>
+  <div class="w-fit flex flex-col gap-2">
+    <PhoneComponent variant="Home" phoneNumber="919931329" />
+    <PhoneComponent phoneNumber="649039327" />
+  </div>
 </article>

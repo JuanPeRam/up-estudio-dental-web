@@ -1,15 +1,17 @@
 ---
-import Carrousel from "@/components/CarrouselAstro.astro";
-import CarrouselAstro from "@/components/Carrousel.astro";
+import Carrousel from "@/components/Carrousel/CarrouselAstro.astro";
+import CarrouselAstro from "@/components/Carrousel/Carrousel.astro";
 ---
 
-<div id="carrousel" class="hidden">
-  <Carrousel />
-</div>
+<section class="min-h-[80vh]">
+  <div id="carrousel" class="hidden">
+    <Carrousel />
+  </div>
 
-<div id="carrouselAstro" class="hidden">
-  <CarrouselAstro />
-</div>
+  <div id="carrouselAstro" class="hidden">
+    <CarrouselAstro />
+  </div>
+</section>
 
 <script>
   function handleResize() {

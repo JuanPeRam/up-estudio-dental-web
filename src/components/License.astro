@@ -1,19 +1,36 @@
 ---
+import { politicsPaths } from "@/constants/pages";
+
 const currentYear = new Date().getFullYear();
 ---
 
 <footer
-  class="w-full p-5 bg-corporative/70 flex justify-center text-center border-t gap-2 items-center flex-wrap"
+  class="w-full p-5 bg-corporative/70 flex flex-col justify-center text-center border-t gap-2 items-center flex-wrap"
 >
-  © {currentYear}
-  <a
-    href="https://www.google.com/search?client=opera-gx&q=up+estudio+dental+y+estetica&sourceid=opera&ie=UTF-8&oe=UTF-8"
-    target="_blank"
-    class="relative before:bg-primary"
-  >
-    Up Estudio Dental y Estética S.L
-  </a>
-  <p>Todos los derechos reservados.</p>
+  <article class="flex gap-2 justify-center items-center w-full flex-wrap">
+    © {currentYear}
+    <a
+      href="https://www.google.com/search?client=opera-gx&q=up+estudio+dental+y+estetica&sourceid=opera&ie=UTF-8&oe=UTF-8"
+      target="_blank"
+      class="relative before:bg-primary"
+    >
+      Up Estudio Dental y Estética S.L.
+    </a>
+    <p>Todos los derechos reservados.</p>
+  </article>
+  <article>
+    <ul class="flex items-center w-full justify-center flex-wrap">
+      {
+        Object.entries(politicsPaths).map(([key, value], index) => (
+          <li class={`px-2 border-l last:border-r border-white/20`}>
+            <a href={value} class="hover:underline">
+              {key}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </article>
 </footer>
 
 <style>
