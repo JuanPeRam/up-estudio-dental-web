@@ -42,7 +42,7 @@ import { team } from "../db/team";
   </section>
 </section>
 
-<script>
+<!--<script>
   function init() {
     const scrollImages = document.querySelectorAll<HTMLElement>(".team-card");
 
@@ -76,9 +76,27 @@ import { team } from "../db/team";
   // Re-initialize after swapping pages
   document.addEventListener("astro:after-swap", init);
 </script>
-
+ -->
 <style>
   #member-description {
     transition: opacity 0.2s ease;
+  }
+
+  @keyframes grow {
+    from{
+      transform: scale(0);
+    }
+    to{
+      transform: scale(1);
+    }
+    0%{
+      transform: scale(0);
+    }
+  }
+
+  .team-card{
+    animation: grow both linear;
+    animation-timeline: view();
+    animation-range: entry -100% cover 50%;
   }
 </style>
