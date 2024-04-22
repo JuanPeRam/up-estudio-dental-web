@@ -42,41 +42,6 @@ import { team } from "../db/team";
   </section>
 </section>
 
-<!--<script>
-  function init() {
-    const scrollImages = document.querySelectorAll<HTMLElement>(".team-card");
-
-    function updateOpacity() {
-      const windowHeight = window.innerHeight;
-      const triggerHeight = windowHeight * 0.6; // Altura a partir de la cual la escala debe ser 0
-
-      scrollImages.forEach((div) => {
-        const divTop = div.getBoundingClientRect().top;
-        let scale = 1;
-
-        if (divTop > triggerHeight) {
-          scale = 1 - (divTop - triggerHeight) / triggerHeight; // Escala gradual si el div está debajo de la altura de activación
-        } else {
-          scale = 1; // Si el div está más arriba de la altura de activación, la escala es 1
-        }
-        if (scale < 0) scale = 0;
-        div.style.transform = `scale(${scale})`;
-        div.style.opacity = scale.toString();
-      });
-    }
-
-    window.addEventListener("scroll", updateOpacity);
-    window.addEventListener("resize", updateOpacity); // Actualizar opacidad en caso de cambio de tamaño de la ventana
-    updateOpacity();
-  }
-
-  // Initialize on first load
-  init();
-
-  // Re-initialize after swapping pages
-  document.addEventListener("astro:after-swap", init);
-</script>
- -->
 <style>
   #member-description {
     transition: opacity 0.2s ease;
