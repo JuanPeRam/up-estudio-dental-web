@@ -37,6 +37,7 @@ const { title, description } = Astro.props;
     />
 
     <link rel="icon" type="image/svg+xml" href="img/up-logo.png" />
+    <link rel="stylesheet" href="./src/styles/tailwind.css">
 
     <title>{`Up Estudio Dental y estética - ${title}`}</title>
     <ViewTransitions />
@@ -53,12 +54,6 @@ const { title, description } = Astro.props;
         animation: blur linear both;
         animation-timeline: scroll();
         animation-range: 0 100vh;
-      }
-
-      .flex-center {
-        display: flex;
-        justify-content: center;
-        align-items: center;
       }
 
       @keyframes blur {

@@ -10,15 +10,15 @@ const randomizedGallery = gallery.slice().sort(randomSort);
 ---
 
 <section
-  class="w-full flex flex-col items-center justify-center mb-10 p-2 md:p-10"
+  class="w-full column-center mb-10 p-2 md:p-10"
   id="carrousel-section"
 >
-  <article class="flex flex-col items-center justify-center w-[50vw]">
+  <article class="column-cente w-[50vw]">
     <section class="flex slider h-[60vh] relative w-full" id="slider">
       {
         randomizedGallery.map((image, index) => (
           <img
-            decoding={index == 0 ? "async" : "sync"}
+            decoding={index == 0 ? "sync" : "async"}
             src={image.src}
             alt={image.name}
             class="h-full object-cover opacity-0 transition duration-500 absolute left-0 w-full rounded-md"
@@ -26,7 +26,7 @@ const randomizedGallery = gallery.slice().sort(randomSort);
         ))
       }
     </section>
-    <section class="controls w-full gap-2 mt-5 flex-center" id="controls">
+    <section class="controls w-full gap-2 mt-5 row-center" id="controls">
       {
         randomizedGallery.map((image, index) => (
           <button class="rounded-full bg-primary p-2" value={index} />

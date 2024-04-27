@@ -1,6 +1,6 @@
 ---
-import Carrousel from "@/components/Carrousel/CarrouselAstro.astro";
-import CarrouselAstro from "@/components/Carrousel/Carrousel.astro";
+import CarrouselAstro from "@/components/Carrousel/CarrouselAstro.astro";
+import Carrousel from "@/components/Carrousel/Carrousel.astro";
 ---
 
 <section class="min-h-[80vh]">
@@ -20,11 +20,11 @@ import CarrouselAstro from "@/components/Carrousel/Carrousel.astro";
     const width = window.innerWidth;
     if (carousel && carouselAstro) {
       if (width >= 750) {
-        carousel.style.display = "block";
-        carouselAstro.style.display = "none";
-      } else {
         carousel.style.display = "none";
         carouselAstro.style.display = "block";
+      } else {
+        carousel.style.display = "block";
+        carouselAstro.style.display = "none";
       }
     }
   }
