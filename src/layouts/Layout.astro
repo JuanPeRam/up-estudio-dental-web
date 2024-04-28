@@ -4,6 +4,7 @@ import NavBar from "@/components/Common/NavBar.astro";
 import Footer from "@/components/Common/Footer.astro";
 import License from "@/components/License.astro";
 import "@fontsource/libre-baskerville";
+import '@/styles/tailwind.css'
 interface Props {
   title: string;
   description: string;
@@ -37,7 +38,6 @@ const { title, description } = Astro.props;
     />
 
     <link rel="icon" type="image/svg+xml" href="img/up-logo.png" />
-    <link rel="stylesheet" href="../src/styles/tailwind.css">
 
     <title>{`Up Estudio Dental y estética - ${title}`}</title>
     <ViewTransitions />
