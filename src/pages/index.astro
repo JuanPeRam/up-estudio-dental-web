@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import Hero from "@/components/Home/Hero.astro";
 import ClinicIntro from "@/components/Home/ClinicIntro.astro";
+import FamiliarTeam from "@/components/Home/FamiliarTeam.astro";
 ---
 
 <Layout
@@ -9,5 +10,9 @@ import ClinicIntro from "@/components/Home/ClinicIntro.astro";
   description="Página web oficial de Up estudio dental y estética, tu dentista de confianza en Móstoles, Madrid."
 >
   <Hero />
-  <ClinicIntro/>
+  <section class="bg-white text-black">
+    <ClinicIntro/>
+    <FamiliarTeam />
+  </section>
+  
 </Layout>

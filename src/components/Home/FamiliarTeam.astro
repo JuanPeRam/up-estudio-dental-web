@@ -1,0 +1,21 @@
+---
+import { Image } from "astro:assets";
+import JuanCarlosTiti from '@/img/Team/juan-carlos.webp'
+import NavButton from "../Common/NavButton.astro";
+
+---
+
+<section class="row-center px-5 gap-5 min-h-[60vh] py-10 flex-wrap">
+    <article class="h-full border shadow-md p-10 leading-8 flex flex-col items-center justify-between min-h-[60vh]">
+        <h2 class="font-bold text-2xl">Un equipo familiar</h2>
+        <p class="max-w-[60ch]">Nuestro equipo en Up Estudio Dental y Estética se distingue por su profesionalidad y dedicación. 
+            Compuesto por expertos altamente cualificados en odontología y medicina estética facial, cada miembro está comprometido 
+            con la excelencia en su campo. Nos mantenemos actualizados con las últimas técnicas y tecnologías, garantizando así un 
+            tratamiento de alta calidad y resultados excepcionales. Además, nuestra atención al paciente se basa en la empatía, la 
+            comunicación abierta y el cuidado compasivo. Confía en nosotros para proporcionarte una experiencia segura, cómoda y satisfactoria 
+            en cada visita. Tu salud y belleza están en manos expertas con nuestro equipo profesional.
+        </p>
+        <NavButton path="/team" styles="bg-secondary text-white" >Nuestro Equipo</NavButton>
+    </article>
+    <Image src={JuanCarlosTiti} alt={'Juan Carlos & Cristina'} class='w-auto h-[60vh]' ></Image>
+</section>
