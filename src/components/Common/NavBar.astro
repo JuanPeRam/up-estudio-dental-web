@@ -2,6 +2,9 @@
 let path = Astro.url.pathname.replace(/\/$/, "");
 if (path == "") path = "/";
 import { paths } from "@/constants/pages";
+import { Image } from "astro:assets";
+
+import upLogo from '@/img/up-logo-white.png'
 ---
 
 <nav
@@ -53,7 +56,7 @@ import { paths } from "@/constants/pages";
     }
   </ul>
   <a class="w-20 hover:cursor-pointer" href="/" aria-label="Volver a Home">
-    <img src="img/up-logo-white.png" alt="Up logo" />
+    <Image alt="Up logo" src={upLogo} loading={"eager"}></Image>
   </a>
 </nav>
 
