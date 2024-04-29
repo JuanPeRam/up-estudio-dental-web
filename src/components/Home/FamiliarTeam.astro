@@ -1,24 +1,30 @@
 ---
 import { Image } from "astro:assets";
-import JuanCarlosTiti from '@/img/Team/juan-carlos.webp'
+import JuanCarlosTiti from "@/img/Team/juan-carlos.webp";
 import NavButton from "../Common/NavButton.astro";
-
+import TextImageSection from "../Templates/TextImageSection.astro";
 ---
 
-<section class="row-center px-5 min-h-[60vh] py-10 flex-wrap min-[1210px]:gap-0 gap-5">
-    <article class="h-full p-10 leading-8 flex flex-col items-center justify-between min-h-[60vh] border min-[1210px]:border-r-0 rounded-l-md 
-    min-[1210px]:shadow-none shadow-md min-[1210px]:rounded-r-none rounded-r-md">
-        <h2 class="font-bold text-2xl">Un equipo familiar</h2>
-        <p class="max-w-[60ch] text-black/80">Nuestro equipo en Up Estudio Dental y Estética se distingue por su profesionalidad y dedicación. 
-            Compuesto por expertos altamente cualificados en odontología y medicina estética facial, cada miembro está comprometido 
-            con la excelencia en su campo. <br>
-            Nos mantenemos actualizados con las últimas técnicas y tecnologías, garantizando así un 
-            tratamiento de alta calidad y resultados excepcionales. Además, nuestra atención al paciente se basa en la empatía, la 
-            comunicación abierta y el cuidado compasivo. <br>
-            Confía en nosotros para proporcionarte una experiencia segura, cómoda y satisfactoria 
-            en cada visita. Tu salud y belleza están en manos expertas con nuestro equipo profesional.
-        </p>
-        <NavButton path="/team" styles="bg-secondary text-white" >Nuestro Equipo</NavButton>
-    </article>
-    <Image src={JuanCarlosTiti} alt={'Juan Carlos & Cristina'} class='w-auto min-[1210px]:h-[60vh] rounded-r-md min-[1210px]:rounded-l-none rounded-l-md min-[1210px]:shadow-none shadow-md' ></Image>
-</section>
+<TextImageSection 
+imageSrc={JuanCarlosTiti} 
+imageAlt="Juan Carlos & Cristina"
+articleStyles="min-[1210px]:border-r-0 rounded-l-md min-[1210px]:shadow-none shadow-md min-[1210px]:rounded-r-none rounded-r-md "
+imageStyles="rounded-r-md min-[1210px]:rounded-l-none rounded-l-md min-[1210px]:shadow-none shadow-md">
+  <h2 slot="title" class="font-bold text-2xl">Un equipo familiar</h2>
+  <p slot="text" class="max-w-[60ch] text-black/80">
+    Nuestro equipo en Up Estudio Dental y Estética se distingue por su
+    profesionalidad y dedicación. Compuesto por expertos altamente cualificados
+    en odontología y medicina estética facial, cada miembro está comprometido
+    con la excelencia en su campo. <br />
+    Nos mantenemos actualizados con las últimas técnicas y tecnologías, garantizando
+    así un tratamiento de alta calidad y resultados excepcionales. Además, nuestra
+    atención al paciente se basa en la empatía, la comunicación abierta y el cuidado
+    compasivo. <br />
+    Confía en nosotros para proporcionarte una experiencia segura, cómoda y satisfactoria
+    en cada visita. Tu salud y belleza están en manos expertas con nuestro equipo
+    profesional.
+  </p>
+  <NavButton slot="button" path="/team" styles="bg-secondary text-white"
+    >Nuestro Equipo</NavButton
+  >
+</TextImageSection>

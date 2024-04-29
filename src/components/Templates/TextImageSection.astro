@@ -1,0 +1,22 @@
+---
+import { Image } from "astro:assets";
+import NavButton from "@/components/Common/NavButton.astro";
+const { imageSrc, imageAlt, sectionStyles, articleStyles, imageStyles } = Astro.props;
+---
+
+<section
+  class=`row-center px-5 min-h-[60vh] py-10 flex-wrap min-[1210px]:gap-0 gap-5 ${sectionStyles}`
+>
+  <article
+    class=`h-full p-10 leading-8 flex flex-col items-center justify-between min-h-[60vh] border ${articleStyles}`
+  >
+    <slot name="title" />
+    <slot name="text" />
+    <slot name="button" />
+  </article>
+  <Image
+    src={imageSrc}
+    alt={imageAlt}
+    class=`w-auto min-[1210px]:h-[60vh] ${imageStyles}`
+  />
+</section>

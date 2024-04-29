@@ -2,7 +2,7 @@
 import NavButton from "../Common/NavButton.astro";
 ---
 
-<section class="py-20  column-center px-5">
+<section class="py-20  column-center px-5" id="introSection">
 
     <article class="column-center p-5 shadow-md gap-5 border rounded-md">
         <h2 class="font-bold text-3xl">Dientes sanos y piel radiante</h2>
@@ -25,3 +25,31 @@ import NavButton from "../Common/NavButton.astro";
     </section>
     
 </section>
+
+<style>
+    .sectionShown{
+        @apply animate-fade-in;
+    }
+</style>
+
+<script>
+
+    function setAnimationTrigger(){
+        const $introSection = document.getElementById('introSection')
+        const observer = new IntersectionObserver(entries=>{
+            entries.forEach(entry=>{
+                if(entry.isIntersecting){
+                    entry.target.classList.add('sectionShown')
+                }
+                else{
+                    entry.target.classList.remove('sectionShown')
+                }
+            })
+        })
+
+        if($introSection) observer.observe($introSection)
+    }
+
+    setAnimationTrigger()
+    window.addEventListener('astro:page-load', setAnimationTrigger)
+</script>
