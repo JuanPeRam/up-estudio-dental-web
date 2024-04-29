@@ -5,8 +5,8 @@ import NavButton from "../Common/NavButton.astro";
 
 ---
 
-<section class="row-center px-5 gap-5 min-h-[60vh] py-10 flex-wrap">
-    <article class="h-full border shadow-md p-10 leading-8 flex flex-col items-center justify-between min-h-[60vh]">
+<section class="row-center px-5 min-h-[60vh] py-10 flex-wrap min-[1210px]:gap-0 gap-5">
+    <article class="h-full p-10 leading-8 flex flex-col items-center justify-between min-h-[60vh] border min-[1210px]:border-r-0">
         <h2 class="font-bold text-2xl">Un equipo familiar</h2>
         <p class="max-w-[60ch]">Nuestro equipo en Up Estudio Dental y Estética se distingue por su profesionalidad y dedicación. 
             Compuesto por expertos altamente cualificados en odontología y medicina estética facial, cada miembro está comprometido 
@@ -17,5 +17,5 @@ import NavButton from "../Common/NavButton.astro";
         </p>
         <NavButton path="/team" styles="bg-secondary text-white" >Nuestro Equipo</NavButton>
     </article>
-    <Image src={JuanCarlosTiti} alt={'Juan Carlos & Cristina'} class='w-auto h-[60vh]' ></Image>
+    <Image src={JuanCarlosTiti} alt={'Juan Carlos & Cristina'} class='w-auto min-[1210px]:h-[60vh]' ></Image>
 </section>
