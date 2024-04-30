@@ -3,6 +3,7 @@ import { fixedNumber, phoneNumber } from "@/constants/personal";
 import TelephoneIcon from "@/icons/TelephoneIcon";
 import HomeIcon from "@/icons/HomeIcon";
 import NavButton from "@/components/Templates/NavButton.astro";
+import ContactInfo from "../Common/ContactInfo.astro";
 ---
 
 <section
@@ -36,29 +37,7 @@ import NavButton from "@/components/Templates/NavButton.astro";
           </NavButton>
       </nav>
     </section>
-    <article
-      class="max-w-[60ch] font-[700] flex flex-col gap-3 text-center justify-center items-center text-sm md:text-base md:animate-delay-300 animate-delay-300 animate-fade-in-up md:animate-fade-in-left border border-primary/50 rounded-md p-5 backdrop-blur-sm"
-    >
-      <p>De lunes a viernes 10:00 - 13:30 / 16:00 - 20:30</p>
-      <p>Sábados 10:00 - 14:00</p>
-      <h3 class="text-sm md:text-xl">URGENCIAS ODONTOLÓGICAS 24h</h3>
-      <div class="font-bold">
-        <a
-          href={`tel:${phoneNumber}`}
-          class="flex gap-2 hover:bg-secondary/80 rounded-md p-2 transition-colors items-center"
-          aria-label="Link para llamar al número de teléfono de la clínica"
-          ><TelephoneIcon height={25} width={25} />{phoneNumber}</a
-        >
-      </div>
-      <div class="font-bold">
-        <a
-          href={`tel:${fixedNumber}`}
-          class="flex gap-2 hover:bg-secondary/80 rounded-md p-2 transition-colors items-center"
-          aria-label="Link para llamar al número de teléfono de la clínica"
-          ><HomeIcon height={25} width={25} />{fixedNumber}</a
-        >
-      </div>
-    </article>
+    <ContactInfo></ContactInfo>
   </article>
 </section>
 
