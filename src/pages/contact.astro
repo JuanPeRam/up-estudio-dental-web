@@ -1,8 +1,28 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "@/layouts/Layout.astro";
+import Form from "@/components/Contact/Form.astro";
 ---
 
 <Layout
     title="Contacto"
     description="Formulario de contacto para poder concretar tu cita con nosotros"
-/>
+>
+    <section id="form-section" class="min-h-screen column-center gap-5 p-5">
+        <h1 class="font-bold text-3xl">Formulario de contacto</h1>
+        <Form></Form>
+    </section>
+</Layout>
+
+<style>
+    #form-section{
+        background-image: linear-gradient(
+        to top right,
+        rgba(19, 19, 19, 0.363),
+        rgba(88, 88, 88, 0.671)
+      ),
+      url("img/UP-Gallery/Rest-room.jpg");
+
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+</style>

@@ -1,7 +1,6 @@
 ---
 const {path, styles} = Astro.props;
 ---
-
-<a href={path} class={`py-3 px-5 shadow-md rounded-3xl font-bold hover:shadow-xl md:text-base text-sm transition ${styles} hover:opacity-100 opacity-90`}>
-    <slot></slot>
-</a>
+    <a href={path} class={`${styles} py-3 px-5 shadow-md rounded-3xl font-bold hover:shadow-xl md:text-base text-sm transition hover:opacity-100 opacity-90`}>
+        <slot></slot>
+    </a> 
