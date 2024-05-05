@@ -3,12 +3,15 @@ import CarrouselAstro from "@/components/Carrousel/CarrouselAstro.astro";
 import Carrousel from "@/components/Carrousel/Carrousel.astro";
 ---
 
-<section class="min-h-[80vh]">
-  <div id="carrousel" class="hidden">
+<section class="column-center p-5">
+  <div id="carrousel" class="hidden p-5 backdrop-blur-md rounded-md">
     <Carrousel />
   </div>
 
-  <div id="carrouselAstro" class="hidden">
+  <div
+    id="carrouselAstro"
+    class="hidden rounded-md animate-blurred-fade-in w-full"
+  >
     <CarrouselAstro />
   </div>
 </section>

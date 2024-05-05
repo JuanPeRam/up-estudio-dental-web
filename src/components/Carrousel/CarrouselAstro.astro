@@ -9,19 +9,19 @@ function randomSort(a: any, b: any) {
 const randomizedGallery = gallery.slice().sort(randomSort);
 ---
 
-<section
-  class="w-full column-center mb-10 p-2 md:p-10"
-  id="carrousel-section"
->
-  <article class="column-cente w-[50vw]">
-    <section class="flex slider h-[60vh] relative w-full" id="slider">
+<section class="w-full column-center mb-10 p-2 md:p-10" id="carrousel-section">
+  <article class="column-center w-full">
+    <section
+      class="flex slider h-[60vh] relative w-[50vw] min-w-[720px] rounded-md shadow-md"
+      id="slider"
+    >
       {
         randomizedGallery.map((image, index) => (
           <img
             decoding={index == 0 ? "sync" : "async"}
             src={image.src}
             alt={image.name}
-            class="h-full object-cover opacity-0 transition duration-500 absolute left-0 w-full rounded-md"
+            class="h-full object-cover opacity-0 transition duration-500 absolute left-0 w-full rounded-md object-center"
           />
         ))
       }
