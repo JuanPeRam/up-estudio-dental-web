@@ -1,18 +1,27 @@
 ---
+import ReviewCard from "./ReviewCard.astro";
 import { getReviews } from "./reviews";
 const reviews = await getReviews();
-console.log(reviews);
 ---
 
-<section>
+<section class="pt-20">
     Componente de opiniones
-    <astro:condition data={reviews}>
+    <section class="flex gap-5 justify-center w-full flex-wrap">
         {
             reviews.map((review: any) => (
-                <article>
-                    <p>{review.author_name}</p>
-                </article>
+                <ReviewCard
+                    author_name={review.author_name}
+                    author_url={review.author_url}
+                    language={review.language}
+                    original_language={review.original_language}
+                    profile_photo_url={review.profile_photo_url}
+                    rating={review.rating}
+                    relative_time_description={review.relative_time_description}
+                    text={review.text}
+                    time={review.time}
+                    translated={review.translated}
+                />
             ))
         }
-    </astro:condition>
+    </section>
 </section>

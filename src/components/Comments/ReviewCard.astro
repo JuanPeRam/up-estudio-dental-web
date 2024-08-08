@@ -1,0 +1,38 @@
+---
+interface Props {
+    author_name: string;
+    author_url: string;
+    language: string;
+    original_language: string;
+    profile_photo_url: string;
+    rating: number;
+    relative_time_description: string;
+    text: string;
+    time: number;
+    translated: boolean;
+}
+
+const {
+    author_name,
+    author_url,
+    language,
+    original_language,
+    profile_photo_url,
+    rating,
+    relative_time_description,
+    text,
+    time,
+    translated,
+} = Astro.props;
+---
+
+<article
+    class="bg-white text-black maw-w-[40ch] rounded-md border flex flex-col items-center justify-center p-5"
+>
+    <h1>{author_name}</h1>
+    <img src={profile_photo_url} alt="Foto de perfil de " +author_name />
+    <p class="max-w-[20ch]">"{text}"</p>
+    <p class="text-center text-yellow-500 flex items-center justify-center">
+        {rating} ⭐
+    </p>
+</article>
