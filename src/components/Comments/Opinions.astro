@@ -1,0 +1,18 @@
+---
+import { getReviews } from "./reviews";
+const reviews = await getReviews();
+console.log(reviews);
+---
+
+<section>
+    Componente de opiniones
+    <astro:condition data={reviews}>
+        {
+            reviews.map((review: any) => (
+                <article>
+                    <p>{review.author_name}</p>
+                </article>
+            ))
+        }
+    </astro:condition>
+</section>
