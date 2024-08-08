@@ -13,7 +13,7 @@ app.use((req, res, next) => {
 app.get('/api/place-details', async (req, res) => {
     const place_id = process.env.placeId;
     const key = process.env.apiKey
-    const googleApiUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${place_id}&fields=reviews&key=${key}`;
+    const googleApiUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${place_id}&fields=reviews&key=${key}&language=es`;
 
     try {
         const response = await axios.get(googleApiUrl);
