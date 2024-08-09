@@ -24,15 +24,21 @@ const {
     time,
     translated,
 } = Astro.props;
+
+import Stars from "./Stars.astro";
 ---
 
 <article
-    class="bg-white text-black maw-w-[40ch] rounded-md border flex flex-col items-center justify-center p-5"
+    class="backdrop-blur-md maw-w-[80ch] rounded-md border flex flex-col items-center justify-start p-5"
 >
     <h1>{author_name}</h1>
     <img src={profile_photo_url} alt="Foto de perfil de " +author_name />
-    <p class="max-w-[20ch]">"{text}"</p>
-    <p class="text-center text-yellow-500 flex items-center justify-center">
-        {rating} ⭐
+    <div class="flex flex-wrap items-center gap-2 justify-center">
+        <Stars rating={rating} />
+        <div class="text-xs text-primary/80">{relative_time_description}</div>
+    </div>
+
+    <p class="max-w-[50ch] flex-1 flex items-start text-left p-2">
+        "{text}"
     </p>
 </article>

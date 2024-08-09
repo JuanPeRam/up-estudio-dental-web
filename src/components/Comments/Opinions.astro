@@ -4,9 +4,8 @@ import { getReviews } from "./reviews";
 const reviews = await getReviews();
 ---
 
-<section class="pt-20">
-    Componente de opiniones
-    <section class="flex gap-5 justify-center w-full flex-wrap">
+<section class="py-20" id="opinions-section">
+    <section class="flex gap-5 justify-center w-full flex-wrap p-2">
         {
             reviews.map((review: any) => (
                 <ReviewCard
@@ -25,3 +24,18 @@ const reviews = await getReviews();
         }
     </section>
 </section>
+
+<style>
+    #opinions-section {
+        background-image: linear-gradient(
+                to top right,
+                rgba(19, 19, 19, 0.363),
+                rgba(88, 88, 88, 0.671)
+            ),
+            url("img/UP-Gallery/Up-WaitRoom.jpg");
+
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+</style>

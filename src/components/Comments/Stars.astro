@@ -1,0 +1,24 @@
+---
+interface Props {
+    rating: number;
+}
+
+import Star from "@/components/Comments/Star.astro";
+
+const { rating } = Astro.props;
+const starsRating = [0, 0, 0, 0, 0];
+let index = 0;
+let currentRating = rating;
+const decimalValue = rating % 1;
+while (index < starsRating.length && currentRating > 0) {
+    currentRating--;
+    if (currentRating < 0) starsRating[index] = decimalValue;
+    else starsRating[index] = 1;
+    index++;
+}
+---
+
+<div class="flex items-center">
+    <p class="mr-2 text-[yellow] font-bold">{rating}</p>
+    {starsRating.map((rating) => <>{rating == 1 && <Star />}</>)}
+</div>
