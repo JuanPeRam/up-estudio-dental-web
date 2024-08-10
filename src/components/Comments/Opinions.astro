@@ -1,10 +1,15 @@
 ---
+import Header from "../Common/Header.astro";
 import ReviewCard from "./ReviewCard.astro";
 import { getReviews } from "./reviews";
 const reviews = await getReviews();
 ---
 
-<section class="py-20" id="opinions-section">
+<section class="pb-20" id="opinions-section">
+    <Header
+        title="Opiniones"
+        description="Aquí puedes ver las últimas opiniones de nuestros clientes"
+    />
     <section class="flex gap-5 justify-center w-full flex-wrap p-2">
         {
             reviews.map((review: any) => (
