@@ -1,0 +1,30 @@
+---
+interface Props {
+    title: string;
+    description?: string;
+    image: string;
+    href: string;
+}
+
+const { href, image, title, description } = Astro.props;
+import NavButton from "../Templates/NavButton.astro";
+---
+
+<article class="flex flex-col items-start justify-center shadow-md">
+    <div class="h-[28rem] max-w-[28rem] relative min-w-[300px]">
+        <img
+            src={image}
+            alt={`Fotografía de ${title}`}
+            class="object-cover w-full h-full group-hover:brightness-110 transition"
+            loading="lazy"
+        />
+    </div>
+
+    <div
+        class="h-[10rem] p-5 flex flex-col items-start justify-center w-full bg-contrast/80 group-hover:bg-contrast transition"
+    >
+        <h2 class="p-5 text-xl">{title}</h2>
+        <p>{description}</p>
+        <NavButton path="#" styles="bg-secondary"> Reservar ahora </NavButton>
+    </div>
+</article>
