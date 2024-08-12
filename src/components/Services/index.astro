@@ -2,9 +2,7 @@
 import ServiceCard from "./ServiceCard.astro";
 ---
 
-<section
-    class="flex flex-wrap gap-5 px-7 sm:px-32 items-center m-auto lg:justify-between justify-center"
->
+<section class="m-auto px-16 md:px-48" id="services-list">
     <ServiceCard
         href=""
         image="https://static.wixstatic.com/media/d47f72_58d407acbe4e47c5b3a37110e6532bb1~mv2.jpg/v1/fill/w_270,h_270,fp_0.50_0.50,q_80,usm_0.66_1.00_0.01,enc_auto/d47f72_58d407acbe4e47c5b3a37110e6532bb1~mv2.jpg"
@@ -30,3 +28,12 @@ import ServiceCard from "./ServiceCard.astro";
         description=""
     />
 </section>
+
+<style>
+    #services-list {
+        display: grid;
+        gap: 1.25rem;
+        grid-template-columns: repeat(auto-fit, minmax(23rem, 0.75fr));
+        place-content: center;
+    }
+</style>

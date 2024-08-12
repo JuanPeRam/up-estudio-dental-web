@@ -1,37 +1,66 @@
 ---
-if(Astro.request.method==="POST"){
-    try{
+if (Astro.request.method === "POST") {
+    try {
         const data = await Astro.request.formData();
-        const email = data.get('email');
-        const message = data.get('message')
-        console.log(email)
-        console.log(message)
-    } catch(error){
-        console.log(error)
+        const email = data.get("email");
+        const message = data.get("message");
+        console.log(email);
+        console.log(message);
+    } catch (error) {
+        console.log(error);
     }
 }
 ---
-    <form method="POST" class="border p-5 flex flex-col items-start justify-center backdrop-blur-md gap-5 max-w-[550px] w-[100%] animate-slide-in-top">
-        <h2 class="font-bold text-center text-xl w-full">Formulario de contacto</h2>
-        <label class="flex flex-col gap-2 items-start w-full">
-            <p class="text-xs text-white/80">Tu e-mail:</p>
-            <input placeholder="ejemplo@gmail.com" type="email" name="email" id="email" required class="bg-black/30 rounded-md px-3 py-2 w-full focus-visible:outline-none">
-        </label>
-        <label class="flex flex-col gap-2 items-start w-full">
-            <p class="text-xs text-white/80">Mensaje</p>
-            <textarea placeholder="EJ: Me gustaría solicitar información sobre...." 
-            name="message" id="message" class="bg-black/30 w-full px-3 py-2 h-[150px] focus-visible:outline-none" required ></textarea>
-        </label>
-        <label class="row-center gap-2 hover:cursor-pointer">
-            <input type="checkbox" name="privacy" id="privacy" class="appearance-none border w-5 h-5  hover:cursor-pointer" required>
-            <p class="select-none">Acepto la <a href="/privacy-policy" class="text-white underline">política de privacidad</a></p>
-        </label>
-        
-        <button type="submit" class="p-5 py-3 border hover:bg-corporative/50 transition w-full">Enviar</button>
-    </form>
+
+<form
+    method="POST"
+    class="border p-5 flex flex-col items-start justify-center backdrop-blur-md gap-5 max-w-[550px] w-[100%] animate-slide-in-top"
+>
+    <h2 class="font-bold text-center text-xl w-full">Formulario de contacto</h2>
+    <label class="flex flex-col gap-2 items-start w-full">
+        <p class="text-xs text-white/80">Tu e-mail:</p>
+        <input
+            placeholder="ejemplo@gmail.com"
+            type="email"
+            name="email"
+            id="email"
+            required
+            class="bg-black/30 rounded-md px-3 py-2 w-full focus-visible:outline-none"
+        />
+    </label>
+    <label class="flex flex-col gap-2 items-start w-full">
+        <p class="text-xs text-white/80">Mensaje</p>
+        <textarea
+            placeholder="EJ: Me gustaría solicitar información sobre...."
+            name="message"
+            id="message"
+            class="bg-black/30 w-full px-3 py-2 h-[150px] focus-visible:outline-none"
+            required></textarea>
+    </label>
+    <label class="row-center gap-2 hover:cursor-pointer">
+        <input
+            type="checkbox"
+            name="privacy"
+            id="privacy"
+            class="appearance-none border w-5 h-5 hover:cursor-pointer"
+            required
+        />
+        <p class="select-none">
+            Acepto la <a href="/privacy-policy" class="text-white underline"
+                >política de privacidad</a
+            >
+        </p>
+    </label>
+
+    <button
+        type="submit"
+        class="p-5 py-3 border hover:bg-corporative/80 transition w-full"
+        >Enviar</button
+    >
+</form>
 
 <style>
-    textarea{
+    textarea {
         field-sizing: content;
         max-height: 150px;
         resize: none;
@@ -42,6 +71,5 @@ if(Astro.request.method==="POST"){
         display: block;
         text-align: center;
         font-size: 12px;
-}
+    }
 </style>
-

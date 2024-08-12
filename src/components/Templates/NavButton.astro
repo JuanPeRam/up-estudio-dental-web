@@ -2,14 +2,15 @@
 interface Props {
     path: string;
     styles: string;
+    newPage?: boolean;
 }
-const { path, styles } = Astro.props;
+const { path, styles, newPage = false } = Astro.props;
 ---
 
 <a
     href={path}
     class={`${styles} py-3 px-5 shadow-md rounded-3xl font-bold hover:shadow-xl md:text-base text-sm transition hover:opacity-100 opacity-90`}
-    target="_blank"
+    target=`${newPage ? '_blank' : '_self'}`
 >
     <slot />
 </a>

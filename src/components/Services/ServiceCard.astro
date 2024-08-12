@@ -10,8 +10,8 @@ const { href, image, title, description } = Astro.props;
 import NavButton from "../Templates/NavButton.astro";
 ---
 
-<article class="flex flex-col items-start justify-center shadow-md">
-    <div class="h-[28rem] max-w-[28rem] relative min-w-[300px]">
+<article class="flex flex-col items-start justify-center shadow-md group">
+    <div class="w-full relative">
         <img
             src={image}
             alt={`Fotografía de ${title}`}
@@ -21,10 +21,10 @@ import NavButton from "../Templates/NavButton.astro";
     </div>
 
     <div
-        class="h-[10rem] p-5 flex flex-col items-start justify-center w-full bg-contrast/80 group-hover:bg-contrast transition"
+        class="p-5 flex flex-col items-start justify-center w-full backdrop-blur-md group-hover:bg-contrast/20 transition h-full"
     >
-        <h2 class="p-5 text-xl">{title}</h2>
+        <h2 class="py-5 text-xl text-left">{title}</h2>
         <p>{description}</p>
-        <NavButton path="#" styles="bg-secondary"> Reservar ahora </NavButton>
+        <NavButton path="#" styles="bg-secondary text-sm"> + Info </NavButton>
     </div>
 </article>
