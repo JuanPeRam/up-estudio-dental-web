@@ -1,0 +1,46 @@
+---
+import Header from "../Common/Header.astro";
+import ReviewCard from "./ReviewCard.astro";
+import { getReviews } from "./reviews";
+const reviews = await getReviews();
+---
+
+<section class="pb-20" id="opinions-section">
+    <Header
+        title="Opiniones"
+        description="Aquí puedes ver las últimas opiniones de nuestros clientes"
+    />
+    <section class="flex gap-5 justify-center w-full flex-wrap p-2">
+        {
+            reviews.map((review: any) => (
+                <ReviewCard
+                    author_name={review.author_name}
+                    author_url={review.author_url}
+                    language={review.language}
+                    original_language={review.original_language}
+                    profile_photo_url={review.profile_photo_url}
+                    rating={review.rating}
+                    relative_time_description={review.relative_time_description}
+                    text={review.text}
+                    time={review.time}
+                    translated={review.translated}
+                />
+            ))
+        }
+    </section>
+</section>
+
+<style>
+    #opinions-section {
+        background-image: linear-gradient(
+                to top right,
+                rgba(19, 19, 19, 0.363),
+                rgba(88, 88, 88, 0.671)
+            ),
+            url("img/UP-Gallery/Box23.jpg");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+</style>

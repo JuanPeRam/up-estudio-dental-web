@@ -1,0 +1,50 @@
+---
+interface Props {
+    author_name: string;
+    author_url: string;
+    language: string;
+    original_language: string;
+    profile_photo_url: string;
+    rating: number;
+    relative_time_description: string;
+    text: string;
+    time: number;
+    translated: boolean;
+}
+
+const {
+    author_name,
+    author_url,
+    language,
+    original_language,
+    profile_photo_url,
+    rating,
+    relative_time_description,
+    text,
+    time,
+    translated,
+} = Astro.props;
+
+import NavButton from "../Templates/NavButton.astro";
+import Stars from "./Stars.astro";
+---
+
+<article
+    class="backdrop-blur-md maw-w-[80ch] rounded-md border flex flex-col items-center justify-start p-5 gap-2"
+>
+    <h2 class="text-xl font-bold">{author_name}</h2>
+    <img src={profile_photo_url} alt="Foto de perfil de " +author_name />
+    <div class="flex flex-wrap items-end gap-2 justify-center">
+        <Stars rating={rating} />
+        <div class="text-xs text-primary/80">{relative_time_description}</div>
+    </div>
+
+    <p class="max-w-[50ch] flex-1 flex items-start text-left p-2 text-base">
+        "{text}"
+    </p>
+    <NavButton
+        path={"https://www.google.com/search?client=opera-gx&hs=B1S&sa=X&sca_esv=4a03b7477bdd569e&sca_upv=1&hl=es-ES&tbm=lcl&sxsrf=ADLYWIKKqNj7DCb5RTc_SMU70KjLp0Uaxw:1723205518691&q=Up+Estudio+Dental+Reseñas&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDczNjMxNTA1NjcwMTa3NDC2MNjAyPiKUSq0QMG1uKQ0JTNfwSU1ryQxRyEotTj18MbE4kWseCQBMZ9zCVUAAAA&rldimm=17636450537043790380&ved=2ahUKEwiu7cPm8OeHAxUUVKQEHedAPbkQ9fQKegQISBAF&biw=1879&bih=969&dpr=1#lkt=LocalPoiReviews"}
+        styles="bg-secondary"
+        newPage>Ver Reseña</NavButton
+    >
+</article>

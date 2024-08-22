@@ -1,7 +1,4 @@
 ---
-import { fixedNumber, phoneNumber } from "@/constants/personal";
-import TelephoneIcon from "@/icons/TelephoneIcon";
-import HomeIcon from "@/icons/HomeIcon";
 import NavButton from "@/components/Templates/NavButton.astro";
 import ContactInfo from "../Common/ContactInfo.astro";
 ---
@@ -24,20 +21,22 @@ import ContactInfo from "../Common/ContactInfo.astro";
         class="font-[500] text-sm text-pretty md:text-base min-h-20 max-w-5xl text-primary/95"
       >
         <p class="italic max-w-[60ch]">
-          En UpestudioDental, estamos comprometidos a brindarte una experiencia
-          dental excepcional y de calidad.
+          En Up, nos dedicamos a cuidar de tu sonrisa y bienestar con todo
+          nuestro corazón. Nuestro espacio está pensado para toda la familia,
+          con áreas divertidas para los niños, música relajante y un ambiente
+          cálido que te hará sentir como en casa.
         </p>
       </article>
-      <nav class="flex mt-5 flex-wrap items-center justify-between gap-y-5">  
-          <NavButton path="/contact" styles="bg-corporative/80">
-            Pide tu cita
-          </NavButton>
-          <NavButton path="/clinic" styles="bg-secondary">
-            Descubre nuestra clinica
-          </NavButton>
+      <nav class="flex mt-5 flex-wrap items-center justify-between gap-y-5">
+        <NavButton path="/contact" styles="bg-corporative/80">
+          Pide tu cita
+        </NavButton>
+        <NavButton path="/clinic" styles="bg-secondary">
+          Descubre nuestra clinica
+        </NavButton>
       </nav>
     </section>
-    <ContactInfo></ContactInfo>
+    <ContactInfo />
   </article>
 </section>
 
@@ -49,5 +48,10 @@ import ContactInfo from "../Common/ContactInfo.astro";
         rgba(88, 88, 88, 0.671)
       ),
       url("img/UP-Gallery/Up-Board.jpg");
+
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   }
 </style>

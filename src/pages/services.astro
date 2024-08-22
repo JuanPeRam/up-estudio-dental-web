@@ -1,8 +1,34 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Header from "@/components/Common/Header.astro";
+import Index from "@/components/Services/index.astro";
 ---
 
 <Layout
     title="Servicios"
     description="Nuestros servicios explicados en detalle."
-/>
+>
+    <section class="min-h-screen" id="services-section">
+        <Header
+            title="Nuestros Servicios"
+            description="Descubre todos nuestros servicios y entérate de todo lo que ofrecemos en Up 😎"
+        />
+        <Index />
+    </section>
+</Layout>
+
+<style>
+    #services-section {
+        background-image: linear-gradient(
+                to top right,
+                rgba(19, 19, 19, 0.363),
+                rgba(88, 88, 88, 0.671)
+            ),
+            url("img/UP-Gallery/Boxes.jpg");
+
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+</style>
