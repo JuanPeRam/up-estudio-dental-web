@@ -1,5 +1,3 @@
-import axios from "axios";
-
 const mockData =   [
     {
       author_name: 'Sergiu Alex',

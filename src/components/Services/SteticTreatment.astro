@@ -1,0 +1,15 @@
+---
+interface Props{
+    title: string;
+    image: string,
+    text: string
+}
+
+const {image, text, title} = Astro.props
+---
+
+<article class="flex flex-col items-center gap-10 backdrop-blur-md  rounded-md px-10 py-7 shadow-md border">
+    <img src={image} alt=`Imagen de ${title}` class="rounded-full hover:scale-125 transition ">
+    <h2 class="text-xl">{title}</h2>
+    <p class="max-w-[40ch] text-base">{text}</p>
+</article>

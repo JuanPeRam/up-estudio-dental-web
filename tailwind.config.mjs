@@ -12,8 +12,8 @@ export default {
 				primary: '#fff',
 				secondary: '#121212',
 				contrast: '#2d2d2d',
-				corporative: '#77c6c1'
-
+				corporative: '#77c6c1',
+				textSecondary: 'rgb(227 227 227)'
 			}
 		},
 	},

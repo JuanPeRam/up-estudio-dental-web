@@ -50,6 +50,9 @@ const { title, description } = Astro.props;
     <Footer />
     <License />
     <style is:global>
+      *{
+        scroll-behavior: smooth;
+      }
       #header-nav {
         animation: blur linear both;
         animation-timeline: scroll();
