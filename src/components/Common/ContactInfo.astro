@@ -1,7 +1,6 @@
 ---
 import { fixedNumber, phoneNumber } from "@/constants/personal";
-import TelephoneIcon from "@/icons/TelephoneIcon";
-import HomeIcon from "@/icons/HomeIcon";
+import {Icon} from 'astro-icon/components';
 ---
 
 <article
@@ -15,7 +14,7 @@ transition:name={`contact-info`}>
     href={`tel:${phoneNumber}`}
     class="flex gap-2 hover:bg-secondary/80 rounded-md p-2 transition-colors items-center"
     aria-label="Link para llamar al número de teléfono de la clínica"
-    ><TelephoneIcon height={25} width={25} />{phoneNumber}</a
+    ><Icon name="telephone" height={25} width={25} />{phoneNumber}</a
   >
 </div>
 <div class="font-bold">
@@ -23,7 +22,7 @@ transition:name={`contact-info`}>
     href={`tel:${fixedNumber}`}
     class="flex gap-2 hover:bg-secondary/80 rounded-md p-2 transition-colors items-center"
     aria-label="Link para llamar al número de teléfono de la clínica"
-    ><HomeIcon height={25} width={25} />{fixedNumber}</a
+    ><Icon name="home" height={25} width={25} />{fixedNumber}</a
   >
 </div>
 </article>

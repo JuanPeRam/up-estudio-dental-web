@@ -1,10 +1,11 @@
 ---
+import DentalCheckups from "./DentalCheckups.astro";
 import ServiceCard from "./ServiceCard.astro";
 ---
 
 <section class="m-auto px-16 md:px-48 py-5" id="services-list">
     <ServiceCard
-        href=""
+        href="#dental-checkups"
         image="https://static.wixstatic.com/media/d47f72_58d407acbe4e47c5b3a37110e6532bb1~mv2.jpg/v1/fill/w_270,h_270,fp_0.50_0.50,q_80,usm_0.66_1.00_0.01,enc_auto/d47f72_58d407acbe4e47c5b3a37110e6532bb1~mv2.jpg"
         title="Revisiones Dentales"
         description=""
@@ -29,6 +30,7 @@ import ServiceCard from "./ServiceCard.astro";
     />
 </section>
 
+<DentalCheckups></DentalCheckups>
 <style>
     #services-list {
         display: grid;

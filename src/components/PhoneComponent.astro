@@ -1,11 +1,13 @@
 ---
-import TelephoneIcon from '../icons/TelephoneIcon'
-import HomeIcon from '../icons/HomeIcon'
+import {Icon} from 'astro-icon/components';
 const props = Astro.props
 const phoneNumber = props.phoneNumber
-const Icon = props.variant === 'Home' ? HomeIcon : TelephoneIcon
+const iconName = props.variant === 'Home' ? 'home' : 'telephone'
 ---
 
 <div class="font-bold">
-    <a href={`tel:${phoneNumber}`} class="flex gap-2 hover:bg-contrast/80 rounded-md p-2 transition-colors items-center" aria-label="Link para llamar al número de teléfono de la clínica"><Icon height={25} width={25}/>{phoneNumber}</a>
+    <a href={`tel:${phoneNumber}`} class="flex gap-2 hover:bg-contrast/80 rounded-md p-2 transition-colors items-center" aria-label="Link para llamar al número de teléfono de la clínica">
+        <Icon name={iconName} height={25} width={25}></Icon>
+        {phoneNumber}
+    </a>
 </div>

@@ -2,6 +2,7 @@
 import socials from "@/constants/socials";
 import ClinicInfo from "@/components/ClinicInfo.astro";
 import Iframe from "../Iframe.astro";
+import {Icon} from 'astro-icon/components';
 ---
 
 <footer
@@ -31,7 +32,7 @@ import Iframe from "../Iframe.astro";
                 rel="noopener"
                 target="_blank"
               >
-                <media.svg width="30" height="30" />
+                <Icon name={media.name} width={25} height={25}></Icon>
               </a>
             </li>
           ))
