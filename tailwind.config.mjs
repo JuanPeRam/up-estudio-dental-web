@@ -13,7 +13,11 @@ export default {
 				secondary: '#121212',
 				contrast: '#2d2d2d',
 				corporative: '#77c6c1',
-				textSecondary: 'rgb(227 227 227)'
+				textSecondary: 'rgb(227 227 227)',
+				blackTitle: '#77c6c1',
+				blackBodyText: '#101010',
+				blackIconography: '#64748B',
+
 			}
 		},
 	},
