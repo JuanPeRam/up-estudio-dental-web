@@ -1,4 +1,13 @@
 ## TODO
-- [ ] Add google reviews in 'Opiniones' section.
-- [ ] Add carrousel in 'Nuestra Clinica' section.
-- [ ] Add form in 'Contacto' section.
+- [x] Replace carrousel with a photo grid + lightbox gallery in 'Clinica' section.
+- [x] Fix broken hrefs for 'Blanqueamiento Dental' and 'Limpieza Bucal' in 'Servicios' section.
+- [x] Split 'Servicios' section into a dedicated page per service with detailed specs.
+- [ ] Rewrite 'Nuestro Equipo' content (remove placeholder Lorem ipsum, add real bios and qualifications).
+- [ ] Cache Google Reviews fetch server-side instead of calling the API live in 'Opiniones' section.
+- [ ] Move 'Opiniones' out of the main nav into 'Home' or 'Contacto' section.
+- [ ] Add sitemap.xml and robots.txt for SEO.
+- [ ] Add JSON-LD structured data (Dentist/LocalBusiness schema) in Layout.
+- [ ] Fix og:image and meta image to use absolute URLs on all pages.
+- [ ] Remove obsolete meta keywords tag and fill empty page descriptions (e.g. 'Clinica' section).
+- [ ] Optimize gallery images to WebP for performance.
+- [ ] Fix background-attachment: fixed fallback for iOS Safari.

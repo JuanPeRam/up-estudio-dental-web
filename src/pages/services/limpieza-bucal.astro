@@ -1,0 +1,30 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Common/Header.astro";
+import DentalCleaning from "@/components/Services/DentalCleaning.astro";
+---
+
+<Layout
+    title="Limpieza Bucal"
+    description="Limpieza bucal profesional con ultrasonidos y pulido para eliminar el sarro y la placa bacteriana en Up Estudio Dental, Móstoles."
+>
+    <section id="service-hero">
+        <Header title="Limpieza Bucal" description="" styles="bg-secondary/80" />
+        <a href="/services" class="block text-center text-sm text-white/70 hover:text-corporative pb-8 transition">← Volver a Servicios</a>
+    </section>
+    <DentalCleaning />
+</Layout>
+
+<style>
+    #service-hero {
+        background-image: linear-gradient(
+                to top right,
+                rgba(19, 19, 19, 0.363),
+                rgba(88, 88, 88, 0.671)
+            ),
+            url("img/UP-Gallery/Box12.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+</style>

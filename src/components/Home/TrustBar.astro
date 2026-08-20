@@ -1,0 +1,21 @@
+---
+const stats = [
+  { value: "5.0 ★", label: "Valoración en Google" },
+  { value: "2022", label: "Año de fundación" },
+  { value: "24h", label: "Urgencias odontológicas" },
+  { value: "100%", label: "Atención familiar" },
+];
+---
+
+<section class="bg-secondary border-t border-white/10 px-5 py-8">
+  <ul class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-y-6 text-center">
+    {
+      stats.map((stat, i) => (
+        <li class={`flex flex-col gap-1 ${i > 0 ? "md:border-l md:border-white/10" : ""}`}>
+          <span class="text-2xl md:text-3xl font-[900] text-corporative">{stat.value}</span>
+          <span class="text-xs md:text-sm text-white/60 font-medium">{stat.label}</span>
+        </li>
+      ))
+    }
+  </ul>
+</section>

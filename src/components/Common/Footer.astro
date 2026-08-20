@@ -3,41 +3,49 @@ import socials from "@/constants/socials";
 import ClinicInfo from "@/components/ClinicInfo.astro";
 import Iframe from "../Iframe.astro";
 import {Icon} from 'astro-icon/components';
+import { Image } from "astro:assets";
+import upLogo from "@/img/up-logo-white.png";
 ---
 
 <footer
-  class="border-t p-5 flex justify-evenly flex-wrap items-start gap-5 bg-secondary"
+  class="border-t border-white/10 bg-secondary pt-16 pb-10 px-5"
 >
-  <article class="flex flex-col items-center gap-2">
-    <h2 class="text-lg md:text-xl font-bold">CONTÁCTANOS</h2>
-    <ClinicInfo />
-  </article>
-  <article class="flex flex-col items-center gap-2">
-    <h2 class="text-lg md:text-xl font-bold">ENCUÉNTRANOS</h2>
-    <Iframe />
-  </article>
-  <article
-    class="flex flex-col justify-start items-center h-full text-center gap-2"
-  >
-    <h2 class="text-lg md:text-xl font-bold">SÍGUENOS EN NUESTRAS REDES</h2>
-    <nav>
-      <ul class="flex flex-row gap-x-6 items-center">
-        {
-          socials.map((media) => (
-            <li class="">
-              <a
-                href={media.link}
-                aria-label={`${media.name} oficial de la clínica`}
-                class="hover:bg-corporative p-3 rounded-full hover:scale-125 hover:font-bold transition inline-block"
-                rel="noopener"
-                target="_blank"
-              >
-                <Icon name={media.name} width={25} height={25}></Icon>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
-  </article>
+  <div class="max-w-6xl mx-auto flex flex-col items-center gap-14">
+    <a href="/" aria-label="Volver a Home" class="w-16 opacity-90 hover:opacity-100 transition">
+      <Image alt="Up logo" src={upLogo} />
+    </a>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 w-full text-center">
+      <article class="flex flex-col items-center gap-3">
+        <h2 class="text-sm font-bold uppercase tracking-widest text-corporative">Contáctanos</h2>
+        <ClinicInfo />
+      </article>
+      <article class="flex flex-col items-center gap-3">
+        <h2 class="text-sm font-bold uppercase tracking-widest text-corporative">Encuéntranos</h2>
+        <Iframe />
+      </article>
+      <article class="flex flex-col items-center gap-4">
+        <h2 class="text-sm font-bold uppercase tracking-widest text-corporative">Síguenos</h2>
+        <nav>
+          <ul class="flex flex-row gap-x-4 items-center">
+            {
+              socials.map((media) => (
+                <li>
+                  <a
+                    href={media.link}
+                    aria-label={`${media.name} oficial de la clínica`}
+                    class="flex items-center justify-center w-11 h-11 border border-white/15 hover:border-corporative hover:bg-corporative hover:text-secondary rounded-full transition-all"
+                    rel="noopener"
+                    target="_blank"
+                  >
+                    <Icon name={media.name} width={20} height={20}></Icon>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </article>
+    </div>
+  </div>
 </footer>

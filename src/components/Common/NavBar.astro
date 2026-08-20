@@ -8,14 +8,34 @@ import upLogo from "@/img/up-logo-white.png";
 ---
 
 <nav
-  class="flex justify-between flex-row-reverse items-center z-50 fixed top-0 left-0 w-full px-5"
+  class="flex justify-between items-center z-50 fixed top-0 left-0 w-full px-5 md:px-10 py-3"
   id="header-nav"
   transition:animate="initial"
 >
+  <a class="w-16 md:w-20 shrink-0 hover:cursor-pointer transition-transform hover:scale-105" href="/" aria-label="Volver a Home">
+    <Image alt="Up logo" src={upLogo} loading={"eager"} />
+  </a>
+  <ul
+    class="flex md:before:hidden md:opacity-100 opacity-0 before:bg-secondary/95 md:justify-end justify-center md:bg-transparent items-center invisible md:visible md:flex md:flex-row flex-col fixed md:relative top-0 left-0 h-screen w-full z-20 gap-1 md:gap-1 md:h-fit text-white md:p-0"
+    id="menu-navbar"
+  >
+    {
+      Object.entries(paths).map(([key, value]) => (
+        <li>
+          <a
+            href={value}
+            class={`nav-item w-fit relative flex justify-center items-center px-4 py-3 text-sm font-semibold tracking-wide transition-colors hover:text-corporative ${path === value ? "text-corporative" : "text-white/90"}`}
+          >
+            {key}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
   <button
     id="menu-opener"
     aria-label="Toggle Menu"
-    class="md:hidden block hover:bg-secondary/80 p-5 z-40 rounded-full transition-all"
+    class="md:hidden block hover:bg-secondary/80 p-4 z-40 rounded-full transition-all shrink-0"
   >
     <svg
       class="w-6 h-6 fill-white"
@@ -38,26 +58,6 @@ import upLogo from "@/img/up-logo-white.png";
       </path>
     </svg>
   </button>
-  <ul
-    class="flex md:before:hidden md:opacity-100 opacity-0 before:bg-secondary/80 md:justify-end justify-center md:bg-transparent items-center invisible md:visible md:flex md:flex-row flex-col fixed md:relative top-0 left-0 h-screen w-full z-20 gap-5 md:gap-0 md:h-fit text-white md:p-0"
-    id="menu-navbar"
-  >
-    {
-      Object.entries(paths).map(([key, value]) => (
-        <li>
-          <a
-            href={value}
-            class={`nav-item w-fit relative flex jsutify-center items-center px-4 py-3 before:bg-primary hover:font-bold ${path === value ? "font-bold border-b" : ""}`}
-          >
-            {key}
-          </a>
-        </li>
-      ))
-    }
-  </ul>
-  <a class="w-20 hover:cursor-pointer" href="/" aria-label="Volver a Home">
-    <Image alt="Up logo" src={upLogo} loading={"eager"} />
-  </a>
 </nav>
 
 <script>
@@ -103,14 +103,20 @@ import upLogo from "@/img/up-logo-white.png";
   .nav-item::before {
     content: "";
     position: absolute;
-    left: 0;
-    bottom: -0.5px;
+    left: 50%;
+    bottom: 2px;
     width: 0;
-    height: 0.5px;
-    transition: width 0.3s ease;
+    height: 2px;
+    background: #77c6c1;
+    border-radius: 2px;
+    transition:
+      width 0.25s ease,
+      left 0.25s ease;
   }
 
-  .nav-item:hover::before {
+  .nav-item:hover::before,
+  .nav-item.text-corporative::before {
+    left: 0;
     width: 100%;
   }
 </style>

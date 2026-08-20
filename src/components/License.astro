@@ -5,25 +5,25 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer
-  class="w-full p-5 bg-corporative/70 flex flex-col justify-center text-center border-t gap-2 items-center flex-wrap"
+  class="w-full py-6 px-5 bg-secondary flex flex-col justify-center text-center border-t border-corporative/20 gap-2 items-center flex-wrap text-xs text-white/60"
 >
   <article class="flex gap-2 justify-center items-center w-full flex-wrap">
     © {currentYear}
     <a
       href="https://www.google.com/search?client=opera-gx&q=up+estudio+dental+y+estetica&sourceid=opera&ie=UTF-8&oe=UTF-8"
       target="_blank"
-      class="relative before:bg-primary"
+      class="relative before:bg-corporative hover:text-white transition-colors"
     >
       Up Estudio Dental y Estética S.L.
     </a>
-    <p>Todos los derechos reservados.</p>
+    <p class="text-white/60">Todos los derechos reservados.</p>
   </article>
   <article>
     <ul class="flex items-center w-full justify-center flex-wrap">
       {
         Object.entries(politicsPaths).map(([key, value], index) => (
-          <li class={`px-2 border-l last:border-r border-white/20`}>
-            <a href={value} class="hover:underline">
+          <li class={`px-2 border-l last:border-r border-white/15`}>
+            <a href={value} class="hover:text-white hover:underline transition-colors">
               {key}
             </a>
           </li>

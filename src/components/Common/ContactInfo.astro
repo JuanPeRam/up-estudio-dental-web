@@ -4,25 +4,26 @@ import {Icon} from 'astro-icon/components';
 ---
 
 <article
-class="max-w-[60ch] font-[700] flex flex-col gap-3 text-center justify-center items-center text-sm md:text-base md:animate-delay-300 animate-delay-300 animate-fade-in-up md:animate-fade-in-left border border-primary/50 rounded-md p-5 backdrop-blur-sm"
+class="max-w-[60ch] flex flex-col gap-4 text-center justify-center items-center text-sm md:text-base md:animate-delay-300 animate-delay-300 animate-fade-in-up md:animate-fade-in-left border border-white/15 bg-contrast/40 rounded-xl p-6 backdrop-blur-md"
 transition:name={`contact-info`}>
-<p>De lunes a viernes 10:00 - 13:30 / 16:00 - 20:30</p>
-<p>Sábados 10:00 - 14:00</p>
-<h3 class="text-sm md:text-xl">URGENCIAS ODONTOLÓGICAS 24h</h3>
-<div class="font-bold">
+<div class="flex flex-col gap-1 text-white/80 font-medium">
+  <p>Lun - Vie: 10:00–13:30 / 16:00–20:30</p>
+  <p>Sábados: 10:00–14:00</p>
+</div>
+<div class="w-full h-px bg-white/10"></div>
+<h3 class="text-xs md:text-sm font-bold uppercase tracking-widest text-corporative">Urgencias odontológicas 24h</h3>
+<div class="flex flex-col gap-1 w-full">
   <a
     href={`tel:${phoneNumber}`}
-    class="flex gap-2 hover:bg-secondary/80 rounded-md p-2 transition-colors items-center"
+    class="flex gap-3 font-bold hover:bg-secondary/80 rounded-md p-2 transition-colors items-center justify-center"
     aria-label="Link para llamar al número de teléfono de la clínica"
-    ><Icon name="telephone" height={25} width={25} />{phoneNumber}</a
+    ><Icon name="telephone" height={22} width={22} />{phoneNumber}</a
   >
-</div>
-<div class="font-bold">
   <a
     href={`tel:${fixedNumber}`}
-    class="flex gap-2 hover:bg-secondary/80 rounded-md p-2 transition-colors items-center"
+    class="flex gap-3 font-bold hover:bg-secondary/80 rounded-md p-2 transition-colors items-center justify-center"
     aria-label="Link para llamar al número de teléfono de la clínica"
-    ><Icon name="home" height={25} width={25} />{fixedNumber}</a
+    ><Icon name="home" height={22} width={22} />{fixedNumber}</a
   >
 </div>
 </article>

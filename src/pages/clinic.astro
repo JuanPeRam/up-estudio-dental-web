@@ -1,13 +1,21 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import CarrouselWrapper from "@/components/Carrousel/CarrouselWrapper.astro";
+import Gallery from "@/components/Gallery/Gallery.astro";
 import Header from "@/components/Common/Header.astro";
 ---
 
-<Layout title="Clínica" description="Todos nuestros componentes">
-  <section class="" id="clinic-section">
-    <Header title="Clínica" description="" />
-    <CarrouselWrapper />
+<Layout
+  title="Clínica"
+  description="Recorre nuestras instalaciones en Móstoles: gabinetes, sala de espera y equipamiento de Up Estudio Dental y Estética."
+>
+  <section id="clinic-section">
+    <Header
+      title="Nuestra Clínica"
+      description="Un espacio pensado para que te sientas como en casa, con la última tecnología en cada gabinete."
+    />
+    <div class="bg-secondary/60 pb-16">
+      <Gallery />
+    </div>
   </section>
 </Layout>
 
@@ -20,6 +28,7 @@ import Header from "@/components/Common/Header.astro";
       ),
       url("img/UP-Gallery/Kitchen.jpg");
 
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

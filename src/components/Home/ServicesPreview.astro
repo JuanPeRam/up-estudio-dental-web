@@ -1,0 +1,57 @@
+---
+const services = [
+  {
+    title: "Revisiones Dentales",
+    description: "Chequeos periódicos para cuidar tu salud bucal a largo plazo.",
+    href: "/services/revisiones-dentales",
+  },
+  {
+    title: "Medicina Estética",
+    description: "Tratamientos faciales para realzar tu belleza natural.",
+    href: "/services/medicina-estetica",
+  },
+  {
+    title: "Blanqueamiento Dental",
+    description: "Recupera el brillo de tu sonrisa con total seguridad.",
+    href: "/services/blanqueamiento-dental",
+  },
+  {
+    title: "Limpieza Bucal",
+    description: "Higiene profesional para una boca sana y radiante.",
+    href: "/services/limpieza-bucal",
+  },
+];
+---
+
+<section class="py-20 px-5 bg-[#fdfdfd]">
+  <div class="max-w-6xl mx-auto flex flex-col gap-10">
+    <header class="text-center max-w-2xl mx-auto">
+      <p class="text-xs font-bold uppercase tracking-widest text-corporative/80 mb-2">Qué ofrecemos</p>
+      <h2 class="font-bold text-3xl md:text-4xl text-black">Nuestros servicios</h2>
+      <p class="text-black/70 mt-3">
+        Un cuidado integral para tu sonrisa y tu piel, con un enfoque cercano
+        en cada visita.
+      </p>
+    </header>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {
+        services.map((service) => (
+          <a
+            href={service.href}
+            class="group flex flex-col gap-3 p-6 rounded-xl border border-black/10 bg-primary shadow-sm hover:shadow-lg hover:border-corporative/50 hover:-translate-y-1 transition-all"
+          >
+            <span class="w-10 h-10 rounded-full bg-corporative/15 text-corporative font-bold flex items-center justify-center group-hover:bg-corporative group-hover:text-primary transition-colors">
+              +
+            </span>
+            <h3 class="font-bold text-black text-lg">{service.title}</h3>
+            <p class="text-sm text-black/65 leading-relaxed">{service.description}</p>
+            <span class="text-sm font-bold text-corporative mt-auto group-hover:underline">
+              Saber más →
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

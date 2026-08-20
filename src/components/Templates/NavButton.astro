@@ -9,7 +9,7 @@ const { path, styles, newPage = false } = Astro.props;
 
 <a
     href={path}
-    class={`${styles} py-3 px-5 shadow-md rounded-3xl font-bold hover:shadow-xl md:text-base text-sm transition hover:opacity-100 opacity-90`}
+    class={`${styles} py-3 px-6 shadow-md rounded-full font-bold hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 md:text-base text-sm transition-all duration-200 hover:opacity-100 opacity-90 inline-block`}
     target=`${newPage ? '_blank' : '_self'}`
 >
     <slot />

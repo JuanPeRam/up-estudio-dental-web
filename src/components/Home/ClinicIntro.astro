@@ -1,38 +1,57 @@
 ---
 import NavButton from "@/components/Templates/NavButton.astro";
+import { Image } from "astro:assets";
+import entryPhoto from "@/img/up-entry.webp";
 ---
 
-<section class="py-20 column-center px-5" id="introSection">
+<section class="py-20 px-5 bg-[#fdfdfd]" id="introSection">
   <article
-    class="column-center p-5 shadow-md gap-5 rounded-md bg-primary border"
+    class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center p-6 md:p-10 shadow-md gap-y-10 rounded-xl bg-primary border"
     id="introArticle"
   >
-    <h2 class="font-bold text-3xl">Dientes sanos y piel radiante</h2>
-    <p class="max-w-[60ch] text-black/80 text-pretty justify-start leading-8">
-      En Up Estudio Dental y Estética, somos más que una clínica dental y de
-      medicina estética facial. <br />
-      Desde nuestra fundación en 2022, nos esforzamos por ofrecer un enfoque único
-      y cercano en el cuidado de la salud bucal y la belleza facial. <br />
-      Con la experiencia combinada de la <a
-        href="/member/cristina"
-        class="hover:underline font-bold">Dra. Cristina Umerez</a
-      >, odontopediatra y ortodoncista, y <a
-        href="/member/juan"
-        class="font-bold hover:underline">Juan Carlos Pereira</a
-      >, experto en ingeniería industrial y gestión empresarial, hemos creado un
-      espacio donde cada paciente se siente como en casa. <br />
-      Nuestra misión es brindar tratamientos personalizados y de calidad, utilizando
-      tecnología de vanguardia y un enfoque compasivo. <br /> Nos comprometemos a
-      ayudarte a lograr una <strong>sonrisa saludable</strong> y una <strong
-        >piel radiante</strong
-      >, porque creemos que tu bienestar es nuestra prioridad.
-    </p>
-    <NavButton path="/team" styles="text-white bg-secondary">
-      Conócenos
-    </NavButton>
-  </article>
+    <Image
+      src={entryPhoto}
+      alt="Entrada de Up Estudio Dental y Estética"
+      class="w-full h-72 md:h-[26rem] object-cover rounded-lg shadow-md order-1 md:order-2"
+    />
 
-  <section></section>
+    <div class="flex flex-col gap-7 order-2 md:order-1">
+      <header>
+        <p class="text-xs font-bold uppercase tracking-widest text-corporative/80 mb-2">Sobre nosotros</p>
+        <h2 class="font-bold text-3xl md:text-4xl text-black leading-tight">
+          Dientes sanos y piel radiante
+        </h2>
+      </header>
+
+      <div class="flex flex-col gap-5 leading-relaxed">
+        <p class="text-black/75">
+          <strong class="text-black">Desde 2022</strong> somos más que una clínica
+          dental: unimos odontología y medicina estética facial con un enfoque
+          único y cercano, en un espacio donde cada paciente se siente como en
+          casa.
+        </p>
+        <p class="text-black/75">
+          Con la experiencia combinada de la <a
+            href="/member/cristina"
+            class="font-bold text-black hover:text-corporative transition-colors">Dra. Cristina Umerez</a
+          >, odontopediatra y ortodoncista, y <a
+            href="/member/juan"
+            class="font-bold text-black hover:text-corporative transition-colors">Juan Carlos Pereira</a
+          >, experto en ingeniería industrial y gestión empresarial, creamos
+          tratamientos personalizados con tecnología de vanguardia y un
+          enfoque compasivo.
+        </p>
+        <p class="text-black/75">
+          Nos comprometemos a ayudarte a lograr una <strong class="text-black">sonrisa saludable</strong>
+          y una <strong class="text-black">piel radiante</strong>, porque tu bienestar es nuestra prioridad.
+        </p>
+      </div>
+
+      <NavButton path="/team" styles="text-white bg-secondary w-fit">
+        Conócenos
+      </NavButton>
+    </div>
+  </article>
 </section>
 
 <style>

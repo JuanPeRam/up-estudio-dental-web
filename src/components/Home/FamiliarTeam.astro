@@ -5,25 +5,34 @@ import NavButton from "@/components/Templates/NavButton.astro";
 import TextImageSection from "@/components/Templates/TextImageSection.astro";
 ---
 
-<TextImageSection 
-imageSrc={JuanCarlosTiti} 
+<TextImageSection
+imageSrc={JuanCarlosTiti}
 imageAlt="Juan Carlos & Cristina"
 articleStyles="min-[1210px]:border-r-0 rounded-l-md min-[1210px]:shadow-none shadow-md min-[1210px]:rounded-r-none rounded-r-md bg-primary"
 imageStyles="rounded-r-md min-[1210px]:rounded-l-none rounded-l-md min-[1210px]:shadow-none shadow-md">
-  <h2 slot="title" class="font-bold text-2xl">Un equipo familiar</h2>
-  <p slot="text" class="max-w-[60ch] text-black/80">
-    Nuestro equipo en Up Estudio Dental y Estética se distingue por su
-    profesionalidad y dedicación. Compuesto por expertos altamente cualificados
-    en odontología y medicina estética facial, cada miembro está comprometido
-    con la excelencia en su campo. <br />
-    Nos mantenemos actualizados con las últimas técnicas y tecnologías, garantizando
-    así un tratamiento de alta calidad y resultados excepcionales. Además, nuestra
-    atención al paciente se basa en la empatía, la comunicación abierta y el cuidado
-    compasivo. <br />
-    Confía en nosotros para proporcionarte una experiencia segura, cómoda y satisfactoria
-    en cada visita. Tu salud y belleza están en manos expertas con nuestro equipo
-    profesional.
-  </p>
+  <div slot="title">
+    <p class="text-xs font-bold uppercase tracking-widest text-corporative/80 mb-2">Nuestro equipo</p>
+    <h2 class="font-bold text-2xl md:text-3xl">Un equipo familiar</h2>
+  </div>
+  <div slot="text" class="flex flex-col gap-5">
+    <p class="max-w-[60ch] text-black/75 leading-relaxed">
+      Profesionalidad y dedicación son nuestra seña de identidad. Nos
+      mantenemos actualizados con las últimas técnicas y tecnologías,
+      garantizando tratamientos de alta calidad y resultados excepcionales,
+      con una atención basada en la empatía y el cuidado compasivo.
+    </p>
+    <ul class="flex flex-col gap-2 text-sm md:text-base text-black/80 font-medium">
+      <li class="flex items-center gap-2">
+        <span class="text-corporative font-bold">✓</span> Especialistas cualificados en odontología y estética facial
+      </li>
+      <li class="flex items-center gap-2">
+        <span class="text-corporative font-bold">✓</span> Tecnología de vanguardia en cada tratamiento
+      </li>
+      <li class="flex items-center gap-2">
+        <span class="text-corporative font-bold">✓</span> Trato cercano, seguro y personalizado
+      </li>
+    </ul>
+  </div>
   <NavButton slot="button" path="/team" styles="bg-secondary text-white"
     >Nuestro Equipo</NavButton
   >
