@@ -2,6 +2,9 @@
   "name": "up-estudio-dental-web",
   "type": "module",
   "version": "1.0.0",
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -14,12 +17,12 @@
     "@astrojs/react": "^3.1.0",
     "@astrojs/sitemap": "^3.4.0",
     "@astrojs/tailwind": "^5.1.0",
-    "@astrojs/vercel": "^7.5.4",
+    "@astrojs/vercel": "^7.8.2",
     "@fontsource/libre-baskerville": "^5.0.8",
     "@midudev/tailwind-animations": "^0.0.7",
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
-    "astro": "^4.5.4",
+    "astro": "^4.16.19",
     "astro-icon": "^1.1.1",
     "axios": "^1.7.3",
     "react": "^18.2.0",
