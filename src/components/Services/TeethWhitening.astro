@@ -1,43 +1,117 @@
 ---
-import { Icon } from 'astro-icon/components';
+import ServiceFacts from "./ServiceFacts.astro";
+import ServiceCTA from "./ServiceCTA.astro";
+
+const facts = [
+    { icon: "euro", label: "Precio", value: "Según valoración" },
+    { icon: "clock", label: "Sesión", value: "45-60 min" },
+    { icon: "book", label: "Duración del efecto", value: "1 a 3 años" },
+];
+
+const phases = [
+    {
+        step: "01",
+        title: "Valoración previa",
+        text: "Revisamos el estado de tus encías y de tu esmalte y descartamos caries activas. Si hace falta, hacemos antes una limpieza para que el gel actúe de forma uniforme.",
+    },
+    {
+        step: "02",
+        title: "Sesión de blanqueamiento",
+        text: "Protegemos la encía y aplicamos el gel blanqueador de uso profesional. Trabajamos por tandas, controlando el tono para que el resultado sea natural y no un blanco artificial.",
+    },
+    {
+        step: "03",
+        title: "Mantenimiento",
+        text: "Te damos pautas para las primeras 48 horas y, si tu caso lo requiere, férulas para retoques en casa. Con revisiones y limpiezas periódicas el resultado se mantiene mucho más tiempo.",
+    },
+];
+
+const faqs = [
+    {
+        question: "¿Daña el esmalte?",
+        answer: "No. El gel actúa sobre los pigmentos alojados en el diente, no desgasta el esmalte. Por eso es importante que lo aplique un profesional, con la concentración y los tiempos adecuados a tu caso.",
+    },
+    {
+        question: "¿Voy a tener sensibilidad?",
+        answer: "Es el efecto secundario más habitual y es pasajero: suele durar entre 24 y 48 horas. Valoramos tu esmalte antes de empezar y ajustamos el tratamiento para minimizarla.",
+    },
+    {
+        question: "¿Funciona sobre fundas, coronas o empastes?",
+        answer: "No. Los materiales artificiales no cambian de color. Si tienes restauraciones en la zona visible, lo valoramos antes para decidir si conviene sustituirlas después del blanqueamiento y que el tono case.",
+    },
+    {
+        question: "¿Cuánto dura el resultado?",
+        answer: "Entre uno y tres años, según tus hábitos. El café, el té, el vino tinto y el tabaco son los que más aceleran la recuperación del tono original.",
+    },
+];
 ---
-<section class="bg-contrast/30 backdrop-blur-md min-h-screen row-center" id="teeth-whitening-section">
-    <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
-        <div class="max-w-screen-md mb-8 lg:mb-16">
-            <h2 class="mb-4 text-4xl tracking-tight font-extrabold">Blanqueamiento Dental</h2>
-            <p class="">Recupera el blanco natural de tu sonrisa con un tratamiento seguro y supervisado por profesionales.</p>
+
+<section
+    class="bg-secondary/80 px-4 py-12 sm:py-20 lg:px-6"
+    id="teeth-whitening-section"
+>
+    <div class="mx-auto max-w-screen-xl">
+        <div class="mb-12 max-w-screen-md lg:mb-16">
+            <h2 class="mb-4 text-4xl font-extrabold tracking-tight">
+                Blanqueamiento Dental
+            </h2>
+            <p class="text-pretty">
+                Recupera el blanco natural de tu sonrisa con un tratamiento seguro y
+                supervisado. Aplicamos un gel blanqueador de uso profesional que elimina
+                las manchas superficiales y aclara el tono del diente, siempre después de
+                valorar el estado de tus encías y tu esmalte para adaptarlo a tu caso y
+                minimizar la sensibilidad.
+            </p>
+            <ServiceFacts facts={facts} styles="mt-8" />
         </div>
-        <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-2 md:gap-12 md:space-y-0">
-            <div>
-                <div class="flex justify-center items-center mb-4 w-12 h-12 rounded-full lg:h-14 lg:w-14 bg-corporative/20 text-corporative">
-                    <Icon name='euro'></Icon>
-                </div>
-                <h3 class="mb-2 text-xl font-bold text-white">Precio</h3>
-                <p>Consúltalo sin compromiso en tu cita de valoración.</p>
-            </div>
-            <div>
-                <div class="flex justify-center items-center mb-4 w-12 h-12 rounded-full lg:h-14 lg:w-14 bg-corporative/20 text-corporative">
-                    <Icon name='clock'></Icon>
-                </div>
-                <h3 class="mb-2 text-xl font-bold text-white">Tiempo estimado</h3>
-                <p>45-60 min por sesión (orientativo)</p>
-            </div>
-            <div>
-                <div class="flex justify-center items-center mb-4 w-12 h-12 rounded-full lg:h-14 lg:w-14 bg-corporative/20 text-corporative">
-                    <Icon name='bquoteleft'></Icon>
-                </div>
-                <h3 class="mb-2 text-xl font-bold dark:text-white">Descripción del servicio</h3>
-                <p>Aplicamos un gel blanqueador de uso profesional que elimina las manchas superficiales y aclara el tono natural del diente. Antes de comenzar, valoramos el estado de tus encías y esmalte para adaptar el tratamiento a tu caso y minimizar la sensibilidad dental.
-                </p>
-            </div>
-            <div>
-                <div class="flex justify-center items-center mb-4 w-12 h-12 rounded-full lg:h-14 lg:w-14 bg-corporative/20 text-corporative">
-                    <Icon name='book'></Icon>
-                </div>
-                <h3 class="mb-2 text-xl font-bold dark:text-white">Política de cancelación
-                </h3>
-                <p>Se ruega contactar telefónicamente con nuestra recepción previamente en el número 91 993 13 29 o en el 649039327 (también por whastapp), para confirmar la viabilidad de la cita. En caso de no confirmar cita no podemos garantizar el servicio prestado </p>
+
+        <h3 class="mb-8 text-2xl font-bold">Las tres fases del tratamiento</h3>
+        <div class="mb-16 grid gap-6 md:grid-cols-3">
+            {
+                phases.map((phase) => (
+                    <article class="flex flex-col gap-3 rounded-xl border border-white/10 bg-secondary/50 p-8 transition-all duration-200 hover:-translate-y-1 hover:border-corporative/50">
+                        <span class="text-5xl font-extrabold leading-none text-corporative/30">
+                            {phase.step}
+                        </span>
+                        <h4 class="text-xl font-bold">{phase.title}</h4>
+                        <p class="text-sm">{phase.text}</p>
+                    </article>
+                ))
+            }
+        </div>
+
+        <div class="mx-auto max-w-screen-md">
+            <h3 class="mb-8 text-center text-2xl font-bold">Preguntas frecuentes</h3>
+            <div class="flex flex-col gap-3">
+                {
+                    faqs.map((faq) => (
+                        <details class="group rounded-xl border border-white/10 bg-secondary/50 px-6 py-4 transition-colors hover:border-corporative/40">
+                            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-bold">
+                                {faq.question}
+                                <span
+                                    class="shrink-0 text-corporative transition-transform duration-200 group-open:rotate-45"
+                                    aria-hidden="true"
+                                >
+                                    +
+                                </span>
+                            </summary>
+                            <p class="pt-4 text-sm">{faq.answer}</p>
+                        </details>
+                    ))
+                }
             </div>
         </div>
     </div>
-  </section>
+</section>
+
+<ServiceCTA
+    service="un blanqueamiento dental"
+    title="Empieza por la valoración"
+    description="Antes de blanquear necesitamos ver tu boca. La cita de valoración es gratuita y sales de ella sabiendo qué resultado puedes esperar."
+/>
+
+<style>
+    summary::-webkit-details-marker {
+        display: none;
+    }
+</style>

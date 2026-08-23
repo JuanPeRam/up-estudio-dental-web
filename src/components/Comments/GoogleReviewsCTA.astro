@@ -1,0 +1,32 @@
+---
+import { Icon } from "astro-icon/components";
+
+const googleProfileUrl = "https://g.co/kgs/uj6iDgM";
+---
+
+<section class="border-t border-white/10 bg-secondary/90 px-4 py-16 sm:py-20">
+    <div class="mx-auto flex max-w-screen-md flex-col items-center gap-6 text-center">
+        <div class="row-center h-16 w-16 rounded-full bg-primary p-3 shadow-lg">
+            <Icon name="google" class="h-full w-full" />
+        </div>
+        <div class="flex flex-col gap-2">
+            <h2 class="text-3xl font-extrabold tracking-tight md:text-4xl">
+                ¿Nos dejas tu opinión?
+            </h2>
+            <p class="text-pretty">
+                Tu valoración en Google nos ayuda a que más pacientes encuentren la
+                clínica y confíen en nosotros tanto como tú. Solo lleva un minuto.
+            </p>
+        </div>
+        <a
+            href={googleProfileUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="row-center gap-3 rounded-full bg-corporative px-8 py-3 font-bold text-secondary shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0"
+            aria-label="Escribir una reseña en Google (se abre en una pestaña nueva)"
+        >
+            <Icon name="google" class="h-5 w-5" />
+            Escribir una reseña en Google
+        </a>
+    </div>
+</section>

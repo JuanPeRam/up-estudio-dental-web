@@ -1,0 +1,73 @@
+---
+import { Icon } from "astro-icon/components";
+import { fixedNumber, phoneNumber } from "@/constants/personal";
+
+interface Props {
+    /** Nombre del servicio, usado en el mensaje prerredactado de WhatsApp */
+    service: string;
+    title?: string;
+    description?: string;
+}
+
+const {
+    service,
+    title = "¿Hablamos de tu caso?",
+    description = "Pide tu cita de valoración sin compromiso. Te explicamos el tratamiento, los tiempos y el presupuesto antes de empezar.",
+} = Astro.props;
+
+const whatsappMessage = encodeURIComponent(
+    `Hola, me gustaría pedir cita para ${service}.`,
+);
+---
+
+<section class="bg-secondary/90 border-t border-white/10 px-4 py-16 sm:py-20">
+    <div class="mx-auto max-w-screen-xl flex flex-col items-center gap-8 text-center">
+        <div class="flex flex-col items-center gap-4">
+            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">{title}</h2>
+            <p class="text-pretty">{description}</p>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4">
+            <a
+                href={`https://wa.me/34${phoneNumber}?text=${whatsappMessage}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="row-center gap-3 rounded-full bg-corporative px-6 py-3 font-bold text-secondary shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0"
+                aria-label={`Escribir por WhatsApp para pedir cita de ${service}`}
+            >
+                <Icon name="telephone" height={20} width={20} />
+                Pedir cita por WhatsApp
+            </a>
+            <a
+                href="/contact"
+                class="row-center gap-3 rounded-full border border-white/20 bg-contrast/40 px-6 py-3 font-bold shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:border-corporative hover:shadow-xl active:translate-y-0"
+            >
+                Formulario de contacto
+            </a>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm">
+            <a
+                href={`tel:${phoneNumber}`}
+                class="row-center gap-2 font-bold transition-colors hover:text-corporative"
+                aria-label="Llamar al móvil de la clínica"
+            >
+                <Icon name="telephone" height={18} width={18} />{phoneNumber}
+            </a>
+            <a
+                href={`tel:${fixedNumber}`}
+                class="row-center gap-2 font-bold transition-colors hover:text-corporative"
+                aria-label="Llamar al teléfono fijo de la clínica"
+            >
+                <Icon name="home" height={18} width={18} />{fixedNumber}
+            </a>
+        </div>
+
+        <p class="max-w-[70ch] text-xs text-textSecondary/70 text-pretty border-t border-white/10 pt-6">
+            <strong class="font-bold">Política de cancelación:</strong> confirma o anula tu cita
+            llamando a recepción con antelación en el {fixedNumber} o en el {phoneNumber}
+            (también por WhatsApp). Sin confirmación previa no podemos garantizar la
+            disponibilidad del servicio.
+        </p>
+    </div>
+</section>

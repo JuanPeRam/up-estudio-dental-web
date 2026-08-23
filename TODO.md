@@ -2,12 +2,13 @@
 - [x] Replace carrousel with a photo grid + lightbox gallery in 'Clinica' section.
 - [x] Fix broken hrefs for 'Blanqueamiento Dental' and 'Limpieza Bucal' in 'Servicios' section.
 - [x] Split 'Servicios' section into a dedicated page per service with detailed specs.
-- [ ] Rewrite 'Nuestro Equipo' content (remove placeholder Lorem ipsum, add real bios and qualifications).
-- [ ] Cache Google Reviews fetch server-side instead of calling the API live in 'Opiniones' section.
-- [ ] Move 'Opiniones' out of the main nav into 'Home' or 'Contacto' section.
-- [ ] Add sitemap.xml and robots.txt for SEO.
-- [ ] Add JSON-LD structured data (Dentist/LocalBusiness schema) in Layout.
-- [ ] Fix og:image and meta image to use absolute URLs on all pages.
-- [ ] Remove obsolete meta keywords tag and fill empty page descriptions (e.g. 'Clinica' section).
+- [x] Re-format every Service into 'Servicios' making each with a different presentation but with a common style, making each service worth a page with detailed information of the service, with links to contact the clinic.
+- [x] Move 'Opiniones' out of the main nav into 'Home' or 'Contacto' section.
+- [x] Add sitemap.xml and robots.txt for SEO.
+- [x] Add JSON-LD structured data (Dentist/LocalBusiness schema) in Layout.
+- [x] Fix og:image and meta image to use absolute URLs on all pages.
+- [x] Remove obsolete meta keywords tag and fill empty page descriptions (e.g. 'Clinica' section).
 - [ ] Optimize gallery images to WebP for performance.
 - [ ] Fix background-attachment: fixed fallback for iOS Safari.
+- [ ] Rewrite 'Nuestro Equipo' content (remove placeholder Lorem ipsum, add real bios and qualifications).
+- [ ] Cache Google Reviews fetch server-side instead of calling the API live in 'Opiniones' section.

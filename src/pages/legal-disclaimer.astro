@@ -1,0 +1,78 @@
+---
+export const prerender = true;
+
+import LegalLayout from "@/layouts/LegalLayout.astro";
+import LegalSection from "@/components/Legal/LegalSection.astro";
+import { fixedNumber, phoneNumber } from "@/constants/personal";
+---
+
+<LegalLayout
+    title="Aviso legal"
+    description="Aviso legal de Up Estudio Dental y Estética: datos identificativos, condiciones de uso y propiedad intelectual del sitio web."
+    lastUpdated="agosto de 2026"
+>
+    <LegalSection title="1. Datos identificativos">
+        <p>
+            En cumplimiento del deber de información recogido en el artículo 10 de la
+            Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la
+            Información y de Comercio Electrónico (LSSI-CE), se exponen a
+            continuación los datos identificativos de la empresa titular de este
+            sitio web:
+        </p>
+        <p>Denominación social: Up Estudio Dental y Estética, S.L.</p>
+        <p>NIF/CIF: <em>[pendiente de completar]</em></p>
+        <p>Domicilio social: C. Andrómeda, 48, 28938 Móstoles, Madrid, España.</p>
+        <p>Correo electrónico: info@upestudiodental.com</p>
+        <p>Teléfono: {fixedNumber} / {phoneNumber}</p>
+    </LegalSection>
+
+    <LegalSection title="2. Objeto">
+        <p>
+            El presente sitio web tiene como finalidad informar a los usuarios sobre
+            los servicios odontológicos y de medicina estética facial ofrecidos por
+            Up Estudio Dental y Estética, así como facilitar el contacto y la
+            solicitud de citas.
+        </p>
+    </LegalSection>
+
+    <LegalSection title="3. Condiciones de uso">
+        <p>
+            El acceso y la navegación por este sitio web atribuyen la condición de
+            usuario y suponen la aceptación de todas las condiciones incluidas en
+            este Aviso Legal. El usuario se compromete a hacer un uso adecuado de los
+            contenidos y servicios ofrecidos, y a no emplearlos para incurrir en
+            actividades ilícitas o contrarias a la buena fe y al ordenamiento legal.
+        </p>
+    </LegalSection>
+
+    <LegalSection title="4. Propiedad intelectual e industrial">
+        <p>
+            Todos los contenidos del sitio web (textos, imágenes, logotipos, diseño y
+            código fuente) son titularidad de Up Estudio Dental y Estética, S.L. o de
+            terceros que han autorizado su uso, y están protegidos por la normativa
+            de propiedad intelectual e industrial. Queda prohibida su reproducción,
+            distribución o comunicación pública total o parcial sin autorización
+            expresa.
+        </p>
+    </LegalSection>
+
+    <LegalSection title="5. Exclusión de responsabilidad">
+        <p>
+            Up Estudio Dental y Estética no se hace responsable de los daños y
+            perjuicios que pudieran derivarse de interferencias, interrupciones,
+            virus informáticos o desconexiones en el funcionamiento del sitio web, ni
+            de los que puedan derivarse del uso incorrecto que los usuarios hagan del
+            mismo. La información contenida en este sitio web tiene carácter
+            meramente informativo y no sustituye en ningún caso una consulta o
+            diagnóstico médico presencial.
+        </p>
+    </LegalSection>
+
+    <LegalSection title="6. Legislación aplicable y jurisdicción">
+        <p>
+            Las presentes condiciones se rigen por la legislación española. Para
+            cualquier controversia derivada del uso del sitio web, las partes se
+            someten a los Juzgados y Tribunales que correspondan conforme a derecho.
+        </p>
+    </LegalSection>
+</LegalLayout>

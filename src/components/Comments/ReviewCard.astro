@@ -1,50 +1,88 @@
 ---
+import type { Review } from "./reviews";
+import Stars from "./Stars.astro";
+import { Icon } from "astro-icon/components";
+
 interface Props {
-    author_name: string;
-    author_url: string;
-    language: string;
-    original_language: string;
-    profile_photo_url: string;
-    rating: number;
-    relative_time_description: string;
-    text: string;
-    time: number;
-    translated: boolean;
+    review: Review;
+    index: number;
 }
 
-const {
-    author_name,
-    author_url,
-    language,
-    original_language,
-    profile_photo_url,
-    rating,
-    relative_time_description,
-    text,
-    time,
-    translated,
-} = Astro.props;
+const { review, index } = Astro.props;
+const { author_name, profile_photo_url, rating, relative_time_description, text } = review;
 
-import NavButton from "../Templates/NavButton.astro";
-import Stars from "./Stars.astro";
+// Full literal class names so Tailwind's content scanner picks them up.
+const ROTATIONS = [
+    "rotate-[-3deg]",
+    "rotate-[2.5deg]",
+    "rotate-[-1.5deg]",
+    "rotate-[3deg]",
+    "rotate-[-2deg]",
+];
+const rotation = ROTATIONS[index % ROTATIONS.length];
 ---
 
-<article
-    class="backdrop-blur-md maw-w-[80ch] rounded-md border flex flex-col items-center justify-start p-5 gap-2"
->
-    <h2 class="text-xl font-bold">{author_name}</h2>
-    <img src={profile_photo_url} alt="Foto de perfil de " +author_name />
-    <div class="flex flex-wrap items-end gap-2 justify-center">
-        <Stars rating={rating} />
-        <div class="text-xs text-primary/80">{relative_time_description}</div>
-    </div>
+<div class="relative mx-auto w-full max-w-sm sm:w-72">
+    <span
+        aria-hidden="true"
+        class="absolute -top-2.5 left-1/2 z-10 h-5 w-5 -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_35%_30%,#bdeeea,#77c6c1_45%,#2f6b67_100%)] shadow-[0_2px_4px_rgba(0,0,0,.45),inset_0_1px_1px_rgba(255,255,255,.6)]"
+    ></span>
 
-    <p class="max-w-[50ch] flex-1 flex items-start text-left p-2 text-base">
-        "{text}"
-    </p>
-    <NavButton
-        path={"https://www.google.com/search?client=opera-gx&hs=B1S&sa=X&sca_esv=4a03b7477bdd569e&sca_upv=1&hl=es-ES&tbm=lcl&sxsrf=ADLYWIKKqNj7DCb5RTc_SMU70KjLp0Uaxw:1723205518691&q=Up+Estudio+Dental+Reseñas&rflfq=1&num=20&stick=H4sIAAAAAAAAAONgkxIxNDczNjMxNTA1NjcwMTa3NDC2MNjAyPiKUSq0QMG1uKQ0JTNfwSU1ryQxRyEotTj18MbE4kWseCQBMZ9zCVUAAAA&rldimm=17636450537043790380&ved=2ahUKEwiu7cPm8OeHAxUUVKQEHedAPbkQ9fQKegQISBAF&biw=1879&bih=969&dpr=1#lkt=LocalPoiReviews"}
-        styles="bg-secondary"
-        newPage>Ver Reseña</NavButton
+    <article
+        class:list={[
+            "torn-paper origin-top bg-[#f9f4e8] p-6 pt-8 text-neutral-800 shadow-[0_10px_20px_rgba(0,0,0,.35)] transition-transform duration-300 hover:rotate-0 hover:-translate-y-1",
+            rotation,
+        ]}
     >
-</article>
+        <header class="flex items-start gap-3">
+            <img
+                src={profile_photo_url}
+                alt={`Foto de perfil de ${author_name}`}
+                class="h-11 w-11 shrink-0 rounded-full object-cover"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+            />
+            <div class="flex min-w-0 flex-col">
+                <h3 class="truncate font-bold">{author_name}</h3>
+                <span class="text-xs text-neutral-500">{relative_time_description}</span>
+            </div>
+            <Icon name="google" class="ml-auto h-5 w-5 shrink-0" />
+        </header>
+
+        <div class="mt-3">
+            <Stars rating={rating} />
+        </div>
+
+        <p class="mt-3 text-pretty text-sm leading-relaxed text-neutral-700">"{text}"</p>
+    </article>
+</div>
+
+<style>
+    .torn-paper {
+        clip-path: polygon(
+            0% 6%,
+            5% 1%,
+            10% 5%,
+            15% 0%,
+            20% 5%,
+            25% 1%,
+            30% 5%,
+            35% 0%,
+            40% 5%,
+            45% 1%,
+            50% 5%,
+            55% 0%,
+            60% 5%,
+            65% 1%,
+            70% 5%,
+            75% 0%,
+            80% 5%,
+            85% 1%,
+            90% 5%,
+            95% 0%,
+            100% 5%,
+            100% 100%,
+            0% 100%
+        );
+    }
+</style>

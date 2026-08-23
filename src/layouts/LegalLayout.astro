@@ -1,0 +1,46 @@
+---
+import Layout from "./Layout.astro";
+import Header from "@/components/Common/Header.astro";
+
+interface Props {
+    title: string;
+    description: string;
+    lastUpdated: string;
+}
+
+const { title, description, lastUpdated } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+    <section id="legal-hero">
+        <Header title={title} description={`Última actualización: ${lastUpdated}`} />
+    </section>
+
+    <section class="bg-[#fdfdfd] px-5 py-16 text-black">
+        <article class="legal-content mx-auto flex max-w-3xl flex-col gap-10">
+            <slot />
+        </article>
+    </section>
+</Layout>
+
+<style>
+    /* The global `p { color: textSecondary }` rule (meant for the dark
+       theme) otherwise wins over any text color set by an ancestor here,
+       since it's declared directly on the element, not just inherited. */
+    .legal-content :global(p) {
+        color: rgb(0 0 0 / 0.75);
+    }
+
+    #legal-hero {
+        background-image: linear-gradient(
+                to top right,
+                rgba(19, 19, 19, 0.363),
+                rgba(88, 88, 88, 0.671)
+            ),
+            url("img/UP-Gallery/Up-WaitRoom.jpg");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+</style>

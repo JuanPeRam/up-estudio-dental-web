@@ -19,6 +19,6 @@ while (index < starsRating.length && currentRating > 0) {
 ---
 
 <div class="flex items-center text-[yellow]">
-    <p class="mr-2 font-bold">{rating}</p>
+    <p class="mr-2 font-bold text-inherit">{rating}</p>
     {starsRating.map((rating) => <>{rating == 1 && <Star />}</>)}
 </div>

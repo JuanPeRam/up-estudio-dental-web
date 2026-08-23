@@ -2,9 +2,15 @@
 if (Astro.request.method === "POST") {
     try {
         const data = await Astro.request.formData();
+        const name = data.get("name");
+        const phone = data.get("phone");
         const email = data.get("email");
+        const subject = data.get("subject");
         const message = data.get("message");
+        console.log(name);
+        console.log(phone);
         console.log(email);
+        console.log(subject);
         console.log(message);
     } catch (error) {
         console.log(error);
@@ -14,20 +20,56 @@ if (Astro.request.method === "POST") {
 
 <form
     method="POST"
-    class="border p-5 flex flex-col items-start justify-center backdrop-blur-md gap-5 max-w-[550px] w-[100%] animate-slide-in-top"
+    class="border border-white/15 bg-contrast/40 rounded-xl p-6 flex flex-col items-start justify-center backdrop-blur-md gap-5 max-w-[550px] w-[100%] animate-slide-in-top"
 >
     <h2 class="font-bold text-center text-xl w-full">Formulario de contacto</h2>
-    <label class="flex flex-col gap-2 items-start w-full">
-        <p class="text-xs text-white/80">Tu e-mail:</p>
-        <input
-            placeholder="ejemplo@gmail.com"
-            type="email"
-            name="email"
-            id="email"
-            required
-            class="bg-black/30 rounded-md px-3 py-2 w-full focus-visible:outline-none"
-        />
-    </label>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5 w-full">
+        <label class="flex flex-col gap-2 items-start w-full">
+            <p class="text-xs text-white/80">Nombre:</p>
+            <input
+                placeholder="Tu nombre"
+                type="text"
+                name="name"
+                id="name"
+                required
+                class="bg-black/30 rounded-md px-3 py-2 w-full focus-visible:outline-none"
+            />
+        </label>
+        <label class="flex flex-col gap-2 items-start w-full">
+            <p class="text-xs text-white/80">Tu e-mail:</p>
+            <input
+                placeholder="ejemplo@gmail.com"
+                type="email"
+                name="email"
+                id="email"
+                required
+                class="bg-black/30 rounded-md px-3 py-2 w-full focus-visible:outline-none"
+            />
+        </label>
+        <label class="flex flex-col gap-2 items-start w-full">
+            <p class="text-xs text-white/80">Teléfono (opcional):</p>
+            <input
+                placeholder="649 03 93 27"
+                type="tel"
+                name="phone"
+                id="phone"
+                class="bg-black/30 rounded-md px-3 py-2 w-full focus-visible:outline-none"
+            />
+        </label>
+        <label class="flex flex-col gap-2 items-start w-full">
+            <p class="text-xs text-white/80">Asunto:</p>
+            <input
+                placeholder="EJ: Solicitud de cita"
+                type="text"
+                name="subject"
+                id="subject"
+                required
+                class="bg-black/30 rounded-md px-3 py-2 w-full focus-visible:outline-none"
+            />
+        </label>
+    </div>
+
     <label class="flex flex-col gap-2 items-start w-full">
         <p class="text-xs text-white/80">Mensaje</p>
         <textarea

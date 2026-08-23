@@ -1,36 +1,64 @@
 ---
-import SteticTreatment from "./SteticTreatment.astro"
+import SteticTreatment from "./SteticTreatment.astro";
+import ServiceCTA from "./ServiceCTA.astro";
+
 const data = [
     {
-        image: 'https://static.wixstatic.com/media/d47f72_8c917bab172e4a74b2b3e2a25c98d647~mv2.jpg/v1/fill/w_121,h_121,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/236a56a9-b8ae-4d28-aeb2-0c5e4f62d9ff.jpg',
-        title: 'Rejuvenecimiento Facial',
-        text: 'Es un relleno dérmico que se aplica en el rostro para rellenar arrugas, líneas de expresión y pliegues, además, estimula la generación del colágeno natural devolviendo la elasticidad y luminosidad a la piel, obteniendo resultados naturales durante largos periodos de tiempo.'
+        image: "https://static.wixstatic.com/media/d47f72_8c917bab172e4a74b2b3e2a25c98d647~mv2.jpg/v1/fill/w_600,h_450,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/236a56a9-b8ae-4d28-aeb2-0c5e4f62d9ff.jpg",
+        title: "Rejuvenecimiento Facial",
+        text: "Es un relleno dérmico que se aplica en el rostro para rellenar arrugas, líneas de expresión y pliegues. Además, estimula la generación del colágeno natural, devolviendo elasticidad y luminosidad a la piel y manteniendo un resultado natural durante largos periodos de tiempo.",
+        highlights: ["Sesión de 30-45 min", "Resultado progresivo", "Sin ingreso"],
     },
     {
-        image: 'https://static.wixstatic.com/media/d47f72_e253b93cd8e84ffa8d6735ad3d53d8bc~mv2.jpg/v1/fill/w_121,h_121,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/33149c9b-fafa-4cd1-9578-f0ee68d80120.jpg',
-        title: 'Tratamiento para eliminar arrugas',
-        text: 'En la actualidad, eliminar arrugas y líneas de expresión en cuestión de segundos es más que posible. Lo que hace años parecía una utopía, hoy es un sueño hecho realidad gracias a la medicina estética.'
+        image: "https://static.wixstatic.com/media/d47f72_e253b93cd8e84ffa8d6735ad3d53d8bc~mv2.jpg/v1/fill/w_600,h_450,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/33149c9b-fafa-4cd1-9578-f0ee68d80120.jpg",
+        title: "Tratamiento para eliminar arrugas",
+        text: "Suavizamos las arrugas y líneas de expresión de la frente, el entrecejo y el contorno de los ojos relajando de forma controlada la musculatura que las provoca. Es un procedimiento rápido, ambulatorio y con el que puedes volver a tu rutina el mismo día.",
+        highlights: ["Sesión de 20 min", "Efecto a los 3-7 días", "Duración 4-6 meses"],
     },
     {
-        image: 'https://static.wixstatic.com/media/d47f72_667407e82a1a40d5a28302715497d902~mv2.jpg/v1/fill/w_121,h_121,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/WhatsApp%20Image%202024-04-25%20at%2013_52_12%20(1).jpg',
-        title: 'Aumento de labios con ácido hialurónico',
-        text: 'El aumento de labios con ácido hialurónico es un tratamiento que consiste en aportar volumen al labio y darle forma. Cuando es necesario, también nos permite corregir pequeñas imperfecciones como pueden ser los labios asimétricos. Este procedimiento es uno de los más naturales que podemos encontrar, ya que el ácido hialurónico es generado por nuestro organismo de manera natural. '
-    }
-]
+        image: "https://static.wixstatic.com/media/d47f72_667407e82a1a40d5a28302715497d902~mv2.jpg/v1/fill/w_600,h_450,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/WhatsApp%20Image%202024-04-25%20at%2013_52_12%20(1).jpg",
+        title: "Aumento de labios con ácido hialurónico",
+        text: "Aportamos volumen al labio y definimos su forma, corrigiendo cuando hace falta pequeñas imperfecciones como las asimetrías. Es uno de los procedimientos más naturales que existen, ya que el ácido hialurónico es una sustancia que nuestro propio organismo genera.",
+        highlights: ["Sesión de 30 min", "Resultado inmediato", "Reabsorbible"],
+    },
+];
 ---
 
-<section class='column-center gap-5 py-10 px-5 bg-black/30 text-blackTitle bg-primary min-h-screen' id='stetic-medicine-section'>
-    <h1 class="text-2xl font-bold">MEDICINA ESTÉTICA</h1>
-    <p class="max-w-[80ch] text-base text-blackBodyText">Ofrecemos una amplia gama de tratamientos de medicina estética 
-        para ayudarte a lograr la apariencia que deseas. Desde rellenos faciales y botox 
-        hasta tratamientos corporales, nuestro equipo de expertos te ayudará a sentirte seguro 
-        y hermoso/a en tu propia piel.
-    </p>
-    <section class="gap-5 flex flex-wrap justify-center">
-        {
-            data.map((item)=>(
-                <SteticTreatment title={item.title} image={item.image} text={item.text} />
-            ))
-        }
-    </section>
+<section
+    class="bg-secondary/80 px-4 py-12 sm:py-20 lg:px-6"
+    id="stetic-medicine-section"
+>
+    <div class="mx-auto max-w-screen-xl">
+        <div class="mb-14 max-w-screen-md lg:mb-20">
+            <h2 class="mb-4 text-4xl font-extrabold tracking-tight">Medicina Estética</h2>
+            <p class="text-pretty">
+                Ofrecemos una gama de tratamientos de medicina estética facial para
+                ayudarte a lograr la apariencia que deseas. Trabajamos siempre con
+                productos reabsorbibles y con un criterio conservador: el objetivo es que
+                se te vea descansado/a, no que se note el tratamiento. Toda intervención
+                empieza por una consulta previa en la que valoramos tu rostro y decidimos
+                juntos qué merece la pena hacer y qué no.
+            </p>
+        </div>
+
+        <div class="flex flex-col gap-16 lg:gap-24">
+            {
+                data.map((item, index) => (
+                    <SteticTreatment
+                        title={item.title}
+                        image={item.image}
+                        text={item.text}
+                        highlights={item.highlights}
+                        reversed={index % 2 === 1}
+                    />
+                ))
+            }
+        </div>
+    </div>
 </section>
+
+<ServiceCTA
+    service="un tratamiento de medicina estética"
+    title="Consulta tu tratamiento"
+    description="Cuéntanos qué te gustaría mejorar y valoramos tu caso en consulta antes de proponerte nada."
+/>

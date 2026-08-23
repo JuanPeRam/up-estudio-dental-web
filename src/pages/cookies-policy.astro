@@ -1,0 +1,56 @@
+---
+export const prerender = true;
+
+import LegalLayout from "@/layouts/LegalLayout.astro";
+import LegalSection from "@/components/Legal/LegalSection.astro";
+---
+
+<LegalLayout
+    title="Política de cookies"
+    description="Política de cookies de Up Estudio Dental y Estética: qué cookies usamos, cuáles son de terceros y cómo gestionarlas."
+    lastUpdated="agosto de 2026"
+>
+    <LegalSection title="1. ¿Qué son las cookies?">
+        <p>
+            Las cookies son pequeños archivos de texto que un sitio web almacena en
+            tu navegador cuando lo visitas. Se utilizan habitualmente para recordar
+            tus preferencias, medir el uso del sitio o hacer funcionar determinados
+            servicios.
+        </p>
+    </LegalSection>
+
+    <LegalSection title="2. Cookies utilizadas en este sitio web">
+        <p>
+            Este sitio web no utiliza cookies propias de análisis, publicidad o
+            seguimiento. Únicamente empleamos las cookies técnicas estrictamente
+            necesarias para el funcionamiento básico de la página, que no requieren
+            tu consentimiento conforme al artículo 22.2 de la LSSI-CE.
+        </p>
+    </LegalSection>
+
+    <LegalSection title="3. Cookies de terceros">
+        <p>
+            En la página de <a href="/contact" class="font-bold text-black hover:text-corporative">Contacto</a>
+            y en el pie de página incluimos un mapa de Google Maps insertado
+            (iframe). Al interactuar con ese mapa, Google puede instalar sus propias
+            cookies conforme a su política de privacidad, sobre las que Up Estudio
+            Dental y Estética no tiene control. Puedes consultar la política de
+            privacidad de Google en
+            <a
+                href="https://policies.google.com/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-bold text-black hover:text-corporative">policies.google.com/privacy</a
+            >.
+        </p>
+    </LegalSection>
+
+    <LegalSection title="4. Cómo gestionar las cookies">
+        <p>
+            Puedes permitir, bloquear o eliminar las cookies instaladas en tu equipo
+            mediante la configuración de tu navegador. La desactivación de las
+            cookies técnicas podría afectar al correcto funcionamiento de algunas
+            partes del sitio web.
+        </p>
+    </LegalSection>
+</LegalLayout>
