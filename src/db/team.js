@@ -4,42 +4,43 @@ const team = [
     {
         id: 'cristina',
         name: 'Dra. Cristina Umérez García',
-        description: 'Es un placer presentarles a la Dra. Cristina Umerez García, una profesional altamente capacitada en odontología, odontopediatría y ortodoncia. Con más de 25 años de experiencia en el campo, la Dra. Umérez García ha establecido una reputación sólida como una de las principales especialistas en su área.',
+        roles: ['Odontología general', 'Odontopediatría', 'Ortodoncia'],
+        description: 'La Dra. Cristina Umérez García es una profesional de referencia en odontología, odontopediatría y ortodoncia, con más de 25 años de experiencia. Su trato cercano con los más pequeños y su dedicación a cada caso la han convertido en una de las especialistas de mayor confianza de la clínica.',
         picture: `${images_path}/cristina.webp`
     },
     {
         id: 'rafael',
-        name: 'Dr. Rafael Dario Sosa Sánchez',
+        name: 'Dr. Rafael Darío Sosa Sánchez',
         roles: ['Cirujano bucal', 'Implantólogo'],
-        description: 'Es un placer presentarles al Dr. Rafael Darío Sosa, un cirujano bucal e implantólogo altamente experimentado y calificado. Con más de 30 años de experiencia en el campo, el Dr. Sosa ha establecido una sólida reputación como uno de los principales especialistas en cirugía bucal e implantología.',
+        description: 'El Dr. Rafael Darío Sosa Sánchez es cirujano bucal e implantólogo, con más de 30 años de experiencia en el sector. Su trayectoria y rigor técnico lo sitúan como uno de los principales especialistas en cirugía bucal e implantología de la clínica.',
         picture: `${images_path}/rafael-dario.webp`
     },
     {
         id: 'isabel',
         name: 'Dra. Isabel Cristina Sosa Umérez',
-        roles: ['Licenciada en Odontología'],
-        description: 'La Licenciada se graduó en la Universidad Europea de Madrid con una licenciatura en Odontología y desde entonces ha seguido perfeccionando sus habilidades y conocimientos.',
+        roles: ['Odontología general'],
+        description: 'La Dra. Isabel Cristina Sosa Umérez es licenciada en Odontología por la Universidad Europea de Madrid. Desde entonces, ha seguido formándose para ofrecer a cada paciente tratamientos actualizados y una atención cercana y meticulosa.',
         picture: `${images_path}/isabel.webp`
     },
     {
         id: 'nilyam',
         name: 'Dra. Nilyam Iturniza',
         roles: ['Periodoncista'],
-        description: 'El primer paso hacia una sonrisa saludable comienza con R. Suárez. Además de brindar el nivel más alto de atención dental personalizada, mantiene un ambiente relajante que hace que todos sus pacientes se sientan cómodos.',
+        description: 'La Dra. Nilyam Iturriza está especializada en periodoncia, el cuidado de las encías y los tejidos que sostienen los dientes. Combina un alto nivel técnico con un ambiente relajado, para que cada paciente se sienta cómodo durante su tratamiento.',
         picture: `${images_path}/nilyam.webp`
     },
     {
         id: 'juan',
         name: 'Juan Carlos Pereira Fernández',
         roles: ['CEO'],
-        description: 'Uno de nuestro CEO es la fuerza impulsora detrás de nuestra clínica. Con una visión audaz y un compromiso inquebrantable con la excelencia, lidera nuestro equipo hacia la vanguardia de la odontología y la estética en Móstoles, Madrid. Su pasión por brindar servicios de calidad y su enfoque centrado en el paciente han establecido un estándar de excelencia en nuestro campo. Estamos comprometidos a proporcionar la más alta calidad de atención y servicio a cada paciente que entra por nuestras puertas.',
+        description: 'Juan Carlos Pereira Fernández es el CEO de Up Estudio Dental y Estética. Con una visión clara y un compromiso firme con la excelencia, lidera al equipo hacia los más altos estándares de calidad en odontología y estética en Móstoles, Madrid, con un enfoque siempre centrado en el paciente.',
         picture: `${images_path}/juan-carlos.webp`
     },
     {
         id: 'claudia',
-        name: 'Claudia Garcia',
+        name: 'Claudia García',
         roles: ['Higienista Dental'],
-        description: 'En nuestra clínica, contamos con una higienista dental dedicada a brindar el más alto nivel de cuidado oral personalizado. Nuestra experta higienista se especializa en la prevención y el mantenimiento de una salud bucal óptima.',
+        description: 'Claudia García es higienista dental y se dedica a ofrecer el más alto nivel de cuidado oral personalizado, especializándose en la prevención y el mantenimiento de una salud bucal óptima para todos los pacientes de la clínica.',
         picture: `${images_path}/claudia.webp`
     }
 ]
