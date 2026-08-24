@@ -1,0 +1,17 @@
+
+> up-estudio-dental-web@1.0.0 dev
+> astro dev
+
+00:53:23 [types] Generated 2ms
+00:53:23 [vite] Port 4321 is in use, trying another one...
+
+ astro  v4.16.19 ready in 2327 ms
+
+┃ Local    http://localhost:4322/
+┃ Network  use --host to expose
+
+00:53:23 watching for file changes...
+
+ update  ▶ New version of Astro available: 7.2.4
+  Run npx @astrojs/upgrade to update
+
