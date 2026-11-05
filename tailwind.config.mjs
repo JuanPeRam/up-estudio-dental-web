@@ -6,13 +6,15 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				display: ['"Newsreader Variable"', '"Newsreader"', 'Georgia', 'serif'],
+				display: ['"Playfair Display Variable"', '"Playfair Display"', 'Georgia', 'serif'],
 				sans: ['"Figtree Variable"', '"Figtree"', '"Segoe UI"', 'system-ui', 'sans-serif'],
 			},
 			colors: {
 				surface: 'var(--surface)',
 				raised: 'var(--surface-raised)',
 				tint: 'var(--surface-tint)',
+				aqua: 'var(--aqua)',
+				'aqua-logo': 'var(--aqua-logo)',
 				sand: 'var(--surface-sand)',
 				night: 'var(--night)',
 				'on-night': 'var(--on-night)',

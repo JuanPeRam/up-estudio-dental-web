@@ -1,0 +1,37 @@
+---
+// Tecnología: la web oficial la nombra sin enseñarla; aquí cada equipo con su foto real.
+import { Image } from "astro:assets";
+import SectionHeader from "@/components/UI/SectionHeader.astro";
+import itero from "@/img/up/itero.webp";
+import zoom from "@/img/up/philips-zoom.webp";
+import escaner from "@/img/up/escaner-intraoral.webp";
+import rx from "@/img/up/radiografia-digital.webp";
+
+const items = [
+  { img: itero, alt: "Escáner iTero en el gabinete", title: "Escáner iTero", text: "Planificamos tu ortodoncia invisible sin moldes de pasta." },
+  { img: escaner, alt: "Profesional consultando el escaneo 3D de una boca en la pantalla", title: "Escaneo intraoral 3D", text: "Ves tu boca en pantalla y entiendes el tratamiento." },
+  { img: rx, alt: "Doctora explicando una radiografía panorámica", title: "Radiografía digital", text: "Diagnóstico en la propia clínica, en el momento." },
+  { img: zoom, alt: "Blanqueamiento con lámpara Philips Zoom", title: "Philips Zoom", text: "Blanqueamiento profesional supervisado en consulta." },
+];
+---
+
+<section class="up-section up-band-night up-on-night" id="tecnologia">
+  <div class="up-wrap flex flex-col gap-12">
+    <SectionHeader
+      align="split"
+      eyebrow="Tecnología"
+      title="Tecnología que se <em>ve</em> y se entiende"
+      lead="Equipos digitales en todas las áreas de la odontología, para diagnosticar mejor y explicarte cada paso."
+    />
+    <div class="up-tech">
+      {
+        items.map((t) => (
+          <figure>
+            <div class="up-arch"><Image src={t.img} alt={t.alt} widths={[360, 700]} sizes="(min-width: 1000px) 280px, (min-width: 640px) 45vw, 90vw" /></div>
+            <figcaption><b>{t.title}</b><span>{t.text}</span></figcaption>
+          </figure>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -2,49 +2,36 @@
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import Button from "@/components/UI/Button.astro";
-import Stars from "@/components/UI/Stars.astro";
-import { contact } from "@/constants/personal";
-import recepcion from "@/img/UP-Gallery/Up-Board.jpg";
+import peluche from "@/img/up/peluche-diente.webp";
 ---
 
-<section class="up-wrap">
-  <div class="up-hero">
-    <div class="up-hero-copy">
-      <p class="up-eyebrow">Clínica dental familiar en Móstoles</p>
-      <h1 class="up-display">Tu dentista de confianza, y el de tus hijos</h1>
+<section class="up-band-aqua">
+  <div class="up-wrap up-hero2">
+    <div class="flex flex-col gap-6">
+      <p class="up-eyebrow">Móstoles · Desde 2022</p>
+      <h1 class="up-display">Clínica dental <em>familiar</em> en Móstoles</h1>
       <p class="up-lead">
-        Odontología, ortodoncia y medicina estética facial en un espacio pensado para toda la familia, con zona de juegos para
-        los peques.
+        Cuidamos de tu sonrisa y de la de tus hijos con un trato cercano: odontología, ortodoncia y estética facial en un espacio
+        pensado para toda la familia.
       </p>
-      <ul class="up-hero-facts">
-        <li><Icon name="check-circle" class="up-icon" />Primera revisión y radiografías gratis</li>
+      <ul class="up-perks">
+        <li><Icon name="check-circle" class="up-icon" />Primera revisión gratis</li>
         <li><Icon name="shield" class="up-icon" />Urgencias 24 h</li>
+        <li><Icon name="smile" class="up-icon" />Zona de juegos infantil</li>
       </ul>
-      <div class="flex flex-wrap gap-3">
+      <div class="flex flex-wrap gap-3 pt-2">
         <Button href="/contact" icon="calendar">Pedir cita</Button>
-        <Button href="/clinic" variant="secondary">Ver la clínica</Button>
+        <Button href="/services" variant="secondary">Ver tratamientos</Button>
       </div>
-      <p class="up-rating"><Stars rating={5} /><b>5,0</b> en Google · Desde 2022</p>
     </div>
-
-    <div class="up-hero-media">
-      <Image
-        src={recepcion}
-        alt="Recepción de Up Estudio Dental con el logotipo iluminado"
-        widths={[480, 720, 960]}
-        sizes="(min-width: 900px) 46vw, 100vw"
-        loading="eager"
-        fetchpriority="high"
-      />
-      <aside class="up-hours" aria-label="Horario de hoy">
-        <span class="up-hours-urg">Urgencias 24 h</span>
-        <dl>
-          <dt>Lunes a viernes</dt><dd>10:00–13:30</dd>
-          <dt></dt><dd>16:00–20:30</dd>
-          <dt>Sábados</dt><dd>10:00–14:00</dd>
-        </dl>
-        <a class="up-tel" href={contact.landline.href}><Icon name="phone" class="up-icon" />{contact.landline.display}</a>
-      </aside>
+    <div class="up-hero2-media">
+      <div class="up-arch">
+        <Image src={peluche} alt="Miembro del equipo de Up Estudio Dental sonriendo con un peluche de diente" widths={[480, 760, 1040]} sizes="(min-width: 900px) 520px, 90vw" loading="eager" fetchpriority="high" />
+      </div>
+      <div class="up-hero2-card" aria-label="Valoración en Google: 5,0">
+        <Icon name="google" class="up-g" />
+        <div class="flex flex-col"><b>5,0</b><span>en Google</span></div>
+      </div>
     </div>
   </div>
 </section>

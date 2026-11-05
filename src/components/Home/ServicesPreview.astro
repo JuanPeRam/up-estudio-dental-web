@@ -1,22 +1,36 @@
 ---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 import SectionHeader from "@/components/UI/SectionHeader.astro";
-import ServiceCard from "@/components/Cards/ServiceCard.astro";
 import Button from "@/components/UI/Button.astro";
-import { services } from "@/constants/services";
+import { specialties } from "@/constants/services";
+
+const order = [0, 1, 2, 7, 3, 8, 4, 5, 6];
+const list = order.map((i) => specialties[i]);
 ---
 
-<section class="up-section up-band-tint" id="servicios">
+<section class="up-section" id="especialidades">
   <div class="up-wrap flex flex-col gap-12">
     <SectionHeader
       align="split"
-      eyebrow="Qué ofrecemos"
-      title="Odontología y estética facial en un mismo sitio"
-      lead="Revisiones, limpiezas, blanqueamiento y medicina estética con el mismo equipo que ya conoce tu historia."
+      eyebrow="Especialidades"
+      title="Todo tu tratamiento, en la <em>misma</em> clínica"
+      lead="De la revisión de los peques a los implantes o la ortodoncia invisible, con especialistas que trabajan juntos en cada caso."
     >
-      <div><Button href="/services" variant="ghost" iconAfter="arrow-right">Ver todos los servicios</Button></div>
+      <div><Button href="/services" variant="ghost" iconAfter="arrow-right">Ver tratamientos y precios</Button></div>
     </SectionHeader>
-    <div class="up-grid-4">
-      {services.map((s) => <ServiceCard service={s} />)}
+    <div class="up-specs">
+      {
+        list.map((s, i) => (
+          <a class:list={["up-spec", i === 0 && "is-big"]} href={s.href}>
+            <Image src={s.image} alt={s.imageAlt} widths={[400, 800, 1200]} sizes={i === 0 ? "(min-width: 900px) 600px, 50vw" : "(min-width: 900px) 300px, 50vw"} />
+            <span class="up-spec-label">
+              <span><b>{s.title}</b><small>{s.line}</small></span>
+              <Icon name="arrow-right" class="up-icon" />
+            </span>
+          </a>
+        ))
+      }
     </div>
   </div>
 </section>

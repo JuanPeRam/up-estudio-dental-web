@@ -4,7 +4,8 @@ import NavBar from "@/components/Common/NavBar.astro";
 import Footer from "@/components/Common/Footer.astro";
 import MobileActionBar from "@/components/Common/MobileActionBar.astro";
 import "@fontsource-variable/figtree";
-import "@fontsource-variable/newsreader";
+import "@fontsource-variable/playfair-display";
+import "@fontsource-variable/playfair-display/wght-italic.css";
 import '@/styles/tailwind.css'
 import { fixedNumber } from "@/constants/personal";
 import socials from "@/constants/socials";
@@ -71,8 +72,7 @@ const structuredData = {
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#f6f8f7" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0e1413" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#c1e4e2" />
     <meta name="generator" content={Astro.generator} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_ES" />

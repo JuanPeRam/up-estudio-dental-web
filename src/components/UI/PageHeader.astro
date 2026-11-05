@@ -16,12 +16,12 @@ const { eyebrow, title, lead, crumb } = Astro.props;
           <nav class="up-crumbs" aria-label="Migas de pan">
             <a href={crumb.href}>{crumb.label}</a>
             <span aria-hidden="true">/</span>
-            <span aria-current="page">{title}</span>
+            <span aria-current="page">{title.replace(/<[^>]+>/g, "")}</span>
           </nav>
         )
       }
       <p class="up-eyebrow">{eyebrow}</p>
-      <h1 class="up-h1">{title}</h1>
+      <h1 class="up-h1" set:html={title} />
     </div>
     <div class="flex flex-col gap-6">
       {lead && <p class="up-lead">{lead}</p>}

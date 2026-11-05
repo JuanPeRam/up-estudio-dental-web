@@ -1,6 +1,7 @@
 ---
 export const prerender = true;
 
+import { Image } from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
 import Button from "@/components/UI/Button.astro";
 import TeamCard from "@/components/Cards/TeamCard.astro";
@@ -24,8 +25,12 @@ const description = `${member.name}${member.roles ? ` — ${member.roles.join(",
         <a href="/team">Equipo</a><span aria-hidden="true">/</span><span aria-current="page">{member.name}</span>
       </nav>
       <div class="grid items-start gap-10 md:grid-cols-[minmax(0,380px)_1fr] lg:gap-16">
-        <div class="up-team-photo w-full max-w-[300px] md:max-w-none">
-          <img src={`/${member.picture}`} alt={member.name} width="420" height="525" transition:name={`${member.id}-image`} />
+        <div class="up-cutout-photo w-full max-w-[320px] md:max-w-none">
+          {member.portrait ? (
+            <Image src={member.portrait} alt={member.name} widths={[400, 800]} sizes="(min-width: 768px) 380px, 320px" loading="eager" transition:name={`${member.id}-image`} />
+          ) : (
+            <img src={`/${member.picture}`} alt={member.name} width="420" height="560" transition:name={`${member.id}-image`} />
+          )}
         </div>
         <div class="flex flex-col gap-6 md:pt-4">
           <p class="up-eyebrow">Nuestro equipo</p>
@@ -45,7 +50,7 @@ const description = `${member.name}${member.roles ? ` — ${member.roles.join(",
     <div class="up-wrap flex flex-col gap-10">
       <h2 class="up-h2">Más del equipo</h2>
       <div class="up-grid-team">
-        {others.map((m) => <TeamCard id={m.id} name={m.name} roles={m.roles} picture={m.picture} />)}
+        {others.map((m) => <TeamCard id={m.id} name={m.name} roles={m.roles} picture={m.picture} portrait={m.portrait} />)}
       </div>
     </div>
   </section>

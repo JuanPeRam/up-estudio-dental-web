@@ -1,17 +1,25 @@
 ---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
 interface Props {
   id: string;
   name: string;
   roles?: string[];
   picture: string;
+  portrait?: ImageMetadata;
   headingLevel?: "h2" | "h3";
 }
-const { id, name, roles = [], picture, headingLevel: H = "h3" } = Astro.props;
+const { id, name, roles = [], picture, portrait, headingLevel: H = "h3" } = Astro.props;
 ---
 
-<a class="up-team" href={`/member/${id}`}>
-  <div class="up-team-photo">
-    <img src={`/${picture}`} alt={name} loading="lazy" decoding="async" width="420" height="525" transition:name={`${id}-image`} />
+<a class="up-cutout" href={`/member/${id}`}>
+  <div class="up-cutout-photo">
+    {portrait ? (
+      <Image src={portrait} alt={name} widths={[360, 700]} sizes="(min-width: 1000px) 380px, 45vw" />
+    ) : (
+      <img src={`/${picture}`} alt={name} loading="lazy" decoding="async" width="420" height="560" />
+    )}
   </div>
   <div class="flex flex-col gap-2">
     <H class="up-h4">{name}</H>

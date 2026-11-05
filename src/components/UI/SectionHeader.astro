@@ -15,7 +15,7 @@ const { eyebrow, title, lead, align = "left", as: Tag = "h2" } = Astro.props;
       <>
         <div class="flex flex-col gap-3">
           {eyebrow && <p class="up-eyebrow">{eyebrow}</p>}
-          <Tag class="up-h2">{title}</Tag>
+          <Tag class="up-h2" set:html={title} />
         </div>
         <div class="flex flex-col gap-4">
           {lead && <p class="up-lead">{lead}</p>}
@@ -25,7 +25,7 @@ const { eyebrow, title, lead, align = "left", as: Tag = "h2" } = Astro.props;
     ) : (
       <>
         {eyebrow && <p class="up-eyebrow">{eyebrow}</p>}
-        <Tag class="up-h2">{title}</Tag>
+        <Tag class="up-h2" set:html={title} />
         {lead && <p class="up-lead">{lead}</p>}
         <slot />
       </>

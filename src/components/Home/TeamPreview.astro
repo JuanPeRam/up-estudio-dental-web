@@ -1,26 +1,38 @@
 ---
+import { Image } from "astro:assets";
 import SectionHeader from "@/components/UI/SectionHeader.astro";
-import TeamCard from "@/components/Cards/TeamCard.astro";
 import Button from "@/components/UI/Button.astro";
 import { team } from "@/db/team";
+import grupo from "@/img/up/equipo-grupo.webp";
 
-const featured = ["cristina", "rafael", "isabel"]
-  .map((id) => team.find((m) => m.id === id))
-  .filter((m): m is (typeof team)[number] => Boolean(m));
+const people = team.filter((m) => m.portrait);
 ---
 
-<section class="up-section up-band-sand" id="equipo">
+<section class="up-section" id="equipo">
   <div class="up-wrap flex flex-col gap-12">
     <SectionHeader
       align="split"
       eyebrow="Nuestro equipo"
-      title="Especialistas que trabajan como una familia"
-      lead="Ortodoncia, odontopediatría, cirugía e implantología, periodoncia e higiene dental, con más de 25 años de experiencia."
+      title="Especialistas que te <em>conocen</em> por tu nombre"
+      lead="Odontopediatría, ortodoncia, cirugía e implantes, periodoncia e higiene: más de 25 años de experiencia en un equipo familiar."
     >
       <div><Button href="/team" variant="ghost" iconAfter="arrow-right">Conoce a todo el equipo</Button></div>
     </SectionHeader>
-    <div class="up-grid-team">
-      {featured.map((m) => <TeamCard id={m.id} name={m.name} roles={m.roles} picture={m.picture} />)}
+    <div class="up-grid-5">
+      {
+        people.map((m) => (
+          <a class="up-cutout" href={`/member/${m.id}`}>
+            <div class="up-cutout-photo"><Image src={m.portrait!} alt={m.name} widths={[300, 600]} sizes="(min-width: 1100px) 220px, (min-width: 768px) 30vw, 45vw" /></div>
+            <div class="flex flex-col gap-1">
+              <h3 class="up-h4">{m.name}</h3>
+              <p class="up-caption m-0">{m.roles.join(" · ")}</p>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+    <div class="overflow-hidden rounded-lg">
+      <Image src={grupo} alt="El equipo de Up Estudio Dental en la clínica" widths={[800, 1400, 2000]} sizes="(min-width: 1264px) 1200px, 100vw" class="aspect-[21/9] w-full object-cover" />
     </div>
   </div>
 </section>
