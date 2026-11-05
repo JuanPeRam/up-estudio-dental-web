@@ -1,0 +1,53 @@
+---
+import ServiceIntro from "./ServiceIntro.astro";
+import ProcessSteps from "@/components/UI/ProcessSteps.astro";
+import Accordion from "@/components/UI/Accordion.astro";
+import CTABand from "@/components/UI/CTABand.astro";
+
+const facts = [
+    { icon: "euro", label: "Precio", value: "Según valoración" },
+    { icon: "clock", label: "Sesión", value: "45-60 min" },
+    { icon: "calendar", label: "Duración del efecto", value: "1 a 3 años" },
+];
+
+const phases = [
+    { title: "Valoración previa", text: "Revisamos el estado de tus encías y de tu esmalte y descartamos caries activas. Si hace falta, hacemos antes una limpieza para que el gel actúe de forma uniforme." },
+    { title: "Sesión de blanqueamiento", text: "Protegemos la encía y aplicamos el gel blanqueador de uso profesional. Trabajamos por tandas, controlando el tono para que el resultado sea natural y no un blanco artificial." },
+    { title: "Mantenimiento", text: "Te damos pautas para las primeras 48 horas y, si tu caso lo requiere, férulas para retoques en casa. Con revisiones y limpiezas periódicas el resultado dura mucho más." },
+];
+
+const faqs = [
+    { question: "¿Daña el esmalte?", answer: "No. El gel actúa sobre los pigmentos alojados en el diente, no desgasta el esmalte. Por eso es importante que lo aplique un profesional, con la concentración y los tiempos adecuados a tu caso." },
+    { question: "¿Voy a tener sensibilidad?", answer: "Es el efecto secundario más habitual y es pasajero: suele durar entre 24 y 48 horas. Valoramos tu esmalte antes de empezar y ajustamos el tratamiento para minimizarla." },
+    { question: "¿Funciona sobre fundas, coronas o empastes?", answer: "No. Los materiales artificiales no cambian de color. Si tienes restauraciones en la zona visible, lo valoramos antes para decidir si conviene sustituirlas después y que el tono case." },
+    { question: "¿Cuánto dura el resultado?", answer: "Entre uno y tres años, según tus hábitos. El café, el té, el vino tinto y el tabaco son los que más aceleran la vuelta al tono original." },
+];
+---
+
+<section class="up-section" id="blanqueamiento-dental">
+    <div class="up-wrap flex flex-col gap-16">
+        <ServiceIntro
+            title="Blanqueamiento dental"
+            lead="Recupera el blanco natural de tu sonrisa con un tratamiento seguro y supervisado. Aplicamos un gel blanqueador de uso profesional, siempre después de valorar tus encías y tu esmalte para adaptarlo a tu caso y minimizar la sensibilidad."
+            facts={facts}
+        />
+
+        <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
+            <div class="flex flex-col gap-8">
+                <h3 class="up-h3">Las tres fases del tratamiento</h3>
+                <ProcessSteps steps={phases} />
+            </div>
+            <div class="flex flex-col gap-8">
+                <h3 class="up-h3">Preguntas frecuentes</h3>
+                <Accordion items={faqs} openFirst />
+            </div>
+        </div>
+    </div>
+</section>
+
+<CTABand
+    eyebrow="Primer paso"
+    service="un blanqueamiento dental"
+    title="Empieza por la valoración"
+    description="Antes de blanquear necesitamos ver tu boca. La cita de valoración es gratuita y sales sabiendo qué resultado puedes esperar."
+/>

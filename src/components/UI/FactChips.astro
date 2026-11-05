@@ -1,0 +1,19 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  facts: { icon: string; label: string; value: string }[];
+}
+const { facts } = Astro.props;
+---
+
+<ul class="up-facts">
+  {
+    facts.map((f) => (
+      <li class="up-fact">
+        <span class="up-fact-ico"><Icon name={f.icon} class="up-icon" /></span>
+        <span class="up-fact-txt"><small>{f.label}</small><b>{f.value}</b></span>
+      </li>
+    ))
+  }
+</ul>

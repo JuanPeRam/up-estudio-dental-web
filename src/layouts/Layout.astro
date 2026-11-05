@@ -1,34 +1,20 @@
 ---
-import Nav from "@/components/Nav.astro";
-import Closing from "@/components/Closing.astro";
+import { ViewTransitions } from "astro:transitions";
+import NavBar from "@/components/Common/NavBar.astro";
+import Footer from "@/components/Common/Footer.astro";
+import MobileActionBar from "@/components/Common/MobileActionBar.astro";
 import "@fontsource-variable/figtree";
 import "@fontsource-variable/newsreader";
+import '@/styles/tailwind.css'
 import { fixedNumber } from "@/constants/personal";
 import socials from "@/constants/socials";
 
 interface Props {
   title: string;
   description: string;
-  /** Palabra de la navegación de esta página (aria-current) */
-  current?: "tratamientos" | "clinica" | "equipo" | "contacto";
-  /** Dónde se pide cita: el formulario de esta página (#cita) o la página de contacto */
-  actionHref?: string;
-  /** Cierre del pie: titular y línea */
-  closeTitle?: string;
-  closeLine?: string;
-  /** Página sin el sistema de pantallas (textos legales) */
-  doc?: boolean;
 }
 
-const {
-  title,
-  description,
-  current,
-  actionHref = "/contact#cita",
-  closeTitle,
-  closeLine,
-  doc = false,
-} = Astro.props;
+const { title, description } = Astro.props;
 
 const pageTitle = title === "Inicio" ? "Up Estudio Dental y Estética · Dentista en Móstoles" : `${title} · Up Estudio Dental y Estética`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
@@ -80,15 +66,13 @@ const structuredData = {
 ---
 
 <!doctype html>
-<html lang="es" data-type="service" data-radius="soft" data-buttons="block" data-motion>
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>{pageTitle}</title>
     <meta name="description" content={description} />
-    <meta name="site-kind" content="other" />
-    <meta name="page-type" content="service" />
-    <meta name="theme-color" content="#f6f8f7" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f6f8f7" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0e1413" media="(prefers-color-scheme: dark)" />
     <meta name="generator" content={Astro.generator} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_ES" />
@@ -96,32 +80,22 @@ const structuredData = {
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageURL} />
+
     <link rel="icon" type="image/png" href="/img/up-logo.png" />
     <link rel="canonical" href={canonicalURL} />
 
-    <link rel="stylesheet" href="/kit/system.css" />
-    <link rel="stylesheet" href="/kit/ui/cards.css" />
-    <link rel="stylesheet" href="/kit/motion/motion.css" />
-    <link rel="stylesheet" href="/kit/backgrounds/backgrounds.css" />
-    <link rel="stylesheet" href="/kit/layout/layout.css" />
-    <link rel="stylesheet" href="/kit/icons/icon.css" />
-    <link rel="stylesheet" href="/site.css" />
+    <title>{pageTitle}</title>
+    <ViewTransitions />
 
     <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
   </head>
   <body>
-    <Nav current={current} actionHref={actionHref} />
-    <main id="top">
+    <a href="#contenido" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-md focus:bg-raised focus:px-4 focus:py-2 focus:font-semibold">Saltar al contenido</a>
+    <NavBar />
+    <main id="contenido">
       <slot />
     </main>
-    {doc ? <Closing actionHref={actionHref} compact /> : <Closing actionHref={actionHref} title={closeTitle} line={closeLine} />}
-    <nav class="actionbar" aria-label="Contacto rápido">
-      <a class="btn btn--secondary" href="tel:+34919931329">Llamar</a>
-      <a class="btn btn--primary" href={actionHref}>Pedir cita</a>
-    </nav>
-
-    <script type="module" src="/kit/system.js" is:inline></script>
-    <script type="module" src="/kit/motion/motion.js" is:inline></script>
-    <script type="module" src="/kit/layout/layout.js" is:inline></script>
+    <Footer />
+    <MobileActionBar />
   </body>
 </html>

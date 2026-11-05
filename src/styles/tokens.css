@@ -1,0 +1,76 @@
+/* Up Estudio Dental — tokens del sistema de diseño.
+   Fuente: artefacto "Up Estudio Dental · Guía de estilo" (tokens.json). */
+
+:root {
+  color-scheme: light;
+  --surface: #f6f8f7;
+  --surface-raised: #ffffff;
+  --surface-tint: #eaf4f3;
+  --surface-sand: #f1ebe2;
+  --night: #111716;
+  --on-night: #e3e3e3;
+  --on-night-muted: #a7b5b3;
+  --line: #dbe4e2;
+  --control-border: #6f8582;
+  --ink: #14201f;
+  --ink-muted: #566764;
+  --brand: #77c6c1;
+  --brand-strong: #24645f;
+  --action: #24645f;
+  --action-hover: #1d4f4b;
+  --on-action: #ffffff;
+  --danger: #b42318;
+  --success: #2e7d4f;
+  --focus-ring: #24645f;
+
+  --shadow-sm: 0 1px 2px rgba(20, 32, 31, 0.06), 0 1px 1px rgba(20, 32, 31, 0.04);
+  --shadow-md: 0 12px 32px -12px rgba(20, 32, 31, 0.18);
+
+  --font-display: "Newsreader Variable", "Newsreader", Georgia, serif;
+  --font-sans: "Figtree Variable", "Figtree", "Segoe UI", system-ui, sans-serif;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --container: 1200px;
+  --measure: 68ch;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  --duration-fast: 160ms;
+  --duration-base: 240ms;
+
+  --nav-h: 76px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --surface: #0e1413;
+    --surface-raised: #162120;
+    --surface-tint: #13302d;
+    --surface-sand: #2a2520;
+    --line: #26332f;
+    --control-border: #6a807c;
+    --ink: #e8efee;
+    --ink-muted: #9db0ad;
+    --brand-strong: #8fd3ce;
+    --action: #77c6c1;
+    --action-hover: #8fd3ce;
+    --on-action: #0e1413;
+    --danger: #ffb4a8;
+    --success: #8fd5a6;
+    --focus-ring: #8fd3ce;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 12px 32px -12px rgba(0, 0, 0, 0.6);
+  }
+}

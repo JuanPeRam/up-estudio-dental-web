@@ -1,0 +1,57 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import Button from "@/components/UI/Button.astro";
+import fachada from "@/img/UP-Gallery/Up-Entry.jpg";
+import zonaInfantil from "@/img/UP-Gallery/Rest-room.jpg";
+import recepcion from "@/img/UP-Gallery/Entry3.jpg";
+
+const points = [
+  { icon: "smile", title: "Pensada para niños", text: "Zona de juegos en la sala de espera y odontopediatría con la Dra. Cristina Umérez." },
+  { icon: "sparkle", title: "Dental y estética", text: "Odontología y medicina estética facial con el mismo criterio prudente." },
+  { icon: "users", title: "Equipo familiar", text: "Un equipo pequeño que te conoce por tu nombre desde la primera visita." },
+];
+---
+
+<section class="up-section" id="clinica">
+  <div class="up-wrap grid items-center gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+    <div class="flex flex-col gap-8">
+      <div class="up-sh">
+        <p class="up-eyebrow">Sobre nosotros</p>
+        <h2 class="up-h2">Una clínica de barrio con tecnología de primera</h2>
+        <p class="up-lead">
+          Desde 2022 unimos odontología y medicina estética facial en un espacio luminoso donde cada paciente se siente como en
+          casa.
+        </p>
+      </div>
+      <ul class="m-0 flex list-none flex-col gap-5 p-0">
+        {
+          points.map((p) => (
+            <li class="flex gap-4">
+              <span class="up-fact-ico"><Icon name={p.icon} class="up-icon" /></span>
+              <div class="flex flex-col gap-1">
+                <h3 class="up-h4">{p.title}</h3>
+                <p class="up-small">{p.text}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="flex flex-wrap gap-3">
+        <Button href="/clinic" variant="secondary" iconAfter="arrow-right">Recorre la clínica</Button>
+      </div>
+    </div>
+
+    <div class="up-gallery" aria-label="Fotos de la clínica">
+      <a href="/clinic" class="big" aria-label="Ver la galería: sala de espera con zona infantil">
+        <Image src={zonaInfantil} alt="Sala de espera con zona de juegos infantil" widths={[480, 800]} sizes="(min-width: 1080px) 400px, 100vw" />
+      </a>
+      <a href="/clinic" class="tall" aria-label="Ver la galería: fachada de la clínica">
+        <Image src={fachada} alt="Fachada de Up Estudio Dental" widths={[340, 680]} sizes="200px" />
+      </a>
+      <a href="/clinic" class="tall" aria-label="Ver la galería: recepción">
+        <Image src={recepcion} alt="Recepción y sala de espera" widths={[400, 700]} sizes="200px" />
+      </a>
+    </div>
+  </div>
+</section>

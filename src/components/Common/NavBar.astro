@@ -1,0 +1,118 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import { paths } from "@/constants/pages";
+import { contact } from "@/constants/personal";
+import upLogo from "@/img/up-logo-white.png";
+
+let path = Astro.url.pathname.replace(/\/$/, "");
+if (path === "") path = "/";
+const isCurrent = (href: string) =>
+  href === "/" ? path === "/" : path === href || path.startsWith(`${href}/`) || (href === "/team" && path.startsWith("/member"));
+---
+
+<header class="up-nav" id="site-nav">
+  <div class="up-wrap up-nav-in">
+    <a class="up-nav-logo" href="/" aria-label="Up Estudio Dental y Estética, ir al inicio">
+      <Image src={upLogo} alt="" width={80} loading="eager" />
+    </a>
+
+    <nav aria-label="Principal">
+      <ul class="up-nav-links">
+        {
+          Object.entries(paths).map(([label, href]) => (
+            <li>
+              <a href={href} aria-current={isCurrent(href) ? "page" : undefined}>
+                {label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="up-nav-actions">
+      <a class="up-nav-phone" href={contact.landline.href} aria-label={`Llamar a la clínica: ${contact.landline.display}`}>
+        <Icon name="phone" class="up-icon" />{contact.landline.display}
+      </a>
+      <a class="up-btn up-btn-primary up-btn-sm" href="/contact">Pedir cita</a>
+      <button class="up-nav-menu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-menu" data-menu-open>
+        <Icon name="menu" class="up-icon" />
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="up-menu" id="site-menu" role="dialog" aria-modal="true" aria-label="Menú" hidden>
+  <div class="up-wrap up-nav-in">
+    <a class="up-nav-logo" href="/" aria-label="Ir al inicio">
+      <Image src={upLogo} alt="" width={80} />
+    </a>
+    <button class="up-nav-menu" style="display:inline-flex" type="button" aria-label="Cerrar menú" data-menu-close>
+      <Icon name="close" class="up-icon" />
+    </button>
+  </div>
+  <nav class="up-wrap" aria-label="Menú móvil">
+    <ul class="up-menu-links">
+      {
+        Object.entries(paths).map(([label, href]) => (
+          <li>
+            <a href={href} aria-current={isCurrent(href) ? "page" : undefined}>
+              {label}
+              <Icon name="arrow-right" class="up-icon" />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="flex flex-col gap-3 pb-8">
+      <a class="up-btn up-btn-primary up-btn-block" href="/contact"><Icon name="calendar" class="up-icon" />Pedir cita</a>
+      <a class="up-btn up-btn-secondary up-btn-block" href={contact.landline.href}><Icon name="phone" class="up-icon" />{contact.landline.display}</a>
+    </div>
+  </nav>
+</div>
+
+<script>
+  function initNav() {
+    const nav = document.getElementById("site-nav");
+    const menu = document.getElementById("site-menu");
+    const openBtn = document.querySelector<HTMLButtonElement>("[data-menu-open]");
+    const closeBtn = document.querySelector<HTMLButtonElement>("[data-menu-close]");
+    if (!nav || !menu || !openBtn || !closeBtn) return;
+
+    const onScroll = () =>
+      document.getElementById("site-nav")?.classList.toggle("is-scrolled", window.scrollY > 8);
+    onScroll();
+    const w = window as Window & { __upNavScroll?: boolean };
+    if (!w.__upNavScroll) {
+      window.addEventListener("scroll", onScroll, { passive: true });
+      w.__upNavScroll = true;
+    }
+
+    const close = () => {
+      menu.hidden = true;
+      openBtn.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", onKey);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        close();
+        openBtn.focus();
+      }
+    };
+    openBtn.onclick = () => {
+      menu.hidden = false;
+      openBtn.setAttribute("aria-expanded", "true");
+      document.body.style.overflow = "hidden";
+      document.addEventListener("keydown", onKey);
+      closeBtn.focus();
+    };
+    closeBtn.onclick = () => {
+      close();
+      openBtn.focus();
+    };
+    menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", close));
+  }
+  document.addEventListener("astro:page-load", initNav);
+</script>

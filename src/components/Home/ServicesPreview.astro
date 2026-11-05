@@ -1,0 +1,22 @@
+---
+import SectionHeader from "@/components/UI/SectionHeader.astro";
+import ServiceCard from "@/components/Cards/ServiceCard.astro";
+import Button from "@/components/UI/Button.astro";
+import { services } from "@/constants/services";
+---
+
+<section class="up-section up-band-tint" id="servicios">
+  <div class="up-wrap flex flex-col gap-12">
+    <SectionHeader
+      align="split"
+      eyebrow="Qué ofrecemos"
+      title="Odontología y estética facial en un mismo sitio"
+      lead="Revisiones, limpiezas, blanqueamiento y medicina estética con el mismo equipo que ya conoce tu historia."
+    >
+      <div><Button href="/services" variant="ghost" iconAfter="arrow-right">Ver todos los servicios</Button></div>
+    </SectionHeader>
+    <div class="up-grid-4">
+      {services.map((s) => <ServiceCard service={s} />)}
+    </div>
+  </div>
+</section>

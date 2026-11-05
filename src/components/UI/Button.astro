@@ -1,0 +1,38 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  href: string;
+  variant?: "primary" | "secondary" | "ghost" | "night" | "outline-night";
+  size?: "md" | "sm";
+  icon?: string;
+  iconAfter?: string;
+  block?: boolean;
+  external?: boolean;
+  class?: string;
+  "aria-label"?: string;
+}
+
+// Nombres de clase literales para que Tailwind no los purgue.
+const variants = {
+  primary: "up-btn-primary",
+  secondary: "up-btn-secondary",
+  ghost: "up-btn-ghost",
+  night: "up-btn-night",
+  "outline-night": "up-btn-outline-night",
+} as const;
+
+const { href, variant = "primary", size = "md", icon, iconAfter, block = false, external = false, class: extra, ...rest } = Astro.props;
+---
+
+<a
+  href={href}
+  class:list={["up-btn", variants[variant], size === "sm" && "up-btn-sm", block && "up-btn-block", extra]}
+  target={external ? "_blank" : undefined}
+  rel={external ? "noopener noreferrer" : undefined}
+  {...rest}
+>
+  {icon && <Icon name={icon} class="up-icon" />}
+  <slot />
+  {iconAfter && <Icon name={iconAfter} class="up-icon" />}
+</a>

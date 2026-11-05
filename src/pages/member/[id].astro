@@ -1,9 +1,10 @@
 ---
-/* type: service · ficha de un profesional
-   hero split (texto a la izquierda, el retrato a la derecha); más del equipo (tres tiles); footer.closing */
 export const prerender = true;
 
 import Layout from "@/layouts/Layout.astro";
+import Button from "@/components/UI/Button.astro";
+import TeamCard from "@/components/Cards/TeamCard.astro";
+import CTABand from "@/components/UI/CTABand.astro";
 import { team, getMemberByName } from "@/db/team";
 
 export function getStaticPaths() {
@@ -11,50 +12,43 @@ export function getStaticPaths() {
 }
 
 const { id } = Astro.params;
-const m = getMemberByName(id)!;
-const others = team.filter((x) => x.id !== id).slice(0, 3);
+const member = getMemberByName(id)!;
+const others = team.filter((m) => m.id !== id).slice(0, 3);
+const description = `${member.name}${member.roles ? ` — ${member.roles.join(", ")}` : ""} en Up Estudio Dental y Estética, Móstoles.`;
 ---
 
-<Layout
-  title={m.name}
-  description={`${m.name}, ${m.roles.join(", ").toLowerCase()} en Up Estudio Dental y Estética, Móstoles.`}
-  current="equipo"
-  closeTitle="Pide cita con nuestro equipo"
-  closeLine="Dinos qué necesitas y te damos cita con el especialista adecuado."
->
-  <section class="hero hero--split" aria-labelledby="hero-h">
-    <div class="wrap"><div class="hero-text grid hero__grid">
-      <div class="hero__text span-5">
-        <h1 id="hero-h">{m.name}</h1>
-        <p class="hero__lead">{m.description}</p>
-        <div class="btn-row"><a class="btn btn--primary" href="/contact#cita">Pedir cita</a><a class="btn btn--secondary" href="/team">Ver el equipo</a></div>
-        <dl class="hero-facts">
-          {m.roles.map((r: string, i: number) => <div><dt>{i === 0 ? "Especialidad" : "También"}</dt><dd>{r}</dd></div>)}
-        </dl>
-      </div>
-      <div class="hero__media hero__media--portrait span-4 start-9">
-        <img src={`/${m.picture}`} alt={m.name} width="420" height="600" fetchpriority="high" style="--ly-pos: 50% 20%" data-source="client" data-subject={m.name} />
-      </div>
-    </div></div>
-  </section>
-
-  <section class="section" id="mas-equipo" aria-labelledby="mas-h">
-    <div class="wrap">
-      <div class="section-head section-head--row">
-        <div><h2 id="mas-h">Más del equipo</h2><p>Trabajan juntos en cada caso que lo necesita.</p></div>
-        <a class="link" href="/team">Ver todo el equipo</a>
-      </div>
-      <div class="grid">
-        {
-          others.map((o) => (
-            <a class="tile tile--square span-4 m-zoom" href={`/member/${o.id}`}>
-              <div class="tile__media"><img src={`/${o.picture}`} alt={o.name} width="420" height="420" loading="lazy" data-source="client" data-subject={o.name} /></div>
-              <div class="tile__head"><h3>{o.name}</h3></div>
-              <p class="tile__facts">{o.roles.join(" · ")}</p>
-            </a>
-          ))
-        }
+<Layout title={member.name} description={description}>
+  <section class="up-section pt-10">
+    <div class="up-wrap flex flex-col gap-8">
+      <nav class="up-crumbs" aria-label="Migas de pan">
+        <a href="/team">Equipo</a><span aria-hidden="true">/</span><span aria-current="page">{member.name}</span>
+      </nav>
+      <div class="grid items-start gap-10 md:grid-cols-[minmax(0,380px)_1fr] lg:gap-16">
+        <div class="up-team-photo w-full max-w-[300px] md:max-w-none">
+          <img src={`/${member.picture}`} alt={member.name} width="420" height="525" transition:name={`${member.id}-image`} />
+        </div>
+        <div class="flex flex-col gap-6 md:pt-4">
+          <p class="up-eyebrow">Nuestro equipo</p>
+          <h1 class="up-h1">{member.name}</h1>
+          {member.roles && <div class="up-team-roles">{member.roles.map((r) => <span class="up-badge">{r}</span>)}</div>}
+          <p class="up-lead">{member.description}</p>
+          <div class="flex flex-wrap gap-3 pt-2">
+            <Button href="/contact" icon="calendar">Pedir cita</Button>
+            <Button href="/team" variant="secondary" icon="arrow-left">Volver al equipo</Button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+
+  <section class="up-section up-band-sand">
+    <div class="up-wrap flex flex-col gap-10">
+      <h2 class="up-h2">Más del equipo</h2>
+      <div class="up-grid-team">
+        {others.map((m) => <TeamCard id={m.id} name={m.name} roles={m.roles} picture={m.picture} />)}
+      </div>
+    </div>
+  </section>
+
+  <CTABand title="Pide cita con nuestro equipo" />
 </Layout>

@@ -1,53 +1,44 @@
 ---
-/* type: service · contacto y cita
-   deal: hero film (sin película: la recepción como póster); secciones: cita (booking-form),
-   cómo llegar (visita), footer.closing */
-import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 import Layout from "@/layouts/Layout.astro";
-import Booking from "@/components/Booking.astro";
-import Visit from "@/components/Visit.astro";
-import recepcion from "@/img/UP-Gallery/Entry3.jpg";
-
-let status: "idle" | "sent" | "error" = "idle";
-if (Astro.request.method === "POST") {
-  try {
-    const data = await Astro.request.formData();
-    const name = data.get("name")?.toString().trim();
-    const phone = data.get("phone")?.toString().trim();
-    if (!name || !phone || !data.get("privacy")) throw new Error("Faltan campos obligatorios");
-    // TODO: enviar la petición al correo de la clínica; de momento solo se registra en el servidor.
-    console.log({ name, phone, email: data.get("email"), subject: data.get("subject"), message: data.get("message") });
-    status = "sent";
-  } catch (error) {
-    console.log(error);
-    status = "error";
-  }
-}
+import PageHeader from "@/components/UI/PageHeader.astro";
+import Form from "@/components/Contact/Form.astro";
+import HoursCard from "@/components/UI/HoursCard.astro";
+import Button from "@/components/UI/Button.astro";
+import Notice from "@/components/UI/Notice.astro";
+import { contact, whatsappLink } from "@/constants/personal";
 ---
 
 <Layout
-  title="Pedir cita"
-  description="Pide cita en Up Estudio Dental, Móstoles: formulario, teléfono 919 931 329 y WhatsApp 649 039 327. Urgencias 24 h."
-  current="contacto"
-  actionHref="#cita"
-  closeTitle="Pide tu revisión gratis"
-  closeLine="Lunes a viernes de 10:00 a 13:30 y de 16:00 a 20:30. Sábados de 10:00 a 14:00."
+    title="Contacto"
+    description="Pide cita en Up Estudio Dental y Estética, Móstoles: formulario, WhatsApp, teléfono y horario. Urgencias odontológicas 24 h."
 >
-  <section class="hero hero--film" aria-labelledby="hero-h">
-    <div class="wrap"><div class="hero-text hero__in">
-      <div class="hero__media hero__fill">
-        <Image src={recepcion} alt="Recepción y sala de espera de Up Estudio Dental" widths={[800, 1400, 1864]} sizes="(min-width: 1024px) 1280px, (min-width: 640px) 200vw, 260vw" loading="eager" fetchpriority="high" style="--ly-pos: 50% 55%; --ly-pos-phone: 30% 50%" data-source="client" data-subject="la recepción" />
-        <div class="hero__over">
-          <div>
-            <h1 id="hero-h">Pide cita en Up Estudio Dental</h1>
-            <p class="hero__lead">Por el formulario, en el 919 931 329 o por WhatsApp en el 649 039 327. Urgencias odontológicas las 24 horas.</p>
-            <div class="btn-row"><a class="btn btn--primary" href="#cita">Pedir cita</a><a class="btn btn--secondary" href="https://wa.me/34649039327" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a></div>
-          </div>
+    <PageHeader
+        eyebrow="Contacto"
+        title="Pide tu cita"
+        lead="Escríbenos por el formulario o por WhatsApp, o llámanos. Te respondemos en horario de clínica y atendemos urgencias las 24 horas."
+    >
+        <div class="flex flex-wrap gap-3">
+            <Button href={whatsappLink("Hola, me gustaría pedir cita.")} icon="whatsapp" external aria-label="Escribir por WhatsApp (se abre en otra pestaña)">Escribir por WhatsApp</Button>
+            <Button href={contact.landline.href} variant="secondary" icon="phone">{contact.landline.display}</Button>
         </div>
-      </div>
-    </div></div>
-  </section>
+    </PageHeader>
 
-  <Booking status={status} h2="Déjanos tus datos" />
-  <Visit />
+    <section class="up-section pt-12">
+        <div class="up-wrap grid items-start gap-10 lg:grid-cols-[1.4fr_1fr] lg:gap-12">
+            <Form />
+            <div class="flex flex-col gap-6 lg:sticky lg:top-[calc(var(--nav-h)+24px)]">
+                <HoursCard />
+                <div class="up-hours">
+                    <p class="up-eyebrow">Dirección</p>
+                    <p class="m-0 font-semibold text-ink">{contact.address}</p>
+                    <a class="up-tel" href={`mailto:${contact.email}`}><Icon name="mail" class="up-icon" />{contact.email}</a>
+                    <Button href={contact.mapsUrl} variant="secondary" icon="pin" external block aria-label="Cómo llegar (abre Google Maps en otra pestaña)">Cómo llegar</Button>
+                </div>
+                <Notice>
+                    <b>Política de cancelación.</b> Confirma o anula tu cita llamando con antelación. Sin confirmación previa no podemos garantizar la disponibilidad.
+                </Notice>
+            </div>
+        </div>
+    </section>
 </Layout>

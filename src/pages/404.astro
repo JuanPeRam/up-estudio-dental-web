@@ -1,19 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Button from "@/components/UI/Button.astro";
 ---
 
 <Layout
     title="Página no encontrada"
-    description="La página que buscas no existe. Vuelve al inicio de Up Estudio Dental y Estética o consulta los tratamientos."
-    doc
+    description="La página que buscas no existe. Vuelve al inicio de Up Estudio Dental y Estética o consulta nuestros servicios."
 >
-    <section class="section section--doc" aria-labelledby="doc-h">
-        <div class="wrap">
-            <div class="section-head">
-                <h1 id="doc-h">No encontramos esta página</h1>
-                <p>Puede que el enlace haya cambiado. Vuelve al inicio o mira los tratamientos.</p>
+    <section class="up-section">
+        <div class="up-wrap flex max-w-2xl flex-col items-start gap-6">
+            <p class="up-eyebrow">Error 404</p>
+            <h1 class="up-h1">No encontramos esta página</h1>
+            <p class="up-lead">Puede que el enlace haya cambiado. Desde aquí puedes volver al inicio, ver los tratamientos o pedir cita.</p>
+            <div class="flex flex-wrap gap-3">
+                <Button href="/" icon="arrow-left">Volver al inicio</Button>
+                <Button href="/services" variant="secondary">Ver servicios</Button>
             </div>
-            <div class="btn-row"><a class="btn btn--primary" href="/contact#cita">Pedir cita</a><a class="btn btn--secondary" href="/services">Ver tratamientos</a></div>
         </div>
     </section>
 </Layout>

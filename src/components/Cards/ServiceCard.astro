@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import type { ServiceMeta } from "@/constants/services";
+
+interface Props {
+  service: ServiceMeta;
+  active?: boolean;
+  headingLevel?: "h2" | "h3";
+}
+const { service, active = false, headingLevel: H = "h3" } = Astro.props;
+---
+
+<a class="up-scard" href={`/services?servicio=${service.slug}#detalle`} aria-current={active ? "true" : undefined}>
+  <div class="up-scard-media">
+    <Image src={service.image} alt={service.imageAlt} widths={[400, 640]} sizes="(min-width: 1080px) 280px, (min-width: 640px) 50vw, 100vw" />
+  </div>
+  <div class="up-scard-body">
+    {service.badge && <span class="up-badge">{service.badge}</span>}
+    <H class="up-h3">{service.title}</H>
+    <p class="up-small">{service.shortDescription}</p>
+    <span class="up-scard-more">
+      {active ? "Estás viendo este tratamiento" : "Ver el tratamiento"}
+      <Icon name={active ? "check" : "arrow-right"} class="up-icon" />
+    </span>
+  </div>
+</a>

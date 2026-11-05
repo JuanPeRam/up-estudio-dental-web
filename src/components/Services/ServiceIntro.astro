@@ -1,0 +1,18 @@
+---
+import FactChips from "@/components/UI/FactChips.astro";
+
+interface Props {
+    badge?: string;
+    title: string;
+    lead: string;
+    facts?: { icon: string; label: string; value: string }[];
+}
+const { badge, title, lead, facts } = Astro.props;
+---
+
+<header class="flex max-w-3xl flex-col gap-5">
+    {badge && <span class="up-badge self-start">{badge}</span>}
+    <h2 class="up-h1">{title}</h2>
+    <p class="up-lead">{lead}</p>
+    {facts && <div class="pt-2"><FactChips facts={facts} /></div>}
+</header>
