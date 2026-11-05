@@ -77,7 +77,12 @@
    cabe en una, pasa a dos (una regla de página por sección). */
 
 @media (max-width: 639px) {
-  #tratamientos, #primera-visita, #cita, #proceso, #otros, #familias, #como-llegar { --hm: 2; }
+  #tratamientos, #primera-visita, #cita, #proceso, #familias, #como-llegar { --hm: 2; }
+  #familias .frame--fill, #como-llegar .frame--fill { aspect-ratio: 3 / 4 !important; }
+  /* otros tratamientos en el móvil: dos tiles lado a lado en una pantalla */
+  #otros .grid > .tile { grid-column: span 6 !important; --tile-ratio: 4 / 5; }
+  #otros .grid > .tile:nth-child(3) { display: none; }
+  #otros .tile__head { display: block; }
   /* equipo en el móvil: las dos especialistas principales en una pantalla, el resto en /team */
   #equipo .grid > .tile:nth-child(n+3) { display: none; }
   #profesionales .tile > .t-small { display: none; }
@@ -152,7 +157,7 @@ main > section.section--doc { height: auto; min-height: 0; padding-bottom: var(-
 
 /* tablet: la foto de la lista de tratamientos toma una proporción fija en vez de llenar dos pantallas */
 /* fotos de 680 px de origen (sala de espera, fachada): marco 4:3 fijo, nunca ampliadas */
-#familias .frame--fill, #como-llegar .frame--fill { height: auto; width: 100%; align-self: start; aspect-ratio: 4 / 3; }
+#familias .frame--fill, #como-llegar .frame--fill { height: auto; width: 100%; align-self: start; aspect-ratio: 4 / 3; flex: none !important; min-height: 0 !important; }
 /* el botón grande del cierre ocupa la línea entera bajo 1024 (container-edges) */
 @media (max-width: 1023px) { .closing__cta.close--type > .btn--xl { align-self: stretch; width: 100%; } }
 /* el pie: el correo puede partirse antes que salirse de su columna */
@@ -173,6 +178,7 @@ main > section.section--doc { height: auto; min-height: 0; padding-bottom: var(-
 .booking-photo img { width: 100%; height: 100%; object-fit: cover; }
 
 /* otros tratamientos: tres en fila también en tablet, en una pantalla */
-@media (min-width: 640px) and (max-width: 1023px) { #otros .grid > .tile { grid-column: span 4 !important; } }
+@media (min-width: 640px) and (max-width: 1023px) { #otros .grid > .tile { grid-column: span 4 !important; --tile-ratio: 3 / 4; } }
 @media (min-width: 640px) and (max-width: 1023px) { .wall { grid-auto-rows: 190px; } }
 @media (min-width: 640px) and (max-width: 1023px) and (min-height: 1100px) { .wall { grid-auto-rows: 240px; } }
+@media (min-width: 640px) and (max-width: 1023px) and (min-height: 1100px) { #otros .grid > .tile { --tile-ratio: 3 / 5; } }
