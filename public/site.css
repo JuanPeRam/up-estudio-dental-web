@@ -80,6 +80,7 @@
   #tratamientos, #primera-visita, #cita, #proceso, #otros, #familias, #como-llegar { --hm: 2; }
   /* equipo en el móvil: las dos especialistas principales en una pantalla, el resto en /team */
   #equipo .grid > .tile:nth-child(n+3) { display: none; }
+  #profesionales .tile > .t-small { display: none; }
   /* opiniones y preguntas caben en una pantalla con una cita y una pregunta menos */
   #opiniones .quotes-row { display: none; }
   #preguntas .faq__item:nth-child(n+4) { display: none; }
@@ -131,7 +132,7 @@ main > section.section--doc { height: auto; min-height: 0; padding-bottom: var(-
 
 /* equipo en tablet: tres retratos por fila, para que las dos filas quepan en sus dos pantallas */
 @media (min-width: 640px) and (max-width: 1023px) {
-  #profesionales .grid > .tile { grid-column: span 4; }
+  #profesionales .grid > .tile { grid-column: span 4; --tile-ratio: 3 / 4; }
   #mas-equipo .grid > .tile { grid-column: span 6; --tile-ratio: 4 / 5; }
   #mas-equipo .grid > .tile:nth-child(3) { display: none; }
 }
