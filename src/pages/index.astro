@@ -1,23 +1,201 @@
 ---
+/* type: service · site-kind other · clínica dental familiar en Móstoles
+   deal: hero film (sin película: la foto de la recepción como póster, sin control de reproducir),
+         nav-split, close-type, footer-dark, rhythm space, buttons block, marca: logo del cliente,
+         tipografía newsreader con el texto en Figtree (guía de estilo de Up)
+   pantallas a 1440x900: hero 1 · tratamientos 1 (peek-list) · clínica 1 (trío) · opiniones 1 (quote)
+         · primera visita 1 (steps) · equipo 1 (people-row) · preguntas 1 (faq) · cita 1 (booking-form)
+         · footer.closing 1 */
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/components/Home/Hero.astro";
-import TrustBar from "@/components/Home/TrustBar.astro";
-import ServicesPreview from "@/components/Home/ServicesPreview.astro";
-import ClinicIntro from "@/components/Home/ClinicIntro.astro";
-import TeamPreview from "@/components/Home/TeamPreview.astro";
-import Opinions from "@/components/Comments/Opinions.astro";
-import CTABand from "@/components/UI/CTABand.astro";
+import Booking from "@/components/Booking.astro";
+import { services } from "@/constants/services";
+import { team } from "@/db/team";
+import reviews from "@/data/reviews.json";
+
+import recepcion from "@/img/UP-Gallery/Entry2.jpg";
+import zonaInfantil from "@/img/UP-Gallery/Rest-room.jpg";
+import fachada from "@/img/UP-Gallery/Up-Entry.jpg";
+import recepcion3 from "@/img/UP-Gallery/Entry3.jpg";
+import mostrador from "@/img/UP-Gallery/Up-Board.jpg";
+import gabinete23 from "@/img/UP-Gallery/Box23.jpg";
+import despacho from "@/img/UP-Gallery/Office2.jpg";
+import consulta from "@/img/UP-Gallery/Office.jpg";
+
+const people = ["cristina", "rafael", "isabel", "nilyam"].map((id) => team.find((m) => m.id === id)!);
+const lines: Record<string, string> = {
+  cristina: "Más de 25 años con niños y ortodoncia.",
+  rafael: "Más de 30 años en cirugía e implantes.",
+  isabel: "Licenciada por la Universidad Europea de Madrid.",
+  nilyam: "Cuida de las encías y del hueso que sostiene el diente.",
+};
+const byName = (n: string) => (reviews as any[]).find((r) => r.author_name === n);
+const main = byName("Marta Olmos");
+const side = [byName("Eduardo Caballero"), byName("Sergiu Alex")];
+const sergiuText = "Recomendable 100%. La Dra Isabel me trato de maravilla y tienen un zona para los peques que se entretengan.";
+
+const steps = [
+  { title: "Pide cita", text: "Por teléfono, WhatsApp o el formulario. Elegimos contigo el horario.", img: fachada, alt: "Fachada de la clínica en la calle Andrómeda" },
+  { title: "Revisa tu boca", text: "Exploración completa y las radiografías necesarias, en unos 15 minutos.", img: gabinete23, alt: "Gabinete dental con sillón de tratamiento" },
+  { title: "Recibe tu presupuesto", text: "Te explicamos lo que hemos visto y te damos el presupuesto por escrito.", img: despacho, alt: "Despacho de consulta con mesa de cristal" },
+];
+const faqs = [
+  { q: "¿Cuánto cuesta la primera revisión?", a: "Nada. La revisión, las radiografías necesarias y el presupuesto por escrito son gratis." },
+  { q: "¿Atendéis urgencias?", a: "Sí, las 24 horas. Llama al 649 039 327." },
+  { q: "¿Atendéis a niños?", a: "Sí. La Dra. Cristina Umérez es odontopediatra y la sala de espera tiene zona de juegos." },
+  { q: "¿Cuánto dura una limpieza bucal?", a: "Entre 30 y 45 minutos, en una sola sesión y sin dolor." },
+  { q: "¿Cómo cambio o anulo mi cita?", a: "Llama a recepción con antelación al 919 931 329 o escribe por WhatsApp al 649 039 327." },
+];
 ---
 
 <Layout
   title="Inicio"
-  description="Clínica dental familiar en Móstoles: odontología, ortodoncia, odontopediatría y medicina estética facial. Primera revisión gratuita y urgencias 24 h."
+  description="Clínica dental familiar en Móstoles: revisiones gratis, limpieza, blanqueamiento, ortodoncia y medicina estética facial. Urgencias 24 h."
+  actionHref="#cita"
+  closeTitle="Pide tu revisión gratis"
+  closeLine="Lunes a viernes de 10:00 a 13:30 y de 16:00 a 20:30. Sábados de 10:00 a 14:00."
 >
-  <Hero />
-  <TrustBar />
-  <ServicesPreview />
-  <ClinicIntro />
-  <TeamPreview />
-  <Opinions />
-  <CTABand />
+  <section class="hero hero--film" aria-labelledby="hero-h">
+    <div class="wrap"><div class="hero-text hero__in">
+      <div class="hero__media hero__fill">
+        <Image src={recepcion} alt="Recepción de Up Estudio Dental con el logotipo iluminado" widths={[800, 1400, 2000]} sizes="(min-width: 1024px) 1280px, (min-width: 640px) 200vw, 260vw" loading="eager" fetchpriority="high" style="--ly-pos: 60% 50%; --ly-pos-phone: 70% 50%" data-source="client" data-subject="la recepción de la clínica" />
+        <div class="hero__over">
+          <div>
+            <h1 id="hero-h">Clínica dental familiar en Móstoles</h1>
+            <p class="hero__lead">Odontología, ortodoncia y estética facial para toda la familia. Primera revisión gratis y urgencias las 24 horas.</p>
+            <div class="btn-row"><a class="btn btn--primary" href="#cita">Pedir cita</a><a class="btn btn--secondary" href="#tratamientos">Ver tratamientos</a></div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="section" id="tratamientos" aria-labelledby="trat-h">
+    <div class="wrap">
+      <div class="section-head section-head--row">
+        <div><h2 id="trat-h">Tratamientos y precios</h2><p>Cada tratamiento empieza por una valoración. La primera revisión no cuesta nada.</p></div>
+        <a class="link" href="/services">Ver todos los tratamientos</a>
+      </div>
+      <div class="grid grid--top fill" data-peek>
+        <ul class="rows span-6">
+          {
+            services.map((s, i) => (
+              <li data-peek-to={s.slug} tabindex="0">
+                <a class="rows__name" href={`/services?servicio=${s.slug}`}>{s.title}</a>
+                <p>{s.line}</p>
+                <span class="rows__value">{s.value}</span>
+              </li>
+            ))
+          }
+        </ul>
+        <div class="frame frame--photo frame--fill span-6 start-7">
+          {
+            services.map((s, i) => (
+              <Image class="frame__img" data-peek-for={s.slug} src={s.image} alt={s.imageAlt} widths={[860, 1300]} sizes="(min-width: 1024px) 860px, 100vw" loading="eager" hidden={i > 0} data-source="client" data-subject={s.title} />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="clinica" aria-labelledby="clinica-h">
+    <div class="wrap">
+      <div class="section-head section-head--row">
+        <div><h2 id="clinica-h">Una clínica pensada para familias</h2><p>Sala de espera con zona de juegos, gabinetes dentales y de estética, y radiografía en la propia clínica.</p></div>
+        <a class="link" href="/clinic">Ver la clínica</a>
+      </div>
+      <div class="grid trio">
+        <a class="tile span-5" href="/clinic" aria-label="Ver la clínica: la zona infantil"><div class="tile__media"><Image src={zonaInfantil} alt="Sala de espera con tipi, mesas infantiles y butacas" widths={[700, 1300]} sizes="(min-width: 1024px) 700px, 100vw" data-source="client" data-subject="la zona infantil" /></div></a>
+        <a class="tile span-4" href="/clinic" aria-label="Ver la clínica: la recepción"><div class="tile__media"><Image src={mostrador} alt="Mostrador de recepción con flores y el logotipo iluminado" widths={[480, 960]} sizes="(min-width: 1024px) 480px, 50vw" data-source="client" data-subject="la recepción" /></div></a>
+        <a class="tile span-3" href="/clinic" aria-label="Ver la clínica: la entrada"><div class="tile__media"><Image src={recepcion3} alt="Recepción y sala de espera vistas desde la entrada" widths={[700, 1300]} sizes="(min-width: 1024px) 700px, 100vw" data-source="client" data-subject="la entrada" /></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="opiniones" aria-labelledby="opiniones-h">
+    <div class="wrap">
+      <div class="section-head"><h2 id="opiniones-h">Opiniones de pacientes en Google</h2></div>
+      <div class="grid grid--top">
+        <figure class="quote span-6">
+          <blockquote>«{main.text.replace(/\s+/g, " ").trim()}»</blockquote>
+          <div class="person"><span class="avatar" aria-hidden="true">MO</span><span><span class="person__name">Marta Olmos</span><span class="person__role">Paciente, reseña en Google</span></span></div>
+        </figure>
+        <div class="stat-aside span-6 start-7">
+          <span class="g-mark"><Icon name="google" /></span>
+          <p class="t-stat">5,0</p>
+          <p class="t-small">Valoración media de las reseñas en Google</p>
+          <a class="link" href="https://g.co/kgs/uj6iDgM" target="_blank" rel="noopener noreferrer">Leer las reseñas en Google</a>
+        </div>
+      </div>
+      <div class="grid quotes-row" style="margin-top: var(--s-8)">
+        <figure class="quote quote--small span-6">
+          <blockquote>«{side[0].text}»</blockquote>
+          <div class="person"><span class="avatar" aria-hidden="true">EC</span><span><span class="person__name">Eduardo Caballero</span><span class="person__role">Paciente, reseña en Google</span></span></div>
+        </figure>
+        <figure class="quote quote--small span-6 start-7">
+          <blockquote>«{sergiuText}»</blockquote>
+          <div class="person"><span class="avatar" aria-hidden="true">SA</span><span><span class="person__name">Sergiu Alex</span><span class="person__role">Paciente, reseña en Google</span></span></div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="primera-visita" aria-labelledby="visita-h">
+    <div class="wrap">
+      <div class="section-head section-head--row"><div><h2 id="visita-h">Tu primera visita en 3 pasos</h2><p>Sin coste y sin compromiso: sales sabiendo qué necesitas y cuánto cuesta.</p></div><a class="link" href="/services?servicio=revisiones-dentales">Ver qué incluye la revisión</a></div>
+      <div class="grid">
+        {
+          steps.map((s, i) => (
+            <article class="card card--row span-4 m-nolift">
+              <span class="step-num">{i + 1}</span>
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
+              <div class="panel"><Image src={s.img} alt={s.alt} widths={[480, 1000]} sizes="(min-width: 1280px) 480px, (min-width: 1024px) 34vw, 100vw" data-source="client" data-subject={s.alt} /></div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="preguntas" aria-labelledby="preguntas-h">
+    <div class="wrap">
+      <div class="grid grid--top">
+        <div class="span-6 stack-4">
+          <h2 id="preguntas-h">Preguntas frecuentes</h2>
+          <p class="t-lead">Si tu duda no está aquí, llámanos y te lo explicamos.</p>
+          <a class="link" href="tel:+34919931329">Llamar al 919 931 329</a>
+          <div class="faq-photo"><Image src={consulta} alt="Consulta con mesa de reuniones y pantalla" widths={[560, 1100]} sizes="(min-width: 1024px) 560px, 100vw" data-source="client" data-subject="la consulta" /></div>
+        </div>
+        <div class="faq span-6 start-7">
+          {faqs.map((f) => <div class="faq__item"><h3>{f.q}</h3><p>{f.a}</p></div>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="equipo" aria-labelledby="equipo-h">
+    <div class="wrap">
+      <div class="section-head section-head--row">
+        <div><h2 id="equipo-h">El equipo que te va a atender</h2><p>Odontopediatría, ortodoncia, cirugía, implantes y periodoncia en la misma clínica.</p></div>
+        <a class="link" href="/team">Ver todo el equipo</a>
+      </div>
+      <div class="grid">
+        {
+          people.map((m) => (
+            <a class="tile tile--portrait span-3 m-zoom" href={`/member/${m.id}`}>
+              <div class="tile__media"><img src={`/${m.picture}`} alt={m.name} width="420" height="525" loading="lazy" data-source="client" data-subject={m.name} /></div>
+              <div class="tile__head"><h3>{m.name}</h3></div>
+              <p class="tile__facts">{m.roles.join(" · ")}</p>
+              <p class="t-small">{lines[m.id]}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <Booking />
 </Layout>

@@ -1,23 +1,72 @@
 ---
+/* type: service · el equipo
+   deal: hero split (la recepción: los retratos del equipo no tienen resolución para el héroe);
+   secciones: el equipo (people-row en dos pantallas, .g2), footer.closing */
+import { Image } from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
-import PageHeader from "@/components/UI/PageHeader.astro";
-import OurTeam from "@/components/OurTeam.astro";
-import CTABand from "@/components/UI/CTABand.astro";
+import { team } from "@/db/team";
+import mostrador from "@/img/UP-Gallery/Up-Board.jpg";
+
+const rows = [team.slice(0, 3), team.slice(3, 6)];
+const shortBio: Record<string, string> = {
+  cristina: "Más de 25 años en odontología, odontopediatría y ortodoncia.",
+  rafael: "Más de 30 años en cirugía bucal e implantología.",
+  isabel: "Licenciada en Odontología por la Universidad Europea de Madrid.",
+  nilyam: "Especialista en encías y en los tejidos que sostienen el diente.",
+  juan: "Dirige la clínica con el paciente en el centro de cada decisión.",
+  claudia: "Prevención y mantenimiento de la salud bucal de cada paciente.",
+};
 ---
 
 <Layout
   title="Equipo"
-  description="Conoce al equipo de Up Estudio Dental y Estética: ortodoncia, odontopediatría, cirugía e implantología, periodoncia e higiene dental en Móstoles."
+  description="El equipo de Up Estudio Dental en Móstoles: odontopediatría, ortodoncia, cirugía e implantología, periodoncia e higiene dental."
+  current="equipo"
+  closeTitle="Pide cita con nuestro equipo"
+  closeLine="Dinos qué necesitas y te damos cita con el especialista adecuado."
 >
-  <PageHeader
-    eyebrow="Nuestro equipo"
-    title="Las personas que cuidan de tu sonrisa"
-    lead="Especialistas en odontología, cirugía e implantología, ortodoncia, periodoncia y estética facial, unidos por la misma forma de trabajar: cerca de ti y con rigor."
-  />
-  <section class="up-section up-band-sand pt-12">
-    <div class="up-wrap">
-      <OurTeam />
+  <section class="hero hero--split" aria-labelledby="hero-h">
+    <div class="wrap"><div class="hero-text grid hero__grid">
+      <div class="hero__text span-5">
+        <h1 id="hero-h">El equipo de Up Estudio Dental</h1>
+        <p class="hero__lead">Seis profesionales en odontología general, odontopediatría, ortodoncia, cirugía e implantes, periodoncia e higiene, en una clínica familiar de Móstoles.</p>
+        <div class="btn-row"><a class="btn btn--primary" href="/contact#cita">Pedir cita</a><a class="btn btn--secondary" href="#profesionales">Ver el equipo</a></div>
+      </div>
+      <div class="hero__media span-6 start-7">
+        <Image src={mostrador} alt="Recepción de la clínica con flores sobre el mostrador" widths={[800, 1100, 1600]} sizes="(min-width: 1024px) 1100px, (min-width: 640px) 120vw, 100vw" loading="eager" fetchpriority="high" style="--ly-pos: 50% 60%" data-source="client" data-subject="la recepción" />
+      </div>
+    </div></div>
+  </section>
+
+  <section class="section g2" id="profesionales" aria-labelledby="prof-h">
+    <div class="wrap">
+      <div class="group">
+        <div class="section-head"><h2 id="prof-h">Seis profesionales, una clínica</h2><p>Cada uno con su especialidad, todos con la misma forma de trabajar.</p></div>
+        <div class="grid">
+          {
+            rows[0].map((m) => (
+              <a class="tile tile--square span-4 m-zoom" href={`/member/${m.id}`}>
+                <div class="tile__media"><img src={`/${m.picture}`} alt={m.name} width="420" height="420" loading="lazy" data-source="client" data-subject={m.name} /></div>
+                <div class="tile__head"><h3>{m.name}</h3></div>
+                <p class="tile__facts">{m.roles.join(" · ")}</p>
+                <p class="t-small">{shortBio[m.id]}</p>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+      <div class="grid">
+        {
+          rows[1].map((m) => (
+            <a class="tile tile--square span-4 m-zoom" href={`/member/${m.id}`}>
+              <div class="tile__media"><img src={`/${m.picture}`} alt={m.name} width="420" height="420" loading="lazy" data-source="client" data-subject={m.name} /></div>
+              <div class="tile__head"><h3>{m.name}</h3></div>
+              <p class="tile__facts">{m.roles.join(" · ")}</p>
+              <p class="t-small">{shortBio[m.id]}</p>
+            </a>
+          ))
+        }
+      </div>
     </div>
   </section>
-  <CTABand title="Pide cita con nuestro equipo" description="Dinos qué necesitas y te asignamos al especialista adecuado desde la primera visita." />
 </Layout>

@@ -1,0 +1,60 @@
+---
+// booking-form (sections-library.md): el split de la página, texto a la izquierda y el formulario sobre
+// --g-alt a la derecha. Envía a /contact, que responde con el mensaje de enviado o de error.
+import { Image } from "astro:assets";
+import { contact } from "@/constants/personal";
+import pasillo from "@/img/UP-Gallery/Boxes.jpg";
+
+interface Props {
+  status?: "idle" | "sent" | "error";
+  h2?: string;
+}
+const { status = "idle", h2 = "Pide cita" } = Astro.props;
+const motivos = ["Revisión gratis", "Limpieza bucal", "Blanqueamiento dental", "Medicina estética facial", "Urgencia", "Otra consulta"];
+---
+
+<section class="section" id="cita" aria-labelledby="cita-h">
+  <div class="wrap">
+    <div class="grid grid--top">
+      <div class="span-6 stack-6">
+        <div class="section-head">
+          <h2 id="cita-h">{h2}</h2>
+          <p>Déjanos tus datos y te llamamos para cerrar día y hora. Si lo prefieres, llama o escribe por WhatsApp.</p>
+        </div>
+        <div class="contact-lines">
+          <a class="link" href={contact.landline.href}>{contact.landline.display}</a>
+          <a class="link wa" href="https://wa.me/34649039327" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M12 .2a11.8 11.8 0 0 0-10.2 17.7L.1 24l6.3-1.7A11.8 11.8 0 1 0 12 .2z"/><path fill="#fff" d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 3 1.2 3 .8 3.6.8.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.4z"/></svg>WhatsApp {contact.mobile.display}</a>
+        </div>
+        <dl class="hours" data-tz="Europe/Madrid">
+          <dt data-days="mon-fri">Lunes a viernes</dt><dd>10:00–13:30<br />16:00–20:30</dd>
+          <dt data-days="sat">Sábado</dt><dd>10:00–14:00</dd>
+          <dt data-days="sun">Domingo</dt><dd>Cerrado</dd>
+        </dl>
+        <div class="booking-photo"><Image src={pasillo} alt="Pasillo de la clínica con las puertas de los gabinetes" widths={[700, 1300]} sizes="(min-width: 1024px) 700px, 100vw" data-source="client" data-subject="el pasillo de la clínica" /></div>
+      </div>
+
+      <div class="span-6 start-7 booking">
+        {
+          status === "sent" ? (
+            <div class="is-sent" role="status">
+              <h3 class="t-lead">Hemos recibido tu petición.</h3>
+              <p>Te llamamos en horario de clínica para darte día y hora. Si es urgente, llama al {contact.mobile.display}.</p>
+            </div>
+          ) : (
+            <form class="form" method="post" action="/contact#cita">
+              {status === "error" && <p class="form-error" role="alert">Falta algún dato obligatorio. Revisa el nombre, el teléfono y la casilla de privacidad.</p>}
+              <label class="field">Nombre<input name="name" autocomplete="name" required /></label>
+              <label class="field">Teléfono<input name="phone" type="tel" inputmode="tel" autocomplete="tel" required /></label>
+              <label class="field">Correo electrónico<input name="email" type="email" autocomplete="email" /></label>
+              <label class="field">Motivo<select name="subject">{motivos.map((m) => <option>{m}</option>)}</select></label>
+              <label class="field field--full">Mensaje<textarea name="message" rows="3"></textarea></label>
+              <label class="check"><input type="checkbox" name="privacy" required /><span>Acepto la <a class="link" href="/privacy-policy">política de privacidad</a></span></label>
+              <div class="btn-row"><button class="btn btn--primary" type="submit">Pedir cita</button></div>
+              <p class="note">Te llamamos en horario de clínica para confirmar la cita.</p>
+            </form>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>

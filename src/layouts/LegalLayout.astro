@@ -1,21 +1,24 @@
 ---
+// Documento legal: texto largo, fuera del sistema de pantallas (section--doc), con el mismo
+// encabezado, pie y tipografía que el resto de la web.
 import Layout from "./Layout.astro";
-import PageHeader from "@/components/UI/PageHeader.astro";
 
 interface Props {
     title: string;
     description: string;
     lastUpdated: string;
 }
-
 const { title, description, lastUpdated } = Astro.props;
 ---
 
-<Layout title={title} description={description}>
-    <PageHeader eyebrow="Información legal" title={title} lead={`Última actualización: ${lastUpdated}`} />
-    <section class="up-section pt-12">
-        <div class="up-wrap">
-            <article class="up-prose">
+<Layout title={title} description={description} doc>
+    <section class="section section--doc" aria-labelledby="doc-h">
+        <div class="wrap">
+            <div class="section-head">
+                <h1 id="doc-h">{title}</h1>
+                <p class="t-small muted">Última actualización: {lastUpdated}</p>
+            </div>
+            <article class="legal">
                 <slot />
             </article>
         </div>

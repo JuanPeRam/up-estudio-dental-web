@@ -1,68 +1,59 @@
 ---
+/* type: service · la clínica
+   deal: hero photo (con caja); secciones: instalaciones (muro de fotos), familias (services-list:
+   filas + foto), cómo llegar (visita + fachada), footer.closing */
 import { Image } from "astro:assets";
-import { Icon } from "astro-icon/components";
 import Layout from "@/layouts/Layout.astro";
-import PageHeader from "@/components/UI/PageHeader.astro";
-import Gallery from "@/components/Gallery/Gallery.astro";
-import CTABand from "@/components/UI/CTABand.astro";
-import Button from "@/components/UI/Button.astro";
-import { contact } from "@/constants/personal";
+import Visit from "@/components/Visit.astro";
+import gallery from "@/db/gallery";
 import zonaInfantil from "@/img/UP-Gallery/Rest-room.jpg";
-
-const features = [
-  { icon: "smile", title: "Zona infantil", text: "Juegos, cuentos y mesas a su altura para que la espera sea parte de la visita." },
-  { icon: "shield", title: "Gabinetes equipados", text: "Radiografía panorámica, ultrasonidos y sillones de última generación." },
-  { icon: "sparkle", title: "Ambiente tranquilo", text: "Luz natural, plantas y música relajante en todas las salas." },
-];
+import salaEspera from "@/img/UP-Gallery/Up-WaitRoom.jpg";
 ---
 
 <Layout
   title="Clínica"
-  description="Recorre las instalaciones de Up Estudio Dental en Móstoles: recepción, gabinetes, zona infantil y equipamiento de radiografía."
+  description="Las instalaciones de Up Estudio Dental en la calle Andrómeda, Móstoles: recepción, sala de espera con zona infantil, gabinetes y radiografía."
+  current="clinica"
+  closeTitle="Ven a conocer la clínica"
+  closeLine="La primera revisión es gratis: la mejor forma de ver la clínica y al equipo."
 >
-  <PageHeader
-    eyebrow="La clínica"
-    title="Un espacio luminoso pensado para que vengas tranquilo"
-    lead="Recepción, sala de espera con zona infantil, gabinetes dentales y de estética, todo en planta baja en la calle Andrómeda."
-  >
-    <div class="flex flex-wrap gap-3">
-      <Button href={contact.mapsUrl} variant="secondary" icon="pin" external aria-label="Cómo llegar (abre Google Maps en otra pestaña)">Cómo llegar</Button>
-    </div>
-  </PageHeader>
+  <section class="hero hero--photo" data-calm="left" aria-labelledby="hero-h">
+    <Image class="hero__bg" src={zonaInfantil} alt="Sala de espera con tipi, mesas infantiles y butacas" widths={[800, 1400, 1864]} sizes="(min-width: 1024px) 100vw, 230vw" loading="eager" fetchpriority="high" style="--ly-pos: 50% 50%; --ly-pos-phone: 35% 50%" data-source="client" data-subject="la sala de espera" />
+    <div class="wrap"><div class="hero-text">
+      <div class="hero__text">
+        <h1 id="hero-h">Clínica en la calle Andrómeda</h1>
+        <p class="hero__lead">Recepción, sala de espera con zona de juegos, gabinetes dentales y de estética y radiografía en la propia clínica, en Móstoles.</p>
+        <div class="btn-row"><a class="btn btn--primary" href="/contact#cita">Pedir cita</a><a class="btn btn--secondary" href="#como-llegar">Cómo llegar</a></div>
+      </div>
+    </div></div>
+  </section>
 
-  <section class="up-section pt-12" aria-label="Galería de fotos">
-    <div class="up-wrap">
-      <Gallery />
+  <section class="section" id="instalaciones" aria-labelledby="inst-h">
+    <div class="wrap">
+      <div class="section-head"><h2 id="inst-h">Las instalaciones</h2><p>Luz natural, plantas y gabinetes amplios, todo en planta baja.</p></div>
+      <div class="wall fill">
+        {gallery.slice(0, 12).map((g, i) => <Image class={i === 0 || i === 7 ? "big" : undefined} src={g.src} alt={g.alt} widths={[400, 800]} sizes={i === 0 || i === 7 ? "(min-width: 1024px) 640px, 100vw" : "(min-width: 1024px) 320px, 50vw"} data-source="client" data-subject={g.alt} />)}
+      </div>
     </div>
   </section>
 
-  <section class="up-section up-band-sand">
-    <div class="up-wrap grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-      <div class="up-treat-media">
-        <Image src={zonaInfantil} alt="Sala de espera con tipi, mesas infantiles y butacas" widths={[600, 1000]} sizes="(min-width: 1000px) 50vw, 100vw" />
-      </div>
-      <div class="flex flex-col gap-8">
-        <div class="up-sh">
-          <p class="up-eyebrow">Para toda la familia</p>
-          <h2 class="up-h2">Los peques también se sienten en casa</h2>
-          <p class="up-lead">Diseñamos la clínica pensando en las familias: los niños juegan mientras esperan y los adultos se relajan.</p>
+  <section class="section" id="familias" aria-labelledby="fam-h">
+    <div class="wrap">
+      <div class="grid grid--top fill">
+        <div class="span-6">
+          <div class="section-head"><h2 id="fam-h">Pensada para venir con niños</h2><p>Los peques juegan mientras esperan y los adultos se relajan.</p></div>
+          <ul class="rows">
+            <li><span class="rows__name">Zona de juegos</span><p>Tipi, cuentos y mesas a su altura en la sala de espera.</p></li>
+            <li><span class="rows__name">Odontopediatría</span><p>La Dra. Cristina Umérez lleva más de 25 años tratando a niños.</p></li>
+            <li><span class="rows__name">Ambiente tranquilo</span><p>Luz natural, plantas y música relajante en todas las salas.</p></li>
+          </ul>
         </div>
-        <ul class="m-0 flex list-none flex-col gap-5 p-0">
-          {
-            features.map((f) => (
-              <li class="flex gap-4">
-                <span class="up-fact-ico bg-raised"><Icon name={f.icon} class="up-icon" /></span>
-                <div class="flex flex-col gap-1">
-                  <h3 class="up-h4">{f.title}</h3>
-                  <p class="up-small">{f.text}</p>
-                </div>
-              </li>
-            ))
-          }
-        </ul>
+        <div class="frame frame--photo frame--fill span-6 start-7">
+          <Image class="frame__img" src={salaEspera} alt="Sala de espera con butacas blancas y rincón infantil" widths={[680]} sizes="(min-width: 1024px) 628px, 100vw" data-source="client" data-subject="la sala de espera" />
+        </div>
       </div>
     </div>
   </section>
 
-  <CTABand title="Ven a conocernos" description="La primera revisión es gratuita: es la mejor forma de ver la clínica y conocer al equipo." />
+  <Visit />
 </Layout>

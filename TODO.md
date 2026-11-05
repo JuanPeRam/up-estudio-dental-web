@@ -12,8 +12,8 @@
 - [x] Fix background-attachment: fixed fallback for iOS Safari (fixed backgrounds removed in the redesign).
 - [ ] Rewrite 'Nuestro Equipo' content (remove placeholder Lorem ipsum, add real bios and qualifications).
 - [ ] Cache Google Reviews fetch server-side instead of calling the API live in 'Opiniones' section.
-- [x] Redesign every section with the new design system (tokens, Newsreader + Figtree, light/dark).
+- [x] Redesign the whole site from scratch on the taste-skill kit (public/kit) with the Up style guide (Newsreader + Figtree, brand palette).
 - [ ] Send contact form submissions by email (the endpoint only logs them for now).
-- [ ] Self-host the medicina estética treatment photos (still loaded from static.wixstatic.com).
+- [x] Stop loading treatment photos from static.wixstatic.com (all photos are now the clinic's own).
 - [ ] Get a vector (SVG) version of the logo.
-- [ ] Shoot matching team portraits (same background and light).
+- [ ] Shoot matching team portraits (same background and light, at least 1200 px wide): the current ones are 420 px and are enlarged on tablet.

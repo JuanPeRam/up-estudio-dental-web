@@ -1,8 +1,0 @@
----
-import TeamCard from "@/components/Cards/TeamCard.astro";
-import { team } from "../db/team";
----
-
-<div class="up-grid-team">
-  {team.map((m) => <TeamCard id={m.id} name={m.name} roles={m.roles} picture={m.picture} headingLevel="h2" />)}
-</div>

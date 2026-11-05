@@ -1,0 +1,167 @@
+/* Up Estudio Dental — capa de página sobre el kit (public/kit).
+   1. El bloque :root de start.mjs (brand, pareja "newsreader"), con la paleta y las fuentes de la guía
+      de estilo de Up: Newsreader en titulares, Figtree en texto, turquesa #24645f como acción,
+      el negro de marca #111716 como suelo inverso y el turquesa corporativo #77c6c1 sobre él.
+   2. Solo lo que el kit no trae: la marca en la barra y el pie, composiciones de fotos y el panel del
+      formulario (system.md: "page CSS only inside a visual"). */
+
+:root {
+  --p-bg: #f6f8f7; --p-surface: #eaf4f3; --p-ink: #14201f; --p-muted: #566764;
+  --p-accent: #24645f; --p-accent-ink: #ffffff; --p-action: #24645f; --p-action-ink: #ffffff;
+  --p-inv-bg: #111716; --p-inv-surface: #1b2423; --p-inv-ink: #e8efee; --p-inv-muted: #a7b5b3;
+  --p-inv-accent: #77c6c1; --p-inv-accent-ink: #0e1413; --p-inv-action: #24645f; --p-inv-action-ink: #ffffff;
+  --font-display: "Newsreader Variable", "Newsreader", Georgia, serif;
+  --font-text: "Figtree Variable", "Figtree", system-ui, sans-serif;
+  --display-weight: 400;
+  --display-tracking: -0.018em;
+  --display-tracking-xl: -0.025em;
+  --ly-scale: .96;
+  /* el suelo de los paneles sin foto: el turquesa claro de la guía, nunca la arena del kit */
+  --ground-bg: #eaf4f3; --ground-surface: #f6f8f7; --ground-ink: #14201f; --ground-muted: #566764; --ground-accent: #24645f;
+}
+
+::selection { background: #77c6c1; color: #0e1413; }
+
+/* ---------------------------------------------------------------- la marca (logo del cliente) */
+/* el logo blanco de Up dentro de su disco negro, como en la guía; el nombre en la fuente de titulares */
+.up-logo { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 999px; background: #111716; flex: none; }
+.up-logo img { width: 30px !important; height: 30px !important; }
+.nav__logo .up-name { white-space: nowrap; }
+@media (max-width: 639px) { .up-logo { width: 32px; height: 32px; } .up-logo img { width: 24px !important; height: 24px !important; } }
+.footer__mark .up-logo { width: 56px; height: 56px; margin-right: 16px; background: transparent; box-shadow: inset 0 0 0 1px rgb(255 255 255 / .18); }
+.footer__mark .up-logo img { width: 40px !important; height: 40px !important; }
+
+/* ---------------------------------------------------------------- héroe film sin película */
+/* no hay película: el marco lleva la foto de la recepción y la caja sólida, sin control de reproducir */
+.hero--film .hero__media > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--ly-pos, 50% 50%); }
+@media (max-width: 639px) { .hero--film .hero__media > img { object-position: var(--ly-pos-phone, var(--ly-pos, 50% 50%)); } }
+
+/* ---------------------------------------------------------------- la clínica: tres fotos, una altura */
+/* tres tiles en span-5, span-4 y span-3 con la misma altura (row-lines): cada uno toma la proporción
+   que da su ancho a 440 px de alto a 1440 */
+.trio > .tile:nth-child(1) { --tile-ratio: 519 / 440; }
+.trio > .tile:nth-child(2) { --tile-ratio: 410 / 440; }
+.trio > .tile:nth-child(3) { --tile-ratio: 302 / 440; }
+@media (min-width: 640px) and (max-width: 1023px) {
+  .grid.trio > .tile:nth-child(1) { grid-column: 1 / span 5; }
+  .grid.trio > .tile:nth-child(2) { grid-column: 6 / span 4; }
+  .grid.trio > .tile:nth-child(3) { grid-column: 10 / span 3 !important; }
+  .trio .tile__media { aspect-ratio: auto; height: 420px; }
+  #cita .grid > .span-6:first-child { grid-column: 1 / span 5; }
+  #cita .grid > .booking { grid-column: 6 / -1; padding: var(--s-5); }
+}
+@media (max-width: 639px) {
+  .grid.trio > .tile { grid-column: span 6 !important; }
+  .grid.trio > .tile:nth-child(1) { grid-column: 1 / -1 !important; --tile-ratio: 16 / 10; }
+  .trio > .tile:nth-child(2), .trio > .tile:nth-child(3) { --tile-ratio: 1 / 1; }
+}
+
+/* ---------------------------------------------------------------- pasos: la foto llena el panel */
+.card > .panel > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+#primera-visita .panel { --p-h: 300px; }
+@media (max-width: 1023px) { #primera-visita .panel { --p-h: 220px; } }
+@media (max-width: 639px) { #primera-visita .panel { --p-h: 160px; } }
+
+/* ---------------------------------------------------------------- retratos del equipo */
+.tile--portrait .tile__media > img { object-position: 50% 15%; }
+
+/* ---------------------------------------------------------------- opiniones */
+.quote--small blockquote { font-size: var(--t-lead); line-height: 1.5; }
+.stat-aside { display: grid; gap: var(--s-3); align-content: start; justify-items: start; }
+.g-mark { display: inline-grid; place-items: center; width: 48px; height: 48px; border-radius: 999px; background: #fff; box-shadow: inset 0 0 0 1px var(--line); }
+.g-mark svg { width: 24px; height: 24px; }
+.quotes-row { align-items: stretch; }
+
+/* ---------------------------------------------------------------- alturas por pantalla
+   layout-v4.md: una sección ocupa una o dos pantallas en cada ancho; donde el contenido apilado no
+   cabe en una, pasa a dos (una regla de página por sección). */
+
+@media (max-width: 639px) {
+  #tratamientos, #primera-visita, #equipo, #cita, #proceso { --hm: 2; }
+  /* opiniones y preguntas caben en una pantalla con una cita y una pregunta menos */
+  #opiniones .quotes-row { display: none; }
+  #preguntas .faq__item:nth-child(n+5) { display: none; }
+  .footer .footer__col:nth-of-type(4) { display: none; }
+  #preguntas .faq > .faq__item { padding-block: var(--s-4); }
+}
+
+/* ---------------------------------------------------------------- reserva: el formulario sobre --g-alt */
+.booking { background: var(--surface); border-radius: var(--r-lg); padding: var(--s-7); }
+@media (max-width: 639px) { .booking { padding: var(--s-5); } }
+.booking .form .check { grid-column: 1 / -1; display: flex; gap: var(--s-3); align-items: flex-start; font-size: var(--t-small); font-weight: 400; }
+.booking .form .check input { width: 20px; height: 20px; margin: 0; accent-color: var(--action); flex: none; }
+.booking .note { color: var(--muted); font-size: var(--t-small); }
+.booking .is-sent { display: grid; gap: var(--s-4); }
+.booking .form-error { color: #b42318; font-size: var(--t-small); }
+.contact-lines { display: grid; gap: var(--s-2); font-size: var(--t-lead); font-variant-numeric: tabular-nums; }
+.contact-lines a { width: max-content; }
+
+/* ---------------------------------------------------------------- la clínica: muro de fotos */
+.wall { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: minmax(0, 1fr); gap: 2px; border-radius: var(--r-lg); overflow: clip; }
+.wall > img { width: 100%; height: 100%; min-height: 0; object-fit: cover; display: block; }
+.wall > .big { grid-column: span 2; grid-row: span 2; }
+@media (max-width: 1023px) { .wall { grid-template-columns: repeat(4, minmax(0, 1fr)); } .wall > :nth-child(n+10) { display: none; } .wall > .big:nth-child(8) { grid-column: auto; grid-row: auto; } }
+@media (max-width: 639px) { .wall { grid-template-columns: repeat(2, minmax(0, 1fr)); } .wall > :nth-child(n+8) { display: none; } .wall > .big:nth-child(8) { display: none; } }
+
+/* ---------------------------------------------------------------- páginas legales */
+.legal { display: grid; gap: var(--s-7); max-width: 68ch; }
+.legal section { display: grid; gap: var(--s-3); }
+.legal h2 { font-size: var(--t-h3); }
+.legal p { color: var(--ink); }
+.legal a { text-decoration: underline; text-underline-offset: 3px; }
+main > section.section--doc { height: auto; min-height: 0; padding-bottom: var(--s-9); }
+.closing--compact { height: auto !important; min-height: 0 !important; }
+
+/* tablet alta (820x1180): la pantalla da más sitio, las piezas crecen para no dejar la sección vacía */
+@media (min-width: 640px) and (max-width: 1023px) and (min-height: 1100px) {
+  .trio .tile__media { height: 560px; }
+  #cita .booking { padding: var(--s-7) var(--s-5); }
+  #cita .field textarea { min-height: 220px; }
+  #cita .stack-6 { gap: var(--s-7); }
+}
+
+/* equipo: retratos cuadrados en la rejilla de seis (dos filas por pantalla) */
+.tile--square { --tile-ratio: 1 / 1; }
+.tile--square .tile__media > img { object-position: 50% 18%; }
+/* ficha: los retratos miden 420 px de ancho; el marco no pasa de cuatro columnas para no ampliarlos */
+@media (min-width: 1024px) { .hero--split .hero__media--portrait { height: auto; align-self: start; aspect-ratio: 420 / 600; } }
+.hero--split .hero__media--portrait > img { object-position: 50% 20%; }
+
+/* equipo en tablet: tres retratos por fila, para que las dos filas quepan en sus dos pantallas */
+@media (min-width: 640px) and (max-width: 1023px) {
+  #profesionales .grid > .tile { grid-column: span 4; }
+  #mas-equipo .grid > .tile { grid-column: span 6; --tile-ratio: 4 / 5; }
+  #mas-equipo .grid > .tile:nth-child(3) { display: none; }
+}
+
+/* pasos: tres en fila también de 1024 a 1279, para no dejar el tercero solo en su fila */
+/* pasos: tres en fila también de 640 a 1279, para no dejar el tercero solo ni estirar la sección */
+@media (min-width: 640px) and (max-width: 1279px) { #primera-visita .grid > .card { grid-column: span 4 !important; } }
+/* equipo en tablet: 2x2 con retratos apaisados y sin la línea de detalle, en una pantalla */
+@media (min-width: 640px) and (max-width: 1023px) {
+  #equipo .grid > .tile { grid-column: span 6 !important; --tile-ratio: 16 / 10; }
+  #equipo .grid > .tile > .t-small { display: none; }
+}
+/* horarios: la franja de tarde nunca queda sola en su línea */
+.hours dd, .footer__col li { text-wrap: balance; }
+
+/* tablet: la foto de la lista de tratamientos toma una proporción fija en vez de llenar dos pantallas */
+/* fotos de 680 px de origen (sala de espera, fachada): marco 4:3 fijo, nunca ampliadas */
+#familias .frame--fill, #como-llegar .frame--fill { height: auto; width: 100%; align-self: start; aspect-ratio: 4 / 3; }
+/* el botón grande del cierre ocupa la línea entera bajo 1024 (container-edges) */
+@media (max-width: 1023px) { .closing__cta.close--type > .btn--xl { align-self: stretch; width: 100%; } }
+/* el pie: el correo puede partirse antes que salirse de su columna */
+.footer__col a { overflow-wrap: anywhere; }
+/* teléfono: los enlaces de la cabecera de sección ocupan la línea (container-edges) */
+@media (max-width: 639px) { .section-head--row > .link { width: 100%; } }
+#equipo .grid { row-gap: var(--s-7); }
+.faq-photo { position: relative; overflow: clip; border-radius: var(--r-lg); aspect-ratio: 4 / 3; margin-top: var(--s-4); }
+.faq-photo img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 1023px) { .faq-photo { display: none; } }
+.wa { display: inline-flex; align-items: center; gap: var(--s-2); }
+.wa svg { width: 20px; height: 20px; }
+
+/* las preguntas en la fuente de titulares, como el resto de cabeceras de bloque (card-family) */
+.faq .faq__item > h3 { font-family: var(--font-display); font-weight: var(--display-weight); font-size: var(--t-lead); letter-spacing: -0.005em; }
+.booking-photo { position: relative; overflow: clip; border-radius: var(--r-lg); aspect-ratio: 628 / 220; }
+.booking-photo img { width: 100%; height: 100%; object-fit: cover; }

@@ -1,0 +1,90 @@
+---
+// footer.closing: fila 1 el cierre dealt (close-type), fila 2 el pie dealt (footer-dark).
+import Logo from "./Logo.astro";
+import socials from "@/constants/socials";
+import { contact } from "@/constants/personal";
+import { services } from "@/constants/services";
+
+interface Props {
+  actionHref: string;
+  title?: string;
+  line?: string;
+  compact?: boolean;
+}
+const {
+  actionHref,
+  title = "Pide cita en Up Estudio Dental",
+  line = "La primera revisión, con radiografías y presupuesto por escrito, es gratis.",
+  compact = false,
+} = Astro.props;
+const year = new Date().getFullYear();
+const socialName: Record<string, string> = { instagram: "Instagram", tiktok: "TikTok", linkedin: "LinkedIn" };
+const socialPath: Record<string, string> = {
+  instagram: "M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.9.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.9.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.9-.9-1.4-.2-.4-.4-1.1-.4-2.2-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.9-.7 1.4-.9.4-.2 1.1-.4 2.2-.4 1.2-.1 1.6-.1 4.8-.1zm0 4.7a5.1 5.1 0 1 0 0 10.2 5.1 5.1 0 0 0 0-10.2zm0 8.4a3.3 3.3 0 1 1 0-6.6 3.3 3.3 0 0 1 0 6.6zm5.3-9.8a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4z",
+  tiktok: "M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-1.8-2.5V9.7a5.7 5.7 0 1 0 4.9 5.7V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.2-1.6z",
+  linkedin: "M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.4V9h3.4v1.6h.1c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.2 2.4 4.2 5.4v6.3zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zm1.8 13.1H3.6V9h3.5v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z",
+};
+---
+
+<footer class:list={["footer closing footer--dark ground-inverse g2m", compact && "closing--compact"]} id="contact" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="closing__cta close--type">
+      <div class="section-head">
+        <h2 id="close-h">{title}</h2>
+        <p class="t-small muted">{line}</p>
+      </div>
+      <a class="btn btn--primary btn--xl" href={actionHref}>Pedir cita<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"></path><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"></path></svg></a>
+    </div>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-4 stack-4">
+          <p class="footer__mark"><Logo />Up Estudio Dental</p>
+          <p class="footer__lede">Odontología y estética facial para toda la familia en Móstoles.</p>
+        </div>
+        <div class="span-2 footer__col">
+          <h4>Tratamientos</h4>
+          <ul>{services.map((s) => <li><a href={`/services?servicio=${s.slug}`}>{s.title}</a></li>)}</ul>
+        </div>
+        <div class="span-2 footer__col">
+          <h4>Clínica</h4>
+          <ul>
+            <li><a href="/clinic">Instalaciones</a></li>
+            <li><a href="/team">Equipo</a></li>
+            <li><a href={contact.mapsUrl} target="_blank" rel="noopener noreferrer">Cómo llegar</a></li>
+          </ul>
+        </div>
+        <div class="span-2 footer__col">
+          <h4>Horario</h4>
+          <ul>
+            <li>Lunes a viernes</li>
+            <li>10:00–13:30</li>
+            <li>16:00–20:30</li>
+            <li>Sábados</li>
+            <li>10:00–14:00</li>
+          </ul>
+        </div>
+        <div class="span-2 footer__col">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href={contact.landline.href}>{contact.landline.display}</a></li>
+            <li><a href={contact.mobile.href}>{contact.mobile.display} (WhatsApp)</a></li>
+            <li><a href={`mailto:${contact.email}`}>Escribir un correo</a></li>
+            <li>C. Andrómeda, Móstoles</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__legal">
+        <span>&copy; {year} Up Estudio Dental y Estética S.L. &nbsp; <a href="/privacy-policy">Privacidad</a> &nbsp; <a href="/cookies-policy">Cookies</a> &nbsp; <a href="/legal-disclaimer">Aviso legal</a></span>
+        <div class="socials">
+          {
+            socials.map((s) => (
+              <a href={s.link} target="_blank" rel="noopener noreferrer" aria-label={`${socialName[s.name] ?? s.name} de Up Estudio Dental`}>
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d={socialPath[s.name]} fill="currentColor"></path></svg>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

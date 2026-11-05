@@ -1,42 +1,90 @@
 ---
+/* type: service · página de un tratamiento (?servicio=<slug>; sin parámetro, la revisión)
+   deal: hero split; secciones: proceso (services-list: filas + foto), preguntas (faq), otros
+   tratamientos (tres tiles), footer.closing */
+import { Image } from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
-import PageHeader from "@/components/UI/PageHeader.astro";
-import ServiceCard from "@/components/Cards/ServiceCard.astro";
-import DentalCheckups from "@/components/Services/DentalCheckups.astro";
-import DentalCleaning from "@/components/Services/DentalCleaning.astro";
-import TeethWhitening from "@/components/Services/TeethWhitening.astro";
-import SteticMedicine from "@/components/Services/SteticMedicine.astro";
 import { services, defaultServiceSlug } from "@/constants/services";
 
-const requestedSlug = Astro.url.searchParams.get("servicio");
-const activeSlug = services.some((service) => service.slug === requestedSlug)
-    ? (requestedSlug as string)
-    : defaultServiceSlug;
-const active = services.find((s) => s.slug === activeSlug)!;
+const requested = Astro.url.searchParams.get("servicio");
+const slug = services.some((s) => s.slug === requested) ? (requested as string) : defaultServiceSlug;
+const s = services.find((x) => x.slug === slug)!;
+const d = s.detail;
+const others = services.filter((x) => x.slug !== slug);
 ---
 
 <Layout
-    title={requestedSlug ? active.title : "Servicios"}
-    description="Revisiones gratuitas, limpieza bucal, blanqueamiento dental y medicina estética facial en Móstoles. Precio orientativo, duración y cómo es cada tratamiento."
+  title={s.title}
+  description={d.lead}
+  current="tratamientos"
+  closeTitle={`Pide cita para ${s.title.toLowerCase()}`}
+  closeLine="La primera revisión, con radiografías y presupuesto por escrito, es gratis."
 >
-    <PageHeader
-        eyebrow="Servicios"
-        title="Tratamientos para toda la familia"
-        lead="Elige un tratamiento para ver en qué consiste, cuánto dura y cómo es el proceso. Si tienes dudas, la primera revisión es gratuita."
-    />
+  <section class="hero hero--split" aria-labelledby="hero-h">
+    <div class="wrap"><div class="hero-text grid hero__grid">
+      <div class="hero__text span-5">
+        <h1 id="hero-h">{d.h1}</h1>
+        <p class="hero__lead">{d.lead}</p>
+        <div class="btn-row"><a class="btn btn--primary" href="/contact#cita">Pedir cita</a><a class="btn btn--secondary" href="#proceso">Ver el proceso</a></div>
+        <dl class="hero-facts">
+          {d.facts.map((f) => <div><dt>{f.label}</dt><dd>{f.value}</dd></div>)}
+        </dl>
+      </div>
+      <div class="hero__media span-6 start-7">
+        <Image src={s.image} alt={s.imageAlt} widths={[800, 1100, 1600]} sizes="(min-width: 1024px) 1100px, (min-width: 640px) 120vw, 100vw" loading="eager" fetchpriority="high" data-source="client" data-subject={s.title} />
+      </div>
+    </div></div>
+  </section>
 
-    <section class="up-band-tint py-12" aria-label="Elige un tratamiento">
-        <div class="up-wrap">
-            <div class="up-grid-4">
-                {services.map((s) => <ServiceCard service={s} active={s.slug === activeSlug} />)}
-            </div>
+  <section class="section" id="proceso" aria-labelledby="proceso-h">
+    <div class="wrap">
+      <div class="grid grid--top fill">
+        <div class="span-6">
+          <div class="section-head"><h2 id="proceso-h">{d.process.h2}</h2><p>{d.process.line}</p></div>
+          <ul class="rows">
+            {
+              d.process.rows.map((r) => (
+                <li><span class="rows__name">{r.name}</span><p>{r.text}</p>{r.value && <span class="rows__value">{r.value}</span>}</li>
+              ))
+            }
+          </ul>
         </div>
-    </section>
-
-    <div id="detalle">
-        {activeSlug === "revisiones-dentales" && <DentalCheckups />}
-        {activeSlug === "medicina-estetica" && <SteticMedicine />}
-        {activeSlug === "blanqueamiento-dental" && <TeethWhitening />}
-        {activeSlug === "limpieza-bucal" && <DentalCleaning />}
+        <div class="frame frame--photo frame--fill span-6 start-7">
+          <Image class="frame__img" src={d.process.image} alt={d.process.imageAlt} widths={[860, 1300]} sizes="(min-width: 1024px) 860px, 100vw" data-source="client" data-subject={d.process.imageAlt} />
+        </div>
+      </div>
     </div>
+  </section>
+
+  <section class="section" id="preguntas" aria-labelledby="preguntas-h">
+    <div class="wrap">
+      <div class="grid grid--top">
+        <div class="span-6 stack-4">
+          <h2 id="preguntas-h">{d.questions.h2}</h2>
+          <p class="t-lead">{d.questions.line}</p>
+          <a class="link" href="tel:+34919931329">Llamar al 919 931 329</a>
+        </div>
+        <div class="faq span-6 start-7">
+          {d.questions.items.map((f) => <div class="faq__item"><h3>{f.q}</h3><p>{f.a}</p></div>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="otros" aria-labelledby="otros-h">
+    <div class="wrap">
+      <div class="section-head"><h2 id="otros-h">Otros tratamientos</h2><p>Todos empiezan por una valoración en la clínica.</p></div>
+      <div class="grid">
+        {
+          others.map((o) => (
+            <a class="tile span-4 m-zoom" href={`/services?servicio=${o.slug}`}>
+              <div class="tile__media"><Image src={o.image} alt={o.imageAlt} widths={[480, 900]} sizes="(min-width: 1024px) 480px, 100vw" data-source="client" data-subject={o.title} /></div>
+              <div class="tile__head"><h3>{o.title}</h3><span class="tile__price">{o.value}</span></div>
+              <p class="tile__facts">{o.line}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 </Layout>
