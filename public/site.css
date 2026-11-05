@@ -77,7 +77,7 @@
    cabe en una, pasa a dos (una regla de página por sección). */
 
 @media (max-width: 639px) {
-  #tratamientos, #primera-visita, #cita, #proceso, #otros { --hm: 2; }
+  #tratamientos, #primera-visita, #cita, #proceso, #otros, #familias, #como-llegar { --hm: 2; }
   /* equipo en el móvil: las dos especialistas principales en una pantalla, el resto en /team */
   #equipo .grid > .tile:nth-child(n+3) { display: none; }
   /* opiniones y preguntas caben en una pantalla con una cita y una pregunta menos */
@@ -171,3 +171,5 @@ main > section.section--doc { height: auto; min-height: 0; padding-bottom: var(-
 
 /* otros tratamientos: tres en fila también en tablet, en una pantalla */
 @media (min-width: 640px) and (max-width: 1023px) { #otros .grid > .tile { grid-column: span 4 !important; } }
+@media (min-width: 640px) and (max-width: 1023px) { .wall { grid-auto-rows: 190px; } }
+@media (min-width: 640px) and (max-width: 1023px) and (min-height: 1100px) { .wall { grid-auto-rows: 240px; } }
