@@ -619,7 +619,7 @@
   .up-spec img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 600ms ease; }
   .up-spec:hover img { transform: scale(1.03); }
   .up-spec-label { position: absolute; left: var(--space-3); right: var(--space-3); bottom: var(--space-3); display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); padding: 10px 14px; border-radius: var(--radius-md); background: rgba(255,255,255,.94); }
-  .up-spec-label b { font: 600 16px/20px var(--font-sans); }
+  .up-spec-label b { display: block; font: 600 16px/20px var(--font-sans); }
   .up-spec-label small { display: block; font: 500 13px/16px var(--font-sans); color: var(--ink-muted); }
   .up-spec-label .up-icon { width: 18px; height: 18px; color: var(--brand-strong); flex: none; transition: transform var(--duration-fast); }
   .up-spec:hover .up-spec-label .up-icon { transform: translateX(3px); }
