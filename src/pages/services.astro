@@ -5,6 +5,7 @@
 import { Image } from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
 import { services, defaultServiceSlug } from "@/constants/services";
+import consulta from "@/img/UP-Gallery/Office.jpg";
 
 const requested = Astro.url.searchParams.get("servicio");
 const slug = services.some((s) => s.slug === requested) ? (requested as string) : defaultServiceSlug;
@@ -22,7 +23,7 @@ const others = services.filter((x) => x.slug !== slug);
 >
   <section class="hero hero--split" aria-labelledby="hero-h">
     <div class="wrap"><div class="hero-text grid hero__grid">
-      <div class="hero__text span-5">
+      <div class="hero__text span-6">
         <h1 id="hero-h">{d.h1}</h1>
         <p class="hero__lead">{d.lead}</p>
         <div class="btn-row"><a class="btn btn--primary" href="/contact#cita">Pedir cita</a><a class="btn btn--secondary" href="#proceso">Ver el proceso</a></div>
@@ -50,7 +51,7 @@ const others = services.filter((x) => x.slug !== slug);
           </ul>
         </div>
         <div class="frame frame--photo frame--fill span-6 start-7">
-          <Image class="frame__img" src={d.process.image} alt={d.process.imageAlt} widths={[860, 1300]} sizes="(min-width: 1024px) 860px, 100vw" data-source="client" data-subject={d.process.imageAlt} />
+          <Image class="frame__img" src={d.process.image} alt={d.process.imageAlt} widths={[860, 1300]} sizes="(min-width: 1024px) 860px, (min-width: 640px) 100vw, 230vw" data-source="client" data-subject={d.process.imageAlt} />
         </div>
       </div>
     </div>
@@ -63,6 +64,7 @@ const others = services.filter((x) => x.slug !== slug);
           <h2 id="preguntas-h">{d.questions.h2}</h2>
           <p class="t-lead">{d.questions.line}</p>
           <a class="link" href="tel:+34919931329">Llamar al 919 931 329</a>
+          <div class="faq-photo"><Image src={consulta} alt="Consulta con mesa de reuniones y pantalla" widths={[560, 1100]} sizes="(min-width: 1024px) 560px, 100vw" data-source="client" data-subject="la consulta" /></div>
         </div>
         <div class="faq span-6 start-7">
           {d.questions.items.map((f) => <div class="faq__item"><h3>{f.q}</h3><p>{f.a}</p></div>)}
