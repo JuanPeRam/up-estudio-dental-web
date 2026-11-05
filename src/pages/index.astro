@@ -92,7 +92,7 @@ const faqs = [
         <div class="frame frame--photo frame--fill span-6 start-7">
           {
             services.map((s, i) => (
-              <Image class="frame__img" data-peek-for={s.slug} src={s.image} alt={s.imageAlt} widths={[860, 1300]} sizes="(min-width: 1024px) 860px, 100vw" loading="eager" hidden={i > 0} data-source="client" data-subject={s.title} />
+              <Image class="frame__img" data-peek-for={s.slug} src={s.image} alt={s.imageAlt} widths={[860, 1300]} sizes="(min-width: 1024px) 860px, (min-width: 640px) 100vw, 230vw" loading="eager" hidden={i > 0} data-source="client" data-subject={s.title} />
             ))
           }
         </div>
