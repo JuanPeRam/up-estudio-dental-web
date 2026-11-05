@@ -1,122 +1,118 @@
 ---
-let path = Astro.url.pathname.replace(/\/$/, "");
-if (path == "") path = "/";
-import { paths } from "@/constants/pages";
 import { Image } from "astro:assets";
-
+import { Icon } from "astro-icon/components";
+import { paths } from "@/constants/pages";
+import { contact } from "@/constants/personal";
 import upLogo from "@/img/up-logo-white.png";
+
+let path = Astro.url.pathname.replace(/\/$/, "");
+if (path === "") path = "/";
+const isCurrent = (href: string) =>
+  href === "/" ? path === "/" : path === href || path.startsWith(`${href}/`) || (href === "/team" && path.startsWith("/member"));
 ---
 
-<nav
-  class="flex justify-between items-center z-50 fixed top-0 left-0 w-full px-5 md:px-10 py-3"
-  id="header-nav"
-  transition:animate="initial"
->
-  <a class="w-16 md:w-20 shrink-0 hover:cursor-pointer transition-transform hover:scale-105" href="/" aria-label="Volver a Home">
-    <Image alt="Up logo" src={upLogo} loading={"eager"} />
-  </a>
-  <ul
-    class="flex md:before:hidden md:opacity-100 opacity-0 before:bg-secondary/95 md:justify-end justify-center md:bg-transparent items-center invisible md:visible md:flex md:flex-row flex-col fixed md:relative top-0 left-0 h-screen w-full z-20 gap-1 md:gap-1 md:h-fit text-white md:p-0"
-    id="menu-navbar"
-  >
-    {
-      Object.entries(paths).map(([key, value]) => (
-        <li>
-          <a
-            href={value}
-            class={`nav-item w-fit relative flex justify-center items-center px-4 py-3 text-sm font-semibold tracking-wide transition-colors hover:text-corporative ${path === value ? "text-corporative" : "text-white/90"}`}
-          >
-            {key}
-          </a>
-        </li>
-      ))
-    }
-  </ul>
-  <button
-    id="menu-opener"
-    aria-label="Toggle Menu"
-    class="md:hidden block hover:bg-secondary/80 p-4 z-40 rounded-full transition-all shrink-0"
-  >
-    <svg
-      class="w-6 h-6 fill-white"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-    >
-      <path
-        class="navmenu-toggle"
-        fill-rule="evenodd"
-        d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
-      >
-      </path>
+<header class="up-nav" id="site-nav">
+  <div class="up-wrap up-nav-in">
+    <a class="up-nav-logo" href="/" aria-label="Up Estudio Dental y Estética, ir al inicio">
+      <Image src={upLogo} alt="" width={80} loading="eager" />
+    </a>
 
-      <path
-        class="navmenu-toggle hidden"
-        fill-rule="evenodd"
-        clip-rule="evenodd"
-        d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"
-      >
-      </path>
-    </svg>
-  </button>
-</nav>
+    <nav aria-label="Principal">
+      <ul class="up-nav-links">
+        {
+          Object.entries(paths).map(([label, href]) => (
+            <li>
+              <a href={href} aria-current={isCurrent(href) ? "page" : undefined}>
+                {label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="up-nav-actions">
+      <a class="up-nav-phone" href={contact.landline.href} aria-label={`Llamar a la clínica: ${contact.landline.display}`}>
+        <Icon name="phone" class="up-icon" />{contact.landline.display}
+      </a>
+      <a class="up-btn up-btn-primary up-btn-sm" href="/contact">Pedir cita</a>
+      <button class="up-nav-menu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-menu" data-menu-open>
+        <Icon name="menu" class="up-icon" />
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="up-menu" id="site-menu" role="dialog" aria-modal="true" aria-label="Menú" hidden>
+  <div class="up-wrap up-nav-in">
+    <a class="up-nav-logo" href="/" aria-label="Ir al inicio">
+      <Image src={upLogo} alt="" width={80} />
+    </a>
+    <button class="up-nav-menu" style="display:inline-flex" type="button" aria-label="Cerrar menú" data-menu-close>
+      <Icon name="close" class="up-icon" />
+    </button>
+  </div>
+  <nav class="up-wrap" aria-label="Menú móvil">
+    <ul class="up-menu-links">
+      {
+        Object.entries(paths).map(([label, href]) => (
+          <li>
+            <a href={href} aria-current={isCurrent(href) ? "page" : undefined}>
+              {label}
+              <Icon name="arrow-right" class="up-icon" />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="flex flex-col gap-3 pb-8">
+      <a class="up-btn up-btn-primary up-btn-block" href="/contact"><Icon name="calendar" class="up-icon" />Pedir cita</a>
+      <a class="up-btn up-btn-secondary up-btn-block" href={contact.landline.href}><Icon name="phone" class="up-icon" />{contact.landline.display}</a>
+    </div>
+  </nav>
+</div>
 
 <script>
-  function addMenuHandler() {
-    const menu_opener = document.getElementById("menu-opener");
-    const menu = document.getElementById("menu-navbar");
-    menu_opener?.addEventListener("click", () => {
-      menu?.classList.toggle("invisible");
-      menu?.classList.toggle("visible");
-    });
+  function initNav() {
+    const nav = document.getElementById("site-nav");
+    const menu = document.getElementById("site-menu");
+    const openBtn = document.querySelector<HTMLButtonElement>("[data-menu-open]");
+    const closeBtn = document.querySelector<HTMLButtonElement>("[data-menu-close]");
+    if (!nav || !menu || !openBtn || !closeBtn) return;
+
+    const onScroll = () =>
+      document.getElementById("site-nav")?.classList.toggle("is-scrolled", window.scrollY > 8);
+    onScroll();
+    const w = window as Window & { __upNavScroll?: boolean };
+    if (!w.__upNavScroll) {
+      window.addEventListener("scroll", onScroll, { passive: true });
+      w.__upNavScroll = true;
+    }
+
+    const close = () => {
+      menu.hidden = true;
+      openBtn.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", onKey);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        close();
+        openBtn.focus();
+      }
+    };
+    openBtn.onclick = () => {
+      menu.hidden = false;
+      openBtn.setAttribute("aria-expanded", "true");
+      document.body.style.overflow = "hidden";
+      document.addEventListener("keydown", onKey);
+      closeBtn.focus();
+    };
+    closeBtn.onclick = () => {
+      close();
+      openBtn.focus();
+    };
+    menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", close));
   }
-  document.addEventListener("astro:after-swap", () => {
-    addMenuHandler();
-  });
-  addMenuHandler();
+  document.addEventListener("astro:page-load", initNav);
 </script>
-
-<style>
-  #menu-navbar {
-    transition: opacity 0.45s ease;
-  }
-  #menu-navbar.visible {
-    opacity: 1;
-  }
-  #menu-navbar::before {
-    content: "";
-    position: absolute;
-    top: 40px;
-    right: 40px;
-    width: 0;
-    height: 0;
-    transition: all 0.45s ease;
-    border-radius: 50%;
-  }
-
-  #menu-navbar.visible::before {
-    width: 100vh;
-    height: 100vh;
-    top: 0;
-    right: 10%;
-  }
-
-  .nav-item::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 2px;
-    width: 0;
-    height: 2px;
-    background: #77c6c1;
-    border-radius: 2px;
-    transition:
-      width 0.25s ease,
-      left 0.25s ease;
-  }
-
-  .nav-item:hover::before,
-  .nav-item.text-corporative::before {
-    left: 0;
-    width: 100%;
-  }
-</style>

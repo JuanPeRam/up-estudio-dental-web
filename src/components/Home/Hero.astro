@@ -1,70 +1,50 @@
 ---
-import NavButton from "@/components/Templates/NavButton.astro";
-import ContactInfo from "../Common/ContactInfo.astro";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import Button from "@/components/UI/Button.astro";
+import Stars from "@/components/UI/Stars.astro";
+import { contact } from "@/constants/personal";
+import recepcion from "@/img/UP-Gallery/Up-Board.jpg";
 ---
 
-<section
-  class="bg-no-repeat bg-cover bg-center w-full min-h-dvh text-white text-pretty flex justify-center flex-col text-left bg-contrast pt-24 pb-10"
-  id="hero-section"
->
-  <article class="p-5 flex justify-evenly flex-wrap gap-8 items-center w-full">
-    <section
-      class="animate-fade-in-down md:animate-fade-in-right border border-white/15 bg-black/20 rounded-xl p-6 md:p-8 backdrop-blur-sm max-w-xl"
-    >
-      <header>
-        <p class="font-bold text-sm md:text-base tracking-widest uppercase text-corporative">¡Bienvenid@s!</p>
-        <h1 class="text-3xl md:text-5xl font-[900] leading-tight my-4">
-          Up Estudio Dental y Estética
-        </h1>
-      </header>
-      <article
-        class="font-medium text-sm text-pretty md:text-base text-white/85"
-      >
-        <p class="max-w-[60ch] leading-relaxed">
-          Cuidamos de tu sonrisa y tu bienestar con todo el corazón. Un
-          espacio pensado para toda la familia, con áreas para los más
-          peques, música relajante y un ambiente cálido que te hará sentir
-          como en casa.
-        </p>
-      </article>
-
-      <ul class="flex flex-wrap gap-x-6 gap-y-2 mt-6 text-xs md:text-sm text-white/75 font-semibold">
-        <li class="flex items-center gap-1.5">
-          <span class="text-corporative">★★★★★</span> 5.0 en Google
-        </li>
-        <li class="flex items-center gap-1.5 before:content-['·'] before:text-white/30">
-          Desde 2022 en Móstoles
-        </li>
-        <li class="flex items-center gap-1.5 before:content-['·'] before:text-white/30">
-          Urgencias 24h
-        </li>
+<section class="up-wrap">
+  <div class="up-hero">
+    <div class="up-hero-copy">
+      <p class="up-eyebrow">Clínica dental familiar en Móstoles</p>
+      <h1 class="up-display">Tu dentista de confianza, y el de tus hijos</h1>
+      <p class="up-lead">
+        Odontología, ortodoncia y medicina estética facial en un espacio pensado para toda la familia, con zona de juegos para
+        los peques.
+      </p>
+      <ul class="up-hero-facts">
+        <li><Icon name="check-circle" class="up-icon" />Primera revisión y radiografías gratis</li>
+        <li><Icon name="shield" class="up-icon" />Urgencias 24 h</li>
       </ul>
+      <div class="flex flex-wrap gap-3">
+        <Button href="/contact" icon="calendar">Pedir cita</Button>
+        <Button href="/clinic" variant="secondary">Ver la clínica</Button>
+      </div>
+      <p class="up-rating"><Stars rating={5} /><b>5,0</b> en Google · Desde 2022</p>
+    </div>
 
-      <nav class="flex mt-7 flex-wrap items-center gap-4">
-        <NavButton path="/contact" styles="bg-corporative text-secondary">
-          Pide tu cita
-        </NavButton>
-        <NavButton path="/clinic" styles="bg-transparent border border-white/30 text-white">
-          Descubre nuestra clínica
-        </NavButton>
-      </nav>
-    </section>
-    <ContactInfo />
-  </article>
+    <div class="up-hero-media">
+      <Image
+        src={recepcion}
+        alt="Recepción de Up Estudio Dental con el logotipo iluminado"
+        widths={[480, 720, 960]}
+        sizes="(min-width: 900px) 46vw, 100vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <aside class="up-hours" aria-label="Horario de hoy">
+        <span class="up-hours-urg">Urgencias 24 h</span>
+        <dl>
+          <dt>Lunes a viernes</dt><dd>10:00–13:30</dd>
+          <dt></dt><dd>16:00–20:30</dd>
+          <dt>Sábados</dt><dd>10:00–14:00</dd>
+        </dl>
+        <a class="up-tel" href={contact.landline.href}><Icon name="phone" class="up-icon" />{contact.landline.display}</a>
+      </aside>
+    </div>
+  </div>
 </section>
-
-<style>
-  #hero-section {
-    background-image: linear-gradient(
-        to top right,
-        rgba(19, 19, 19, 0.363),
-        rgba(88, 88, 88, 0.671)
-      ),
-      url("img/UP-Gallery/Up-Board.jpg");
-
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-</style>

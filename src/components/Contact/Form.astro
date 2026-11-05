@@ -1,117 +1,113 @@
 ---
+import { Icon } from "astro-icon/components";
+import Notice from "@/components/UI/Notice.astro";
+import { contact } from "@/constants/personal";
+
+let status: "idle" | "sent" | "error" = "idle";
+
 if (Astro.request.method === "POST") {
     try {
         const data = await Astro.request.formData();
-        const name = data.get("name");
-        const phone = data.get("phone");
-        const email = data.get("email");
-        const subject = data.get("subject");
-        const message = data.get("message");
-        console.log(name);
-        console.log(phone);
-        console.log(email);
-        console.log(subject);
-        console.log(message);
+        const name = data.get("name")?.toString().trim();
+        const email = data.get("email")?.toString().trim();
+        const message = data.get("message")?.toString().trim();
+        const privacy = data.get("privacy");
+        if (!name || !email || !message || !privacy) throw new Error("Faltan campos obligatorios");
+        // TODO: enviar el mensaje por correo o guardarlo; de momento solo se registra.
+        console.log({ name, email, phone: data.get("phone"), subject: data.get("subject"), message });
+        status = "sent";
     } catch (error) {
         console.log(error);
+        status = "error";
     }
 }
+
+const subjects = ["Pedir cita", "Revisión gratuita", "Limpieza bucal", "Blanqueamiento dental", "Medicina estética", "Otra consulta"];
+const fields = [
+    { id: "name", label: "Nombre", type: "text", autocomplete: "name", placeholder: "Tu nombre y apellido", required: true, error: "Escribe tu nombre para saber cómo dirigirnos a ti." },
+    { id: "email", label: "Correo electrónico", type: "email", autocomplete: "email", placeholder: "tu@correo.com", required: true, error: "Revisa el correo: debe tener la forma nombre@dominio.com." },
+    { id: "phone", label: "Teléfono", optional: true, type: "tel", autocomplete: "tel", placeholder: "600 000 000", required: false, error: "" },
+] as const;
 ---
 
-<form
-    method="POST"
-    class="border border-white/15 bg-contrast/40 rounded-xl p-6 flex flex-col items-start justify-center backdrop-blur-md gap-5 max-w-[550px] w-[100%] animate-slide-in-top"
->
-    <h2 class="font-bold text-center text-xl w-full">Formulario de contacto</h2>
+{
+    status === "sent" ? (
+        <div class="up-form" id="contact-form">
+            <Notice tone="success"><b>Mensaje enviado.</b> Te respondemos en horario de clínica, normalmente el mismo día.</Notice>
+            <p class="up-small">Si es urgente, llámanos al <a class="up-link" href={contact.landline.href}>{contact.landline.display}</a>.</p>
+        </div>
+    ) : (
+        <form method="POST" class="up-form" id="contact-form" novalidate>
+            <div class="flex flex-col gap-1">
+                <h2 class="up-h3">Escríbenos</h2>
+                <p class="up-small">Te contestamos en horario de clínica, normalmente el mismo día.</p>
+            </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5 w-full">
-        <label class="flex flex-col gap-2 items-start w-full">
-            <p class="text-xs text-white/80">Nombre:</p>
-            <input
-                placeholder="Tu nombre"
-                type="text"
-                name="name"
-                id="name"
-                required
-                class="bg-black/30 rounded-md px-3 py-2 w-full focus-visible:outline-none"
-            />
-        </label>
-        <label class="flex flex-col gap-2 items-start w-full">
-            <p class="text-xs text-white/80">Tu e-mail:</p>
-            <input
-                placeholder="ejemplo@gmail.com"
-                type="email"
-                name="email"
-                id="email"
-                required
-                class="bg-black/30 rounded-md px-3 py-2 w-full focus-visible:outline-none"
-            />
-        </label>
-        <label class="flex flex-col gap-2 items-start w-full">
-            <p class="text-xs text-white/80">Teléfono (opcional):</p>
-            <input
-                placeholder="649 03 93 27"
-                type="tel"
-                name="phone"
-                id="phone"
-                class="bg-black/30 rounded-md px-3 py-2 w-full focus-visible:outline-none"
-            />
-        </label>
-        <label class="flex flex-col gap-2 items-start w-full">
-            <p class="text-xs text-white/80">Asunto:</p>
-            <input
-                placeholder="EJ: Solicitud de cita"
-                type="text"
-                name="subject"
-                id="subject"
-                required
-                class="bg-black/30 rounded-md px-3 py-2 w-full focus-visible:outline-none"
-            />
-        </label>
-    </div>
+            {status === "error" && (
+                <Notice tone="danger"><b>No hemos podido enviar el mensaje.</b> Revisa los campos marcados o llámanos al {contact.landline.display}.</Notice>
+            )}
 
-    <label class="flex flex-col gap-2 items-start w-full">
-        <p class="text-xs text-white/80">Mensaje</p>
-        <textarea
-            placeholder="EJ: Me gustaría solicitar información sobre...."
-            name="message"
-            id="message"
-            class="bg-black/30 w-full px-3 py-2 h-[150px] focus-visible:outline-none"
-            required></textarea>
-    </label>
-    <label class="row-center gap-2 hover:cursor-pointer">
-        <input
-            type="checkbox"
-            name="privacy"
-            id="privacy"
-            class="appearance-none border w-5 h-5 hover:cursor-pointer"
-            required
-        />
-        <p class="select-none">
-            Acepto la <a href="/privacy-policy" class="text-white underline"
-                >política de privacidad</a
-            >
-        </p>
-    </label>
+            <div class="up-form-2">
+                {fields.map((f) => (
+                    <div class="up-field">
+                        <label for={`f-${f.id}`}>{f.label} {"optional" in f && <span>(opcional)</span>}</label>
+                        <input class="up-input" id={`f-${f.id}`} name={f.id} type={f.type} autocomplete={f.autocomplete} placeholder={f.placeholder} required={f.required} aria-describedby={f.error ? `f-${f.id}-e` : undefined} inputmode={f.type === "tel" ? "tel" : undefined} />
+                        {f.error && <span class="up-error" id={`f-${f.id}-e`} hidden><Icon name="alert" class="up-icon" />{f.error}</span>}
+                    </div>
+                ))}
+                <div class="up-field">
+                    <label for="f-subject">Motivo</label>
+                    <select class="up-input" id="f-subject" name="subject">
+                        {subjects.map((s) => <option>{s}</option>)}
+                    </select>
+                </div>
+            </div>
 
-    <button
-        type="submit"
-        class="p-5 py-3 border hover:bg-corporative/80 transition w-full"
-        >Enviar</button
-    >
-</form>
+            <div class="up-field">
+                <label for="f-message">Mensaje</label>
+                <textarea class="up-input" id="f-message" name="message" required placeholder="Cuéntanos qué necesitas y qué horario te viene mejor." aria-describedby="f-message-e"></textarea>
+                <span class="up-error" id="f-message-e" hidden><Icon name="alert" class="up-icon" />Cuéntanos en pocas palabras qué necesitas.</span>
+            </div>
 
-<style>
-    textarea {
-        field-sizing: content;
-        max-height: 150px;
-        resize: none;
+            <div class="up-field">
+                <label class="up-check" for="f-privacy">
+                    <input type="checkbox" id="f-privacy" name="privacy" required aria-describedby="f-privacy-e" />
+                    <span>He leído y acepto la <a class="up-link" href="/privacy-policy">política de privacidad</a></span>
+                </label>
+                <span class="up-error" id="f-privacy-e" hidden><Icon name="alert" class="up-icon" />Necesitamos tu consentimiento para responderte.</span>
+            </div>
+
+            <button class="up-btn up-btn-primary up-btn-block" type="submit">Enviar mensaje</button>
+        </form>
+    )
+}
+
+<script>
+    function initForm() {
+        const form = document.querySelector<HTMLFormElement>("form#contact-form");
+        if (!form || form.dataset.bound) return;
+        form.dataset.bound = "true";
+        const controls = Array.from(form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>("[required]"));
+
+        const check = (el: HTMLInputElement | HTMLTextAreaElement) => {
+            const ok = el.checkValidity();
+            el.setAttribute("aria-invalid", ok ? "false" : "true");
+            const err = document.getElementById(`${el.id}-e`);
+            if (err) err.hidden = ok;
+            return ok;
+        };
+        controls.forEach((el) => {
+            el.addEventListener("blur", () => el.value && check(el));
+            el.addEventListener("input", () => el.getAttribute("aria-invalid") === "true" && check(el));
+            el.addEventListener("change", () => el.getAttribute("aria-invalid") === "true" && check(el));
+        });
+        form.addEventListener("submit", (e) => {
+            const invalid = controls.filter((el) => !check(el));
+            if (invalid.length) {
+                e.preventDefault();
+                invalid[0].focus();
+            }
+        });
     }
-
-    input[type="checkbox"]:checked::before {
-        content: "\2713"; /* Unicode para el símbolo de check */
-        display: block;
-        text-align: center;
-        font-size: 12px;
-    }
-</style>
+    document.addEventListener("astro:page-load", initForm);
+</script>

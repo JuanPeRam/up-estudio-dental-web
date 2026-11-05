@@ -1,35 +1,23 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import OurTeam from "../components/OurTeam.astro";
-import Header from "@/components/Common/Header.astro";
+import Layout from "@/layouts/Layout.astro";
+import PageHeader from "@/components/UI/PageHeader.astro";
+import OurTeam from "@/components/OurTeam.astro";
+import CTABand from "@/components/UI/CTABand.astro";
 ---
 
 <Layout
-  title="Nuestro Equipo"
-  description="Les presentamos a nuestro maravilloso equipo. Compuesto por grandes profesionales con gran experiencia en el sector."
+  title="Equipo"
+  description="Conoce al equipo de Up Estudio Dental y Estética: ortodoncia, odontopediatría, cirugía e implantología, periodoncia e higiene dental en Móstoles."
 >
-  <section>
-    <Header
-      title="Nuestro Equipo"
-      description="Un equipo de profesionales especializados en odontología, cirugía e implantología, ortodoncia y estética facial, unidos por la misma vocación: cuidar de tu sonrisa con cercanía y rigor técnico."
-      styles="bg-secondary/80"
-    />
-    <OurTeam />
+  <PageHeader
+    eyebrow="Nuestro equipo"
+    title="Las personas que cuidan de tu sonrisa"
+    lead="Especialistas en odontología, cirugía e implantología, ortodoncia, periodoncia y estética facial, unidos por la misma forma de trabajar: cerca de ti y con rigor."
+  />
+  <section class="up-section up-band-sand pt-12">
+    <div class="up-wrap">
+      <OurTeam />
+    </div>
   </section>
+  <CTABand title="Pide cita con nuestro equipo" description="Dinos qué necesitas y te asignamos al especialista adecuado desde la primera visita." />
 </Layout>
-
-<style>
-  section {
-    background-image: linear-gradient(
-        to top right,
-        rgba(19, 19, 19, 0.068),
-        rgba(88, 88, 88, 0.274)
-      ),
-      url("img/UP-Gallery/Office2.jpg");
-
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-</style>

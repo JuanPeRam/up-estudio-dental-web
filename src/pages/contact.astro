@@ -1,37 +1,44 @@
 ---
+import { Icon } from "astro-icon/components";
 import Layout from "@/layouts/Layout.astro";
+import PageHeader from "@/components/UI/PageHeader.astro";
 import Form from "@/components/Contact/Form.astro";
-import Header from "@/components/Common/Header.astro";
-import ContactInfo from "@/components/Common/ContactInfo.astro";
+import HoursCard from "@/components/UI/HoursCard.astro";
+import Button from "@/components/UI/Button.astro";
+import Notice from "@/components/UI/Notice.astro";
+import { contact, whatsappLink } from "@/constants/personal";
 ---
 
 <Layout
     title="Contacto"
-    description="Formulario de contacto para poder concretar tu cita con nosotros"
+    description="Pide cita en Up Estudio Dental y Estética, Móstoles: formulario, WhatsApp, teléfono y horario. Urgencias odontológicas 24 h."
 >
-    <section id="form-section" class="min-h-screen flex flex-col gap-10 p-5">
-        <Header title="Información de contacto" description="Habla con nuestro equipo para que podamos atenderte lo antes posible 😊" styles="bg-transparent">
-        </Header>
-        <section class="flex items-center justify-center gap-5 w-full flex-wrap">
-            <Form></Form>
-            <ContactInfo />
-        </section>
-        
+    <PageHeader
+        eyebrow="Contacto"
+        title="Pide tu cita"
+        lead="Escríbenos por el formulario o por WhatsApp, o llámanos. Te respondemos en horario de clínica y atendemos urgencias las 24 horas."
+    >
+        <div class="flex flex-wrap gap-3">
+            <Button href={whatsappLink("Hola, me gustaría pedir cita.")} icon="whatsapp" external aria-label="Escribir por WhatsApp (se abre en otra pestaña)">Escribir por WhatsApp</Button>
+            <Button href={contact.landline.href} variant="secondary" icon="phone">{contact.landline.display}</Button>
+        </div>
+    </PageHeader>
+
+    <section class="up-section pt-12">
+        <div class="up-wrap grid items-start gap-10 lg:grid-cols-[1.4fr_1fr] lg:gap-12">
+            <Form />
+            <div class="flex flex-col gap-6 lg:sticky lg:top-[calc(var(--nav-h)+24px)]">
+                <HoursCard />
+                <div class="up-hours">
+                    <p class="up-eyebrow">Dirección</p>
+                    <p class="m-0 font-semibold text-ink">{contact.address}</p>
+                    <a class="up-tel" href={`mailto:${contact.email}`}><Icon name="mail" class="up-icon" />{contact.email}</a>
+                    <Button href={contact.mapsUrl} variant="secondary" icon="pin" external block aria-label="Cómo llegar (abre Google Maps en otra pestaña)">Cómo llegar</Button>
+                </div>
+                <Notice>
+                    <b>Política de cancelación.</b> Confirma o anula tu cita llamando con antelación. Sin confirmación previa no podemos garantizar la disponibilidad.
+                </Notice>
+            </div>
+        </div>
     </section>
 </Layout>
-
-<style>
-    #form-section{
-        background-image: linear-gradient(
-        to top right,
-        rgba(19, 19, 19, 0.363),
-        rgba(88, 88, 88, 0.671)
-      ),
-      url("img/UP-Gallery/Rest-room.jpg");
-
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
-</style>

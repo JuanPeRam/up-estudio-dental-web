@@ -1,4 +1,6 @@
 ---
+import Checklist from "@/components/UI/Checklist.astro";
+
 interface Props {
     title: string;
     image: string;
@@ -11,32 +13,13 @@ interface Props {
 const { image, text, title, highlights, reversed = false } = Astro.props;
 ---
 
-<article
-    class:list={[
-        "grid items-center gap-8 md:gap-12 lg:grid-cols-2",
-        reversed && "lg:[&>figure]:order-last",
-    ]}
->
-    <figure class="relative overflow-hidden rounded-xl border border-white/10">
-        <img
-            src={image}
-            alt={`Imagen del tratamiento de ${title}`}
-            class="aspect-[4/3] w-full object-cover transition-transform duration-500 hover:scale-105"
-            loading="lazy"
-        />
+<article class:list={["up-treat", reversed && "is-reversed"]}>
+    <figure class="up-treat-media m-0">
+        <img src={image} alt={`Tratamiento de ${title.toLowerCase()}`} loading="lazy" decoding="async" width="600" height="450" />
     </figure>
-
     <div class="flex flex-col gap-5">
-        <h3 class="text-2xl font-bold md:text-3xl">{title}</h3>
-        <p class="text-pretty">{text}</p>
-        <ul class="flex flex-wrap gap-2">
-            {
-                highlights.map((highlight) => (
-                    <li class="rounded-full border border-corporative/30 bg-corporative/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-corporative">
-                        {highlight}
-                    </li>
-                ))
-            }
-        </ul>
+        <h3 class="up-h2">{title}</h3>
+        <p class="up-body">{text}</p>
+        <Checklist items={highlights} />
     </div>
 </article>

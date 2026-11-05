@@ -1,79 +1,57 @@
 ---
-import NavButton from "@/components/Templates/NavButton.astro";
 import { Image } from "astro:assets";
-import entryPhoto from "@/img/up-entry.webp";
+import { Icon } from "astro-icon/components";
+import Button from "@/components/UI/Button.astro";
+import fachada from "@/img/UP-Gallery/Up-Entry.jpg";
+import zonaInfantil from "@/img/UP-Gallery/Rest-room.jpg";
+import recepcion from "@/img/UP-Gallery/Entry3.jpg";
+
+const points = [
+  { icon: "smile", title: "Pensada para niños", text: "Zona de juegos en la sala de espera y odontopediatría con la Dra. Cristina Umérez." },
+  { icon: "sparkle", title: "Dental y estética", text: "Odontología y medicina estética facial con el mismo criterio prudente." },
+  { icon: "users", title: "Equipo familiar", text: "Un equipo pequeño que te conoce por tu nombre desde la primera visita." },
+];
 ---
 
-<section class="py-20 px-5 bg-[#fdfdfd]" id="introSection">
-  <article
-    class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center p-6 md:p-10 shadow-md gap-y-10 rounded-xl bg-primary border"
-    id="introArticle"
-  >
-    <Image
-      src={entryPhoto}
-      alt="Entrada de Up Estudio Dental y Estética"
-      class="w-full h-72 md:h-[26rem] object-cover rounded-lg shadow-md order-1 md:order-2"
-    />
-
-    <div class="flex flex-col gap-7 order-2 md:order-1">
-      <header>
-        <p class="text-xs font-bold uppercase tracking-widest text-corporative/80 mb-2">Sobre nosotros</p>
-        <h2 class="font-bold text-3xl md:text-4xl text-black leading-tight">
-          Dientes sanos y piel radiante
-        </h2>
-      </header>
-
-      <div class="flex flex-col gap-5 leading-relaxed">
-        <p class="text-black/75">
-          <strong class="text-black">Desde 2022</strong> somos más que una clínica
-          dental: unimos odontología y medicina estética facial con un enfoque
-          único y cercano, en un espacio donde cada paciente se siente como en
+<section class="up-section" id="clinica">
+  <div class="up-wrap grid items-center gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
+    <div class="flex flex-col gap-8">
+      <div class="up-sh">
+        <p class="up-eyebrow">Sobre nosotros</p>
+        <h2 class="up-h2">Una clínica de barrio con tecnología de primera</h2>
+        <p class="up-lead">
+          Desde 2022 unimos odontología y medicina estética facial en un espacio luminoso donde cada paciente se siente como en
           casa.
         </p>
-        <p class="text-black/75">
-          Con la experiencia combinada de la <a
-            href="/member/cristina"
-            class="font-bold text-black hover:text-corporative transition-colors">Dra. Cristina Umerez</a
-          >, odontopediatra y ortodoncista, y <a
-            href="/member/juan"
-            class="font-bold text-black hover:text-corporative transition-colors">Juan Carlos Pereira</a
-          >, experto en ingeniería industrial y gestión empresarial, creamos
-          tratamientos personalizados con tecnología de vanguardia y un
-          enfoque compasivo.
-        </p>
-        <p class="text-black/75">
-          Nos comprometemos a ayudarte a lograr una <strong class="text-black">sonrisa saludable</strong>
-          y una <strong class="text-black">piel radiante</strong>, porque tu bienestar es nuestra prioridad.
-        </p>
       </div>
-
-      <NavButton path="/team" styles="text-white bg-secondary w-fit">
-        Conócenos
-      </NavButton>
-    </div>
-  </article>
-</section>
-
-<style>
-  .sectionShown {
-    @apply animate-fade-in;
-  }
-</style>
-
-<script>
-  function setAnimationTrigger() {
-    const $introSection = document.getElementById("introArticle");
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("sectionShown");
+      <ul class="m-0 flex list-none flex-col gap-5 p-0">
+        {
+          points.map((p) => (
+            <li class="flex gap-4">
+              <span class="up-fact-ico"><Icon name={p.icon} class="up-icon" /></span>
+              <div class="flex flex-col gap-1">
+                <h3 class="up-h4">{p.title}</h3>
+                <p class="up-small">{p.text}</p>
+              </div>
+            </li>
+          ))
         }
-      });
-    });
+      </ul>
+      <div class="flex flex-wrap gap-3">
+        <Button href="/clinic" variant="secondary" iconAfter="arrow-right">Recorre la clínica</Button>
+      </div>
+    </div>
 
-    if ($introSection) observer.observe($introSection);
-  }
-
-  setAnimationTrigger();
-  document.addEventListener("astro:after-swap", setAnimationTrigger);
-</script>
+    <div class="up-gallery" aria-label="Fotos de la clínica">
+      <a href="/clinic" class="big" aria-label="Ver la galería: sala de espera con zona infantil">
+        <Image src={zonaInfantil} alt="Sala de espera con zona de juegos infantil" widths={[480, 800]} sizes="(min-width: 1080px) 400px, 100vw" />
+      </a>
+      <a href="/clinic" class="tall" aria-label="Ver la galería: fachada de la clínica">
+        <Image src={fachada} alt="Fachada de Up Estudio Dental" widths={[340, 680]} sizes="200px" />
+      </a>
+      <a href="/clinic" class="tall" aria-label="Ver la galería: recepción">
+        <Image src={recepcion} alt="Recepción y sala de espera" widths={[400, 700]} sizes="200px" />
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,7 +1,7 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Header from "@/components/Common/Header.astro";
-import ServiceSelector from "@/components/Services/ServiceSelector.astro";
+import Layout from "@/layouts/Layout.astro";
+import PageHeader from "@/components/UI/PageHeader.astro";
+import ServiceCard from "@/components/Cards/ServiceCard.astro";
 import DentalCheckups from "@/components/Services/DentalCheckups.astro";
 import DentalCleaning from "@/components/Services/DentalCleaning.astro";
 import TeethWhitening from "@/components/Services/TeethWhitening.astro";
@@ -12,42 +12,31 @@ const requestedSlug = Astro.url.searchParams.get("servicio");
 const activeSlug = services.some((service) => service.slug === requestedSlug)
     ? (requestedSlug as string)
     : defaultServiceSlug;
+const active = services.find((s) => s.slug === activeSlug)!;
 ---
 
 <Layout
-    title="Servicios"
-    description="Descubre todos los servicios de Up Estudio Dental y Estética: revisiones, medicina estética, blanqueamiento dental y limpieza bucal, cada uno con su ficha detallada."
+    title={requestedSlug ? active.title : "Servicios"}
+    description="Revisiones gratuitas, limpieza bucal, blanqueamiento dental y medicina estética facial en Móstoles. Precio orientativo, duración y cómo es cada tratamiento."
 >
-    <section class="min-h-screen" id="services-section">
-        <Header
-            title="Nuestros Servicios"
-            description="Elige un tratamiento para ver toda la información: precio orientativo, duración y cómo es el proceso 😎"
-        />
-        <div class="mx-auto max-w-screen-xl px-4 pb-16 lg:px-6">
-            <ServiceSelector active={activeSlug} />
-        </div>
+    <PageHeader
+        eyebrow="Servicios"
+        title="Tratamientos para toda la familia"
+        lead="Elige un tratamiento para ver en qué consiste, cuánto dura y cómo es el proceso. Si tienes dudas, la primera revisión es gratuita."
+    />
 
-        <div id="detalle">
-            {activeSlug === "revisiones-dentales" && <DentalCheckups />}
-            {activeSlug === "medicina-estetica" && <SteticMedicine />}
-            {activeSlug === "blanqueamiento-dental" && <TeethWhitening />}
-            {activeSlug === "limpieza-bucal" && <DentalCleaning />}
+    <section class="up-band-tint py-12" aria-label="Elige un tratamiento">
+        <div class="up-wrap">
+            <div class="up-grid-4">
+                {services.map((s) => <ServiceCard service={s} active={s.slug === activeSlug} />)}
+            </div>
         </div>
     </section>
+
+    <div id="detalle">
+        {activeSlug === "revisiones-dentales" && <DentalCheckups />}
+        {activeSlug === "medicina-estetica" && <SteticMedicine />}
+        {activeSlug === "blanqueamiento-dental" && <TeethWhitening />}
+        {activeSlug === "limpieza-bucal" && <DentalCleaning />}
+    </div>
 </Layout>
-
-<style>
-    #services-section {
-        background-image: linear-gradient(
-                to top right,
-                rgba(19, 19, 19, 0.363),
-                rgba(88, 88, 88, 0.671)
-            ),
-            url("img/UP-Gallery/Boxes.jpg");
-
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
-</style>

@@ -1,36 +1,68 @@
 ---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 import Layout from "@/layouts/Layout.astro";
+import PageHeader from "@/components/UI/PageHeader.astro";
 import Gallery from "@/components/Gallery/Gallery.astro";
-import Header from "@/components/Common/Header.astro";
+import CTABand from "@/components/UI/CTABand.astro";
+import Button from "@/components/UI/Button.astro";
+import { contact } from "@/constants/personal";
+import zonaInfantil from "@/img/UP-Gallery/Rest-room.jpg";
+
+const features = [
+  { icon: "smile", title: "Zona infantil", text: "Juegos, cuentos y mesas a su altura para que la espera sea parte de la visita." },
+  { icon: "shield", title: "Gabinetes equipados", text: "Radiografía panorámica, ultrasonidos y sillones de última generación." },
+  { icon: "sparkle", title: "Ambiente tranquilo", text: "Luz natural, plantas y música relajante en todas las salas." },
+];
 ---
 
 <Layout
   title="Clínica"
-  description="Recorre nuestras instalaciones en Móstoles: gabinetes, sala de espera y equipamiento de Up Estudio Dental y Estética."
+  description="Recorre las instalaciones de Up Estudio Dental en Móstoles: recepción, gabinetes, zona infantil y equipamiento de radiografía."
 >
-  <section id="clinic-section">
-    <Header
-      title="Nuestra Clínica"
-      description="Un espacio pensado para que te sientas como en casa, con la última tecnología en cada gabinete."
-    />
-    <div class="bg-secondary/60 pb-16">
+  <PageHeader
+    eyebrow="La clínica"
+    title="Un espacio luminoso pensado para que vengas tranquilo"
+    lead="Recepción, sala de espera con zona infantil, gabinetes dentales y de estética, todo en planta baja en la calle Andrómeda."
+  >
+    <div class="flex flex-wrap gap-3">
+      <Button href={contact.mapsUrl} variant="secondary" icon="pin" external aria-label="Cómo llegar (abre Google Maps en otra pestaña)">Cómo llegar</Button>
+    </div>
+  </PageHeader>
+
+  <section class="up-section pt-12" aria-label="Galería de fotos">
+    <div class="up-wrap">
       <Gallery />
     </div>
   </section>
+
+  <section class="up-section up-band-sand">
+    <div class="up-wrap grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <div class="up-treat-media">
+        <Image src={zonaInfantil} alt="Sala de espera con tipi, mesas infantiles y butacas" widths={[600, 1000]} sizes="(min-width: 1000px) 50vw, 100vw" />
+      </div>
+      <div class="flex flex-col gap-8">
+        <div class="up-sh">
+          <p class="up-eyebrow">Para toda la familia</p>
+          <h2 class="up-h2">Los peques también se sienten en casa</h2>
+          <p class="up-lead">Diseñamos la clínica pensando en las familias: los niños juegan mientras esperan y los adultos se relajan.</p>
+        </div>
+        <ul class="m-0 flex list-none flex-col gap-5 p-0">
+          {
+            features.map((f) => (
+              <li class="flex gap-4">
+                <span class="up-fact-ico bg-raised"><Icon name={f.icon} class="up-icon" /></span>
+                <div class="flex flex-col gap-1">
+                  <h3 class="up-h4">{f.title}</h3>
+                  <p class="up-small">{f.text}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <CTABand title="Ven a conocernos" description="La primera revisión es gratuita: es la mejor forma de ver la clínica y conocer al equipo." />
 </Layout>
-
-<style>
-  #clinic-section {
-    background-image: linear-gradient(
-        to bottom left,
-        rgba(0, 0, 0, 0.363),
-        rgba(255, 255, 255, 0.342)
-      ),
-      url("img/UP-Gallery/Kitchen.jpg");
-
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-</style>

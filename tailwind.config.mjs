@@ -1,28 +1,43 @@
 /** @type {import('tailwindcss').Config} */
-import animations from '@midudev/tailwind-animations'
-import plugin from 'tailwindcss'
+// Los colores apuntan a los tokens del sistema de diseño (src/styles/tokens.css),
+// así el tema claro/oscuro se resuelve en CSS y no en cada clase.
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ["Libre Baskerville"]
+				display: ['"Newsreader Variable"', '"Newsreader"', 'Georgia', 'serif'],
+				sans: ['"Figtree Variable"', '"Figtree"', '"Segoe UI"', 'system-ui', 'sans-serif'],
 			},
 			colors: {
-				primary: '#fff',
-				secondary: '#121212',
-				contrast: '#2d2d2d',
-				corporative: '#77c6c1',
-				textSecondary: 'rgb(227 227 227)',
-				blackTitle: '#77c6c1',
-				blackBodyText: '#101010',
-				blackIconography: '#64748B',
-
-			}
+				surface: 'var(--surface)',
+				raised: 'var(--surface-raised)',
+				tint: 'var(--surface-tint)',
+				sand: 'var(--surface-sand)',
+				night: 'var(--night)',
+				'on-night': 'var(--on-night)',
+				'on-night-muted': 'var(--on-night-muted)',
+				line: 'var(--line)',
+				'control-border': 'var(--control-border)',
+				ink: 'var(--ink)',
+				'ink-muted': 'var(--ink-muted)',
+				brand: 'var(--brand)',
+				'brand-strong': 'var(--brand-strong)',
+				action: 'var(--action)',
+				'on-action': 'var(--on-action)',
+				danger: 'var(--danger)',
+				success: 'var(--success)',
+			},
+			maxWidth: {
+				container: '1200px',
+				measure: '68ch',
+			},
+			borderRadius: {
+				sm: '6px',
+				md: '12px',
+				lg: '20px',
+			},
 		},
 	},
-	plugins: 
-		[
-			animations,
-		],
+	plugins: [],
 }

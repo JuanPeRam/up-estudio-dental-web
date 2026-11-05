@@ -1,30 +1,23 @@
 ---
-import ServiceFacts from "./ServiceFacts.astro";
-import ServiceCTA from "./ServiceCTA.astro";
+import ServiceIntro from "./ServiceIntro.astro";
+import ProcessSteps from "@/components/UI/ProcessSteps.astro";
+import Checklist from "@/components/UI/Checklist.astro";
+import Notice from "@/components/UI/Notice.astro";
+import CTABand from "@/components/UI/CTABand.astro";
+import Button from "@/components/UI/Button.astro";
+import { contact } from "@/constants/personal";
 
 const facts = [
     { icon: "euro", label: "Precio", value: "Gratuita" },
     { icon: "clock", label: "Duración", value: "15 min aprox." },
-    { icon: "book", label: "Frecuencia", value: "1 o 2 veces al año" },
+    { icon: "repeat", label: "Frecuencia", value: "1 o 2 veces al año" },
 ];
 
 const steps = [
-    {
-        title: "Primera toma de contacto",
-        text: "Repasamos contigo tu historial médico, los tratamientos que ya te hayan hecho y el motivo de tu visita. Si vienes por una molestia concreta, empezamos por ahí.",
-    },
-    {
-        title: "Exploración de la boca",
-        text: "Revisamos diente a diente el estado del esmalte, buscamos caries, desgastes, coloraciones y comprobamos la salud de las encías y la posición de la mordida.",
-    },
-    {
-        title: "Estudio radiográfico",
-        text: "Realizamos las radiografías necesarias para ver lo que no se aprecia a simple vista: raíces, hueso, muelas del juicio y caries interdentales.",
-    },
-    {
-        title: "Diagnóstico y presupuesto",
-        text: "Te explicamos con claridad qué hemos encontrado y qué opciones tienes. Si hace falta tratamiento, te entregamos el presupuesto detallado por escrito, sin ningún compromiso.",
-    },
+    { title: "Primera toma de contacto", text: "Repasamos contigo tu historial médico, los tratamientos que ya te hayan hecho y el motivo de tu visita. Si vienes por una molestia concreta, empezamos por ahí." },
+    { title: "Exploración de la boca", text: "Revisamos diente a diente el estado del esmalte, buscamos caries, desgastes y coloraciones, y comprobamos la salud de las encías y la posición de la mordida." },
+    { title: "Estudio radiográfico", text: "Hacemos las radiografías necesarias para ver lo que no se aprecia a simple vista: raíces, hueso, muelas del juicio y caries interdentales." },
+    { title: "Diagnóstico y presupuesto", text: "Te explicamos con claridad qué hemos encontrado y qué opciones tienes. Si hace falta tratamiento, te entregamos el presupuesto detallado por escrito, sin compromiso." },
 ];
 
 const included = [
@@ -36,71 +29,35 @@ const included = [
 ];
 ---
 
-<section
-    class="bg-secondary/80 px-4 py-12 sm:py-20 lg:px-6"
-    id="dental-checkups"
->
-    <div class="mx-auto max-w-screen-xl">
-        <div class="mb-12 max-w-screen-md lg:mb-16">
-            <span
-                class="mb-4 inline-block rounded-full bg-corporative px-4 py-1 text-xs font-bold uppercase tracking-widest text-secondary"
-                >Sin coste</span
-            >
-            <h2 class="mb-4 text-4xl font-extrabold tracking-tight">
-                Revisiones Dentales
-            </h2>
-            <p class="text-pretty">
-                Revisión, estudio radiográfico, diagnóstico y presupuesto totalmente
-                gratuitos. Una visita periódica es la forma más sencilla de detectar a
-                tiempo caries, desgastes o problemas de encías, cuando todavía son
-                fáciles de tratar.
-            </p>
-            <ServiceFacts facts={facts} styles="mt-8" />
-        </div>
+<section class="up-section" id="revisiones-dentales">
+    <div class="up-wrap flex flex-col gap-16">
+        <ServiceIntro
+            badge="Sin coste"
+            title="Revisiones dentales"
+            lead="Revisión, estudio radiográfico, diagnóstico y presupuesto totalmente gratuitos. Una visita periódica es la forma más sencilla de detectar a tiempo caries, desgastes o problemas de encías, cuando todavía son fáciles de tratar."
+            facts={facts}
+        />
 
         <div class="grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-16">
-            <div>
-                <h3 class="mb-8 text-2xl font-bold">Cómo es tu visita, paso a paso</h3>
-                <ol class="relative flex flex-col gap-10 border-l border-white/15 pl-8">
-                    {
-                        steps.map((step, index) => (
-                            <li class="relative">
-                                <span class="absolute -left-[3.05rem] row-center h-10 w-10 rounded-full border border-corporative/40 bg-secondary font-bold text-corporative">
-                                    {index + 1}
-                                </span>
-                                <h4 class="mb-2 text-xl font-bold">{step.title}</h4>
-                                <p class="text-pretty">{step.text}</p>
-                            </li>
-                        ))
-                    }
-                </ol>
+            <div class="flex flex-col gap-8">
+                <h3 class="up-h3">Cómo es tu visita, paso a paso</h3>
+                <ProcessSteps steps={steps} />
             </div>
-
-            <aside
-                class="h-fit rounded-xl border border-white/15 bg-secondary p-8 lg:sticky lg:top-28"
-            >
-                <h3 class="mb-6 text-xl font-bold">Qué incluye</h3>
-                <ul class="flex flex-col gap-4">
-                    {
-                        included.map((item) => (
-                            <li class="flex items-start gap-3">
-                                <span
-                                    class="mt-1 shrink-0 text-corporative"
-                                    aria-hidden="true"
-                                >
-                                    ✓
-                                </span>
-                                <span class="text-sm text-textSecondary">{item}</span>
-                            </li>
-                        ))
-                    }
-                </ul>
+            <aside class="up-panel up-panel-sticky h-fit">
+                <h3 class="up-h3">Qué incluye</h3>
+                <Checklist items={included} />
+                <Button href="/contact" icon="calendar" block>Pedir revisión gratuita</Button>
             </aside>
         </div>
+
+        <Notice>
+            <b>Política de cancelación.</b> Confirma o anula tu cita llamando con antelación al {contact.landline.display} o al {contact.mobile.display} (también por WhatsApp). Sin confirmación previa no podemos garantizar la disponibilidad.
+        </Notice>
     </div>
 </section>
 
-<ServiceCTA
+<CTABand
+    eyebrow="Primera visita"
     service="una revisión dental"
     title="Reserva tu revisión gratuita"
     description="La primera visita no te cuesta nada y te llevas un diagnóstico completo con presupuesto por escrito."

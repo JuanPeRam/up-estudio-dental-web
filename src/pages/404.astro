@@ -1,32 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Button from "@/components/UI/Button.astro";
 ---
 
 <Layout
-    title="404 Page not found"
+    title="Página no encontrada"
     description="La página que buscas no existe. Vuelve al inicio de Up Estudio Dental y Estética o consulta nuestros servicios."
 >
-    <section
-        class="py-20 flex items-center justify-center min-h-[64.5vh]"
-        id="not-found-section"
-    >
-        <h2 class="text-2xl backdrop-blur-xl p-10 font-bold">
-            Página no encontrada
-        </h2>
+    <section class="up-section">
+        <div class="up-wrap flex max-w-2xl flex-col items-start gap-6">
+            <p class="up-eyebrow">Error 404</p>
+            <h1 class="up-h1">No encontramos esta página</h1>
+            <p class="up-lead">Puede que el enlace haya cambiado. Desde aquí puedes volver al inicio, ver los tratamientos o pedir cita.</p>
+            <div class="flex flex-wrap gap-3">
+                <Button href="/" icon="arrow-left">Volver al inicio</Button>
+                <Button href="/services" variant="secondary">Ver servicios</Button>
+            </div>
+        </div>
     </section>
 </Layout>
-
-<style>
-    #not-found-section {
-        background-image: linear-gradient(
-                to top right,
-                rgba(0, 0, 0, 0.363),
-                rgba(255, 255, 255, 0.671)
-            ),
-            url("img/UP-Gallery/Kitchen3.jpg");
-
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
-</style>

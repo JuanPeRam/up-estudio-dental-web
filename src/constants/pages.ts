@@ -1,8 +1,8 @@
 const paths = {
-  "Home": "/",
+  "Inicio": "/",
   "Clínica": "/clinic",
   "Servicios": "/services",
-  "Nuestro Equipo": "/team",
+  "Equipo": "/team",
   "Contacto": "/contact"
 }
 

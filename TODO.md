@@ -8,7 +8,12 @@
 - [x] Add JSON-LD structured data (Dentist/LocalBusiness schema) in Layout.
 - [x] Fix og:image and meta image to use absolute URLs on all pages.
 - [x] Remove obsolete meta keywords tag and fill empty page descriptions (e.g. 'Clinica' section).
-- [ ] Optimize gallery images to WebP for performance.
-- [ ] Fix background-attachment: fixed fallback for iOS Safari.
+- [x] Optimize gallery images to WebP for performance (astro:assets, responsive widths).
+- [x] Fix background-attachment: fixed fallback for iOS Safari (fixed backgrounds removed in the redesign).
 - [ ] Rewrite 'Nuestro Equipo' content (remove placeholder Lorem ipsum, add real bios and qualifications).
 - [ ] Cache Google Reviews fetch server-side instead of calling the API live in 'Opiniones' section.
+- [x] Redesign every section with the new design system (tokens, Newsreader + Figtree, light/dark).
+- [ ] Send contact form submissions by email (the endpoint only logs them for now).
+- [ ] Self-host the medicina estética treatment photos (still loaded from static.wixstatic.com).
+- [ ] Get a vector (SVG) version of the logo.
+- [ ] Shoot matching team portraits (same background and light).

@@ -1,38 +1,24 @@
 ---
-import ReviewCard from "./ReviewCard.astro";
-import GoogleReviewsCTA from "./GoogleReviewsCTA.astro";
+import SectionHeader from "@/components/UI/SectionHeader.astro";
+import ReviewCard from "@/components/Cards/ReviewCard.astro";
+import Button from "@/components/UI/Button.astro";
+import { contact } from "@/constants/personal";
 import { getReviews } from "./reviews";
-const reviews = await getReviews();
+
+interface Props { limit?: number }
+const { limit = 3 } = Astro.props;
+const reviews = (await getReviews()).slice(0, limit);
 ---
 
-<section id="opinions-section">
-    <header class="mx-auto max-w-2xl px-4 pb-6 pt-20 text-center">
-        <p class="mb-2 text-xs font-bold uppercase tracking-widest text-corporative/80">
-            Opiniones
-        </p>
-        <h2 class="text-3xl font-extrabold tracking-tight md:text-4xl">
-            Esto es lo que opinan de nosotros nuestros pacientes en Google
-        </h2>
-    </header>
-
-    <div class="mx-auto flex max-w-screen-xl flex-wrap justify-center gap-x-10 gap-y-16 px-4 pb-20 pt-6 lg:px-6">
-        {reviews.map((review, index) => <ReviewCard review={review} index={index} />)}
+<section class="up-section" id="opiniones">
+  <div class="up-wrap flex flex-col gap-12">
+    <SectionHeader align="center" eyebrow="Opiniones" title="Lo que dicen nuestros pacientes en Google" />
+    <div class="up-grid-3">
+      {reviews.map((r) => <ReviewCard review={r} />)}
     </div>
-
-    <GoogleReviewsCTA />
+    <div class="flex flex-wrap justify-center gap-3">
+      <Button href={contact.googleReviewsUrl} variant="secondary" external iconAfter="arrow-right" aria-label="Leer todas las reseñas en Google (se abre en otra pestaña)">Leer todas en Google</Button>
+      <Button href={contact.googleReviewsUrl} variant="ghost" external aria-label="Escribir una reseña en Google (se abre en otra pestaña)">Escribir una reseña</Button>
+    </div>
+  </div>
 </section>
-
-<style>
-    #opinions-section {
-        background-image: linear-gradient(
-                to top right,
-                rgba(19, 19, 19, 0.363),
-                rgba(88, 88, 88, 0.671)
-            ),
-            url("img/UP-Gallery/Box23.jpg");
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
-</style>

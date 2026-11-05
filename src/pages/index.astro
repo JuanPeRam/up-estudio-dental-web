@@ -2,22 +2,22 @@
 import Layout from "@/layouts/Layout.astro";
 import Hero from "@/components/Home/Hero.astro";
 import TrustBar from "@/components/Home/TrustBar.astro";
-import ClinicIntro from "@/components/Home/ClinicIntro.astro";
 import ServicesPreview from "@/components/Home/ServicesPreview.astro";
-import FamiliarTeam from "@/components/Home/FamiliarTeam.astro";
+import ClinicIntro from "@/components/Home/ClinicIntro.astro";
+import TeamPreview from "@/components/Home/TeamPreview.astro";
 import Opinions from "@/components/Comments/Opinions.astro";
+import CTABand from "@/components/UI/CTABand.astro";
 ---
 
 <Layout
-  title="Home"
-  description="Página web oficial de Up estudio dental y estética, tu dentista de confianza en Móstoles, Madrid."
+  title="Inicio"
+  description="Clínica dental familiar en Móstoles: odontología, ortodoncia, odontopediatría y medicina estética facial. Primera revisión gratuita y urgencias 24 h."
 >
   <Hero />
   <TrustBar />
-  <section class="bg-[#fdfdfd] text-black">
-    <ClinicIntro />
-    <ServicesPreview />
-    <FamiliarTeam />
-  </section>
+  <ServicesPreview />
+  <ClinicIntro />
+  <TeamPreview />
   <Opinions />
+  <CTABand />
 </Layout>

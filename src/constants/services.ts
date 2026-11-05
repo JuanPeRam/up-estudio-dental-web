@@ -1,34 +1,47 @@
+import type { ImageMetadata } from "astro";
+import revisiones from "@/img/UP-Gallery/Up-Machine.jpg";
+import estetica from "@/img/UP-Gallery/Box1.jpg";
+import blanqueamiento from "@/img/UP-Gallery/Box22.jpg";
+import limpieza from "@/img/UP-Gallery/Box2.jpg";
+
 interface ServiceMeta {
     slug: string;
     title: string;
     shortDescription: string;
-    image: string;
+    image: ImageMetadata;
+    imageAlt: string;
+    badge?: string;
 }
 
 const services: ServiceMeta[] = [
     {
         slug: "revisiones-dentales",
-        title: "Revisiones Dentales",
-        shortDescription: "Revisión, estudio radiográfico y presupuesto totalmente gratuitos.",
-        image: "https://static.wixstatic.com/media/d47f72_58d407acbe4e47c5b3a37110e6532bb1~mv2.jpg/v1/fill/w_400,h_400,fp_0.50_0.50,q_80,usm_0.66_1.00_0.01,enc_auto/d47f72_58d407acbe4e47c5b3a37110e6532bb1~mv2.jpg",
+        title: "Revisiones dentales",
+        shortDescription: "Revisión, radiografías y presupuesto por escrito, sin coste.",
+        image: revisiones,
+        imageAlt: "Equipo de radiografía dental de la clínica",
+        badge: "Sin coste",
     },
     {
         slug: "medicina-estetica",
-        title: "Medicina Estética",
+        title: "Medicina estética",
         shortDescription: "Rejuvenecimiento facial, tratamiento de arrugas y aumento de labios.",
-        image: "https://static.wixstatic.com/media/d47f72_69631898962e4582a00520badd9d366a~mv2.jpg/v1/fill/w_400,h_400,fp_0.50_0.50,q_80,usm_0.66_1.00_0.01,enc_auto/d47f72_69631898962e4582a00520badd9d366a~mv2.jpg",
+        image: estetica,
+        imageAlt: "Gabinete de medicina estética con camilla",
     },
     {
         slug: "blanqueamiento-dental",
-        title: "Blanqueamiento Dental",
-        shortDescription: "Aclara el tono natural de tu sonrisa con un gel profesional supervisado.",
-        image: "https://static.wixstatic.com/media/d47f72_d531ca276c3d4e7f815e860b8b547db4~mv2.png/v1/fill/w_400,h_400,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_auto/d47f72_d531ca276c3d4e7f815e860b8b547db4~mv2.png",
+        title: "Blanqueamiento dental",
+        shortDescription: "Gel profesional supervisado. Sesión de 45 a 60 minutos.",
+        image: blanqueamiento,
+        imageAlt: "Gabinete dental con sillón y equipo de tratamiento",
     },
     {
         slug: "limpieza-bucal",
-        title: "Limpieza Bucal",
-        shortDescription: "Elimina el sarro y la placa bacteriana con ultrasonidos y pulido.",
-        image: "https://static.wixstatic.com/media/d47f72_19a34f9516a64c46868fa4c2d1283d34~mv2.png/v1/fill/w_400,h_400,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_auto/d47f72_19a34f9516a64c46868fa4c2d1283d34~mv2.png",
+        title: "Limpieza bucal",
+        shortDescription: "Ultrasonidos y pulido para eliminar el sarro y la placa.",
+        image: limpieza,
+        imageAlt: "Gabinete dental luminoso con sillón de tratamiento",
     },
 ];
 

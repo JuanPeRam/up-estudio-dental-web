@@ -1,0 +1,42 @@
+---
+import { Icon } from "astro-icon/components";
+import Button from "./Button.astro";
+import { contact, whatsappLink } from "@/constants/personal";
+
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  /** Tratamiento para el mensaje prerredactado de WhatsApp */
+  service?: string;
+}
+
+const {
+  eyebrow = "Pide tu cita",
+  title = "Reserva tu revisión gratuita",
+  description = "La primera visita incluye revisión, radiografías y presupuesto por escrito, sin compromiso.",
+  service,
+} = Astro.props;
+
+const message = service ? `Hola, me gustaría pedir cita para ${service}.` : "Hola, me gustaría pedir cita.";
+---
+
+<section class="up-cta up-on-night">
+  <div class="up-wrap up-cta-in">
+    <div class="flex flex-col gap-3">
+      <p class="up-eyebrow">{eyebrow}</p>
+      <h2 class="up-h2">{title}</h2>
+      <p>{description}</p>
+    </div>
+    <div class="flex flex-col gap-4">
+      <div class="flex flex-wrap gap-3">
+        <Button href={whatsappLink(message)} variant="night" icon="whatsapp" external aria-label="Escribir por WhatsApp (se abre en otra pestaña)">Escribir por WhatsApp</Button>
+        <Button href="/contact" variant="outline-night">Formulario de contacto</Button>
+      </div>
+      <div class="up-cta-phones">
+        <a href={contact.mobile.href}><Icon name="phone" class="up-icon" />{contact.mobile.display}</a>
+        <a href={contact.landline.href}><Icon name="landline" class="up-icon" />{contact.landline.display}</a>
+      </div>
+    </div>
+  </div>
+</section>
