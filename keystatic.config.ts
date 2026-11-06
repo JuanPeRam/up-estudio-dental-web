@@ -9,7 +9,7 @@ import { config, collection, fields } from "@keystatic/core";
  * - Sin esa variable (desarrollo local) guarda directamente en los ficheros del proyecto.
  *
  * Los datos viven en src/content/<colección>/*.yaml y las fotos en src/assets/cms/<colección>/<entrada>/.
- * El esquema que lee la web está en src/content/config.ts: si se añade un campo aquí, añádelo allí.
+ * El esquema que lee la web está en src/content.config.ts: si se añade un campo aquí, añádelo allí.
  */
 const cloudProject = import.meta.env.PUBLIC_KEYSTATIC_CLOUD_PROJECT as string | undefined;
 

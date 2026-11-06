@@ -1,14 +1,11 @@
-// The installed @astrojs/vercel adapter only recognizes Node 18 and 20 as
-// valid Vercel runtimes; on any other Node major running the build (e.g.
-// Vercel's own build containers, which may run 22+) it silently falls back
-// to writing "nodejs18.x" into .vc-config.json — a runtime Vercel has since
-// removed entirely, which fails the deploy with "invalid runtime".
+// @astrojs/vercel only recognizes the Node majors listed in its own table
+// (18-24 in v11). On any newer Node running the build, such as the 26.x set
+// in "engines.node", it falls back to an older runtime in .vc-config.json.
 //
-// This runs after `astro build` (see the "vercel-build" script) and
-// rewrites the generated runtime directly, sidestepping the adapter's
-// outdated detection logic. The runtime matches the Node major that runs the
-// build, which Vercel takes from "engines.node" in package.json, so build and
-// functions always use the same version.
+// This runs after `astro build` (see the "vercel-build" script) and rewrites
+// the generated runtime to the Node major that ran the build, which Vercel
+// takes from "engines.node" in package.json, so build and functions always
+// use the same version.
 import { readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 

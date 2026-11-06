@@ -1,4 +1,6 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
+import { z } from "astro/zod";
 
 /**
  * Esquema de los datos que se editan desde el panel /keystatic (ver keystatic.config.ts).
@@ -10,7 +12,7 @@ const lista = <T extends z.ZodTypeAny>(item: T) => z.array(item).nullish().trans
 const tituloYTexto = z.object({ titulo: texto, texto: texto });
 
 const servicios = defineCollection({
-  type: "data",
+  loader: glob({ pattern: "*.yaml", base: "./src/content/servicios" }),
   schema: ({ image }) =>
     z.object({
       titulo: z.string(),
@@ -33,7 +35,7 @@ const servicios = defineCollection({
 });
 
 const especialidades = defineCollection({
-  type: "data",
+  loader: glob({ pattern: "*.yaml", base: "./src/content/especialidades" }),
   schema: ({ image }) =>
     z.object({
       titulo: z.string(),
@@ -46,7 +48,7 @@ const especialidades = defineCollection({
 });
 
 const equipo = defineCollection({
-  type: "data",
+  loader: glob({ pattern: "*.yaml", base: "./src/content/equipo" }),
   schema: ({ image }) =>
     z.object({
       nombre: z.string(),

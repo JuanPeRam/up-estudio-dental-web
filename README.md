@@ -39,7 +39,7 @@ All commands are run from the root of the project, from a terminal:
 Los servicios, la rejilla de especialidades de la portada y el equipo se editan desde **`/keystatic`**.
 
 - Los datos están en `src/content/{servicios,especialidades,equipo}/*.yaml` y las fotos en `src/assets/cms/<colección>/<entrada>/`.
-- El esquema del panel está en `keystatic.config.ts` y el que valida la web en `src/content/config.ts`. Si añades un campo, añádelo en los dos.
+- El esquema del panel está en `keystatic.config.ts` y el que valida la web en `src/content.config.ts`. Si añades un campo, añádelo en los dos.
 - **En local** (`npm run dev`) el panel guarda directamente en los ficheros del proyecto.
 - **En producción** usa Keystatic Cloud: cada cambio se guarda como un commit en GitHub y Vercel republica la web en uno o dos minutos.
 

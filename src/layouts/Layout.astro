@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import NavBar from "@/components/Common/NavBar.astro";
 import Footer from "@/components/Common/Footer.astro";
 import MobileActionBar from "@/components/Common/MobileActionBar.astro";
@@ -85,7 +85,7 @@ const structuredData = {
     <link rel="canonical" href={canonicalURL} />
 
     <title>{pageTitle}</title>
-    <ViewTransitions />
+    <ClientRouter />
 
     <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
   </head>
