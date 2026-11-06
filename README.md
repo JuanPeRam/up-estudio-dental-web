@@ -45,7 +45,7 @@ Los servicios, la rejilla de especialidades de la portada y el equipo se editan 
 
 ### Puesta en marcha de Keystatic Cloud (una vez)
 
-1. Entra en [keystatic.cloud](https://keystatic.cloud) con GitHub, crea un equipo y un proyecto y conéctalo al repositorio `JuanPeRam/up-estudio-dental-web` (rama `main`).
+1. Entra en [keystatic.cloud](https://keystatic.cloud) con GitHub, crea un equipo y un proyecto y conéctalo al repositorio `JuanPeRam/up-estudio-dental-web` (rama `master`).
 2. En Vercel, añade la variable de entorno `PUBLIC_KEYSTATIC_CLOUD_PROJECT` con el valor `equipo/proyecto` que muestra Keystatic Cloud y vuelve a desplegar.
 3. En Keystatic Cloud, invita a los propietarios por correo. El plan gratuito admite hasta 3 usuarios.
 4. Los propietarios entran en `https://<tu-dominio>/keystatic` con su correo.
