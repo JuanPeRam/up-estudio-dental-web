@@ -1,0 +1,41 @@
+titulo: Blanqueamiento dental
+orden: 3
+resumen: Sistema Philips Zoom con gel profesional. Sesión de 45 a 60 minutos.
+imagen: ../../assets/cms/servicios/blanqueamiento-dental/imagen.webp
+imagenAlt: Sesión de blanqueamiento con la lámpara Philips Zoom
+entradilla: Recupera el blanco natural de tu sonrisa con un tratamiento seguro y supervisado. Aplicamos un gel blanqueador de uso profesional, siempre después de valorar tus encías y tu esmalte para adaptarlo a tu caso y minimizar la sensibilidad.
+datos:
+- icono: euro
+  etiqueta: Precio
+  valor: Según valoración
+- icono: clock
+  etiqueta: Sesión
+  valor: 45-60 min
+- icono: calendar
+  etiqueta: Duración del efecto
+  valor: 1 a 3 años
+pasos:
+  titulo: Las tres fases del tratamiento
+  items:
+  - titulo: Valoración previa
+    texto: Revisamos el estado de tus encías y de tu esmalte y descartamos caries activas. Si hace falta, hacemos antes una limpieza para que el gel actúe de forma uniforme.
+  - titulo: Sesión de blanqueamiento
+    texto: Protegemos la encía y aplicamos el gel blanqueador de uso profesional. Trabajamos por tandas, controlando el tono para que el resultado sea natural y no un blanco artificial.
+  - titulo: Mantenimiento
+    texto: Te damos pautas para las primeras 48 horas y, si tu caso lo requiere, férulas para retoques en casa. Con revisiones y limpiezas periódicas el resultado dura mucho más.
+preguntas:
+  titulo: Preguntas frecuentes
+  items:
+  - pregunta: ¿Daña el esmalte?
+    respuesta: No. El gel actúa sobre los pigmentos alojados en el diente, no desgasta el esmalte. Por eso es importante que lo aplique un profesional, con la concentración y los tiempos adecuados a tu caso.
+  - pregunta: ¿Voy a tener sensibilidad?
+    respuesta: 'Es el efecto secundario más habitual y es pasajero: suele durar entre 24 y 48 horas. Valoramos tu esmalte antes de empezar y ajustamos el tratamiento para minimizarla.'
+  - pregunta: ¿Funciona sobre fundas, coronas o empastes?
+    respuesta: No. Los materiales artificiales no cambian de color. Si tienes restauraciones en la zona visible, lo valoramos antes para decidir si conviene sustituirlas después y que el tono case.
+  - pregunta: ¿Cuánto dura el resultado?
+    respuesta: Entre uno y tres años, según tus hábitos. El café, el té, el vino tinto y el tabaco son los que más aceleran la vuelta al tono original.
+cierre:
+  antetitulo: Primer paso
+  titulo: Empieza por la valoración
+  texto: Antes de blanquear necesitamos ver tu boca. La cita de valoración es gratuita y sales sabiendo qué resultado puedes esperar.
+  mensajeWhatsapp: un blanqueamiento dental

@@ -1,0 +1,36 @@
+titulo: Medicina estética
+orden: 4
+resumen: Rejuvenecimiento facial, tratamiento de arrugas y aumento de labios.
+imagen: ../../assets/cms/servicios/medicina-estetica/imagen.jpg
+imagenAlt: Gabinete de medicina estética con camilla
+entradilla: 'Tratamientos faciales con productos reabsorbibles y un criterio conservador: que se te vea descansado/a, no que se note el tratamiento. Todo empieza por una consulta en la que valoramos tu rostro y decidimos juntos qué merece la pena hacer.'
+tratamientos:
+- titulo: Rejuvenecimiento facial
+  texto: Un relleno dérmico que se aplica en el rostro para suavizar arrugas, líneas de expresión y pliegues. Además estimula el colágeno natural, devolviendo elasticidad y luminosidad a la piel con un resultado natural y duradero.
+  imagen: ../../assets/cms/servicios/medicina-estetica/tratamiento-rejuvenecimiento.jpg
+  imagenAlt: Labios de un paciente antes y después de un relleno dérmico
+  puntos:
+  - Sesión de 30-45 min
+  - Resultado progresivo
+  - Sin ingreso
+- titulo: Tratamiento de arrugas
+  texto: Suavizamos las arrugas de la frente, el entrecejo y el contorno de los ojos relajando de forma controlada la musculatura que las provoca. Es rápido, ambulatorio y vuelves a tu rutina el mismo día.
+  imagen: ../../assets/cms/servicios/medicina-estetica/tratamiento-arrugas.jpg
+  imagenAlt: Frente y entrecejo de una paciente antes y después del tratamiento de arrugas
+  puntos:
+  - Sesión de 20 min
+  - Efecto a los 3-7 días
+  - Duración de 4 a 6 meses
+- titulo: Aumento de labios con ácido hialurónico
+  texto: Aportamos volumen al labio y definimos su forma, corrigiendo pequeñas asimetrías cuando hace falta. Es uno de los procedimientos más naturales, porque el ácido hialurónico lo genera nuestro propio organismo.
+  imagen: ../../assets/cms/servicios/medicina-estetica/tratamiento-labios.jpg
+  imagenAlt: Labios de una paciente antes y después del aumento con ácido hialurónico
+  puntos:
+  - Sesión de 30 min
+  - Resultado inmediato
+  - Reabsorbible
+cierre:
+  antetitulo: Consulta previa
+  titulo: Cuéntanos qué te gustaría mejorar
+  texto: Valoramos tu caso en consulta antes de proponerte nada, y solo hacemos lo que de verdad merece la pena.
+  mensajeWhatsapp: un tratamiento de medicina estética

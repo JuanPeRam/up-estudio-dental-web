@@ -2,21 +2,16 @@
 import Layout from "@/layouts/Layout.astro";
 import PageHeader from "@/components/UI/PageHeader.astro";
 import ServiceCard from "@/components/Cards/ServiceCard.astro";
-import DentalCheckups from "@/components/Services/DentalCheckups.astro";
-import DentalCleaning from "@/components/Services/DentalCleaning.astro";
-import TeethWhitening from "@/components/Services/TeethWhitening.astro";
-import SteticMedicine from "@/components/Services/SteticMedicine.astro";
-import { services, defaultServiceSlug } from "@/constants/services";
+import ServiceDetail from "@/components/Services/ServiceDetail.astro";
+import { getServicios } from "@/lib/contenido";
 
+const services = await getServicios();
 const requestedSlug = Astro.url.searchParams.get("servicio");
-const activeSlug = services.some((service) => service.slug === requestedSlug)
-    ? (requestedSlug as string)
-    : defaultServiceSlug;
-const active = services.find((s) => s.slug === activeSlug)!;
+const active = services.find((s) => s.id === requestedSlug) ?? services[0];
 ---
 
 <Layout
-    title={requestedSlug ? active.title : "Servicios"}
+    title={requestedSlug && active ? active.data.titulo : "Servicios"}
     description="Revisiones gratuitas, limpieza bucal, blanqueamiento dental y medicina estética facial en Móstoles. Precio orientativo, duración y cómo es cada tratamiento."
 >
     <PageHeader
@@ -28,15 +23,12 @@ const active = services.find((s) => s.slug === activeSlug)!;
     <section class="up-band-tint py-12" aria-label="Elige un tratamiento">
         <div class="up-wrap">
             <div class="up-grid-4">
-                {services.map((s) => <ServiceCard service={s} active={s.slug === activeSlug} />)}
+                {services.map((s) => <ServiceCard service={s} active={s.id === active?.id} />)}
             </div>
         </div>
     </section>
 
     <div id="detalle">
-        {activeSlug === "revisiones-dentales" && <DentalCheckups />}
-        {activeSlug === "medicina-estetica" && <SteticMedicine />}
-        {activeSlug === "blanqueamiento-dental" && <TeethWhitening />}
-        {activeSlug === "limpieza-bucal" && <DentalCleaning />}
+        {active && <ServiceDetail service={active} />}
     </div>
 </Layout>

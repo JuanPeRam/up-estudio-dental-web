@@ -6,37 +6,38 @@ import Layout from "@/layouts/Layout.astro";
 import Button from "@/components/UI/Button.astro";
 import TeamCard from "@/components/Cards/TeamCard.astro";
 import CTABand from "@/components/UI/CTABand.astro";
-import { team, getMemberByName } from "@/db/team";
+import type { CollectionEntry } from "astro:content";
+import { getEquipo } from "@/lib/contenido";
 
-export function getStaticPaths() {
-  return team.map(({ id }) => ({ params: { id } }));
+export async function getStaticPaths() {
+  const team = await getEquipo();
+  return team.map((entry) => ({ params: { id: entry.id }, props: { entry, others: team.filter((m) => m.id !== entry.id).slice(0, 3) } }));
 }
 
-const { id } = Astro.params;
-const member = getMemberByName(id)!;
-const others = team.filter((m) => m.id !== id).slice(0, 3);
-const description = `${member.name}${member.roles ? ` — ${member.roles.join(", ")}` : ""} en Up Estudio Dental y Estética, Móstoles.`;
+interface Props {
+  entry: CollectionEntry<"equipo">;
+  others: CollectionEntry<"equipo">[];
+}
+const { entry, others } = Astro.props;
+const member = { id: entry.id, ...entry.data };
+const description = `${member.nombre}${member.especialidades.length ? ` — ${member.especialidades.join(", ")}` : ""} en Up Estudio Dental y Estética, Móstoles.`;
 ---
 
-<Layout title={member.name} description={description}>
+<Layout title={member.nombre} description={description}>
   <section class="up-section pt-10">
     <div class="up-wrap flex flex-col gap-8">
       <nav class="up-crumbs" aria-label="Migas de pan">
-        <a href="/team">Equipo</a><span aria-hidden="true">/</span><span aria-current="page">{member.name}</span>
+        <a href="/team">Equipo</a><span aria-hidden="true">/</span><span aria-current="page">{member.nombre}</span>
       </nav>
       <div class="grid items-start gap-10 md:grid-cols-[minmax(0,380px)_1fr] lg:gap-16">
         <div class="up-cutout-photo w-full max-w-[320px] md:max-w-none">
-          {member.portrait ? (
-            <Image src={member.portrait} alt={member.name} widths={[400, 800]} sizes="(min-width: 768px) 380px, 320px" loading="eager" transition:name={`${member.id}-image`} />
-          ) : (
-            <img src={`/${member.picture}`} alt={member.name} width="420" height="560" transition:name={`${member.id}-image`} />
-          )}
+          <Image src={member.retrato} alt={member.retratoAlt} widths={[400, 800]} sizes="(min-width: 768px) 380px, 320px" loading="eager" transition:name={`${member.id}-image`} />
         </div>
         <div class="flex flex-col gap-6 md:pt-4">
           <p class="up-eyebrow">Nuestro equipo</p>
-          <h1 class="up-h1">{member.name}</h1>
-          {member.roles && <div class="up-team-roles">{member.roles.map((r) => <span class="up-badge">{r}</span>)}</div>}
-          <p class="up-lead">{member.description}</p>
+          <h1 class="up-h1">{member.nombre}</h1>
+          {member.especialidades.length > 0 && <div class="up-team-roles">{member.especialidades.map((r) => <span class="up-badge">{r}</span>)}</div>}
+          <p class="up-lead">{member.biografia}</p>
           <div class="flex flex-wrap gap-3 pt-2">
             <Button href="/contact" icon="calendar">Pedir cita</Button>
             <Button href="/team" variant="secondary" icon="arrow-left">Volver al equipo</Button>
@@ -50,7 +51,7 @@ const description = `${member.name}${member.roles ? ` — ${member.roles.join(",
     <div class="up-wrap flex flex-col gap-10">
       <h2 class="up-h2">Más del equipo</h2>
       <div class="up-grid-team">
-        {others.map((m) => <TeamCard id={m.id} name={m.name} roles={m.roles} picture={m.picture} portrait={m.portrait} />)}
+        {others.map((m) => <TeamCard member={m} />)}
       </div>
     </div>
   </section>

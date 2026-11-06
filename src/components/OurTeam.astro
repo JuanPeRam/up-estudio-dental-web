@@ -1,7 +1,9 @@
 ---
-// Retratos recortados sobre aqua (los de la web oficial); quien aún no tiene retrato usa su foto actual.
+// Retratos recortados sobre aqua. Los datos se editan en /keystatic (colección «Equipo»).
 import { Image } from "astro:assets";
-import { team } from "../db/team";
+import { getEquipo } from "@/lib/contenido";
+
+const team = await getEquipo();
 ---
 
 <div class="up-grid-team">
@@ -9,15 +11,11 @@ import { team } from "../db/team";
     team.map((m) => (
       <a class="up-cutout" href={`/member/${m.id}`} id={m.id}>
         <div class="up-cutout-photo">
-          {m.portrait ? (
-            <Image src={m.portrait} alt={m.name} widths={[360, 700]} sizes="(min-width: 1000px) 380px, 45vw" transition:name={`${m.id}-image`} />
-          ) : (
-            <img src={`/${m.picture}`} alt={m.name} width="420" height="560" loading="lazy" transition:name={`${m.id}-image`} />
-          )}
+          <Image src={m.data.retrato} alt={m.data.retratoAlt} widths={[360, 700]} sizes="(min-width: 1000px) 380px, 45vw" transition:name={`${m.id}-image`} />
         </div>
         <div class="flex flex-col gap-2">
-          <h2 class="up-h4">{m.name}</h2>
-          <div class="up-team-roles">{m.roles.map((r) => <span class="up-badge">{r}</span>)}</div>
+          <h2 class="up-h4">{m.data.nombre}</h2>
+          <div class="up-team-roles">{m.data.especialidades.slice(0, 3).map((r) => <span class="up-badge">{r}</span>)}</div>
         </div>
       </a>
     ))

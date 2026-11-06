@@ -1,0 +1,14 @@
+nombre: Dra. Cristina Umérez García
+orden: 1
+especialidades:
+  - Odontología general
+  - Odontopediatría
+  - Ortodoncia
+biografia: >-
+  La Dra. Cristina Umérez García es una profesional de referencia en
+  odontología, odontopediatría y ortodoncia, con más de 25 años de experiencia.
+  Su trato cercano con los más pequeños y su dedicación a cada caso la han
+  convertido en una de las especialistas de mayor confianza de la clínica.
+retrato: ../../assets/cms/equipo/cristina/retrato.webp
+retratoAlt: Dra. Cristina Umérez García
+enPortada: true

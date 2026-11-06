@@ -5,14 +5,15 @@ import vercel from "@astrojs/vercel/serverless";
 import sitemap from "@astrojs/sitemap";
 
 import icon from "astro-icon";
+import keystatic from "@keystatic/astro";
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://upestudiodental.vercel.app',
   integrations: [tailwind(), react({
     experimentalReactChildren: true
-  }), icon(), sitemap({
-    filter: (page) => !page.includes('/404'),
+  }), icon(), keystatic(), sitemap({
+    filter: (page) => !page.includes('/404') && !page.includes('/keystatic'),
   })],
   output: 'server',
   adapter: vercel()

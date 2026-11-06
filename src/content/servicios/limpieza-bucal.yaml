@@ -1,0 +1,42 @@
+titulo: Limpieza bucal
+orden: 2
+resumen: Ultrasonidos y pulido para eliminar el sarro y la placa.
+imagen: ../../assets/cms/servicios/limpieza-bucal/imagen.webp
+imagenAlt: Higienista realizando una limpieza a un paciente
+entradilla: Retiramos con ultrasonidos el sarro y la placa adheridos al diente y bajo la encía, justo donde el cepillo no llega. Después pulimos el esmalte para que la placa tarde más en volver. Es indoloro; si tienes los dientes sensibles, ajustamos la potencia y aplicamos un gel desensibilizante.
+datos:
+- icono: euro
+  etiqueta: Precio
+  valor: Según valoración
+- icono: clock
+  etiqueta: Duración
+  valor: 30-45 min, una sesión
+- icono: repeat
+  etiqueta: Frecuencia
+  valor: Al menos 1 vez al año
+tarjetas:
+  titulo: Señales de que ya te toca
+  items:
+  - titulo: Sangrado al cepillarte
+    texto: Es la primera señal de gingivitis. Una encía sana no sangra, por mucho que la cepilles.
+  - titulo: Mal aliento persistente
+    texto: La placa acumulada entre el diente y la encía libera compuestos que el cepillado no llega a arrastrar.
+  - titulo: Manchas o sarro visible
+    texto: El sarro se ve como una banda amarillenta en la base del diente y ya no se elimina en casa.
+  - titulo: Encía inflamada
+    texto: Encías rojas, hinchadas o que se retraen dejando el diente más largo de lo habitual.
+beneficios:
+  antetitulo: Después de la limpieza
+  titulo: Qué notarás al salir
+  texto: Una sesión al año basta para mantener a raya el sarro; cada seis meses si tienes tendencia a acumularlo.
+  items:
+  - Previene caries y enfermedad periodontal
+  - Frena el sangrado y la inflamación de encías
+  - Elimina manchas de café, té y tabaco
+  - Mejora el aliento de forma inmediata
+  - Deja la superficie pulida, para que la placa tarde más en volver
+cierre:
+  antetitulo: Pide tu cita
+  titulo: Pide tu limpieza bucal
+  texto: Escríbenos y buscamos el hueco que mejor te venga. Si hace más de un año de la última, es buen momento.
+  mensajeWhatsapp: una limpieza bucal

@@ -14,6 +14,8 @@
 - [ ] Cache Google Reviews fetch server-side instead of calling the API live in 'Opiniones' section.
 - [x] Redesign every section with the new design system (tokens, Newsreader + Figtree, light/dark).
 - [ ] Send contact form submissions by email (the endpoint only logs them for now).
-- [ ] Self-host the medicina estética treatment photos (still loaded from static.wixstatic.com).
+- [x] Self-host the medicina estética treatment photos (now in src/assets/cms/servicios/medicina-estetica).
+- [x] Admin panel (Keystatic) for services, specialties and team at /keystatic.
+- [ ] Create the Keystatic Cloud project, set PUBLIC_KEYSTATIC_CLOUD_PROJECT in Vercel and invite the owners.
 - [ ] Get a vector (SVG) version of the logo.
 - [ ] Shoot matching team portraits (same background and light).

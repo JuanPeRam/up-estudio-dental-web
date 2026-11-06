@@ -1,0 +1,43 @@
+titulo: Revisiones dentales
+orden: 1
+resumen: Revisión, radiografías y presupuesto por escrito, sin coste.
+etiqueta: Sin coste
+imagen: ../../assets/cms/servicios/revisiones-dentales/imagen.webp
+imagenAlt: Doctora revisando la boca de una paciente en el gabinete
+entradilla: Revisión, estudio radiográfico, diagnóstico y presupuesto totalmente gratuitos. Una visita periódica es la forma más sencilla de detectar a tiempo caries, desgastes o problemas de encías, cuando todavía son fáciles de tratar.
+datos:
+- icono: euro
+  etiqueta: Precio
+  valor: Gratuita
+- icono: clock
+  etiqueta: Duración
+  valor: 15 min aprox.
+- icono: repeat
+  etiqueta: Frecuencia
+  valor: 1 o 2 veces al año
+pasos:
+  titulo: Cómo es tu visita, paso a paso
+  items:
+  - titulo: Primera toma de contacto
+    texto: Repasamos contigo tu historial médico, los tratamientos que ya te hayan hecho y el motivo de tu visita. Si vienes por una molestia concreta, empezamos por ahí.
+  - titulo: Exploración de la boca
+    texto: Revisamos diente a diente el estado del esmalte, buscamos caries, desgastes y coloraciones, y comprobamos la salud de las encías y la posición de la mordida.
+  - titulo: Estudio radiográfico
+    texto: 'Hacemos las radiografías necesarias para ver lo que no se aprecia a simple vista: raíces, hueso, muelas del juicio y caries interdentales.'
+  - titulo: Diagnóstico y presupuesto
+    texto: Te explicamos con claridad qué hemos encontrado y qué opciones tienes. Si hace falta tratamiento, te entregamos el presupuesto detallado por escrito, sin compromiso.
+incluye:
+  titulo: Qué incluye
+  items:
+  - Revisión clínica completa
+  - Radiografías necesarias para el diagnóstico
+  - Plan de tratamiento personalizado
+  - Presupuesto cerrado y por escrito
+  - Consejos de higiene adaptados a tu caso
+  boton: Pedir revisión gratuita
+avisoCancelacion: true
+cierre:
+  antetitulo: Primera visita
+  titulo: Reserva tu revisión gratuita
+  texto: La primera visita no te cuesta nada y te llevas un diagnóstico completo con presupuesto por escrito.
+  mensajeWhatsapp: una revisión dental
