@@ -6,11 +6,13 @@
 //
 // This runs after `astro build` (see the "vercel-build" script) and
 // rewrites the generated runtime directly, sidestepping the adapter's
-// outdated detection logic regardless of what Node version actually built it.
+// outdated detection logic. The runtime matches the Node major that runs the
+// build, which Vercel takes from "engines.node" in package.json, so build and
+// functions always use the same version.
 import { readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 
-const TARGET_RUNTIME = "nodejs22.x";
+const TARGET_RUNTIME = `nodejs${process.versions.node.split(".")[0]}.x`;
 const configPath = fileURLToPath(
     new URL(
         "../.vercel/output/functions/_render.func/.vc-config.json",
