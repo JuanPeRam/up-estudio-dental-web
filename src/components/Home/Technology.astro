@@ -9,8 +9,8 @@ import rx from "@/img/up/radiografia-digital.webp";
 
 const items = [
   { img: itero, alt: "Escáner iTero en el gabinete", title: "Escáner iTero", text: "Planificamos tu ortodoncia invisible sin moldes de pasta." },
-  { img: escaner, alt: "Profesional consultando el escaneo 3D de una boca en la pantalla", title: "Escaneo intraoral 3D", text: "Ves tu boca en pantalla y entiendes el tratamiento." },
-  { img: rx, alt: "Doctora explicando una radiografía panorámica", title: "Radiografía digital", text: "Diagnóstico en la propia clínica, en el momento." },
+  { img: escaner, alt: "Profesional consultando el escaneo 3D de una boca en la pantalla", title: "Escaneo intraoral 3D", wide: true, text: "Ves tu boca en pantalla y entiendes el tratamiento." },
+  { img: rx, alt: "Doctora explicando una radiografía panorámica", title: "Radiografía digital", wide: true, text: "Diagnóstico en la propia clínica, en el momento." },
   { img: zoom, alt: "Blanqueamiento con lámpara Philips Zoom", title: "Philips Zoom", text: "Blanqueamiento profesional supervisado en consulta." },
 ];
 ---
@@ -27,7 +27,7 @@ const items = [
       {
         items.map((t) => (
           <figure>
-            <div class="up-arch"><Image src={t.img} alt={t.alt} widths={[360, 700]} sizes="(min-width: 1000px) 280px, (min-width: 640px) 45vw, 90vw" /></div>
+            <div class="up-arch"><Image src={t.img} alt={t.alt} widths={[360, 700, 1000, 1400]} sizes={t.wide ? "(min-width: 1000px) 520px, (min-width: 640px) 80vw, 160vw" : "(min-width: 1000px) 290px, (min-width: 640px) 45vw, 90vw"} quality={90} /></div>
             <figcaption><b>{t.title}</b><span>{t.text}</span></figcaption>
           </figure>
         ))
