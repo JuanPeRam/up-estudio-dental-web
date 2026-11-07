@@ -114,5 +114,5 @@ const isCurrent = (href: string) =>
     };
     menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", close));
   }
-  document.addEventListener("astro:page-load", initNav);
+  initNav();
 </script>

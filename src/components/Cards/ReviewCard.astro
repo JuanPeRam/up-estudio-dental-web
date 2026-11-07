@@ -16,7 +16,7 @@ const initials = author_name.split(" ").slice(0, 2).map((w) => w[0]).join("").to
   <blockquote>«{text}»</blockquote>
   <figcaption>
     <span class="up-avatar" aria-hidden="true">
-      {profile_photo_url ? <img src={profile_photo_url} alt="" loading="lazy" referrerpolicy="no-referrer" /> : initials}
+      {profile_photo_url ? <img src={profile_photo_url} alt="" loading="lazy" referrerpolicy="no-referrer" data-initials={initials} onerror="this.replaceWith(this.dataset.initials || '')" /> : initials}
     </span>
     <div>
       <b>{author_name}</b>

@@ -22,7 +22,7 @@ const active = services.find((s) => s.id === requestedSlug) ?? services[0];
 
     <section class="up-band-tint py-12" aria-label="Elige un tratamiento">
         <div class="up-wrap">
-            <div class="up-grid-4">
+            <div class="up-svc-grid" style={`--cols: ${Math.min(services.length, 4)}`}>
                 {services.map((s) => <ServiceCard service={s} active={s.id === active?.id} />)}
             </div>
         </div>
