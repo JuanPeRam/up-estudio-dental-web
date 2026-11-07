@@ -14,7 +14,7 @@ const contact = {
         display: formatPhone(fixedNumber),
         href: `tel:+34${fixedNumber}`,
     },
-    email: "info@upestudiodental.com",
+    email: "info@upestudiodental.es",
     address: "C. Andrómeda, 48, 28938 Móstoles, Madrid",
     mapsUrl: "https://g.co/kgs/uj6iDgM",
     googleReviewsUrl: "https://g.co/kgs/uj6iDgM",

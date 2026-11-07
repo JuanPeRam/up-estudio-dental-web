@@ -1,17 +1,34 @@
 ---
-// Tecnología: la web oficial la nombra sin enseñarla; aquí cada equipo con su foto real.
+// Tecnología: un equipo por tarjeta (el escáner iTero y el escaneo 3D son el mismo aparato),
+// agrupados por lo que aportan al paciente: diagnóstico o tratamiento.
 import { Image } from "astro:assets";
 import SectionHeader from "@/components/UI/SectionHeader.astro";
-import itero from "@/img/up/itero.webp";
 import zoom from "@/img/up/philips-zoom.webp";
 import escaner from "@/img/up/escaner-intraoral.webp";
 import rx from "@/img/up/radiografia-digital.webp";
 
 const items = [
-  { img: itero, alt: "Escáner iTero en el gabinete", title: "Escáner iTero", text: "Planificamos tu ortodoncia invisible sin moldes de pasta." },
-  { img: escaner, alt: "Profesional consultando el escaneo 3D de una boca en la pantalla", title: "Escaneo intraoral 3D", wide: true, text: "Ves tu boca en pantalla y entiendes el tratamiento." },
-  { img: rx, alt: "Doctora explicando una radiografía panorámica", title: "Radiografía digital", wide: true, text: "Diagnóstico en la propia clínica, en el momento." },
-  { img: zoom, alt: "Blanqueamiento con lámpara Philips Zoom", title: "Philips Zoom", text: "Blanqueamiento profesional supervisado en consulta." },
+  {
+    img: escaner,
+    alt: "Profesional mostrando en la pantalla el escaneo 3D de una boca",
+    tag: "Diagnóstico",
+    title: "Escáner intraoral iTero",
+    text: "Tomamos las medidas de tu boca en 3D, sin moldes de pasta. Lo ves en pantalla al momento y, si vas a llevar ortodoncia invisible, también cómo quedará.",
+  },
+  {
+    img: rx,
+    alt: "Doctora explicando una radiografía panorámica en la pantalla",
+    tag: "Diagnóstico",
+    title: "Radiografía digital",
+    text: "Hacemos la radiografía panorámica en la propia clínica y la revisamos contigo en el momento, sin tener que ir a otro centro.",
+  },
+  {
+    img: zoom,
+    alt: "Blanqueamiento dental con lámpara Philips Zoom",
+    tag: "Tratamiento",
+    title: "Blanqueamiento Philips Zoom",
+    text: "Blanqueamiento profesional en consulta, en una sesión de 45 a 60 minutos y siempre supervisado por el equipo.",
+  },
 ];
 ---
 
@@ -21,17 +38,23 @@ const items = [
       align="split"
       eyebrow="Tecnología"
       title="Tecnología que se <em>ve</em> y se entiende"
-      lead="Equipos digitales en todas las áreas de la odontología, para diagnosticar mejor y explicarte cada paso."
+      lead="Equipos digitales para diagnosticar mejor y explicarte cada paso con tu boca en pantalla."
     />
-    <div class="up-tech">
+    <ul class="up-tech">
       {
         items.map((t) => (
-          <figure>
-            <div class="up-arch"><Image src={t.img} alt={t.alt} widths={[360, 700, 1000, 1400]} sizes={t.wide ? "(min-width: 1000px) 520px, (min-width: 640px) 80vw, 160vw" : "(min-width: 1000px) 290px, (min-width: 640px) 45vw, 90vw"} quality={90} /></div>
-            <figcaption><b>{t.title}</b><span>{t.text}</span></figcaption>
-          </figure>
+          <li>
+            <div class="up-arch">
+              <Image src={t.img} alt={t.alt} widths={[400, 700, 1000, 1400]} sizes="(min-width: 1000px) 520px, (min-width: 640px) 45vw, 50vw" quality={90} />
+            </div>
+            <div class="up-tech-text">
+              <span class="up-tech-tag">{t.tag}</span>
+              <h3>{t.title}</h3>
+              <p>{t.text}</p>
+            </div>
+          </li>
         ))
       }
-    </div>
+    </ul>
   </div>
 </section>

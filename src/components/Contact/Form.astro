@@ -22,7 +22,7 @@ if (Astro.request.method === "POST") {
     }
 }
 
-const subjects = ["Pedir cita", "Revisión gratuita", "Limpieza bucal", "Blanqueamiento dental", "Medicina estética", "Otra consulta"];
+const subjects = ["Pedir cita", "Revisión gratuita", "Limpieza bucal", "Blanqueamiento dental", "Otra consulta"];
 const fields = [
     { id: "name", label: "Nombre", type: "text", autocomplete: "name", placeholder: "Tu nombre y apellido", required: true, error: "Escribe tu nombre para saber cómo dirigirnos a ti." },
     { id: "email", label: "Correo electrónico", type: "email", autocomplete: "email", placeholder: "tu@correo.com", required: true, error: "Revisa el correo: debe tener la forma nombre@dominio.com." },
@@ -109,5 +109,5 @@ const fields = [
             }
         });
     }
-    document.addEventListener("astro:page-load", initForm);
+    initForm();
 </script>

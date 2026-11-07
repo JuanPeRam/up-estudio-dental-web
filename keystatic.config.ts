@@ -139,7 +139,7 @@ export default config({
             imagenAlt: textoAlt,
             puntos: fields.array(fields.text({ label: "Dato" }), { label: "Datos breves", description: "Ejemplo: Sesión de 30 min", itemLabel: (p) => p.value }),
           }),
-          { label: "Tratamientos dentro del servicio (opcional)", description: "Para servicios con varios tratamientos, como medicina estética: foto y texto alternados.", itemLabel: (p) => p.fields.titulo.value },
+          { label: "Tratamientos dentro del servicio (opcional)", description: "Para servicios con varios tratamientos: foto y texto alternados.", itemLabel: (p) => p.fields.titulo.value },
         ),
         preguntas: fields.object(
           {
