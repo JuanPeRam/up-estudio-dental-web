@@ -7,7 +7,6 @@ import zonaInfantil from "@/img/UP-Gallery/Rest-room.jpg";
 import gabinete from "@/img/UP-Gallery/Box2.jpg";
 import gabinete2 from "@/img/UP-Gallery/Box22.jpg";
 import gabinete3 from "@/img/UP-Gallery/Box23.jpg";
-import estetica from "@/img/UP-Gallery/Box1.jpg";
 import radiografia from "@/img/UP-Gallery/Up-Machine.jpg";
 import pasillo from "@/img/UP-Gallery/Boxes.jpg";
 import despacho from "@/img/UP-Gallery/Office2.jpg";
@@ -32,10 +31,9 @@ const gallery: GalleryItem[] = [
     { src: gabinete, alt: "Gabinete dental con sillón y pantalla para el paciente", span: "wide" },
     { src: radiografia, alt: "Equipo de radiografía panorámica", span: "normal" },
     { src: gabinete2, alt: "Gabinete dental con sillón de tratamiento", span: "big" },
-    { src: estetica, alt: "Gabinete de medicina estética", span: "normal" },
     { src: recepcion3, alt: "Recepción y sala de espera vistas desde la entrada", span: "wide" },
     { src: gabinete3, alt: "Rincón de espera dentro del gabinete", span: "normal" },
-    { src: despacho, alt: "Despacho de consulta con mesa de cristal", span: "normal" },
+    { src: despacho, alt: "Despacho de consulta con mesa de cristal", span: "wide" },
     { src: pasillo, alt: "Pasillo de acceso a los gabinetes", span: "normal" },
     { src: aseo, alt: "Aseo de pacientes con espejo iluminado", span: "normal" },
     { src: aseo2, alt: "Detalle del aseo con papel pintado vegetal", span: "normal" },
