@@ -22,6 +22,19 @@ const stops = await Promise.all(
 );
 const total = stops.length;
 const pad = (n: number) => String(n).padStart(2, "0");
+
+/**
+ * Ancho que necesita cada foto. Las fotos (3:2) se recortan para llenar su caja, así que en cajas
+ * más verticales que la foto hace falta más ancho que el de la caja (ver .up-tour-photos en el CSS).
+ */
+const tourSizes = (count: number, index: number) => {
+  // Dos fotos: cajas de alto clamp(240px, 34vw, 440px) → ancho necesario = alto × 1,5
+  if (count === 2) return "(min-width: 1024px) 660px, clamp(360px, 51vw, 660px)";
+  // La primera ocupa todo el ancho en 3:2, igual que la foto
+  if (index === 0) return "(min-width: 1024px) 640px, 100vw";
+  // Resto: media columna en 4:3 → 1,125 veces el ancho de la caja
+  return "(min-width: 1024px) 340px, 57vw";
+};
 ---
 
 <nav class="up-tour-index" aria-label="Paradas de la visita">
@@ -83,8 +96,8 @@ const pad = (n: number) => String(n).padStart(2, "0");
                 <Image
                   src={p.src}
                   alt={p.alt}
-                  widths={[400, 800, 1200]}
-                  sizes={j === 0 ? "(min-width: 1024px) 600px, 100vw" : "(min-width: 1024px) 300px, 50vw"}
+                  widths={[400, 800, 1200, 1600]}
+                  sizes={tourSizes(s.photos.length, j)}
                   quality={85}
                 />
               </button>

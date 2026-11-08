@@ -22,7 +22,7 @@ const list = (await getEspecialidades()).map((e) => e.data);
       {
         list.map((s, i) => (
           <a class:list={["up-spec", i === 0 && "is-big"]} href={s.enlace}>
-            <Image src={s.imagen} alt={s.imagenAlt} widths={[400, 800, 1200]} sizes={i === 0 ? "(min-width: 900px) 600px, 92vw" : "(min-width: 900px) 300px, 50vw"} quality={90} />
+            <Image src={s.imagen} alt={s.imagenAlt} widths={[400, 800, 1200, 1600]} sizes={i === 0 ? "(min-width: 900px) 600px, 92vw" : "(min-width: 900px) 360px, 75vw"} quality={90} />
             <span class="up-spec-label">
               <span><b>{s.titulo}</b><small>{s.linea}</small></span>
               <Icon name="arrow-right" class="up-icon" />
