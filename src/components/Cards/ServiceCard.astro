@@ -15,7 +15,7 @@ const d = service.data;
 
 <a class="up-scard" href={treatmentPath(service.id)} aria-current={active ? "true" : undefined}>
   <div class="up-scard-media">
-    <Image src={d.imagen} alt={d.imagenAlt} widths={[400, 640]} sizes="(min-width: 1080px) 380px, (min-width: 900px) 33vw, (min-width: 640px) 42vw, 100vw" />
+    <Image src={d.imagen} alt={d.imagenAlt} widths={[400, 640, 960, 1280]} sizes="(min-width: 1080px) 380px, (min-width: 900px) 33vw, (min-width: 640px) 42vw, 100vw" />
   </div>
   <div class="up-scard-body">
     {d.etiqueta && <span class="up-badge">{d.etiqueta}</span>}
