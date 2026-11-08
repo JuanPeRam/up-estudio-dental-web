@@ -24,3 +24,26 @@ const { limit = 3 } = Astro.props;
     </div>
   </div>
 </section>
+
+<script>
+  // Las reseñas llegan después de cargar la página (server island), así que se escucha en el
+  // documento. El botón empieza oculto y solo se muestra cuando este script está activo.
+  const reveal = () => document.querySelectorAll<HTMLButtonElement>(".up-review-more[hidden]").forEach((b) => (b.hidden = false));
+  reveal();
+  new MutationObserver(reveal).observe(document.body, { childList: true, subtree: true });
+
+  document.addEventListener("click", (event) => {
+    const button = (event.target as Element | null)?.closest<HTMLButtonElement>(".up-review-more");
+    if (!button) return;
+    const card = button.closest(".up-review");
+    const short = card?.querySelector<HTMLElement>(".up-review-short");
+    const full = card?.querySelector<HTMLElement>(".up-review-full");
+    if (!short || !full) return;
+    const open = button.getAttribute("aria-expanded") !== "true";
+    button.setAttribute("aria-expanded", String(open));
+    full.hidden = !open;
+    short.hidden = open;
+    button.querySelector("span")!.textContent = open ? "Ver menos" : "Ver más";
+    if (!open) card?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  });
+</script>

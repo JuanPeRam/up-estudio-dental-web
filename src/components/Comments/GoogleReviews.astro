@@ -38,7 +38,7 @@ const ratingText = place?.rating?.toLocaleString("es-ES", { minimumFractionDigit
 }
 {
   reviews.length > 0 && (
-    <div class="up-grid-3 w-full">
+    <div class="up-grid-3 up-reviews w-full">
       {reviews.map((r) => <ReviewCard review={r} />)}
     </div>
   )

@@ -14,6 +14,8 @@ export interface Review {
   photoUrl?: string;
   rating: number;
   text: string;
+  /** Enlace a esta reseña en Google Maps */
+  reviewUrl?: string;
   /** Fecha ISO de publicación */
   publishTime: string;
 }
@@ -30,6 +32,7 @@ interface PlacesResponse {
   reviews?: {
     rating?: number;
     publishTime?: string;
+    googleMapsUri?: string;
     text?: { text?: string };
     originalText?: { text?: string };
     authorAttribution?: { displayName?: string; uri?: string; photoUri?: string };
@@ -89,6 +92,7 @@ export async function getPlaceReviews(): Promise<PlaceReviews | null> {
         authorUrl: r.authorAttribution?.uri,
         photoUrl: r.authorAttribution?.photoUri,
         rating: r.rating ?? 0,
+        reviewUrl: r.googleMapsUri,
         text: (r.originalText?.text ?? r.text?.text ?? "").trim(),
         publishTime: r.publishTime ?? "",
       }))
