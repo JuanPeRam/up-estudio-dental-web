@@ -20,5 +20,7 @@
 - [ ] Shoot matching team portraits (same background and light).
 - [x] SEO: dominio oficial, rutas en español, redirecciones 301 desde Wix y 410 para páginas sin equivalente.
 - [x] SEO: una página indexable por tratamiento (/tratamientos/<slug>) con descripción propia, migas de pan y datos estructurados.
-- [ ] SEO: páginas propias para implantes, ortodoncia e Invisalign, odontopediatría, endodoncia, periodoncia y cirugía bucal.
+- [x] SEO: páginas propias para implantes, ortodoncia e Invisalign, odontopediatría, endodoncia, periodoncia y cirugía bucal.
 - [ ] Al publicar: redirigir upestudiodental.vercel.app al dominio, verificar Search Console por DNS y enviar el sitemap.
+- [ ] Revisar con la clínica los textos de las páginas de especialidades (implantes, ortodoncia, odontopediatría, endodoncia, periodoncia, cirugía).
+- [ ] Corregir el apellido de la Dra. Nilyam: «Iturniza» en el nombre e «Iturriza» en la biografía.

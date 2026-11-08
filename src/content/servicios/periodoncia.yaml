@@ -1,0 +1,52 @@
+titulo: Periodoncia
+orden: 8
+resumen: Tratamiento de encías que sangran, se inflaman o se retraen.
+descripcionSeo: 'Periodoncia en Móstoles: tratamos la gingivitis y la periodontitis (piorrea) para frenar el sangrado de encías y proteger tus dientes. Con una periodoncista.'
+imagen: ../../assets/cms/servicios/periodoncia/imagen.webp
+imagenAlt: Tratamiento de encías a una paciente
+entradilla: La periodoncia se ocupa de las encías y del hueso que sujetan los dientes. Si no se trata, la inflamación de las encías puede avanzar a periodontitis (la conocida piorrea) y hacer que los dientes se muevan. La Dra. Nilyam Iturriza, periodoncista, valora tu caso y te propone el tratamiento adecuado.
+datos:
+- icono: euro
+  etiqueta: Precio
+  valor: Según valoración
+- icono: clock
+  etiqueta: Duración
+  valor: Según el estado de las encías
+- icono: repeat
+  etiqueta: Mantenimiento
+  valor: Revisiones periódicas
+tarjetas:
+  titulo: Señales de alerta en las encías
+  items:
+  - titulo: Sangran al cepillarte
+    texto: Es la señal más frecuente de gingivitis. Una encía sana no sangra.
+  - titulo: Están rojas o hinchadas
+    texto: La inflamación indica que la placa está irritando la encía.
+  - titulo: Los dientes parecen más largos
+    texto: Cuando la encía se retrae, deja al descubierto parte de la raíz.
+  - titulo: Dientes que se mueven
+    texto: Puede indicar que se está perdiendo el hueso que los sujeta. Conviene consultarlo cuanto antes.
+pasos:
+  titulo: Cómo tratamos las encías
+  items:
+  - titulo: Estudio periodontal
+    texto: Medimos la profundidad de la encía alrededor de cada diente y hacemos radiografías para ver el estado del hueso.
+  - titulo: Limpieza profunda
+    texto: Si hace falta, eliminamos el sarro que hay por debajo de la encía con anestesia local, por zonas.
+  - titulo: Reevaluación
+    texto: Tras unas semanas comprobamos cómo ha respondido la encía y decidimos si hace falta algo más.
+  - titulo: Mantenimiento
+    texto: Te citamos para revisiones y limpiezas periódicas, que son la clave para que el problema no vuelva.
+preguntas:
+  titulo: Preguntas frecuentes
+  items:
+  - pregunta: ¿La periodontitis se cura?
+    respuesta: Se puede controlar y frenar con tratamiento y un buen mantenimiento. Cuanto antes se trate, más hueso y más dientes se conservan.
+  - pregunta: ¿Por qué me sangran las encías?
+    respuesta: Casi siempre por la placa acumulada en el borde de la encía. Si el sangrado no desaparece con un buen cepillado, ven a revisarlo.
+avisoCancelacion: false
+cierre:
+  antetitulo: Primera visita
+  titulo: Revisa tus encías
+  texto: En la revisión gratuita comprobamos el estado de tus encías y te decimos si necesitas tratamiento.
+  mensajeWhatsapp: una revisión de encías

@@ -1,0 +1,52 @@
+titulo: Endodoncia
+orden: 7
+resumen: Tratamiento de conductos para salvar un diente con el nervio dañado.
+descripcionSeo: 'Endodoncia en Móstoles: tratamos el nervio dañado o infectado para conservar tu diente, con anestesia local y diagnóstico por radiografía digital. Pide cita.'
+imagen: ../../assets/cms/servicios/endodoncia/imagen.webp
+imagenAlt: Doctora explicando una radiografía panorámica en pantalla
+entradilla: Cuando una caries profunda o un golpe dañan el nervio del diente, la endodoncia permite conservarlo en lugar de extraerlo. Limpiamos el interior de la raíz, lo desinfectamos y lo sellamos. Se hace con anestesia local y, en la mayoría de los casos, alivia el dolor que te trajo a consulta.
+datos:
+- icono: euro
+  etiqueta: Precio
+  valor: Según valoración
+- icono: clock
+  etiqueta: Duración
+  valor: Una o dos sesiones
+- icono: calendar
+  etiqueta: Urgencias
+  valor: 24 horas
+tarjetas:
+  titulo: Señales de que el nervio puede estar afectado
+  items:
+  - titulo: Dolor intenso o que late
+    texto: Sobre todo si aparece solo, sin que comas nada, o te despierta por la noche.
+  - titulo: Sensibilidad que no se va
+    texto: Al frío o al calor, y que dura más de unos segundos después de retirarlo.
+  - titulo: Encía inflamada o con flemón
+    texto: Una bolita o hinchazón junto al diente puede ser señal de infección.
+  - titulo: Diente oscurecido
+    texto: Tras un golpe, el diente puede cambiar de color aunque no duela.
+pasos:
+  titulo: Cómo es el tratamiento
+  items:
+  - titulo: Diagnóstico
+    texto: Exploramos el diente y hacemos una radiografía digital para ver el estado de la raíz y del hueso.
+  - titulo: Limpieza de los conductos
+    texto: Con anestesia local, retiramos el nervio dañado y limpiamos y desinfectamos el interior de la raíz.
+  - titulo: Sellado
+    texto: Rellenamos los conductos con un material biocompatible para que no vuelvan a entrar bacterias.
+  - titulo: Reconstrucción
+    texto: Reconstruimos el diente y, si ha perdido mucha estructura, te recomendamos una corona para protegerlo.
+preguntas:
+  titulo: Preguntas frecuentes
+  items:
+  - pregunta: ¿La endodoncia duele?
+    respuesta: Se hace con anestesia local, así que no deberías notar dolor durante el tratamiento. Los días siguientes puede haber alguna molestia leve.
+  - pregunta: ¿No es mejor quitar el diente?
+    respuesta: Siempre que se pueda, conservar el propio diente es la mejor opción. Si no es viable, te lo explicamos y valoramos juntos las alternativas.
+avisoCancelacion: false
+cierre:
+  antetitulo: ¿Te duele una muela?
+  titulo: Pide cita o llámanos si es urgente
+  texto: Atendemos urgencias odontológicas las 24 horas.
+  mensajeWhatsapp: una consulta de endodoncia
