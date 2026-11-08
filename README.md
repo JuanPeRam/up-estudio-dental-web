@@ -61,5 +61,13 @@ Los servicios, la rejilla de especialidades de la portada y el equipo se editan 
 
 1. En Vercel → Domains, añade `www.upestudiodental.es` como dominio principal y `upestudiodental.es` con redirección a `www`.
 2. Redirige también `upestudiodental.vercel.app` a `www.upestudiodental.es` para que Google no indexe el subdominio de Vercel.
-3. En Google Search Console, verifica la propiedad de dominio por DNS (la etiqueta de verificación de Wix desaparece) y envía `https://www.upestudiodental.es/sitemap-index.xml`.
+3. En Google Search Console, la propiedad `https://www.upestudiodental.es` sigue verificada: la web nueva lleva la misma etiqueta `google-site-verification` que Wix (en `src/layouts/Layout.astro`). Envía `https://www.upestudiodental.es/sitemap-index.xml` y, si puedes, añade también la propiedad de dominio verificada por DNS.
 4. Comprueba que la web de la ficha de Google Business Profile apunta a `https://www.upestudiodental.es` y que el teléfono coincide con el de la web.
+
+### Datos de la clínica
+
+Nombre, NIF, dirección, teléfonos, horario y el aviso de «Urgencias 24 h» están en `src/constants/personal.ts`. De ahí salen la web, los textos legales y los datos estructurados para Google. Si la clínica deja de atender urgencias 24 h, pon `emergencies` a `null` y el aviso desaparece de toda la web (revisa también el texto de la ficha de endodoncia).
+
+### Reseñas de Google
+
+`src/data/reviews.json` se actualiza a mano: `GOOGLE_PLACES_API_KEY=… GOOGLE_PLACE_ID=… node scripts/fetch-google-reviews.mjs`. Las fechas se muestran como «marzo de 2026», así que no quedan desfasadas.

@@ -1,4 +1,4 @@
-// Run by .github/workflows/update-google-reviews.yml on a daily schedule.
+// Uso: GOOGLE_PLACES_API_KEY=… GOOGLE_PLACE_ID=… node scripts/fetch-google-reviews.mjs
 // Fetches the latest Google reviews and overwrites src/data/reviews.json,
 // which the site reads at build time — no live Google API calls happen
 // when a visitor loads the page.

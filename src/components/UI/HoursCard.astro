@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import { contact } from "@/constants/personal";
+import { contact, emergencies } from "@/constants/personal";
 
 interface Props {
   compact?: boolean;
@@ -10,7 +10,7 @@ const { compact = false, class: extra } = Astro.props;
 ---
 
 <aside class:list={["up-hours", extra]} aria-label="Horario y teléfonos">
-  {compact ? <span class="up-hours-urg">Urgencias 24 h</span> : <p class="up-eyebrow">Horario</p>}
+  {compact && emergencies ? <span class="up-hours-urg">{emergencies.short}</span> : <p class="up-eyebrow">Horario</p>}
   <dl>
     {
       contact.hours.map((h) => (
@@ -22,7 +22,7 @@ const { compact = false, class: extra } = Astro.props;
     }
   </dl>
   <hr />
-  {!compact && <span class="up-hours-urg">Urgencias 24 h</span>}
+  {!compact && emergencies && <span class="up-hours-urg">{emergencies.short}</span>}
   <a class="up-tel" href={contact.mobile.href}><Icon name="phone" class="up-icon" />{contact.mobile.display}<small>Móvil y WhatsApp</small></a>
   <a class="up-tel" href={contact.landline.href}><Icon name="landline" class="up-icon" />{contact.landline.display}<small>Fijo</small></a>
 </aside>

@@ -13,9 +13,9 @@ interface Review {
     translated: boolean;
 }
 
-// Kept in sync by .github/workflows/update-google-reviews.yml, which
-// re-fetches Google Reviews once a day and commits src/data/reviews.json.
-// The site never calls the Google API at request time.
+// src/data/reviews.json se actualiza a mano con scripts/fetch-google-reviews.mjs
+// (necesita GOOGLE_PLACES_API_KEY y GOOGLE_PLACE_ID). La web nunca llama a la API
+// de Google al cargar una página; las fechas se muestran en absoluto («marzo de 2026»).
 const MIN_RATING = 3.5;
 
 const getReviews = async (): Promise<Review[]> => {

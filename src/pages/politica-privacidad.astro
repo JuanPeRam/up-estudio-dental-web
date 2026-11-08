@@ -3,7 +3,9 @@ export const prerender = true;
 
 import LegalLayout from "@/layouts/LegalLayout.astro";
 import LegalSection from "@/components/Legal/LegalSection.astro";
-import { fixedNumber } from "@/constants/personal";
+import { clinic, contact } from "@/constants/personal";
+
+const domicilio = `${clinic.streetAddress}, ${clinic.unit}, ${clinic.postalCode} ${clinic.locality}, ${clinic.region}, España`;
 ---
 
 <LegalLayout
@@ -12,10 +14,12 @@ import { fixedNumber } from "@/constants/personal";
     lastUpdated="agosto de 2026"
 >
     <LegalSection title="1. Responsable del tratamiento">
-        <p>Up Estudio Dental y Estética, S.L.</p>
-        <p>Domicilio: C. Andrómeda, 48, 28938 Móstoles, Madrid, España.</p>
-        <p>Correo electrónico: info@upestudiodental.es</p>
-        <p>Teléfono: {fixedNumber}</p>
+        <p>{clinic.legalName}</p>
+        <p>NIF: {clinic.nif}</p>
+        <p>Domicilio: {domicilio}.</p>
+        <p>Correo electrónico: {contact.email}</p>
+        <p>Teléfono: {contact.landline.display}</p>
+        <p>Delegado de Protección de Datos (DPO): <a href="mailto:proteccion.datos@ceer.es">proteccion.datos@ceer.es</a></p>
     </LegalSection>
 
     <LegalSection title="2. Finalidad del tratamiento">

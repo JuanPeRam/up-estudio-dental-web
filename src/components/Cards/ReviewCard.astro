@@ -5,7 +5,10 @@ import type { Review } from "@/components/Comments/reviews";
 
 interface Props { review: Review; maxChars?: number }
 const { review, maxChars = 260 } = Astro.props;
-const { author_name, profile_photo_url, rating, relative_time_description } = review;
+const { author_name, profile_photo_url, rating, time } = review;
+// Fecha absoluta («marzo de 2026»): «Hace 2 meses» quedaría desfasado en una página estática.
+const published = new Date(time * 1000);
+const date = new Intl.DateTimeFormat("es-ES", { month: "long", year: "numeric" }).format(published);
 const clean = review.text.replace(/\s+/g, " ").trim();
 const text = clean.length > maxChars ? `${clean.slice(0, clean.lastIndexOf(" ", maxChars))}…` : clean;
 const initials = author_name.split(" ").slice(0, 2).map((w) => w[0]).join("").toUpperCase();
@@ -20,7 +23,7 @@ const initials = author_name.split(" ").slice(0, 2).map((w) => w[0]).join("").to
     </span>
     <div>
       <b>{author_name}</b>
-      <span class="up-caption">{relative_time_description}</span>
+      <time class="up-caption" datetime={published.toISOString().slice(0, 10)}>{date}</time>
     </div>
     <Icon name="google" class="up-g" aria-label="Reseña de Google" />
   </figcaption>

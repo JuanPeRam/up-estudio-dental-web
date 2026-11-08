@@ -3,7 +3,9 @@ export const prerender = true;
 
 import LegalLayout from "@/layouts/LegalLayout.astro";
 import LegalSection from "@/components/Legal/LegalSection.astro";
-import { fixedNumber, phoneNumber } from "@/constants/personal";
+import { clinic, contact } from "@/constants/personal";
+
+const domicilio = `${clinic.streetAddress}, ${clinic.unit}, ${clinic.postalCode} ${clinic.locality}, ${clinic.region}, España`;
 ---
 
 <LegalLayout
@@ -19,11 +21,11 @@ import { fixedNumber, phoneNumber } from "@/constants/personal";
             continuación los datos identificativos de la empresa titular de este
             sitio web:
         </p>
-        <p>Denominación social: Up Estudio Dental y Estética, S.L.</p>
-        <p>NIF/CIF: <em>[pendiente de completar]</em></p>
-        <p>Domicilio social: C. Andrómeda, 48, 28938 Móstoles, Madrid, España.</p>
-        <p>Correo electrónico: info@upestudiodental.es</p>
-        <p>Teléfono: {fixedNumber} / {phoneNumber}</p>
+        <p>Denominación social: {clinic.legalName}</p>
+        <p>NIF: {clinic.nif}</p>
+        <p>Domicilio social: {domicilio}.</p>
+        <p>Correo electrónico: {contact.email}</p>
+        <p>Teléfono: {contact.landline.display} / {contact.mobile.display}</p>
     </LegalSection>
 
     <LegalSection title="2. Objeto">

@@ -56,6 +56,8 @@ const equipo = defineCollection({
       orden: z.number().default(10),
       especialidades: lista(z.string()),
       biografia: z.string(),
+      colegiado: texto,
+      formacion: lista(z.string()),
       retrato: image(),
       retratoAlt: z.string(),
       enPortada: z.boolean().default(true),

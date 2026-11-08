@@ -217,6 +217,15 @@ export default config({
           itemLabel: (p) => p.value,
         }),
         biografia: fields.text({ label: "Biografía", description: "Tres o cuatro frases con su formación y experiencia reales.", multiline: true, validation: { isRequired: true } }),
+        colegiado: fields.text({
+          label: "Nº de colegiado (opcional)",
+          description: "Número del Colegio de Dentistas. Ejemplo: 28012345. Da confianza a pacientes y a Google; déjalo vacío si no aplica.",
+        }),
+        formacion: fields.array(fields.text({ label: "Título" }), {
+          label: "Formación (opcional)",
+          description: "Un título por línea, con el centro. Ejemplo: Máster en Implantoprótesis, Universidad Rey Juan Carlos",
+          itemLabel: (p) => p.value,
+        }),
         retrato: imagen("equipo", "Retrato", "Vertical, a ser posible sobre el fondo turquesa de los demás retratos y con espacio sobre la cabeza."),
         retratoAlt: fields.text({ label: "Descripción del retrato", description: "Normalmente, su nombre.", validation: { isRequired: true } }),
         enPortada: fields.checkbox({ label: "Mostrar en la portada", description: "La portada muestra hasta cinco personas.", defaultValue: true }),

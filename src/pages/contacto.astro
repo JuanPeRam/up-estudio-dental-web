@@ -6,18 +6,18 @@ import Form from "@/components/Contact/Form.astro";
 import HoursCard from "@/components/UI/HoursCard.astro";
 import Button from "@/components/UI/Button.astro";
 import Notice from "@/components/UI/Notice.astro";
-import { contact, whatsappLink } from "@/constants/personal";
+import { contact, emergencies, whatsappLink } from "@/constants/personal";
 ---
 
 <Layout
     title="Pedir cita en el dentista en Móstoles"
-    description="Pide cita en Up Estudio Dental y Estética, Móstoles: formulario, WhatsApp, teléfono y horario. Urgencias odontológicas 24 h."
+    description={`Pide cita en Up Estudio Dental y Estética, Móstoles: formulario, WhatsApp, teléfono y horario.${emergencies ? ` ${emergencies.long}.` : ""}`}
     breadcrumbs={[{ name: "Contacto", path: "/contacto" }]}
 >
     <PageHeader
         eyebrow="Contacto"
         title="Pide tu cita"
-        lead="Escríbenos por el formulario o por WhatsApp, o llámanos. Te respondemos en horario de clínica y atendemos urgencias las 24 horas."
+        lead={`Escríbenos por el formulario o por WhatsApp, o llámanos. Te respondemos en horario de clínica${emergencies ? " y atendemos urgencias las 24 horas" : ""}.`}
     >
         <div class="flex flex-wrap gap-3">
             <Button href={whatsappLink("Hola, me gustaría pedir cita.")} icon="whatsapp" external aria-label="Escribir por WhatsApp (se abre en otra pestaña)">Escribir por WhatsApp</Button>
