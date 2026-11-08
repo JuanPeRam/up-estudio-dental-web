@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /keystatic
-Disallow: /api/keystatic
+Disallow: /api/
 
 Sitemap: https://www.upestudiodental.es/sitemap-index.xml
