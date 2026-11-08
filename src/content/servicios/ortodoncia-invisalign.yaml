@@ -1,0 +1,54 @@
+titulo: Ortodoncia e Invisalign
+orden: 5
+resumen: Brackets o alineadores transparentes, planificados con escáner 3D iTero.
+descripcionSeo: 'Ortodoncia e Invisalign en Móstoles para niños y adultos: brackets o alineadores transparentes, planificados con escáner iTero. Primera visita gratuita.'
+imagen: ../../assets/cms/servicios/ortodoncia-invisalign/imagen.webp
+imagenAlt: Escáner iTero para planificar la ortodoncia invisible
+entradilla: La ortodoncia corrige la posición de los dientes y la mordida para que tu boca funcione mejor y sea más fácil de mantener sana. La Dra. Cristina Umérez, con más de 25 años de experiencia en ortodoncia, te explica si en tu caso encajan mejor los brackets o los alineadores transparentes Invisalign.
+datos:
+- icono: euro
+  etiqueta: Precio
+  valor: Según valoración
+- icono: clock
+  etiqueta: Duración
+  valor: Según tu caso
+- icono: calendar
+  etiqueta: Primera visita
+  valor: Gratuita
+pasos:
+  titulo: Cómo empezamos
+  items:
+  - titulo: Valoración inicial
+    texto: Revisamos tu mordida, la posición de los dientes y, si hace falta, hacemos una radiografía panorámica en la propia clínica.
+  - titulo: Escaneo 3D con iTero
+    texto: En lugar de moldes de pasta, escaneamos tu boca en pocos minutos. Con el modelo 3D planificamos el movimiento de los dientes.
+  - titulo: Plan y presupuesto
+    texto: Te enseñamos el plan, cuánto durará aproximadamente y el presupuesto por escrito, para que decidas con toda la información.
+  - titulo: Seguimiento
+    texto: Te vemos periódicamente para comprobar que los dientes se mueven como estaba previsto y ajustar lo necesario.
+tarjetas:
+  titulo: Cuándo conviene consultarlo
+  items:
+  - titulo: Dientes apiñados o separados
+    texto: Cuando los dientes no tienen espacio o quedan huecos, cuesta más limpiarlos y aparecen antes la placa y las caries.
+  - titulo: La mordida no encaja
+    texto: Si los dientes de arriba y de abajo no cierran bien, se desgastan de forma desigual y puede cargarse la articulación.
+  - titulo: En los niños, hacia los 7 años
+    texto: Es buena edad para una primera revisión de ortodoncia, aunque no siempre haga falta tratar todavía.
+  - titulo: En adultos, a cualquier edad
+    texto: Los dientes se pueden mover a cualquier edad si las encías están sanas, y los alineadores apenas se notan.
+preguntas:
+  titulo: Preguntas frecuentes
+  items:
+  - pregunta: ¿Qué diferencia hay entre brackets e Invisalign?
+    respuesta: Los brackets van fijos sobre los dientes. Invisalign usa alineadores transparentes y removibles que se cambian cada pocas semanas. Los dos mueven los dientes; en la valoración te decimos cuál es más adecuado para tu caso.
+  - pregunta: ¿Los alineadores se ven?
+    respuesta: Son transparentes y muy finos, así que apenas se notan. Te los quitas para comer y para cepillarte los dientes.
+  - pregunta: ¿Cuánto dura el tratamiento?
+    respuesta: Depende de lo que haya que corregir. Tras el escaneo te damos una estimación para tu caso concreto.
+avisoCancelacion: false
+cierre:
+  antetitulo: Primera visita
+  titulo: Descubre si la ortodoncia es para ti
+  texto: Te hacemos la valoración sin coste y te explicamos las opciones, con el presupuesto por escrito.
+  mensajeWhatsapp: una valoración de ortodoncia

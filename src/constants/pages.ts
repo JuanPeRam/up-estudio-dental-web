@@ -1,17 +1,23 @@
+/** Rutas públicas de la web. Si cambias una, añade la redirección 301 en astro.config.mjs. */
 const paths = {
   "Inicio": "/",
-  "Clínica": "/clinic",
-  "Servicios": "/services",
-  "Equipo": "/team",
-  "Contacto": "/contact"
+  "Clínica": "/clinica",
+  "Tratamientos": "/tratamientos",
+  "Equipo": "/equipo",
+  "Contacto": "/contacto"
 }
 
 const politicsPaths = {
-  "Política de privacidad": "/privacy-policy",
-  "Política de cookies": "/cookies-policy",
-  "Aviso legal": "/legal-disclaimer"
+  "Política de privacidad": "/politica-privacidad",
+  "Política de cookies": "/politica-cookies",
+  "Aviso legal": "/aviso-legal"
 }
 
+/** Ficha de un tratamiento: /tratamientos/<slug> */
+const treatmentPath = (slug: string) => `/tratamientos/${slug}`
+/** Ficha de una persona del equipo: /equipo/<slug> */
+const memberPath = (slug: string) => `/equipo/${slug}`
+
 export {
-  paths , politicsPaths
+  paths, politicsPaths, treatmentPath, memberPath
 }

@@ -1,0 +1,54 @@
+titulo: Implantes dentales
+orden: 4
+resumen: Sustituimos los dientes que faltan con implantes y prótesis fijas.
+descripcionSeo: 'Implantes dentales en Móstoles: estudio con radiografía, cirugía con un implantólogo con más de 30 años de experiencia y prótesis a medida. Primera visita gratis.'
+imagen: ../../assets/cms/servicios/implantes-dentales/imagen.webp
+imagenAlt: Detalle de un tratamiento dental con instrumental
+entradilla: Un implante es una pequeña raíz de titanio que se coloca en el hueso para sostener un diente nuevo, una corona o una prótesis completa. En Up planificamos cada caso entre el cirujano implantólogo, el Dr. Rafael Darío Sosa, y la Dra. Isabel Sosa, especialista en implantoprótesis, para que la cirugía y el diente final encajen desde el principio.
+datos:
+- icono: euro
+  etiqueta: Precio
+  valor: Presupuesto tras el estudio
+- icono: clock
+  etiqueta: Duración
+  valor: Varias fases, según tu caso
+- icono: calendar
+  etiqueta: Primera visita
+  valor: Gratuita
+pasos:
+  titulo: Cómo es el tratamiento, paso a paso
+  items:
+  - titulo: Estudio y diagnóstico
+    texto: Exploramos tu boca y hacemos las radiografías necesarias para valorar la cantidad y la calidad del hueso. Con eso te explicamos si el implante es la mejor opción o si hay alternativas.
+  - titulo: Plan y presupuesto por escrito
+    texto: Te detallamos cuántos implantes necesitas, qué tipo de prótesis llevarán, los plazos y el coste total, sin sorpresas.
+  - titulo: Colocación del implante
+    texto: Es una cirugía con anestesia local. El cirujano coloca el implante en el hueso y, si hace falta, una prótesis provisional para que no estés sin diente.
+  - titulo: Integración en el hueso
+    texto: Durante unas semanas o meses el hueso se une al implante. En ese tiempo hacemos las revisiones necesarias para comprobar que cicatriza bien.
+  - titulo: Corona o prótesis definitiva
+    texto: Tomamos las medidas y colocamos el diente definitivo, ajustado a tu mordida y del color de tus dientes.
+incluye:
+  titulo: Qué incluye
+  items:
+  - Estudio radiográfico y plan de tratamiento
+  - Cirugía con un cirujano bucal e implantólogo
+  - Prótesis diseñada por una especialista en implantoprótesis
+  - Revisiones durante la cicatrización
+  - Pautas de higiene para que el implante dure
+  boton: Pedir valoración
+preguntas:
+  titulo: Preguntas frecuentes
+  items:
+  - pregunta: ¿Duele ponerse un implante?
+    respuesta: La cirugía se hace con anestesia local, así que no notas dolor durante la intervención. Después es normal tener alguna molestia o inflamación unos días, que se controla con la medicación que te pautamos.
+  - pregunta: ¿Puedo ponerme implantes si me falta hueso?
+    respuesta: Depende de cada caso. En el estudio valoramos el hueso disponible y, si no es suficiente, te explicamos las opciones para regenerarlo o las alternativas al implante.
+  - pregunta: ¿Cuánto dura un implante?
+    respuesta: Con una buena higiene y revisiones periódicas, un implante puede durar muchos años. El tabaco y la enfermedad de las encías son los principales riesgos, por eso los vigilamos en cada revisión.
+avisoCancelacion: false
+cierre:
+  antetitulo: Primera visita
+  titulo: Valoramos tu caso sin coste
+  texto: Ven a la revisión gratuita y te diremos si los implantes son la mejor opción para ti, con el presupuesto por escrito.
+  mensajeWhatsapp: una valoración de implantes

@@ -9,7 +9,7 @@ const team = await getEquipo();
 <div class="up-grid-team">
   {
     team.map((m) => (
-      <a class="up-cutout" href={`/member/${m.id}`} id={m.id}>
+      <a class="up-cutout" href={`/equipo/${m.id}`} id={m.id}>
         <div class="up-cutout-photo">
           <Image src={m.data.retrato} alt={m.data.retratoAlt} widths={[360, 700]} sizes="(min-width: 1000px) 380px, 45vw" />
         </div>

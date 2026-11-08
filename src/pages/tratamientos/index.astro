@@ -1,0 +1,33 @@
+---
+export const prerender = true;
+
+import Layout from "@/layouts/Layout.astro";
+import PageHeader from "@/components/UI/PageHeader.astro";
+import ServiceCard from "@/components/Cards/ServiceCard.astro";
+import CTABand from "@/components/UI/CTABand.astro";
+import { getServicios } from "@/lib/contenido";
+
+const services = await getServicios();
+---
+
+<Layout
+    title="Tratamientos dentales en Móstoles"
+    description="Tratamientos dentales en Móstoles: revisión gratuita, limpieza, blanqueamiento, implantes, ortodoncia e Invisalign, odontopediatría, endodoncia y periodoncia."
+    breadcrumbs={[{ name: "Tratamientos", path: "/tratamientos" }]}
+>
+    <PageHeader
+        eyebrow="Tratamientos"
+        title="Tratamientos para toda la familia"
+        lead="Elige un tratamiento para ver en qué consiste, cuánto dura y cómo es el proceso. Si tienes dudas, la primera revisión es gratuita."
+    />
+
+    <section class="up-band-tint py-12" aria-label="Tratamientos">
+        <div class="up-wrap">
+            <div class="up-svc-grid" style={`--cols: ${Math.min(services.length, 3)}`}>
+                {services.map((s) => <ServiceCard service={s} headingLevel="h2" />)}
+            </div>
+        </div>
+    </section>
+
+    <CTABand title="¿No sabes qué tratamiento necesitas?" description="Ven a la revisión gratuita: te exploramos, te explicamos qué vemos y te damos el presupuesto por escrito." />
+</Layout>

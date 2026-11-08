@@ -1,4 +1,6 @@
 ---
+export const prerender = true;
+
 import Layout from "@/layouts/Layout.astro";
 import PageHeader from "@/components/UI/PageHeader.astro";
 import OurTeam from "@/components/OurTeam.astro";
@@ -6,8 +8,9 @@ import CTABand from "@/components/UI/CTABand.astro";
 ---
 
 <Layout
-  title="Equipo"
+  title="Dentistas en Móstoles: nuestro equipo"
   description="Conoce al equipo de Up Estudio Dental y Estética: ortodoncia, odontopediatría, cirugía e implantología, periodoncia e higiene dental en Móstoles."
+  breadcrumbs={[{ name: "Equipo", path: "/equipo" }]}
 >
   <PageHeader
     eyebrow="Nuestro equipo"

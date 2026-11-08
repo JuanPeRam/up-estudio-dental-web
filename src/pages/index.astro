@@ -1,4 +1,6 @@
 ---
+export const prerender = true;
+
 import Layout from "@/layouts/Layout.astro";
 import Hero from "@/components/Home/Hero.astro";
 import TrustBar from "@/components/Home/TrustBar.astro";
@@ -8,11 +10,12 @@ import Technology from "@/components/Home/Technology.astro";
 import TeamPreview from "@/components/Home/TeamPreview.astro";
 import Opinions from "@/components/Comments/Opinions.astro";
 import CTABand from "@/components/UI/CTABand.astro";
+import { emergencies } from "@/constants/personal";
 ---
 
 <Layout
   title="Inicio"
-  description="Clínica dental familiar en Móstoles: odontopediatría, ortodoncia e Invisalign, implantes y blanqueamiento Philips Zoom. Primera revisión gratis y urgencias 24 h."
+  description={`Clínica dental familiar en Móstoles: odontopediatría, ortodoncia e Invisalign, implantes y blanqueamiento Philips Zoom. Primera revisión gratis${emergencies ? " y urgencias 24 h" : ""}.`}
 >
   <Hero />
   <TrustBar />

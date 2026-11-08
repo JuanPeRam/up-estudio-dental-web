@@ -18,6 +18,7 @@ const servicios = defineCollection({
       titulo: z.string(),
       orden: z.number().default(10),
       resumen: z.string(),
+      descripcionSeo: texto,
       etiqueta: texto,
       imagen: image(),
       imagenAlt: z.string(),
@@ -43,7 +44,7 @@ const especialidades = defineCollection({
       linea: z.string(),
       imagen: image(),
       imagenAlt: z.string(),
-      enlace: z.string().default("/contact"),
+      enlace: z.string().default("/contacto"),
     }),
 });
 
@@ -55,6 +56,8 @@ const equipo = defineCollection({
       orden: z.number().default(10),
       especialidades: lista(z.string()),
       biografia: z.string(),
+      colegiado: texto,
+      formacion: lista(z.string()),
       retrato: image(),
       retratoAlt: z.string(),
       enPortada: z.boolean().default(true),

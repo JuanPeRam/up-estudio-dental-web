@@ -1,0 +1,45 @@
+---
+/**
+ * Bloque de reseñas en vivo. Se usa con server:defer desde Opinions.astro: la portada sigue
+ * siendo estática y este trozo lo genera el servidor, cacheado en la CDN de Vercel.
+ */
+import ReviewCard from "@/components/Cards/ReviewCard.astro";
+import Stars from "@/components/UI/Stars.astro";
+import { getPlaceReviews } from "@/lib/googleReviews";
+import { contact } from "@/constants/personal";
+
+interface Props { limit?: number }
+const { limit = 3 } = Astro.props;
+
+const MIN_RATING = 4;
+const place = await getPlaceReviews();
+const reviews = (place?.reviews ?? [])
+  .filter((r) => r.rating >= MIN_RATING)
+  .sort((a, b) => b.publishTime.localeCompare(a.publishTime))
+  .slice(0, limit);
+
+// 24 h en la CDN si Google respondió; 10 min si no, para reintentar pronto.
+Astro.response.headers.set(
+  "Cache-Control",
+  place ? "public, max-age=0, s-maxage=86400, stale-while-revalidate=86400" : "public, max-age=0, s-maxage=600",
+);
+
+const ratingText = place?.rating?.toLocaleString("es-ES", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+---
+
+{
+  place?.rating && place.total ? (
+    <a class="up-rating" href={contact.googleReviewsUrl} target="_blank" rel="noopener noreferrer" aria-label={`Valoración ${ratingText} de 5 con ${place.total} reseñas en Google (se abre en otra pestaña)`}>
+      <b>{ratingText}</b>
+      <Stars rating={place.rating} />
+      <span>{place.total} reseñas en Google</span>
+    </a>
+  ) : null
+}
+{
+  reviews.length > 0 && (
+    <div class="up-grid-3 w-full">
+      {reviews.map((r) => <ReviewCard review={r} />)}
+    </div>
+  )
+}

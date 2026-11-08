@@ -471,6 +471,14 @@
   .up-review figcaption div { display: flex; flex-direction: column; min-width: 0; }
   .up-review figcaption b { font: 600 16px/21px var(--font-sans); color: var(--ink); overflow-wrap: anywhere; }
   .up-review .up-g { margin-left: auto; width: 20px; height: 20px; flex: none; }
+  .up-review-author { color: inherit; text-decoration: none; }
+  .up-review-author:hover b { color: var(--brand-strong); text-decoration: underline; }
+  .up-review-skeleton { min-height: 260px; background: linear-gradient(90deg, var(--surface-raised), var(--surface-tint), var(--surface-raised)); background-size: 200% 100%; animation: up-shimmer 1.6s linear infinite; }
+  @keyframes up-shimmer { to { background-position: -200% 0; } }
+  @media (prefers-reduced-motion: reduce) { .up-review-skeleton { animation: none; } }
+  .up-rating { display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--space-2) var(--space-3); padding: var(--space-2) var(--space-4) var(--space-2) var(--space-6); border: 1px solid var(--line); border-radius: 999px; background: var(--surface-raised); color: var(--ink); text-decoration: none; font: 500 16px/22px var(--font-sans); }
+  .up-rating b { font: 600 22px/1 var(--font-sans); }
+  .up-rating:hover { border-color: var(--brand-strong); }
 
   /* ---------- GalleryGrid ---------- */
   /* ---------- Visita guiada (Clínica) ---------- */

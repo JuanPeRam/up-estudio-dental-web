@@ -6,8 +6,10 @@ import Layout from "@/layouts/Layout.astro";
 import Button from "@/components/UI/Button.astro";
 import TeamCard from "@/components/Cards/TeamCard.astro";
 import CTABand from "@/components/UI/CTABand.astro";
+import Checklist from "@/components/UI/Checklist.astro";
 import type { CollectionEntry } from "astro:content";
 import { getEquipo } from "@/lib/contenido";
+import { memberPath } from "@/constants/pages";
 
 export async function getStaticPaths() {
   const team = await getEquipo();
@@ -20,14 +22,40 @@ interface Props {
 }
 const { entry, others } = Astro.props;
 const member = { id: entry.id, ...entry.data };
-const description = `${member.nombre}${member.especialidades.length ? ` — ${member.especialidades.join(", ")}` : ""} en Up Estudio Dental y Estética, Móstoles.`;
+const roles = member.especialidades.join(", ");
+const description = `${member.nombre}${roles ? `, ${roles}` : ""}, en Up Estudio Dental y Estética (Móstoles). Formación, experiencia y cómo pedir cita.`;
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: member.nombre,
+    url: new URL(memberPath(member.id), Astro.site).toString(),
+    description: member.biografia,
+    ...(roles ? { jobTitle: member.especialidades[0], knowsAbout: member.especialidades } : {}),
+    ...(member.colegiado
+      ? {
+          hasCredential: {
+            "@type": "EducationalOccupationalCredential",
+            credentialCategory: "Colegiación profesional",
+            name: `Nº de colegiado ${member.colegiado}`,
+          },
+        }
+      : {}),
+    worksFor: { "@id": new URL("/#clinica", Astro.site).toString() },
+  },
+];
 ---
 
-<Layout title={member.nombre} description={description}>
+<Layout
+  title={member.nombre}
+  description={description}
+  breadcrumbs={[{ name: "Equipo", path: "/equipo" }, { name: member.nombre, path: memberPath(member.id) }]}
+  jsonLd={jsonLd}
+>
   <section class="up-section pt-10">
     <div class="up-wrap flex flex-col gap-8">
       <nav class="up-crumbs" aria-label="Migas de pan">
-        <a href="/team">Equipo</a><span aria-hidden="true">/</span><span aria-current="page">{member.nombre}</span>
+        <a href="/equipo">Equipo</a><span aria-hidden="true">/</span><span aria-current="page">{member.nombre}</span>
       </nav>
       <div class="grid items-start gap-10 md:grid-cols-[minmax(0,380px)_1fr] lg:gap-16">
         <div class="up-cutout-photo w-full max-w-[320px] md:max-w-none">
@@ -38,9 +66,18 @@ const description = `${member.nombre}${member.especialidades.length ? ` — ${me
           <h1 class="up-h1">{member.nombre}</h1>
           {member.especialidades.length > 0 && <div class="up-team-roles">{member.especialidades.map((r) => <span class="up-badge">{r}</span>)}</div>}
           <p class="up-lead">{member.biografia}</p>
+          {
+            (member.formacion.length > 0 || member.colegiado) && (
+              <div class="flex flex-col gap-3">
+                <h2 class="up-h4">Formación</h2>
+                {member.formacion.length > 0 && <Checklist items={member.formacion} />}
+                {member.colegiado && <p class="up-small m-0">Nº de colegiado: {member.colegiado}</p>}
+              </div>
+            )
+          }
           <div class="flex flex-wrap gap-3 pt-2">
-            <Button href="/contact" icon="calendar">Pedir cita</Button>
-            <Button href="/team" variant="secondary" icon="arrow-left">Volver al equipo</Button>
+            <Button href="/contacto" icon="calendar">Pedir cita</Button>
+            <Button href="/equipo" variant="secondary" icon="arrow-left">Volver al equipo</Button>
           </div>
         </div>
       </div>

@@ -11,10 +11,23 @@
 - [x] Optimize gallery images to WebP for performance (astro:assets, responsive widths).
 - [x] Fix background-attachment: fixed fallback for iOS Safari (fixed backgrounds removed in the redesign).
 - [ ] Rewrite 'Nuestro Equipo' content (remove placeholder Lorem ipsum, add real bios and qualifications).
-- [ ] Cache Google Reviews fetch server-side instead of calling the API live in 'Opiniones' section.
+- [x] Cache Google Reviews fetch server-side instead of calling the API live in 'Opiniones' section.
 - [x] Redesign every section with the new design system (tokens, Newsreader + Figtree, light/dark).
 - [ ] Send contact form submissions by email (the endpoint only logs them for now).
 - [x] Admin panel (Keystatic) for services, specialties and team at /keystatic.
 - [ ] Create the Keystatic Cloud project, set PUBLIC_KEYSTATIC_CLOUD_PROJECT in Vercel and invite the owners.
 - [ ] Get a vector (SVG) version of the logo.
 - [ ] Shoot matching team portraits (same background and light).
+- [x] SEO: dominio oficial, rutas en español, redirecciones 301 desde Wix y 410 para páginas sin equivalente.
+- [x] SEO: una página indexable por tratamiento (/tratamientos/<slug>) con descripción propia, migas de pan y datos estructurados.
+- [x] SEO: páginas propias para implantes, ortodoncia e Invisalign, odontopediatría, endodoncia, periodoncia y cirugía bucal.
+- [ ] Al publicar: redirigir upestudiodental.vercel.app al dominio, verificar Search Console por DNS y enviar el sitemap.
+- [ ] Revisar con la clínica los textos de las páginas de especialidades (implantes, ortodoncia, odontopediatría, endodoncia, periodoncia, cirugía).
+- [ ] Corregir el apellido de la Dra. Nilyam: «Iturniza» en el nombre e «Iturriza» en la biografía.
+- [x] SEO: datos de la clínica (NIF, dirección, horario, urgencias) en un solo sitio y usados en web, textos legales y datos estructurados.
+- [x] SEO: campos de formación y nº de colegiado en las fichas del equipo (Keystatic).
+- [ ] Rellenar en /keystatic la formación y el nº de colegiado de cada profesional (solo la Dra. Isabel tiene formación, sacada de su biografía).
+- [x] Reseñas de Google en vivo con Places API (New).
+- [ ] Añadir GOOGLE_PLACES_API_KEY en Vercel (Production y Preview) y comprobar que aparecen las reseñas.
+- [ ] Confirmar que la clínica atiende urgencias 24 h; si no, poner `emergencies` a null en src/constants/personal.ts.
+- [ ] Confirmar que el teléfono de la ficha de Google Business Profile es el 919 931 329 (el schema de Wix decía 665 015 568).

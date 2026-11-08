@@ -1,0 +1,50 @@
+titulo: Cirugía bucal
+orden: 9
+resumen: Extracciones, muelas del juicio e implantes, con un cirujano con más de 30 años de experiencia.
+descripcionSeo: 'Cirugía bucal en Móstoles: extracción de muelas del juicio, dientes incluidos e implantes, con un cirujano con más de 30 años de experiencia. Pide cita.'
+imagen: ../../assets/cms/servicios/cirugia-bucal/imagen.webp
+imagenAlt: Cirujano y asistente durante una intervención
+entradilla: La cirugía bucal resuelve los casos que necesitan una pequeña intervención en la boca, como las muelas del juicio que no salen bien o los dientes que hay que extraer. Las realiza el Dr. Rafael Darío Sosa, cirujano bucal e implantólogo con más de 30 años de experiencia, con anestesia local y en la propia clínica.
+datos:
+- icono: euro
+  etiqueta: Precio
+  valor: Según valoración
+- icono: clock
+  etiqueta: Duración
+  valor: Según la intervención
+- icono: calendar
+  etiqueta: Primera visita
+  valor: Gratuita
+tarjetas:
+  titulo: Qué tratamos
+  items:
+  - titulo: Muelas del juicio
+    texto: Cuando no tienen sitio, salen torcidas o se quedan dentro del hueso y causan dolor o infecciones.
+  - titulo: Extracciones complejas
+    texto: Dientes muy dañados, con raíces curvas o que se han roto por debajo de la encía.
+  - titulo: Dientes incluidos
+    texto: Dientes que no han llegado a salir, como algunos colmillos.
+  - titulo: Implantes
+    texto: Colocación de implantes para reponer dientes perdidos.
+pasos:
+  titulo: Antes y después de la intervención
+  items:
+  - titulo: Estudio previo
+    texto: Valoramos el caso con radiografías y te explicamos en qué consiste la intervención y cómo será la recuperación.
+  - titulo: Intervención
+    texto: Se realiza con anestesia local. Te acompañamos y te explicamos cada paso.
+  - titulo: Recuperación
+    texto: Te damos por escrito los cuidados de los primeros días y la medicación, y te citamos para revisar la cicatrización.
+preguntas:
+  titulo: Preguntas frecuentes
+  items:
+  - pregunta: ¿Hay que quitar siempre las muelas del juicio?
+    respuesta: No. Solo cuando dan problemas o es probable que los den. En la revisión valoramos su posición y te aconsejamos.
+  - pregunta: ¿Cuánto tarda la recuperación?
+    respuesta: Depende de la intervención. Lo habitual es notar molestias o inflamación unos días, que se controlan siguiendo las indicaciones que te damos.
+avisoCancelacion: false
+cierre:
+  antetitulo: Primera visita
+  titulo: Te explicamos tu caso sin compromiso
+  texto: Pide cita y valoramos si necesitas cirugía, con el presupuesto por escrito.
+  mensajeWhatsapp: una consulta de cirugía bucal

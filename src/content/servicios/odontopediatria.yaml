@@ -1,0 +1,52 @@
+titulo: Odontopediatría
+orden: 6
+resumen: El dentista de los peques, con zona infantil y mucha paciencia.
+descripcionSeo: 'Dentista infantil en Móstoles: revisiones, selladores, empastes y control del crecimiento de la boca, con sala de espera infantil y trato cercano. Pide cita.'
+imagen: ../../assets/cms/servicios/odontopediatria/imagen.webp
+imagenAlt: Niño aprendiendo a cepillarse con una maqueta de dientes
+entradilla: La odontopediatría cuida la boca de bebés, niños y adolescentes. Las primeras visitas sirven para que se acostumbren al dentista sin miedo y para detectar a tiempo caries o problemas de mordida. Los atiende la Dra. Cristina Umérez, con más de 25 años de experiencia con los más pequeños.
+datos:
+- icono: euro
+  etiqueta: Primera revisión
+  valor: Gratuita
+- icono: calendar
+  etiqueta: Primera visita
+  valor: Con el primer diente o antes del año
+- icono: repeat
+  etiqueta: Frecuencia
+  valor: Cada 6 meses
+tarjetas:
+  titulo: Qué hacemos en la consulta infantil
+  items:
+  - titulo: Revisiones y prevención
+    texto: Comprobamos cómo salen los dientes, enseñamos a cepillarse y damos pautas de alimentación a las familias.
+  - titulo: Selladores y flúor
+    texto: Protegen las muelas, que es donde más caries aparecen en los niños.
+  - titulo: Empastes en dientes de leche
+    texto: Los dientes de leche también se tratan, porque guardan el sitio a los definitivos.
+  - titulo: Control de la mordida
+    texto: Vigilamos el crecimiento de la boca para valorar a tiempo si hará falta ortodoncia.
+beneficios:
+  antetitulo: Pensado para ellos
+  titulo: Aquí los peques vienen contentos
+  texto: Las primeras visitas son cortas y sin prisas, para que el dentista sea un sitio conocido y no un mal recuerdo.
+  items:
+  - Sala de espera con zona infantil
+  - Explicaciones a su altura, sin sustos
+  - Los padres pueden acompañarles en el gabinete
+  - Consejos de higiene para toda la familia
+preguntas:
+  titulo: Preguntas frecuentes
+  items:
+  - pregunta: ¿Cuándo debe ir mi hijo al dentista por primera vez?
+    respuesta: Se recomienda una primera visita cuando sale el primer diente o, como tarde, hacia el primer año. Así detectamos pronto cualquier problema y el niño se acostumbra a la consulta.
+  - pregunta: ¿Hay que tratar las caries de los dientes de leche?
+    respuesta: Sí. Una caries en un diente de leche puede doler, infectarse y afectar al diente definitivo que está debajo.
+  - pregunta: ¿Qué hago si mi hijo tiene miedo?
+    respuesta: Cuéntanoslo al pedir cita. Vamos poco a poco, explicándole cada paso, y si hace falta dividimos el tratamiento en visitas más cortas.
+avisoCancelacion: false
+cierre:
+  antetitulo: Para los peques
+  titulo: Pide su primera revisión
+  texto: Es gratuita y sin prisas, para que conozca la clínica y al equipo.
+  mensajeWhatsapp: una revisión para mi hijo o hija

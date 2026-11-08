@@ -3,4 +3,4 @@ Allow: /
 Disallow: /keystatic
 Disallow: /api/keystatic
 
-Sitemap: https://upestudiodental.vercel.app/sitemap-index.xml
+Sitemap: https://www.upestudiodental.es/sitemap-index.xml
