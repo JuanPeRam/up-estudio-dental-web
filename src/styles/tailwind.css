@@ -465,6 +465,21 @@
   .up-stars { display: flex; gap: 2px; color: var(--brand-strong); }
   .up-stars .up-icon { width: 18px; height: 18px; }
   .up-review blockquote { margin: 0; font: 400 19px/29px var(--font-display); color: var(--ink); }
+  .up-review blockquote p { margin: 0; }
+  .up-review-full { white-space: pre-line; }
+  /* Al desplegar una reseña, las demás tarjetas no se estiran con hueco vacío. */
+  .up-reviews { align-items: start; }
+  .up-review-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 var(--space-4); margin: calc(var(--space-2) * -1) 0; }
+  .up-review-link { display: inline-flex; align-items: center; gap: var(--space-1); min-height: 44px; margin-left: auto; color: var(--ink-muted); font: 500 15px/20px var(--font-sans); text-decoration: none; }
+  .up-review-link:hover { color: var(--brand-strong); text-decoration: underline; }
+  .up-review-link .up-icon { width: 16px; height: 16px; }
+  .up-review-link:focus-visible { outline: 2px solid var(--brand-strong); outline-offset: 4px; border-radius: 4px; }
+  .up-review-more { align-self: flex-start; display: inline-flex; align-items: center; gap: var(--space-1); min-height: 44px; padding: 0; border: 0; background: none; color: var(--brand-strong); font: 600 15px/20px var(--font-sans); cursor: pointer; }
+  .up-review-more:hover span { text-decoration: underline; }
+  .up-review-more .up-icon { width: 16px; height: 16px; transform: rotate(90deg); transition: transform var(--duration-fast); }
+  .up-review-more[aria-expanded="true"] .up-icon { transform: rotate(-90deg); }
+  .up-review-more[hidden] { display: none; }
+  .up-review-more:focus-visible { outline: 2px solid var(--brand-strong); outline-offset: 4px; border-radius: 4px; }
   .up-review figcaption { margin-top: auto; display: flex; align-items: center; gap: var(--space-3); padding-top: var(--space-4); border-top: 1px solid var(--line); }
   .up-avatar { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--surface-tint); color: var(--brand-strong); font: 600 15px/1 var(--font-sans); flex: none; overflow: hidden; }
   .up-avatar img { width: 100%; height: 100%; object-fit: cover; }

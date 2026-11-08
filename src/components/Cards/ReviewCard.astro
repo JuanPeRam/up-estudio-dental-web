@@ -5,17 +5,43 @@ import type { Review } from "@/lib/googleReviews";
 
 interface Props { review: Review; maxChars?: number }
 const { review, maxChars = 260 } = Astro.props;
-const { authorName, authorUrl, photoUrl, rating, publishTime } = review;
-const clean = review.text.replace(/\s+/g, " ").trim();
-const text = clean.length > maxChars ? `${clean.slice(0, clean.lastIndexOf(" ", maxChars))}…` : clean;
-const initials = authorName.split(" ").slice(0, 2).map((w) => w[0]).join("").toUpperCase();
+const { authorName, authorUrl, photoUrl, rating, publishTime, reviewUrl } = review;
+// Se respetan los saltos de párrafo de la reseña completa; el extracto va en una sola línea.
+const full = review.text.replace(/[ \t]+/g, " ").replace(/\n{3,}/g, "\n\n").trim();
+const flat = full.replace(/\s+/g, " ");
+const truncated = flat.length > maxChars;
+const excerpt = truncated ? `${flat.slice(0, flat.lastIndexOf(" ", maxChars))}…` : flat;
+// Iniciales solo con letras: «{ Sofía }» → «S».
+const initials = (authorName.match(/\p{L}+/gu) ?? ["?"]).slice(0, 2).map((w) => w[0]).join("").toUpperCase();
+const fullId = `resena-${(publishTime || authorName).replace(/[^a-zA-Z0-9]/g, "")}`;
 const published = publishTime ? new Date(publishTime) : null;
 const date = published ? new Intl.DateTimeFormat("es-ES", { month: "long", year: "numeric" }).format(published) : "";
 ---
 
 <figure class="up-review">
   <Stars rating={rating} />
-  <blockquote>«{text}»</blockquote>
+  <blockquote>
+    <p class="up-review-short">«{excerpt}»</p>
+    {truncated && <p class="up-review-full" id={fullId} hidden>«{full}»</p>}
+  </blockquote>
+  {(truncated || reviewUrl) && (
+  <div class="up-review-actions">
+  {
+    truncated && (
+      <button type="button" class="up-review-more" aria-expanded="false" aria-controls={fullId} hidden>
+        <span>Ver más</span><Icon name="chevron-right" class="up-icon" />
+      </button>
+    )
+  }
+  {
+    reviewUrl && (
+      <a class="up-review-link" href={reviewUrl} target="_blank" rel="noopener noreferrer" aria-label={`Ver la reseña de ${authorName} en Google (se abre en otra pestaña)`}>
+        Ver en Google<Icon name="arrow-right" class="up-icon" />
+      </a>
+    )
+  }
+  </div>
+  )}
   <figcaption>
     <span class="up-avatar" aria-hidden="true">
       {photoUrl ? <img src={photoUrl} alt="" loading="lazy" referrerpolicy="no-referrer" data-initials={initials} onerror="this.replaceWith(this.dataset.initials || '')" /> : initials}
