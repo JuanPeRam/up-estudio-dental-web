@@ -423,6 +423,48 @@
     .up-panel-sticky { position: sticky; top: calc(var(--nav-h) + var(--space-6)); }
   }
 
+  /* ---------- Señales («Cuándo conviene consultarlo») ---------- */
+  .up-signs {
+    display: flex; flex-direction: column; gap: var(--space-8);
+    padding: var(--space-8) var(--space-6);
+    background: linear-gradient(160deg, var(--surface-tint) 0%, color-mix(in srgb, var(--aqua) 55%, var(--surface-tint)) 100%);
+    border-radius: var(--radius-lg);
+  }
+  @media (min-width: 640px) { .up-signs { padding: var(--space-12) var(--space-12); } }
+  .up-signs-list { list-style: none; margin: 0; padding: 0; gap: var(--space-4); }
+  @media (min-width: 1080px) { .up-signs-list { gap: var(--space-6); } }
+  .up-sign {
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; gap: var(--space-3);
+    padding: var(--space-6);
+    background: var(--surface-raised);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--duration-base) ease, box-shadow var(--duration-base) ease;
+  }
+  .up-sign::before {
+    content: ""; position: absolute; inset: 0 0 auto 0; height: 4px;
+    background: var(--brand);
+    transform: scaleX(0.18); transform-origin: left;
+    transition: transform var(--duration-base) ease;
+  }
+  .up-sign:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  .up-sign:hover::before { transform: scaleX(1); }
+  .up-sign-num {
+    display: grid; place-items: center;
+    width: 48px; height: 48px; margin-bottom: var(--space-2);
+    border-radius: 50%;
+    background: var(--surface-tint);
+    font: 500 20px/1 var(--font-display);
+    color: var(--brand-strong);
+  }
+  .up-sign .up-h4 { text-wrap: balance; }
+  .up-sign .up-small { text-wrap: pretty; }
+  @media (prefers-reduced-motion: reduce) {
+    .up-sign, .up-sign::before { transition: none; }
+    .up-sign:hover { transform: none; }
+  }
+
   /* ---------- Accordion ---------- */
   .up-acc { display: flex; flex-direction: column; gap: var(--space-2); }
   .up-acc details { background: var(--surface-raised); border: 1px solid var(--line); border-radius: var(--radius-md); transition: border-color var(--duration-fast); }

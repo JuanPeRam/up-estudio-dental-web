@@ -75,16 +75,17 @@ const SubSub = headingLevel === "h1" ? "h3" : "h4";
 
         {
             tarjetas.length > 0 && (
-                <div class="flex flex-col gap-8">
+                <div class="up-signs">
                     {d.tarjetas?.titulo && <Sub class="up-h3">{d.tarjetas.titulo}</Sub>}
-                    <div class="up-grid-4">
-                        {tarjetas.map((t) => (
-                            <article class="up-panel gap-2 p-6">
+                    <ol class="up-grid-4 up-signs-list">
+                        {tarjetas.map((t, i) => (
+                            <li class="up-sign">
+                                <span class="up-sign-num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
                                 <SubSub class="up-h4">{t.titulo}</SubSub>
                                 {t.texto && <p class="up-small">{t.texto}</p>}
-                            </article>
+                            </li>
                         ))}
-                    </div>
+                    </ol>
                 </div>
             )
         }
