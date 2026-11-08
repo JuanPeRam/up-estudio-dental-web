@@ -72,6 +72,6 @@ Nombre, NIF, dirección, teléfonos, horario y el aviso de «Urgencias 24 h» es
 
 Las reseñas y la nota media se leen en vivo de la ficha de Google (Places API (New), Place ID en `src/constants/personal.ts`) desde `src/components/Comments/GoogleReviews.astro`. Es un *server island*: la portada sigue siendo estática y ese bloque lo genera el servidor, con la respuesta cacheada 24 h en la CDN de Vercel (unas 30 consultas al mes, dentro de la cuota gratuita).
 
-- Necesita la variable de entorno `GOOGLE_PLACES_API_KEY` en Vercel (Settings → Environment Variables), con una clave restringida a Places API (New). Para probarlo en local, ponla en `.env`.
+- Necesita la variable de entorno `GOOGLE_PLACES_API_KEY` en Vercel (y, opcionalmente, `GOOGLE_PLACE_ID`; si no está se usa el de `src/constants/personal.ts`) (Settings → Environment Variables), con una clave restringida a Places API (New). Para probarlo en local, ponla en `.env`.
 - Sin clave, o si Google no responde, la sección muestra solo los botones «Leer todas en Google» y «Escribir una reseña».
 - Google devuelve como máximo 5 reseñas; se muestran las 3 más recientes de 4 o más estrellas.

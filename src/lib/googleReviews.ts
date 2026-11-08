@@ -1,4 +1,4 @@
-import { GOOGLE_PLACES_API_KEY } from "astro:env/server";
+import { GOOGLE_PLACE_ID, GOOGLE_PLACES_API_KEY } from "astro:env/server";
 import { clinic } from "@/constants/personal";
 
 /**
@@ -45,7 +45,7 @@ export async function getPlaceReviews(): Promise<PlaceReviews | null> {
   if (!GOOGLE_PLACES_API_KEY) return null;
 
   try {
-    const res = await fetch(`https://places.googleapis.com/v1/places/${clinic.googlePlaceId}?languageCode=es&regionCode=ES`, {
+    const res = await fetch(`https://places.googleapis.com/v1/places/${GOOGLE_PLACE_ID || clinic.googlePlaceId}?languageCode=es&regionCode=ES`, {
       headers: {
         "X-Goog-Api-Key": GOOGLE_PLACES_API_KEY,
         "X-Goog-FieldMask": "rating,userRatingCount,reviews",

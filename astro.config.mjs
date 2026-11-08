@@ -48,6 +48,8 @@ export default defineConfig({
     schema: {
       // Clave de Places API (New) para las reseñas de Google. Se guarda en Vercel, nunca en el repo.
       GOOGLE_PLACES_API_KEY: envField.string({ context: 'server', access: 'secret', optional: true }),
+      // Opcional: si no está, se usa el Place ID de src/constants/personal.ts.
+      GOOGLE_PLACE_ID: envField.string({ context: 'server', access: 'secret', optional: true }),
     },
   },
   integrations: [react({
