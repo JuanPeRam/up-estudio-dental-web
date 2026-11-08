@@ -27,6 +27,7 @@
 - [x] SEO: datos de la clínica (NIF, dirección, horario, urgencias) en un solo sitio y usados en web, textos legales y datos estructurados.
 - [x] SEO: campos de formación y nº de colegiado en las fichas del equipo (Keystatic).
 - [ ] Rellenar en /keystatic la formación y el nº de colegiado de cada profesional (solo la Dra. Isabel tiene formación, sacada de su biografía).
-- [ ] Actualizar las reseñas de Google (las guardadas son de abril–mayo de 2024): node scripts/fetch-google-reviews.mjs.
+- [x] Reseñas de Google en vivo con Places API (New).
+- [ ] Añadir GOOGLE_PLACES_API_KEY en Vercel (Production y Preview) y comprobar que aparecen las reseñas.
 - [ ] Confirmar que la clínica atiende urgencias 24 h; si no, poner `emergencies` a null en src/constants/personal.ts.
 - [ ] Confirmar que el teléfono de la ficha de Google Business Profile es el 919 931 329 (el schema de Wix decía 665 015 568).

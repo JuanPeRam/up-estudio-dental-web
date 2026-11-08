@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 import react from "@astrojs/react";
 import vercel from "@astrojs/vercel";
 import sitemap from "@astrojs/sitemap";
@@ -44,6 +44,12 @@ export default defineConfig({
   site: 'https://www.upestudiodental.es',
   trailingSlash: 'never',
   redirects,
+  env: {
+    schema: {
+      // Clave de Places API (New) para las reseñas de Google. Se guarda en Vercel, nunca en el repo.
+      GOOGLE_PLACES_API_KEY: envField.string({ context: 'server', access: 'secret', optional: true }),
+    },
+  },
   integrations: [react({
     experimentalReactChildren: true
   }), icon(), keystatic(), sitemap({

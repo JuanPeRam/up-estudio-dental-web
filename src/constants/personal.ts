@@ -13,14 +13,15 @@ const clinic = {
     name: "Up Estudio Dental y Estética",
     legalName: "Up Estudio Dental y Estética, S.L.",
     nif: "B10552917",
-    streetAddress: "C. Andrómeda, 48",
-    /** Dato del domicilio social; no forma parte de la dirección que se muestra al público. */
-    unit: "Local 7",
+    /** Igual que en la ficha de Google Business Profile. */
+    streetAddress: "C. Andrómeda, 48, Local 7",
     postalCode: "28938",
     locality: "Móstoles",
     region: "Madrid",
     country: "ES",
     geo: { latitude: 40.312004675050765, longitude: -3.8613156547374 },
+    /** Identificador de la ficha de Google: reseñas, enlaces a Maps y datos estructurados. */
+    googlePlaceId: "ChIJF6cQ9iiNQQ0RLAo-T1JCwfQ",
 }
 
 const weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
@@ -52,8 +53,9 @@ const contact = {
     },
     email: "info@upestudiodental.es",
     address: `${clinic.streetAddress}, ${clinic.postalCode} ${clinic.locality}, ${clinic.region}`,
-    mapsUrl: "https://g.co/kgs/uj6iDgM",
-    googleReviewsUrl: "https://g.co/kgs/uj6iDgM",
+    mapsUrl: `https://www.google.com/maps/search/?api=1&query=Up+Estudio+Dental&query_place_id=${clinic.googlePlaceId}`,
+    googleReviewsUrl: `https://search.google.com/local/reviews?placeid=${clinic.googlePlaceId}`,
+    writeReviewUrl: `https://search.google.com/local/writereview?placeid=${clinic.googlePlaceId}`,
     hours: openingHours.map((h) => ({ days: h.label, time: `${h.opens}–${h.closes}` })),
 }
 

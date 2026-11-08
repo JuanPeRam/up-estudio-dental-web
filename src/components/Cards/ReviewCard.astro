@@ -1,17 +1,16 @@
 ---
 import { Icon } from "astro-icon/components";
 import Stars from "@/components/UI/Stars.astro";
-import type { Review } from "@/components/Comments/reviews";
+import type { Review } from "@/lib/googleReviews";
 
 interface Props { review: Review; maxChars?: number }
 const { review, maxChars = 260 } = Astro.props;
-const { author_name, profile_photo_url, rating, time } = review;
-// Fecha absoluta («marzo de 2026»): «Hace 2 meses» quedaría desfasado en una página estática.
-const published = new Date(time * 1000);
-const date = new Intl.DateTimeFormat("es-ES", { month: "long", year: "numeric" }).format(published);
+const { authorName, authorUrl, photoUrl, rating, publishTime } = review;
 const clean = review.text.replace(/\s+/g, " ").trim();
 const text = clean.length > maxChars ? `${clean.slice(0, clean.lastIndexOf(" ", maxChars))}…` : clean;
-const initials = author_name.split(" ").slice(0, 2).map((w) => w[0]).join("").toUpperCase();
+const initials = authorName.split(" ").slice(0, 2).map((w) => w[0]).join("").toUpperCase();
+const published = publishTime ? new Date(publishTime) : null;
+const date = published ? new Intl.DateTimeFormat("es-ES", { month: "long", year: "numeric" }).format(published) : "";
 ---
 
 <figure class="up-review">
@@ -19,11 +18,11 @@ const initials = author_name.split(" ").slice(0, 2).map((w) => w[0]).join("").to
   <blockquote>«{text}»</blockquote>
   <figcaption>
     <span class="up-avatar" aria-hidden="true">
-      {profile_photo_url ? <img src={profile_photo_url} alt="" loading="lazy" referrerpolicy="no-referrer" data-initials={initials} onerror="this.replaceWith(this.dataset.initials || '')" /> : initials}
+      {photoUrl ? <img src={photoUrl} alt="" loading="lazy" referrerpolicy="no-referrer" data-initials={initials} onerror="this.replaceWith(this.dataset.initials || '')" /> : initials}
     </span>
     <div>
-      <b>{author_name}</b>
-      <time class="up-caption" datetime={published.toISOString().slice(0, 10)}>{date}</time>
+      {authorUrl ? <a class="up-review-author" href={authorUrl} target="_blank" rel="noopener noreferrer"><b>{authorName}</b></a> : <b>{authorName}</b>}
+      {published && <time class="up-caption" datetime={published.toISOString().slice(0, 10)}>{date}</time>}
     </div>
     <Icon name="google" class="up-g" aria-label="Reseña de Google" />
   </figcaption>
