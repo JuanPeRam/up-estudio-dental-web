@@ -2,6 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
+import { treatmentPath } from "@/constants/pages";
 
 interface Props {
   service: CollectionEntry<"servicios">;
@@ -12,7 +13,7 @@ const { service, active = false, headingLevel: H = "h3" } = Astro.props;
 const d = service.data;
 ---
 
-<a class="up-scard" href={`/services?servicio=${service.id}#detalle`} aria-current={active ? "true" : undefined}>
+<a class="up-scard" href={treatmentPath(service.id)} aria-current={active ? "true" : undefined}>
   <div class="up-scard-media">
     <Image src={d.imagen} alt={d.imagenAlt} widths={[400, 640]} sizes="(min-width: 1080px) 380px, (min-width: 900px) 33vw, (min-width: 640px) 42vw, 100vw" />
   </div>

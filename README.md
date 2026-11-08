@@ -49,3 +49,17 @@ Los servicios, la rejilla de especialidades de la portada y el equipo se editan 
 2. En Vercel, añade la variable de entorno `PUBLIC_KEYSTATIC_CLOUD_PROJECT` con el valor `equipo/proyecto` que muestra Keystatic Cloud y vuelve a desplegar.
 3. En Keystatic Cloud, invita a los propietarios por correo. El plan gratuito admite hasta 3 usuarios.
 4. Los propietarios entran en `https://<tu-dominio>/keystatic` con su correo.
+
+## 🔎 SEO y migración desde Wix
+
+- **Dominio oficial:** `https://www.upestudiodental.es` (campo `site` de `astro.config.mjs`). De ahí salen el canonical, el sitemap, Open Graph y los datos estructurados.
+- **Rutas en español y sin barra final:** `/clinica`, `/tratamientos`, `/tratamientos/<slug>`, `/equipo`, `/equipo/<slug>`, `/contacto`, `/politica-privacidad`, `/politica-cookies`, `/aviso-legal`. Están centralizadas en `src/constants/pages.ts`.
+- **Redirecciones 301** de la web de Wix (`/blank-1`…`/blank-5`, `/service-page/*`, `/booking-calendar/*`, `/book-online`) y de las rutas antiguas en inglés: en `astro.config.mjs`. Las páginas de Wix sin equivalente (tienda de ejemplo, eventos, referidos) responden **410** desde `src/pages`.
+- Si cambias una ruta, añade su redirección 301.
+
+### Al apuntar el dominio a Vercel
+
+1. En Vercel → Domains, añade `www.upestudiodental.es` como dominio principal y `upestudiodental.es` con redirección a `www`.
+2. Redirige también `upestudiodental.vercel.app` a `www.upestudiodental.es` para que Google no indexe el subdominio de Vercel.
+3. En Google Search Console, verifica la propiedad de dominio por DNS (la etiqueta de verificación de Wix desaparece) y envía `https://www.upestudiodental.es/sitemap-index.xml`.
+4. Comprueba que la web de la ficha de Google Business Profile apunta a `https://www.upestudiodental.es` y que el teléfono coincide con el de la web.

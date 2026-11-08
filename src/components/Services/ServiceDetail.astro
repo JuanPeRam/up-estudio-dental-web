@@ -16,8 +16,9 @@ import { contact } from "@/constants/personal";
 
 interface Props {
     service: CollectionEntry<"servicios">;
+    headingLevel?: "h1" | "h2";
 }
-const { service } = Astro.props;
+const { service, headingLevel = "h2" } = Astro.props;
 const d = service.data;
 
 const facts = d.datos.filter((f) => f.valor).map((f) => ({ icon: f.icono, label: f.etiqueta, value: f.valor }));
@@ -29,29 +30,32 @@ const preguntas = (d.preguntas?.items ?? []).map((p) => ({ question: p.pregunta,
 
 // Con pasos, la columna derecha lleva «Qué incluye» o, si no hay, las preguntas frecuentes.
 const preguntasJuntoAPasos = pasos.length > 0 && incluye.length === 0 && preguntas.length > 0;
+// Bajo un h1 (ficha propia) los bloques son h2/h3; dentro de otra página, h3/h4.
+const Sub = headingLevel === "h1" ? "h2" : "h3";
+const SubSub = headingLevel === "h1" ? "h3" : "h4";
 ---
 
-<section class="up-section" id={service.id}>
+<section class:list={["up-section", headingLevel === "h1" && "pt-4 lg:pt-6"]} id={service.id}>
     <div class="up-wrap flex flex-col gap-16 lg:gap-20">
-        <ServiceIntro badge={d.etiqueta || undefined} title={d.titulo} lead={d.entradilla} facts={facts.length ? facts : undefined} />
+        <ServiceIntro headingLevel={headingLevel} badge={d.etiqueta || undefined} title={d.titulo} lead={d.entradilla} facts={facts.length ? facts : undefined} />
 
         {
             pasos.length > 0 && (
                 <div class:list={["grid gap-12 lg:gap-16", incluye.length ? "lg:grid-cols-[1.4fr_1fr]" : "lg:grid-cols-2"]}>
                     <div class="flex flex-col gap-8">
-                        {d.pasos?.titulo && <h3 class="up-h3">{d.pasos.titulo}</h3>}
+                        {d.pasos?.titulo && <Sub class="up-h3">{d.pasos.titulo}</Sub>}
                         <ProcessSteps steps={pasos} />
                     </div>
                     {incluye.length > 0 && (
                         <aside class="up-panel up-panel-sticky h-fit">
-                            {d.incluye?.titulo && <h3 class="up-h3">{d.incluye.titulo}</h3>}
+                            {d.incluye?.titulo && <Sub class="up-h3">{d.incluye.titulo}</Sub>}
                             <Checklist items={incluye} />
-                            <Button href="/contact" icon="calendar" block>{d.incluye?.boton || "Pedir cita"}</Button>
+                            <Button href="/contacto" icon="calendar" block>{d.incluye?.boton || "Pedir cita"}</Button>
                         </aside>
                     )}
                     {preguntasJuntoAPasos && (
                         <div class="flex flex-col gap-8">
-                            <h3 class="up-h3">{d.preguntas?.titulo || "Preguntas frecuentes"}</h3>
+                            <Sub class="up-h3">{d.preguntas?.titulo || "Preguntas frecuentes"}</Sub>
                             <Accordion items={preguntas} openFirst />
                         </div>
                     )}
@@ -62,9 +66,9 @@ const preguntasJuntoAPasos = pasos.length > 0 && incluye.length === 0 && pregunt
         {
             pasos.length === 0 && incluye.length > 0 && (
                 <aside class="up-panel max-w-xl">
-                    {d.incluye?.titulo && <h3 class="up-h3">{d.incluye.titulo}</h3>}
+                    {d.incluye?.titulo && <Sub class="up-h3">{d.incluye.titulo}</Sub>}
                     <Checklist items={incluye} />
-                    <Button href="/contact" icon="calendar" block>{d.incluye?.boton || "Pedir cita"}</Button>
+                    <Button href="/contacto" icon="calendar" block>{d.incluye?.boton || "Pedir cita"}</Button>
                 </aside>
             )
         }
@@ -72,11 +76,11 @@ const preguntasJuntoAPasos = pasos.length > 0 && incluye.length === 0 && pregunt
         {
             tarjetas.length > 0 && (
                 <div class="flex flex-col gap-8">
-                    {d.tarjetas?.titulo && <h3 class="up-h3">{d.tarjetas.titulo}</h3>}
+                    {d.tarjetas?.titulo && <Sub class="up-h3">{d.tarjetas.titulo}</Sub>}
                     <div class="up-grid-4">
                         {tarjetas.map((t) => (
                             <article class="up-panel gap-2 p-6">
-                                <h4 class="up-h4">{t.titulo}</h4>
+                                <SubSub class="up-h4">{t.titulo}</SubSub>
                                 {t.texto && <p class="up-small">{t.texto}</p>}
                             </article>
                         ))}
@@ -90,7 +94,7 @@ const preguntasJuntoAPasos = pasos.length > 0 && incluye.length === 0 && pregunt
                 <div class="grid gap-8 rounded-md bg-tint p-6 sm:p-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
                     <div class="flex flex-col gap-3">
                         {d.beneficios?.antetitulo && <p class="up-eyebrow">{d.beneficios.antetitulo}</p>}
-                        {d.beneficios?.titulo && <h3 class="up-h2">{d.beneficios.titulo}</h3>}
+                        {d.beneficios?.titulo && <Sub class="up-h2">{d.beneficios.titulo}</Sub>}
                         {d.beneficios?.texto && <p class="up-small">{d.beneficios.texto}</p>}
                     </div>
                     <Checklist items={beneficios} />
@@ -105,7 +109,7 @@ const preguntasJuntoAPasos = pasos.length > 0 && incluye.length === 0 && pregunt
                         <Image src={t.imagen} alt={t.imagenAlt} widths={[600, 1000]} sizes="(min-width: 1024px) 560px, 100vw" />
                     </figure>
                     <div class="flex flex-col gap-5">
-                        <h3 class="up-h2">{t.titulo}</h3>
+                        <Sub class="up-h2">{t.titulo}</Sub>
                         {t.texto && <p class="up-body">{t.texto}</p>}
                         {t.puntos.length > 0 && <Checklist items={t.puntos} />}
                     </div>
@@ -116,7 +120,7 @@ const preguntasJuntoAPasos = pasos.length > 0 && incluye.length === 0 && pregunt
         {
             preguntas.length > 0 && !preguntasJuntoAPasos && (
                 <div class="flex max-w-3xl flex-col gap-8">
-                    <h3 class="up-h3">{d.preguntas?.titulo || "Preguntas frecuentes"}</h3>
+                    <Sub class="up-h3">{d.preguntas?.titulo || "Preguntas frecuentes"}</Sub>
                     <Accordion items={preguntas} openFirst />
                 </div>
             )

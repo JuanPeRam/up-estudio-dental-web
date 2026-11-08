@@ -56,7 +56,7 @@ export default config({
           name: { label: "Nombre del tratamiento", validation: { isRequired: true } },
           slug: {
             label: "Dirección en la web",
-            description: "Aparece en el enlace: /services?servicio=… No la cambies si el tratamiento ya está publicado.",
+            description: "Aparece en el enlace: /tratamientos/… No la cambies si el tratamiento ya está publicado.",
           },
         }),
         orden,
@@ -64,6 +64,12 @@ export default config({
           label: "Resumen corto",
           description: "Una frase con un dato, para la tarjeta del tratamiento. Ejemplo: «Revisión, radiografías y presupuesto por escrito, sin coste».",
           validation: { isRequired: true, length: { max: 110 } },
+        }),
+        descripcionSeo: fields.text({
+          label: "Descripción para Google",
+          description: "El texto gris que sale bajo el título en Google. Entre 120 y 160 caracteres, con el tratamiento y «Móstoles». Si lo dejas vacío se usa la entradilla.",
+          multiline: true,
+          validation: { length: { max: 170 } },
         }),
         etiqueta: fields.text({ label: "Etiqueta (opcional)", description: "Una o dos palabras destacadas, como «Sin coste». Déjalo vacío si no hace falta." }),
         imagen: imagen("servicios", "Foto de la tarjeta", "Foto real de la clínica. Horizontal o vertical; se recorta automáticamente."),
@@ -186,8 +192,8 @@ export default config({
         imagenAlt: textoAlt,
         enlace: fields.text({
           label: "Enlace",
-          description: "A dónde lleva al pulsar. Ejemplos: /services?servicio=limpieza-bucal#detalle, /member/cristina o /contact",
-          defaultValue: "/contact",
+          description: "A dónde lleva al pulsar. Ejemplos: /tratamientos/limpieza-bucal, /equipo/cristina o /contacto",
+          defaultValue: "/contacto",
           validation: { isRequired: true },
         }),
       },
@@ -202,7 +208,7 @@ export default config({
       schema: {
         nombre: fields.slug({
           name: { label: "Nombre completo", validation: { isRequired: true } },
-          slug: { label: "Dirección de su ficha", description: "Aparece en el enlace: /member/… No la cambies si ya está publicada." },
+          slug: { label: "Dirección de su ficha", description: "Aparece en el enlace: /equipo/… No la cambies si ya está publicada." },
         }),
         orden,
         especialidades: fields.array(fields.text({ label: "Especialidad" }), {

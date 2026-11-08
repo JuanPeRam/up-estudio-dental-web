@@ -1,0 +1,78 @@
+---
+export const prerender = true;
+
+import type { CollectionEntry } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import ServiceDetail from "@/components/Services/ServiceDetail.astro";
+import ServiceCard from "@/components/Cards/ServiceCard.astro";
+import { getServicios } from "@/lib/contenido";
+import { treatmentPath } from "@/constants/pages";
+
+export async function getStaticPaths() {
+    const services = await getServicios();
+    return services.map((entry) => ({
+        params: { slug: entry.id },
+        props: { entry, others: services.filter((s) => s.id !== entry.id).slice(0, 3) },
+    }));
+}
+
+interface Props {
+    entry: CollectionEntry<"servicios">;
+    others: CollectionEntry<"servicios">[];
+}
+const { entry, others } = Astro.props;
+const d = entry.data;
+
+/** Recorta en la última palabra completa antes de `max` caracteres. */
+const clip = (text: string, max = 158) => (text.length <= max ? text : `${text.slice(0, max - 1).replace(/\s+\S*$/, "")}…`);
+const description = d.descripcionSeo || clip(d.entradilla);
+const url = new URL(treatmentPath(entry.id), Astro.site).toString();
+
+const preguntas = (d.preguntas?.items ?? []).filter((p) => p.pregunta && p.respuesta);
+const jsonLd: Record<string, unknown>[] = [
+    {
+        "@context": "https://schema.org",
+        "@type": "MedicalProcedure",
+        name: d.titulo,
+        description,
+        url,
+        provider: { "@id": new URL("/#clinica", Astro.site).toString() },
+    },
+];
+if (preguntas.length) {
+    jsonLd.push({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: preguntas.map((p) => ({ "@type": "Question", name: p.pregunta, acceptedAnswer: { "@type": "Answer", text: p.respuesta } })),
+    });
+}
+---
+
+<Layout
+    title={`${d.titulo} en Móstoles`}
+    description={description}
+    shareImage={d.imagen}
+    breadcrumbs={[{ name: "Tratamientos", path: "/tratamientos" }, { name: d.titulo, path: treatmentPath(entry.id) }]}
+    jsonLd={jsonLd}
+>
+    <div class="up-wrap pt-10">
+        <nav class="up-crumbs" aria-label="Migas de pan">
+            <a href="/tratamientos">Tratamientos</a><span aria-hidden="true">/</span><span aria-current="page">{d.titulo}</span>
+        </nav>
+    </div>
+
+    <ServiceDetail service={entry} headingLevel="h1" />
+
+    {
+        others.length > 0 && (
+            <section class="up-band-tint py-12" aria-labelledby="otros-tratamientos">
+                <div class="up-wrap flex flex-col gap-8">
+                    <h2 class="up-h2" id="otros-tratamientos">Otros tratamientos</h2>
+                    <div class="up-svc-grid" style={`--cols: ${others.length}`}>
+                        {others.map((s) => <ServiceCard service={s} />)}
+                    </div>
+                </div>
+            </section>
+        )
+    }
+</Layout>

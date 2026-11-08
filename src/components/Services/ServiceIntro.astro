@@ -6,13 +6,15 @@ interface Props {
     title: string;
     lead: string;
     facts?: { icon: string; label: string; value: string }[];
+    /** h1 en la ficha propia del tratamiento; h2 si va dentro de otra página. */
+    headingLevel?: "h1" | "h2";
 }
-const { badge, title, lead, facts } = Astro.props;
+const { badge, title, lead, facts, headingLevel: H = "h2" } = Astro.props;
 ---
 
 <header class="flex max-w-3xl flex-col gap-5">
     {badge && <span class="up-badge self-start">{badge}</span>}
-    <h2 class="up-h1">{title}</h2>
+    <H class="up-h1">{title}</H>
     <p class="up-lead">{lead}</p>
     {facts && <div class="pt-2"><FactChips facts={facts} /></div>}
 </header>

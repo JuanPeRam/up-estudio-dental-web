@@ -1,4 +1,6 @@
 ---
+export const prerender = true;
+
 import Layout from "../layouts/Layout.astro";
 import Button from "@/components/UI/Button.astro";
 ---
@@ -14,7 +16,7 @@ import Button from "@/components/UI/Button.astro";
             <p class="up-lead">Puede que el enlace haya cambiado. Desde aquí puedes volver al inicio, ver los tratamientos o pedir cita.</p>
             <div class="flex flex-wrap gap-3">
                 <Button href="/" icon="arrow-left">Volver al inicio</Button>
-                <Button href="/services" variant="secondary">Ver servicios</Button>
+                <Button href="/tratamientos" variant="secondary">Ver servicios</Button>
             </div>
         </div>
     </section>

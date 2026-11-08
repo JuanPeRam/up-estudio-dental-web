@@ -1,4 +1,6 @@
 ---
+export const prerender = true;
+
 import Layout from "@/layouts/Layout.astro";
 import PageHeader from "@/components/UI/PageHeader.astro";
 import ClinicTour from "@/components/Clinic/ClinicTour.astro";
@@ -6,8 +8,9 @@ import CTABand from "@/components/UI/CTABand.astro";
 ---
 
 <Layout
-  title="Clínica"
+  title="La clínica dental en Móstoles"
   description="Visita guiada por Up Estudio Dental en Móstoles: entrada, recepción, sala de espera con zona infantil, gabinetes, despacho y aseos."
+  breadcrumbs={[{ name: "Clínica", path: "/clinica" }]}
 >
   <PageHeader
     eyebrow="La clínica"
