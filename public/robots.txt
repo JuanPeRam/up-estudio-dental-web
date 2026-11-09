@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /keystatic
 Disallow: /api/
+Disallow: /resena
 
 Sitemap: https://www.upestudiodental.es/sitemap-index.xml
