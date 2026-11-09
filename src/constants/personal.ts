@@ -52,6 +52,8 @@ const contact = {
         href: `tel:+34${fixedNumber}`,
     },
     email: "info@upestudiodental.com",
+    /** Contacto del Delegado de Protección de Datos (alias en Arsys) */
+    dpoEmail: "dpo@upestudiodental.com",
     address: `${clinic.streetAddress}, ${clinic.postalCode} ${clinic.locality}, ${clinic.region}`,
     mapsUrl: `https://www.google.com/maps/search/?api=1&query=Up+Estudio+Dental&query_place_id=${clinic.googlePlaceId}`,
     googleReviewsUrl: `https://search.google.com/local/reviews?placeid=${clinic.googlePlaceId}`,
