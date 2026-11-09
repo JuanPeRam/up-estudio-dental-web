@@ -65,6 +65,8 @@ const structuredData = {
     opens: h.opens,
     closes: h.closes,
   })),
+  hasMap: contact.mapsUrl,
+  areaServed: { "@type": "City", name: clinic.locality },
   sameAs: socials.map((social) => social.link),
 };
 

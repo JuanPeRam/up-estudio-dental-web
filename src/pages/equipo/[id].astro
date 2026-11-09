@@ -1,7 +1,7 @@
 ---
 export const prerender = true;
 
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
 import Button from "@/components/UI/Button.astro";
 import TeamCard from "@/components/Cards/TeamCard.astro";
@@ -23,7 +23,8 @@ interface Props {
 const { entry, others } = Astro.props;
 const member = { id: entry.id, ...entry.data };
 const roles = member.especialidades.join(", ");
-const description = `${member.nombre}${roles ? `, ${roles}` : ""}, en Up Estudio Dental y Estética (Móstoles). Formación, experiencia y cómo pedir cita.`;
+const description = `${member.nombre}${roles ? `, ${roles}` : ""}, en Up Estudio Dental y Estética (Móstoles). Formación y cómo pedir cita.`;
+const portrait = await getImage({ src: member.retrato, width: 800, format: "jpg", quality: 80 });
 const jsonLd = [
   {
     "@context": "https://schema.org",
@@ -31,6 +32,7 @@ const jsonLd = [
     name: member.nombre,
     url: new URL(memberPath(member.id), Astro.site).toString(),
     description: member.biografia,
+    image: new URL(portrait.src, Astro.site).toString(),
     ...(roles ? { jobTitle: member.especialidades[0], knowsAbout: member.especialidades } : {}),
     ...(member.colegiado
       ? {
@@ -51,6 +53,7 @@ const jsonLd = [
   description={description}
   breadcrumbs={[{ name: "Equipo", path: "/equipo" }, { name: member.nombre, path: memberPath(member.id) }]}
   jsonLd={jsonLd}
+  shareImage={member.retrato}
 >
   <section class="up-section pt-10">
     <div class="up-wrap flex flex-col gap-8">
