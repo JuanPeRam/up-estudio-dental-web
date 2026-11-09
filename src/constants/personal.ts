@@ -51,7 +51,7 @@ const contact = {
         display: formatPhone(fixedNumber),
         href: `tel:+34${fixedNumber}`,
     },
-    email: "info@upestudiodental.es",
+    email: "info@upestudiodental.com",
     address: `${clinic.streetAddress}, ${clinic.postalCode} ${clinic.locality}, ${clinic.region}`,
     mapsUrl: `https://www.google.com/maps/search/?api=1&query=Up+Estudio+Dental&query_place_id=${clinic.googlePlaceId}`,
     googleReviewsUrl: `https://search.google.com/local/reviews?placeid=${clinic.googlePlaceId}`,
