@@ -25,7 +25,7 @@ const domicilio = `${clinic.streetAddress}, ${clinic.postalCode} ${clinic.locali
     <LegalSection title="2. Finalidad del tratamiento">
         <p>
             Los datos personales que nos facilitas a través del formulario de contacto
-            (nombre, correo electrónico y mensaje) se utilizan exclusivamente para
+            (nombre, correo electrónico, teléfono si lo indicas, motivo y mensaje) se utilizan exclusivamente para
             responder a tu solicitud de información o de cita, y para gestionar la
             relación que, en su caso, se establezca con la clínica.
         </p>
@@ -41,8 +41,20 @@ const domicilio = `${clinic.streetAddress}, ${clinic.postalCode} ${clinic.locali
 
     <LegalSection title="4. Destinatarios">
         <p>
-            Tus datos no se ceden a terceros, salvo obligación legal. No se realizan
-            transferencias internacionales de datos.
+            Tus datos no se ceden a terceros, salvo obligación legal. Para prestar el
+            servicio contamos con proveedores que actúan como encargados del
+            tratamiento, con contrato y solo siguiendo nuestras instrucciones:
+        </p>
+        <ul>
+            <li>Vercel Inc. (alojamiento de la web), que recibe el formulario al enviarlo.</li>
+            <li>Resend Inc. (envío de correo), que hace llegar tu mensaje al buzón de la clínica. Los envíos se procesan en la Unión Europea (Irlanda).</li>
+            <li>Arsys Internet S.L.U. (correo electrónico de la clínica), en España.</li>
+        </ul>
+        <p>
+            Vercel y Resend son empresas con sede en Estados Unidos, por lo que puede
+            haber transferencias internacionales de datos. Se realizan con las
+            garantías previstas en el RGPD: el Marco de Privacidad de Datos UE-EE. UU.
+            o las cláusulas contractuales tipo aprobadas por la Comisión Europea.
         </p>
     </LegalSection>
 

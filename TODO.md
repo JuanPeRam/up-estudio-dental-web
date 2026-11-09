@@ -14,8 +14,9 @@
 - [x] Cache Google Reviews fetch server-side instead of calling the API live in 'Opiniones' section.
 - [x] Redesign every section with the new design system (tokens, Newsreader + Figtree, light/dark).
 - [x] Send contact form submissions by email (Resend).
-- [ ] Crear cuenta en Resend, verificar el dominio upestudiodental.es (DNS), añadir RESEND_API_KEY en Vercel y enviar un mensaje de prueba.
-- [ ] Revisar la política de privacidad: con Resend (EE. UU.) ya no es cierto que «no se realizan transferencias internacionales».
+- [x] Crear cuenta en Resend, verificar el dominio upestudiodental.es (DNS) y añadir RESEND_API_KEY en Vercel.
+- [ ] Enviar un mensaje de prueba desde la web y comprobar que llega a info@upestudiodental.com.
+- [ ] Que la clínica (o su DPO) revise el apartado «Destinatarios» de la política de privacidad (Vercel, Resend, Arsys).
 - [x] Admin panel (Keystatic) for services, specialties and team at /keystatic.
 - [ ] Create the Keystatic Cloud project, set PUBLIC_KEYSTATIC_CLOUD_PROJECT in Vercel and invite the owners.
 - [ ] Get a vector (SVG) version of the logo.
