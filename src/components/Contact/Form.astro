@@ -2,27 +2,46 @@
 import { Icon } from "astro-icon/components";
 import Notice from "@/components/UI/Notice.astro";
 import { contact } from "@/constants/personal";
+import { sendContactEmail } from "@/lib/contactEmail";
 
-let status: "idle" | "sent" | "error" = "idle";
+const subjects = ["Pedir cita", "Revisión gratuita", "Limpieza bucal", "Blanqueamiento dental", "Otra consulta"];
+
+// "invalid": faltan datos o están mal; "failed": los datos están bien pero el correo no salió.
+let status: "idle" | "sent" | "invalid" | "failed" = "idle";
+// Lo que escribió la persona, para no perderlo si hay que mostrar el formulario otra vez.
+let values: Record<string, string> = {};
 
 if (Astro.request.method === "POST") {
     try {
         const data = await Astro.request.formData();
-        const name = data.get("name")?.toString().trim();
-        const email = data.get("email")?.toString().trim();
-        const message = data.get("message")?.toString().trim();
-        const privacy = data.get("privacy");
-        if (!name || !email || !message || !privacy) throw new Error("Faltan campos obligatorios");
-        // TODO: enviar el mensaje por correo o guardarlo; de momento solo se registra.
-        console.log({ name, email, phone: data.get("phone"), subject: data.get("subject"), message });
-        status = "sent";
+        const get = (key: string, max: number) => (data.get(key)?.toString() ?? "").trim().slice(0, max);
+        values = { name: get("name", 120), email: get("email", 200), phone: get("phone", 40), subject: get("subject", 60), message: get("message", 5000) };
+
+        // Campo trampa: invisible para personas, los bots lo rellenan. Se finge éxito sin enviar.
+        if (get("website", 200)) {
+            status = "sent";
+        } else if (!values.name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email) || !values.message || !data.get("privacy")) {
+            status = "invalid";
+        } else {
+            const result = await sendContactEmail({
+                name: values.name,
+                email: values.email,
+                phone: values.phone || undefined,
+                subject: subjects.includes(values.subject) ? values.subject : undefined,
+                message: values.message,
+            });
+            if (result.ok) {
+                status = "sent";
+            } else {
+                console.error(`Formulario de contacto: ${result.error}`);
+                status = "failed";
+            }
+        }
     } catch (error) {
-        console.log(error);
-        status = "error";
+        console.error("Formulario de contacto:", error);
+        status = "invalid";
     }
 }
-
-const subjects = ["Pedir cita", "Revisión gratuita", "Limpieza bucal", "Blanqueamiento dental", "Otra consulta"];
 const fields = [
     { id: "name", label: "Nombre", type: "text", autocomplete: "name", placeholder: "Tu nombre y apellido", required: true, error: "Escribe tu nombre para saber cómo dirigirnos a ti." },
     { id: "email", label: "Correo electrónico", type: "email", autocomplete: "email", placeholder: "tu@correo.com", required: true, error: "Revisa el correo: debe tener la forma nombre@dominio.com." },
@@ -43,29 +62,37 @@ const fields = [
                 <p class="up-small">Te contestamos en horario de clínica, normalmente el mismo día.</p>
             </div>
 
-            {status === "error" && (
-                <Notice tone="danger"><b>No hemos podido enviar el mensaje.</b> Revisa los campos marcados o llámanos al {contact.landline.display}.</Notice>
+            {status === "invalid" && (
+                <Notice tone="danger"><b>No hemos podido enviar el mensaje.</b> Revisa el nombre, el correo, el mensaje y la casilla de privacidad, o llámanos al {contact.landline.display}.</Notice>
             )}
+            {status === "failed" && (
+                <Notice tone="danger"><b>No hemos podido enviar el mensaje por un problema técnico.</b> Inténtalo de nuevo en unos minutos, escríbenos a <a class="up-link" href={`mailto:${contact.email}`}>{contact.email}</a> o llámanos al {contact.landline.display}.</Notice>
+            )}
+
+            <div class="up-hp" aria-hidden="true">
+                <label for="f-website">No rellenes este campo</label>
+                <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
 
             <div class="up-form-2">
                 {fields.map((f) => (
                     <div class="up-field">
                         <label for={`f-${f.id}`}>{f.label} {"optional" in f && <span>(opcional)</span>}</label>
-                        <input class="up-input" id={`f-${f.id}`} name={f.id} type={f.type} autocomplete={f.autocomplete} placeholder={f.placeholder} required={f.required} aria-describedby={f.error ? `f-${f.id}-e` : undefined} inputmode={f.type === "tel" ? "tel" : undefined} />
+                        <input class="up-input" id={`f-${f.id}`} name={f.id} type={f.type} autocomplete={f.autocomplete} placeholder={f.placeholder} required={f.required} value={values[f.id]} aria-describedby={f.error ? `f-${f.id}-e` : undefined} inputmode={f.type === "tel" ? "tel" : undefined} />
                         {f.error && <span class="up-error" id={`f-${f.id}-e`} hidden><Icon name="alert" class="up-icon" />{f.error}</span>}
                     </div>
                 ))}
                 <div class="up-field">
                     <label for="f-subject">Motivo</label>
                     <select class="up-input" id="f-subject" name="subject">
-                        {subjects.map((s) => <option>{s}</option>)}
+                        {subjects.map((s) => <option selected={s === values.subject}>{s}</option>)}
                     </select>
                 </div>
             </div>
 
             <div class="up-field">
                 <label for="f-message">Mensaje</label>
-                <textarea class="up-input" id="f-message" name="message" required placeholder="Cuéntanos qué necesitas y qué horario te viene mejor." aria-describedby="f-message-e"></textarea>
+                <textarea class="up-input" id="f-message" name="message" required placeholder="Cuéntanos qué necesitas y qué horario te viene mejor." aria-describedby="f-message-e">{values.message}</textarea>
                 <span class="up-error" id="f-message-e" hidden><Icon name="alert" class="up-icon" />Cuéntanos en pocas palabras qué necesitas.</span>
             </div>
 
