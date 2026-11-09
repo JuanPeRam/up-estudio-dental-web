@@ -578,6 +578,8 @@
   /* ---------- Forms ---------- */
   .up-form { display: grid; gap: var(--space-4); padding: var(--space-6); background: var(--surface-raised); border: 1px solid var(--line); border-radius: var(--radius-md); }
   @media (min-width: 640px) { .up-form { padding: var(--space-8); } }
+  /* Campo trampa antispam del formulario: fuera de la vista y del lector de pantalla. */
+  .up-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
   .up-form-2 { display: grid; gap: var(--space-4); grid-template-columns: 1fr; }
   @media (min-width: 560px) { .up-form-2 { grid-template-columns: 1fr 1fr; } }
   .up-field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }

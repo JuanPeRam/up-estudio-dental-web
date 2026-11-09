@@ -50,6 +50,12 @@ export default defineConfig({
       GOOGLE_PLACES_API_KEY: envField.string({ context: 'server', access: 'secret', optional: true }),
       // Opcional: si no está, se usa el Place ID de src/constants/personal.ts.
       GOOGLE_PLACE_ID: envField.string({ context: 'server', access: 'secret', optional: true }),
+      // Clave de Resend para enviar el formulario de contacto por correo. Se guarda en Vercel.
+      RESEND_API_KEY: envField.string({ context: 'server', access: 'secret', optional: true }),
+      // Opcionales: buzón que recibe los mensajes (por defecto el de src/constants/personal.ts)
+      // y remitente, que debe ser del dominio verificado en Resend.
+      CONTACT_TO: envField.string({ context: 'server', access: 'secret', optional: true }),
+      CONTACT_FROM: envField.string({ context: 'server', access: 'secret', optional: true }),
     },
   },
   integrations: [react({
