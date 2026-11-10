@@ -2,7 +2,10 @@
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import { paths } from "@/constants/pages";
-import { contact } from "@/constants/personal";
+import { contact, whatsappLink } from "@/constants/personal";
+
+// La cita se pide por WhatsApp (objetivo principal en PRODUCT.md); el formulario sigue en /contacto.
+const citaWhatsApp = whatsappLink("Hola, me gustaría pedir cita.");
 import upLogo from "@/img/up-logo-white.png";
 
 let path = Astro.url.pathname.replace(/\/$/, "");
@@ -35,7 +38,7 @@ const isCurrent = (href: string) =>
       <a class="up-nav-phone" href={contact.landline.href} aria-label={`Llamar a la clínica: ${contact.landline.display}`}>
         <Icon name="phone" class="up-icon" />{contact.landline.display}
       </a>
-      <a class="up-btn up-btn-primary up-btn-sm" href="/contacto">Pedir cita</a>
+      <a class="up-btn up-btn-primary up-btn-sm" href={citaWhatsApp} target="_blank" rel="noopener noreferrer" aria-label="Pedir cita por WhatsApp (se abre en otra pestaña)"><Icon name="whatsapp" class="up-icon" />Pedir cita</a>
       <button class="up-nav-menu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="site-menu" data-menu-open>
         <Icon name="menu" class="up-icon" />
       </button>
@@ -66,7 +69,7 @@ const isCurrent = (href: string) =>
       }
     </ul>
     <div class="flex flex-col gap-3 pb-8">
-      <a class="up-btn up-btn-primary up-btn-block" href="/contacto"><Icon name="calendar" class="up-icon" />Pedir cita</a>
+      <a class="up-btn up-btn-primary up-btn-block" href={citaWhatsApp} target="_blank" rel="noopener noreferrer" aria-label="Pedir cita por WhatsApp (se abre en otra pestaña)"><Icon name="whatsapp" class="up-icon" />Pedir cita por WhatsApp</a>
       <a class="up-btn up-btn-secondary up-btn-block" href={contact.landline.href}><Icon name="phone" class="up-icon" />{contact.landline.display}</a>
     </div>
   </nav>

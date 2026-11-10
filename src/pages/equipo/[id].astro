@@ -10,6 +10,7 @@ import Checklist from "@/components/UI/Checklist.astro";
 import type { CollectionEntry } from "astro:content";
 import { getEquipo } from "@/lib/contenido";
 import { memberPath } from "@/constants/pages";
+import { whatsappLink } from "@/constants/personal";
 
 export async function getStaticPaths() {
   const team = await getEquipo();
@@ -76,7 +77,7 @@ const jsonLd = [
             )
           }
           <div class="flex flex-wrap gap-3 pt-2">
-            <Button href="/contacto" icon="calendar">Pedir cita</Button>
+            <Button href={whatsappLink(`Hola, me gustaría pedir cita con ${member.nombre}.`)} icon="whatsapp" external aria-label="Pedir cita por WhatsApp (se abre en otra pestaña)">Pedir cita</Button>
             <Button href="/equipo" variant="secondary" icon="arrow-left">Volver al equipo</Button>
           </div>
         </div>

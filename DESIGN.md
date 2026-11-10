@@ -7,6 +7,8 @@ colors:
   pino-profundo: "#1d4f4b"
   pino-medio: "#38918b"
   turquesa-acento: "#70cac5"
+  turquesa-acento-hover: "#8fd3ce"
+  sobre-acento: "#0e1413"
   arena: "#f3eee7"
   papel: "#fbfcfc"
   blanco: "#ffffff"
@@ -16,6 +18,8 @@ colors:
   tinta-texto: "#14201f"
   tinta-suave: "#3d4f4b"
   tinta-nocturna: "#111716"
+  noche-elevada: "#1b2423"
+  sobre-noche-fuerte: "#f2f5f4"
   sobre-noche: "#e3e3e3"
   sobre-noche-suave: "#a7b5b3"
   accion-hover: "#24645f"
@@ -24,58 +28,68 @@ colors:
 typography:
   display:
     fontFamily: "Playfair Display Variable, Playfair Display, Georgia, serif"
-    fontSize: "clamp(42px, 6vw, 76px)"
+    fontSize: "clamp(2.625rem, 6vw, 4.75rem)"
     fontWeight: 400
     lineHeight: 1.02
     letterSpacing: "-0.02em"
   headline:
     fontFamily: "Playfair Display Variable, Playfair Display, Georgia, serif"
-    fontSize: "clamp(34px, 4.6vw, 48px)"
+    fontSize: "clamp(2.125rem, 4.6vw, 3rem)"
     fontWeight: 400
     lineHeight: 1.12
     letterSpacing: "-0.015em"
   headline-section:
     fontFamily: "Playfair Display Variable, Playfair Display, Georgia, serif"
-    fontSize: "clamp(28px, 3.4vw, 36px)"
+    fontSize: "clamp(1.75rem, 3.4vw, 2.25rem)"
     fontWeight: 400
     lineHeight: 1.17
     letterSpacing: "-0.01em"
   title:
     fontFamily: "Playfair Display Variable, Playfair Display, Georgia, serif"
-    fontSize: "24px"
+    fontSize: "1.5rem"
     fontWeight: 500
-    lineHeight: "30px"
+    lineHeight: "1.875rem"
   title-sans:
     fontFamily: "Figtree Variable, Figtree, Segoe UI, system-ui, sans-serif"
-    fontSize: "19px"
+    fontSize: "1.1875rem"
     fontWeight: 600
-    lineHeight: "26px"
+    lineHeight: "1.625rem"
   body:
     fontFamily: "Figtree Variable, Figtree, Segoe UI, system-ui, sans-serif"
-    fontSize: "18px"
+    fontSize: "1.125rem"
     fontWeight: 400
-    lineHeight: "29px"
+    lineHeight: "1.8125rem"
   lead:
     fontFamily: "Figtree Variable, Figtree, Segoe UI, system-ui, sans-serif"
-    fontSize: "19px"
+    fontSize: "1.1875rem"
     fontWeight: 400
-    lineHeight: "30px"
+    lineHeight: "1.875rem"
   small:
     fontFamily: "Figtree Variable, Figtree, Segoe UI, system-ui, sans-serif"
-    fontSize: "16px"
+    fontSize: "1rem"
     fontWeight: 400
-    lineHeight: "25px"
+    lineHeight: "1.5625rem"
   label:
     fontFamily: "Figtree Variable, Figtree, Segoe UI, system-ui, sans-serif"
-    fontSize: "14px"
+    fontSize: "0.875rem"
     fontWeight: 600
-    lineHeight: "16px"
+    lineHeight: "1rem"
     letterSpacing: "0.12em"
   caption:
     fontFamily: "Figtree Variable, Figtree, Segoe UI, system-ui, sans-serif"
-    fontSize: "14px"
+    fontSize: "0.875rem"
     fontWeight: 500
-    lineHeight: "19px"
+    lineHeight: "1.1875rem"
+  control:
+    fontFamily: "Figtree Variable, Figtree, Segoe UI, system-ui, sans-serif"
+    fontSize: "1.0625rem"
+    fontWeight: 400
+    lineHeight: "1.4375rem"
+  button-sm:
+    fontFamily: "Figtree Variable, Figtree, Segoe UI, system-ui, sans-serif"
+    fontSize: "0.9375rem"
+    fontWeight: 600
+    lineHeight: "1.1875rem"
 rounded:
   sm: "6px"
   md: "12px"
@@ -181,7 +195,7 @@ Una paleta de agua y madera: turquesas pastel de la marca, un verde pino profund
 - **Pino profundo** (`pino-profundo`): el color de lo que se lee como acento y se pulsa sin ser botón: enlaces, antetítulos, la palabra en cursiva de cada titular, iconos de apoyo, insignias y el anillo de foco. Contraste 6,8:1 sobre Turquesa Up.
 
 ### Secondary
-- **Turquesa de acento** (`turquesa-acento`): el turquesa vivo de la web oficial. Solo sobre Tinta nocturna: antetítulos, cursivas y el botón principal de las bandas oscuras. Sobre fondo claro no llega a 2:1.
+- **Turquesa de acento** (`turquesa-acento`): el turquesa vivo de la web oficial. Solo sobre Tinta nocturna: antetítulos, cursivas y el botón principal de las bandas oscuras, con texto en **Sobre acento** (`sobre-acento`) y hover en **Turquesa de acento hover** (`turquesa-acento-hover`). Sobre fondo claro no llega a 2:1.
 - **Pino medio** (`pino-medio`): para números grandes de acento sobre fondo claro (paradas de la visita guiada). 3,6:1 sobre papel; solo en tamaños grandes.
 - **Turquesa del logo** (`turquesa-logo`): el azulejo del logotipo y detalles puntuales (el halo al pasar por la tarjeta de la nota de Google).
 
@@ -196,7 +210,7 @@ Una paleta de agua y madera: turquesas pastel de la marca, un verde pino profund
 - **Borde de control** (`borde-control`): borde de campos y botones secundarios; 3:1 o más sobre papel.
 - **Tinta de texto** (`tinta-texto`): titulares, texto principal y fondo del botón principal.
 - **Tinta suave** (`tinta-suave`): texto secundario, entradillas y pies.
-- **Tinta nocturna** (`tinta-nocturna`): bandas oscuras (tecnología, llamada a la acción, pie), con **Sobre noche** (`sobre-noche`) y **Sobre noche suave** (`sobre-noche-suave`) para el texto encima.
+- **Tinta nocturna** (`tinta-nocturna`): bandas oscuras (tecnología, llamada a la acción, pie), con **Sobre noche** (`sobre-noche`) y **Sobre noche suave** (`sobre-noche-suave`) para el texto encima, **Sobre noche fuerte** (`sobre-noche-fuerte`) para titulares y estados activos, y **Noche elevada** (`noche-elevada`) como reserva de las fotos.
 - Estados: **Peligro** (`peligro`) y **Éxito** (`exito`) solo para errores y confirmaciones del formulario.
 
 ### Named Rules
@@ -219,20 +233,24 @@ Una paleta de agua y madera: turquesas pastel de la marca, un verde pino profund
 - **Headline de sección** (`headline-section`): titulares de sección.
 - **Title** (`title`): subtítulos en serif dentro de una sección (bloques del formulario, «Qué incluye», «Preguntas frecuentes»).
 - **Title sans** (`title-sans`): nombres en tarjetas (equipo, pasos, especialidades) y títulos de elementos de lista.
-- **Body** (`body`): texto corrido; ancho máximo de 68ch.
+- **Body** (`body`): texto corrido; ancho máximo de unos 74 caracteres (`--measure`, 34em).
 - **Lead** (`lead`): entradillas bajo un titular, en Tinta suave, hasta 60ch.
 - **Small** (`small`): textos de apoyo en tarjetas y paneles.
 - **Label** (`label`): antetítulos en mayúsculas espaciadas, en Pino profundo (Turquesa de acento sobre noche).
 - **Caption** (`caption`): especialidades bajo un nombre, insignias y metadatos.
+- **Control** (`control`): texto de campos de formulario y de los teléfonos destacados; 17 px para que el móvil no haga zoom al enfocar un campo.
+- **Botón pequeño** (`button-sm`): botón compacto de la cabecera y etiquetas de las tarjetas de especialidad en móvil.
 
 ### Named Rules
 **The One Italic Word Rule.** Cada titular en serif lleva como mucho una palabra en cursiva (`<em>`), en Pino profundo (Turquesa de acento sobre noche). Es el acento de la marca; repetirla lo apaga.
+
+**The Rem Rule.** Tamaños de letra y alturas de línea en rem, nunca en px: así la web respeta el tamaño de letra que cada persona elige en su navegador.
 
 **The Eyebrow-Then-Serif Rule.** Las secciones se abren con un antetítulo en Label y un titular en serif; el texto de apoyo va en Lead a la derecha en escritorio (cabecera partida 1,1fr / 1fr desde 900 px).
 
 ## Layout
 
-Contenedor de 1200 px con márgenes laterales de 16 px en móvil y 32 px desde 768 px (respetando las zonas seguras del móvil). Las secciones respiran: 64 px arriba y abajo en móvil y 96 px desde 900 px. El texto corrido no pasa de 68ch.
+Contenedor de 1200 px con márgenes laterales de 16 px en móvil y 32 px desde 768 px (respetando las zonas seguras del móvil). Las secciones respiran: 64 px arriba y abajo en móvil y 96 px desde 900 px. El texto corrido no pasa de unos 74 caracteres por línea (`--measure: 34em`; se mide en em porque el `ch` de Figtree, el ancho del «0», es mayor que el de la letra media).
 
 Las rejillas crecen por pasos: una columna en móvil, dos desde 640 px y tres o cuatro desde 900–1000 px. La rejilla de especialidades es un mosaico de 4 columnas con filas de 260 px y una tarjeta grande de 2×2; la última tarjeta se ensancha para cerrar su fila. Las rejillas de personas centran la última fila incompleta. Cabecera fija de 76 px con desenfoque; en móvil (menos de 768 px) aparece una barra inferior fija con «Llamar» y «WhatsApp» al bajar.
 
@@ -240,16 +258,14 @@ Las rejillas crecen por pasos: una columna en móvil, dos desde 640 px y tres o 
 
 ## Elevation & Depth
 
-Decisión de noviembre de 2026: el sistema gana relieve. Las tarjetas y paneles se elevan con una sombra suave en reposo y suben un nivel al pasar el ratón; la cabecera, al hacer scroll, y las tarjetas que flotan sobre una foto (la nota de Google) usan la sombra media. La profundidad sigue apoyándose también en las bandas de color (turquesa, arena, noche) y en bordes finos de Línea.
-
-Estado actual: buena parte de las tarjetas aún son planas con borde. Se aplica el relieve al tocar cada componente, no en un cambio masivo.
+Decisión de noviembre de 2026: el sistema gana relieve. Tarjetas y paneles (paneles de tratamiento, horario, formulario, reseñas, tarjetas de servicio y de especialidad) llevan una sombra suave en reposo; las que son enlaces suben un nivel al pasar el ratón. La cabecera, al hacer scroll, y las tarjetas que flotan sobre una foto (la nota de Google) usan la sombra media. La profundidad se apoya también en las bandas de color (turquesa, arena, noche) y en bordes finos de Línea.
 
 ### Shadow Vocabulary
 - **Reposo** (`box-shadow: 0 1px 2px rgba(20,32,31,.06), 0 1px 1px rgba(20,32,31,.04)`, token `--shadow-sm`): tarjetas, paneles y botón principal en reposo.
 - **Elevada** (`box-shadow: 0 12px 32px -12px rgba(20,32,31,.18)`, token `--shadow-md`): hover de tarjetas y botones, cabecera con scroll, tarjetas flotantes sobre fotos.
 
 ### Named Rules
-**The Soft Lift Rule.** Las sombras son siempre difusas y teñidas de tinta, nunca negras ni duras. Un elemento sube como mucho un nivel al interactuar.
+**The Soft Lift Rule.** Las sombras son siempre difusas y teñidas de tinta, nunca negras ni duras. Un elemento sube como mucho un nivel al interactuar, y solo si es clicable: una tarjeta informativa no se mueve al pasar el ratón.
 
 ## Shapes
 
@@ -262,8 +278,8 @@ Formas suaves y acogedoras: nada de esquinas vivas. Tres radios (6 px en campos,
 Todos suaves y acogedores: redondeados, con estados que responden con calma (160–240 ms) y un foco siempre visible (contorno sólido de 2 px en Pino profundo, separado 2–3 px; en Turquesa de acento sobre noche).
 
 ### Buttons
-- **Shape:** píldora completa, 48 px de alto (40 px en la variante pequeña).
-- **Primary:** fondo Tinta de texto, texto blanco, Figtree 600 16 px; al pasar, fondo Acción hover y sombra elevada; sube 1 px.
+- **Shape:** píldora completa, 48 px de alto (40 px en la variante pequeña). Por debajo de 480 px el texto puede pasar a dos líneas en vez de salirse.
+- **Primary:** fondo Tinta de texto, texto blanco, Figtree 600 16 px; al pasar, fondo Acción hover y sombra elevada; sube 1 px. «Pedir cita» abre WhatsApp con el mensaje ya escrito y lleva su icono; el formulario queda como alternativa secundaria.
 - **Secondary:** transparente con borde de 1,5 px en Borde de control; al pasar, borde y texto en Pino profundo.
 - **Ghost:** texto en Pino profundo, sin borde; al pasar, fondo Bruma turquesa. Para «Ver todos…» con flecha.
 - **Night:** sobre bandas oscuras, fondo Turquesa de acento con texto en tinta; el secundario de noche es transparente con borde claro.

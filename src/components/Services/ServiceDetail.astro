@@ -12,7 +12,7 @@ import Accordion from "@/components/UI/Accordion.astro";
 import Notice from "@/components/UI/Notice.astro";
 import CTABand from "@/components/UI/CTABand.astro";
 import Button from "@/components/UI/Button.astro";
-import { contact } from "@/constants/personal";
+import { contact, whatsappLink } from "@/constants/personal";
 
 interface Props {
     service: CollectionEntry<"servicios">;
@@ -33,6 +33,9 @@ const preguntasJuntoAPasos = pasos.length > 0 && incluye.length === 0 && pregunt
 // Bajo un h1 (ficha propia) los bloques son h2/h3; dentro de otra página, h3/h4.
 const Sub = headingLevel === "h1" ? "h2" : "h3";
 const SubSub = headingLevel === "h1" ? "h3" : "h4";
+// La cita se pide por WhatsApp con el tratamiento ya escrito; el formulario queda como alternativa.
+const boton = d.incluye?.boton || "Pedir cita";
+const citaWhatsApp = whatsappLink(`Hola, me gustaría pedir cita para ${d.titulo.toLowerCase()}.`);
 ---
 
 <section class:list={["up-section", headingLevel === "h1" && "pt-4 lg:pt-6"]} id={service.id}>
@@ -50,7 +53,8 @@ const SubSub = headingLevel === "h1" ? "h3" : "h4";
                         <div class="up-panel up-panel-sticky h-fit">
                             {d.incluye?.titulo && <Sub class="up-h3">{d.incluye.titulo}</Sub>}
                             <Checklist items={incluye} />
-                            <Button href="/contacto" icon="calendar" block>{d.incluye?.boton || "Pedir cita"}</Button>
+                            <Button href={citaWhatsApp} icon="whatsapp" block external aria-label={`${boton} por WhatsApp (se abre en otra pestaña)`}>{boton}</Button>
+                            <a class="up-link self-center text-[1rem]" href="/contacto">Prefiero el formulario de contacto</a>
                         </div>
                     )}
                     {preguntasJuntoAPasos && (
@@ -68,7 +72,8 @@ const SubSub = headingLevel === "h1" ? "h3" : "h4";
                 <div class="up-panel max-w-xl">
                     {d.incluye?.titulo && <Sub class="up-h3">{d.incluye.titulo}</Sub>}
                     <Checklist items={incluye} />
-                    <Button href="/contacto" icon="calendar" block>{d.incluye?.boton || "Pedir cita"}</Button>
+                    <Button href={citaWhatsApp} icon="whatsapp" block external aria-label={`${boton} por WhatsApp (se abre en otra pestaña)`}>{boton}</Button>
+                            <a class="up-link self-center text-[1rem]" href="/contacto">Prefiero el formulario de contacto</a>
                 </div>
             )
         }

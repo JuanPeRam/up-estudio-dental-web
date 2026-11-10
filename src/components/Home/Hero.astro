@@ -4,7 +4,7 @@ import { Icon } from "astro-icon/components";
 import Button from "@/components/UI/Button.astro";
 import GoogleRatingBadge from "./GoogleRatingBadge.astro";
 import peluche from "@/img/up/peluche-diente.webp";
-import { emergencies } from "@/constants/personal";
+import { emergencies, whatsappLink } from "@/constants/personal";
 ---
 
 <section class="up-band-aqua">
@@ -22,7 +22,7 @@ import { emergencies } from "@/constants/personal";
         <li><Icon name="smile" class="up-icon" />Zona de juegos infantil</li>
       </ul>
       <div class="flex flex-wrap gap-3 pt-2">
-        <Button href="/contacto" icon="calendar">Pedir cita</Button>
+        <Button href={whatsappLink("Hola, me gustaría pedir cita.")} icon="whatsapp" external aria-label="Pedir cita por WhatsApp (se abre en otra pestaña)">Pedir cita por WhatsApp</Button>
         <Button href="/tratamientos" variant="secondary">Ver tratamientos</Button>
       </div>
     </div>

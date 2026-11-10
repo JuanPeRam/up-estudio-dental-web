@@ -33,7 +33,7 @@ export default {
 			},
 			maxWidth: {
 				container: '1200px',
-				measure: '68ch',
+				measure: 'var(--measure)',
 			},
 			borderRadius: {
 				sm: '6px',

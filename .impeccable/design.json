@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-10T11:16:30+00:00",
+  "generatedAt": "2026-11-10T12:01:38+00:00",
   "title": "Design System: Up Estudio Dental y Estética",
   "extensions": {
     "colorMeta": {
@@ -288,6 +288,66 @@
           "#c8e0d2",
           "#f0f5f2"
         ]
+      },
+      "turquesa-acento-hover": {
+        "role": "secondary",
+        "displayName": "Turquesa de acento hover",
+        "canonical": "#8fd3ce",
+        "tonalRamp": [
+          "#1d302e",
+          "#2e5754",
+          "#3c817c",
+          "#46aea7",
+          "#6ebfb9",
+          "#99ccc8",
+          "#c8dfdd",
+          "#f0f5f4"
+        ]
+      },
+      "sobre-acento": {
+        "role": "neutral",
+        "displayName": "Sobre acento",
+        "canonical": "#0e1413",
+        "tonalRamp": [
+          "#222a29",
+          "#3a4b48",
+          "#506c68",
+          "#658f88",
+          "#86a7a1",
+          "#a8bdb9",
+          "#cfd8d7",
+          "#f1f3f3"
+        ]
+      },
+      "noche-elevada": {
+        "role": "neutral",
+        "displayName": "Noche elevada",
+        "canonical": "#1b2423",
+        "tonalRamp": [
+          "#232929",
+          "#3c4948",
+          "#536a67",
+          "#698b88",
+          "#89a4a1",
+          "#aabbb9",
+          "#d0d7d7",
+          "#f1f3f3"
+        ]
+      },
+      "sobre-noche-fuerte": {
+        "role": "neutral",
+        "displayName": "Sobre noche fuerte",
+        "canonical": "#f2f5f4",
+        "tonalRamp": [
+          "#232927",
+          "#3c4844",
+          "#546962",
+          "#6b8a80",
+          "#8aa39b",
+          "#abbab5",
+          "#d0d7d5",
+          "#f1f3f3"
+        ]
       }
     },
     "typographyMeta": {
@@ -330,6 +390,14 @@
       "caption": {
         "displayName": "Caption",
         "purpose": "Especialidades, insignias y metadatos."
+      },
+      "control": {
+        "displayName": "Control",
+        "purpose": "Campos de formulario y teléfonos destacados."
+      },
+      "button-sm": {
+        "displayName": "Botón pequeño",
+        "purpose": "Botón compacto de la cabecera y etiquetas de especialidad en móvil."
       }
     },
     "shadows": [
@@ -498,6 +566,11 @@
         "section": "typography"
       },
       {
+        "name": "The Rem Rule",
+        "body": "Tamaños de letra y alturas de línea en rem, nunca en px: así la web respeta el tamaño de letra que cada persona elige en su navegador.",
+        "section": "typography"
+      },
+      {
         "name": "The Eyebrow-Then-Serif Rule",
         "body": "Las secciones se abren con un antetítulo en Label y un titular en serif; el texto de apoyo va en Lead a la derecha en escritorio (cabecera partida 1,1fr / 1fr desde 900 px).",
         "section": "typography"
@@ -509,7 +582,7 @@
       },
       {
         "name": "The Soft Lift Rule",
-        "body": "Las sombras son siempre difusas y teñidas de tinta, nunca negras ni duras. Un elemento sube como mucho un nivel al interactuar.",
+        "body": "Las sombras son siempre difusas y teñidas de tinta, nunca negras ni duras. Un elemento sube como mucho un nivel al interactuar, y solo si es clicable: una tarjeta informativa no se mueve al pasar el ratón.",
         "section": "elevation"
       },
       {
