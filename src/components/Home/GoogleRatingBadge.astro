@@ -1,0 +1,28 @@
+---
+/**
+ * Nota media de Google sobre la foto de la portada. Server island (server:defer desde Hero.astro):
+ * se lee en vivo de la ficha, igual que las reseñas, para que no contradiga la nota real.
+ * Sin clave o si Google no responde, no se muestra.
+ */
+import { Icon } from "astro-icon/components";
+import { getPlaceReviews } from "@/lib/googleReviews";
+
+const place = await getPlaceReviews();
+
+// Mismo criterio de caché que GoogleReviews.astro: 24 h si Google respondió, 10 min si no.
+Astro.response.headers.set(
+  "Cache-Control",
+  place ? "public, max-age=0, s-maxage=86400, stale-while-revalidate=86400" : "public, max-age=0, s-maxage=600",
+);
+
+const rating = place?.rating?.toLocaleString("es-ES", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+---
+
+{
+  rating && (
+    <a class="up-hero2-card" href="#opiniones" aria-label={`Valoración ${rating} de 5 en Google: ver opiniones`}>
+      <Icon name="google" class="up-g" />
+      <span class="flex flex-col"><b>{rating}</b><span>en Google</span></span>
+    </a>
+  )
+}

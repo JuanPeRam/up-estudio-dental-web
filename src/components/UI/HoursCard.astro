@@ -16,7 +16,7 @@ const { compact = false, class: extra } = Astro.props;
       contact.hours.map((h) => (
         <>
           <dt>{h.days}</dt>
-          <dd>{h.time}</dd>
+          <dd>{h.times.map((t) => <span class="block">{t}</span>)}</dd>
         </>
       ))
     }

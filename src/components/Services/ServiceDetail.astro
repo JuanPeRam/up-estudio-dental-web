@@ -5,6 +5,8 @@
  */
 import type { CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import { iconoTarjetaPorDefecto } from "@/constants/iconosTarjeta";
 import ServiceIntro from "./ServiceIntro.astro";
 import ProcessSteps from "@/components/UI/ProcessSteps.astro";
 import Checklist from "@/components/UI/Checklist.astro";
@@ -12,7 +14,7 @@ import Accordion from "@/components/UI/Accordion.astro";
 import Notice from "@/components/UI/Notice.astro";
 import CTABand from "@/components/UI/CTABand.astro";
 import Button from "@/components/UI/Button.astro";
-import { contact } from "@/constants/personal";
+import { contact, whatsappLink } from "@/constants/personal";
 
 interface Props {
     service: CollectionEntry<"servicios">;
@@ -33,6 +35,9 @@ const preguntasJuntoAPasos = pasos.length > 0 && incluye.length === 0 && pregunt
 // Bajo un h1 (ficha propia) los bloques son h2/h3; dentro de otra página, h3/h4.
 const Sub = headingLevel === "h1" ? "h2" : "h3";
 const SubSub = headingLevel === "h1" ? "h3" : "h4";
+// La cita se pide por WhatsApp con el tratamiento ya escrito; el formulario queda como alternativa.
+const boton = d.incluye?.boton || "Pedir cita";
+const citaWhatsApp = whatsappLink(`Hola, me gustaría pedir cita para ${d.titulo.toLowerCase()}.`);
 ---
 
 <section class:list={["up-section", headingLevel === "h1" && "pt-4 lg:pt-6"]} id={service.id}>
@@ -44,14 +49,15 @@ const SubSub = headingLevel === "h1" ? "h3" : "h4";
                 <div class:list={["grid gap-12 lg:gap-16", incluye.length ? "lg:grid-cols-[1.4fr_1fr]" : "lg:grid-cols-2"]}>
                     <div class="flex flex-col gap-8">
                         {d.pasos?.titulo && <Sub class="up-h3">{d.pasos.titulo}</Sub>}
-                        <ProcessSteps steps={pasos} />
+                        <ProcessSteps steps={pasos} level={headingLevel === "h1" ? 3 : 4} />
                     </div>
                     {incluye.length > 0 && (
-                        <aside class="up-panel up-panel-sticky h-fit">
+                        <div class="up-panel up-panel-sticky h-fit">
                             {d.incluye?.titulo && <Sub class="up-h3">{d.incluye.titulo}</Sub>}
                             <Checklist items={incluye} />
-                            <Button href="/contacto" icon="calendar" block>{d.incluye?.boton || "Pedir cita"}</Button>
-                        </aside>
+                            <Button href={citaWhatsApp} icon="whatsapp" block external aria-label={`${boton} por WhatsApp (se abre en otra pestaña)`}>{boton}</Button>
+                            <a class="up-link self-center text-[1rem]" href="/contacto">Prefiero el formulario de contacto</a>
+                        </div>
                     )}
                     {preguntasJuntoAPasos && (
                         <div class="flex flex-col gap-8">
@@ -65,11 +71,12 @@ const SubSub = headingLevel === "h1" ? "h3" : "h4";
 
         {
             pasos.length === 0 && incluye.length > 0 && (
-                <aside class="up-panel max-w-xl">
+                <div class="up-panel max-w-xl">
                     {d.incluye?.titulo && <Sub class="up-h3">{d.incluye.titulo}</Sub>}
                     <Checklist items={incluye} />
-                    <Button href="/contacto" icon="calendar" block>{d.incluye?.boton || "Pedir cita"}</Button>
-                </aside>
+                    <Button href={citaWhatsApp} icon="whatsapp" block external aria-label={`${boton} por WhatsApp (se abre en otra pestaña)`}>{boton}</Button>
+                    <a class="up-link self-center text-[1rem]" href="/contacto">Prefiero el formulario de contacto</a>
+                </div>
             )
         }
 
@@ -77,15 +84,15 @@ const SubSub = headingLevel === "h1" ? "h3" : "h4";
             tarjetas.length > 0 && (
                 <div class="up-signs">
                     {d.tarjetas?.titulo && <Sub class="up-h3">{d.tarjetas.titulo}</Sub>}
-                    <ol class="up-grid-4 up-signs-list">
-                        {tarjetas.map((t, i) => (
+                    <ul class="up-grid-4 up-signs-list">
+                        {tarjetas.map((t) => (
                             <li class="up-sign">
-                                <span class="up-sign-num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+                                <span class="up-sign-ico" aria-hidden="true"><Icon name={t.icono || iconoTarjetaPorDefecto} class="up-icon" /></span>
                                 <SubSub class="up-h4">{t.titulo}</SubSub>
                                 {t.texto && <p class="up-small">{t.texto}</p>}
                             </li>
                         ))}
-                    </ol>
+                    </ul>
                 </div>
             )
         }
@@ -94,7 +101,6 @@ const SubSub = headingLevel === "h1" ? "h3" : "h4";
             beneficios.length > 0 && (
                 <div class="grid gap-8 rounded-md bg-tint p-6 sm:p-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
                     <div class="flex flex-col gap-3">
-                        {d.beneficios?.antetitulo && <p class="up-eyebrow">{d.beneficios.antetitulo}</p>}
                         {d.beneficios?.titulo && <Sub class="up-h2">{d.beneficios.titulo}</Sub>}
                         {d.beneficios?.texto && <p class="up-small">{d.beneficios.texto}</p>}
                     </div>
@@ -138,7 +144,6 @@ const SubSub = headingLevel === "h1" ? "h3" : "h4";
 </section>
 
 <CTABand
-    eyebrow={d.cierre.antetitulo || undefined}
     service={d.cierre.mensajeWhatsapp || d.titulo.toLowerCase()}
     title={d.cierre.titulo}
     description={d.cierre.texto || undefined}

@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 // Los colores apuntan a los tokens del sistema de diseño (src/styles/tokens.css),
-// así el tema claro/oscuro se resuelve en CSS y no en cada clase.
+// así se cambian en un solo sitio y no en cada clase. La web solo tiene tema claro
+// (color-scheme: light en tokens.css).
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
@@ -32,7 +33,7 @@ export default {
 			},
 			maxWidth: {
 				container: '1200px',
-				measure: '68ch',
+				measure: 'var(--measure)',
 			},
 			borderRadius: {
 				sm: '6px',

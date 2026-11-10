@@ -1,8 +1,11 @@
 ---
 interface Props {
   steps: { title: string; text: string }[];
+  /** Nivel del título de cada paso: uno más que el encabezado de la sección que los contiene. */
+  level?: 3 | 4 | 5;
 }
-const { steps } = Astro.props;
+const { steps, level = 3 } = Astro.props;
+const Heading = `h${level}` as const;
 ---
 
 <ol class="up-steps">
@@ -10,7 +13,7 @@ const { steps } = Astro.props;
     steps.map((s) => (
       <li class="up-step">
         <div>
-          <h4 class="up-h4">{s.title}</h4>
+          <Heading class="up-h4">{s.title}</Heading>
           <p class="up-small">{s.text}</p>
         </div>
       </li>

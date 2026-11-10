@@ -38,7 +38,6 @@ incluye:
   boton: Pedir revisión gratuita
 avisoCancelacion: true
 cierre:
-  antetitulo: Primera visita
   titulo: Reserva tu revisión gratuita
   texto: La primera visita no te cuesta nada y te llevas un diagnóstico completo con presupuesto por escrito.
   mensajeWhatsapp: una revisión dental

@@ -1,11 +1,10 @@
 ---
 interface Props {
-  eyebrow: string;
   title: string;
   lead?: string;
   crumb?: { label: string; href: string };
 }
-const { eyebrow, title, lead, crumb } = Astro.props;
+const { title, lead, crumb } = Astro.props;
 ---
 
 <section class="up-ph">
@@ -20,7 +19,6 @@ const { eyebrow, title, lead, crumb } = Astro.props;
           </nav>
         )
       }
-      <p class="up-eyebrow">{eyebrow}</p>
       <h1 class="up-h1" set:html={title} />
     </div>
     <div class="flex flex-col gap-6">

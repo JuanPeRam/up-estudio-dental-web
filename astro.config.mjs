@@ -4,6 +4,7 @@ import vercel from "@astrojs/vercel";
 import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 import keystatic from "@keystatic/astro";
+import { loadEnv } from "vite";
 
 /**
  * Redirecciones permanentes (301) para no perder posicionamiento:
@@ -37,6 +38,25 @@ const redirects = {
   '/legal-disclaimer': permanent('/aviso-legal'),
 };
 
+/**
+ * El panel /keystatic solo se monta en `astro dev` o cuando hay proyecto de Keystatic Cloud.
+ * Sin Cloud usa almacenamiento local, que no pide contraseña: en producción dejaría el panel
+ * (y su API) abierto a cualquiera. Con esto, sin la variable, /keystatic responde 404.
+ */
+const { PUBLIC_KEYSTATIC_CLOUD_PROJECT } = loadEnv(process.env.NODE_ENV ?? "production", process.cwd(), "");
+const keystaticPanel = () => {
+  const integration = keystatic();
+  const setup = integration.hooks["astro:config:setup"];
+  return {
+    ...integration,
+    hooks: {
+      "astro:config:setup": (options) => {
+        if (options.command === "dev" || PUBLIC_KEYSTATIC_CLOUD_PROJECT?.trim()) return setup(options);
+      },
+    },
+  };
+};
+
 // Tailwind 3 se aplica con PostCSS (postcss.config.mjs) sobre src/styles/tailwind.css.
 // https://astro.build/config
 export default defineConfig({
@@ -50,6 +70,8 @@ export default defineConfig({
       GOOGLE_PLACES_API_KEY: envField.string({ context: 'server', access: 'secret', optional: true }),
       // Opcional: si no está, se usa el Place ID de src/constants/personal.ts.
       GOOGLE_PLACE_ID: envField.string({ context: 'server', access: 'secret', optional: true }),
+      // Token para consultar /api/estado-resenas (diagnóstico de Places). Sin él, la ruta responde 404.
+      DIAGNOSTICO_TOKEN: envField.string({ context: 'server', access: 'secret', optional: true }),
       // Clave de Resend para enviar el formulario de contacto por correo. Se guarda en Vercel.
       RESEND_API_KEY: envField.string({ context: 'server', access: 'secret', optional: true }),
       // Opcionales: buzón que recibe los mensajes (por defecto el de src/constants/personal.ts)
@@ -60,7 +82,7 @@ export default defineConfig({
   },
   integrations: [react({
     experimentalReactChildren: true
-  }), icon(), keystatic(), sitemap({
+  }), icon(), keystaticPanel(), sitemap({
     filter: (page) => !page.includes('/404') && !page.includes('/keystatic'),
   })],
   output: 'server',

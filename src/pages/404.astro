@@ -7,7 +7,8 @@ import Button from "@/components/UI/Button.astro";
 
 <Layout
     title="Página no encontrada"
-    description="La página que buscas no existe. Vuelve al inicio de Up Estudio Dental y Estética o consulta nuestros servicios."
+    description="La página que buscas no existe. Vuelve al inicio de Up Estudio Dental y Estética o consulta nuestros tratamientos."
+    noindex
 >
     <section class="up-section">
         <div class="up-wrap flex max-w-2xl flex-col items-start gap-6">
@@ -16,7 +17,7 @@ import Button from "@/components/UI/Button.astro";
             <p class="up-lead">Puede que el enlace haya cambiado. Desde aquí puedes volver al inicio, ver los tratamientos o pedir cita.</p>
             <div class="flex flex-wrap gap-3">
                 <Button href="/" icon="arrow-left">Volver al inicio</Button>
-                <Button href="/tratamientos" variant="secondary">Ver servicios</Button>
+                <Button href="/tratamientos" variant="secondary">Ver tratamientos</Button>
             </div>
         </div>
     </section>

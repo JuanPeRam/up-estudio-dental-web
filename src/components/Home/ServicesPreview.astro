@@ -6,23 +6,35 @@ import Button from "@/components/UI/Button.astro";
 import { getEspecialidades } from "@/lib/contenido";
 
 const list = (await getEspecialidades()).map((e) => e.data);
+
+// Las especialidades se editan en Keystatic, así que su número cambia. Para no dejar huecos,
+// la última tarjeta se ensancha hasta cerrar su fila:
+// - móvil (2 columnas): la primera ocupa la fila entera; si las demás son impares, la última también.
+// - escritorio (4 columnas): la primera ocupa 2×2 y las 4 siguientes la rodean; el resto va de 4 en 4.
+const n = list.length;
+const wideMobile = n > 1 && (n - 1) % 2 === 1;
+const leftDesktop = n > 5 ? (n - 5) % 4 : 0;
+const spanDesktop = leftDesktop ? 4 - leftDesktop + 1 : 1;
 ---
 
 <section class="up-section" id="especialidades">
   <div class="up-wrap flex flex-col gap-12">
     <SectionHeader
       align="split"
-      eyebrow="Especialidades"
       title="Todo tu tratamiento, en la <em>misma</em> clínica"
       lead="De la revisión de los peques a los implantes o la ortodoncia invisible, con especialistas que trabajan juntos en cada caso."
     >
-      <div><Button href="/tratamientos" variant="ghost" iconAfter="arrow-right">Ver tratamientos y precios</Button></div>
+      <div><Button href="/tratamientos" variant="ghost" iconAfter="arrow-right">Ver tratamientos</Button></div>
     </SectionHeader>
     <div class="up-specs">
       {
         list.map((s, i) => (
-          <a class:list={["up-spec", i === 0 && "is-big"]} href={s.enlace}>
-            <Image src={s.imagen} alt={s.imagenAlt} widths={[400, 800, 1200, 1600]} sizes={i === 0 ? "(min-width: 900px) 600px, 92vw" : "(min-width: 900px) 360px, 75vw"} quality={90} />
+          <a
+            class:list={["up-spec", i === 0 && "is-big", i === n - 1 && i > 0 && { "is-wide-m": wideMobile, "is-wide-d": spanDesktop > 1 }]}
+            style={i === n - 1 && spanDesktop > 1 ? `--span-d: ${spanDesktop}` : undefined}
+            href={s.enlace}
+          >
+            <Image src={s.imagen} alt={s.imagenAlt} widths={[400, 800, 1200, 1600]} sizes={i === 0 || i === n - 1 ? "(min-width: 900px) 600px, 92vw" : "(min-width: 900px) 360px, 75vw"} quality={80} />
             <span class="up-spec-label">
               <span><b>{s.titulo}</b><small>{s.linea}</small></span>
               <Icon name="arrow-right" class="up-icon" />

@@ -4,7 +4,6 @@ import Button from "./Button.astro";
 import { contact, whatsappLink } from "@/constants/personal";
 
 interface Props {
-  eyebrow?: string;
   title?: string;
   description?: string;
   /** Tratamiento para el mensaje prerredactado de WhatsApp */
@@ -12,7 +11,6 @@ interface Props {
 }
 
 const {
-  eyebrow = "Pide tu cita",
   title = "Reserva tu revisión gratuita",
   description = "La primera visita incluye revisión, radiografías y presupuesto por escrito, sin compromiso.",
   service,
@@ -24,7 +22,6 @@ const message = service ? `Hola, me gustaría pedir cita para ${service}.` : "Ho
 <section class="up-cta up-on-night">
   <div class="up-wrap up-cta-in">
     <div class="flex flex-col gap-3">
-      <p class="up-eyebrow">{eyebrow}</p>
       <h2 class="up-h2">{title}</h2>
       <p>{description}</p>
     </div>
