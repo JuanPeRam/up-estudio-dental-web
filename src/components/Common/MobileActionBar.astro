@@ -5,7 +5,7 @@ import { contact, whatsappLink } from "@/constants/personal";
 
 <div class="up-mbar" id="mobile-bar" aria-label="Contacto rápido" role="region">
   <a class="up-btn up-btn-secondary" href={contact.landline.href}><Icon name="phone" class="up-icon" />Llamar</a>
-  <a class="up-btn up-btn-primary" href={whatsappLink("Hola, me gustaría pedir cita.")} target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp (se abre en otra pestaña)"><Icon name="whatsapp" class="up-icon" />WhatsApp</a>
+  <a class="up-btn up-btn-primary" href={whatsappLink("Hola, me gustaría pedir cita.")} target="_blank" rel="noopener noreferrer" aria-label="Pedir cita por WhatsApp (se abre en otra pestaña)"><Icon name="whatsapp" class="up-icon" />Pedir cita</a>
 </div>
 
 <script>
@@ -13,10 +13,19 @@ import { contact, whatsappLink } from "@/constants/personal";
     const bar = document.getElementById("mobile-bar");
     if (!bar) return;
     let formFocus = false;
+    // Mientras la banda final de cita está a la vista, la barra sobra: ofrecería los mismos botones dos veces.
+    let ctaVisible = false;
     const update = () => {
-      const show = window.scrollY > window.innerHeight * 0.8 && !formFocus;
+      const show = window.scrollY > window.innerHeight * 0.8 && !formFocus && !ctaVisible;
       document.getElementById("mobile-bar")?.classList.toggle("is-visible", show);
     };
+    const cta = document.querySelector(".up-cta");
+    if (cta) {
+      new IntersectionObserver(([entry]) => {
+        ctaVisible = entry.isIntersecting;
+        update();
+      }).observe(cta);
+    }
     update();
     const w = window as Window & { __upBar?: boolean };
     if (!w.__upBar) {

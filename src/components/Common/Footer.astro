@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import socials from "@/constants/socials";
 import { paths, politicsPaths } from "@/constants/pages";
-import { contact, emergencies } from "@/constants/personal";
+import { contact, emergencies, emergencyPhone } from "@/constants/personal";
 import upLogo from "@/img/up-logo-white.png";
 
 const year = new Date().getFullYear();
@@ -37,7 +37,7 @@ const socialLabel: Record<string, string> = { instagram: "Instagram", tiktok: "T
           <li><a href={contact.landline.href} class="up-footer-inline tabular-nums">{contact.landline.display}</a> · fijo</li>
           <li><a href={contact.mobile.href} class="up-footer-inline tabular-nums">{contact.mobile.display}</a> · móvil y WhatsApp</li>
           <li><a href={`mailto:${contact.email}`}>{contact.email}</a></li>
-          {emergencies && <li class="text-brand">{emergencies.long}</li>}
+          {emergencies && emergencyPhone && <li><a href={emergencyPhone.href} class="up-footer-urg tabular-nums" aria-label={`${emergencies.long}: llamar al ${emergencyPhone.display}`}>{`${emergencies.short}: ${emergencyPhone.display}`}</a></li>}
         </ul>
       </div>
 

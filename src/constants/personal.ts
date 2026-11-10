@@ -36,10 +36,12 @@ const openingHours = [
 /**
  * Aviso de urgencias que aparece en la portada, el horario, el pie y contacto.
  * Déjalo en null si la clínica deja de atender urgencias las 24 horas: desaparece de toda la web.
+ * `line` es el teléfono que las atiende fuera de horario (confirmado: el móvil); la web lo enlaza.
  */
-const emergencies: { short: string; long: string } | null = {
+const emergencies: { short: string; long: string; line: "mobile" | "landline" } | null = {
     short: "Urgencias 24 h",
     long: "Urgencias odontológicas 24 h",
+    line: "mobile",
 }
 
 const contact = {
@@ -68,10 +70,13 @@ const contact = {
     }, []),
 }
 
+/** Teléfono de urgencias (o null si no se atienden): el que marca el aviso «Urgencias 24 h». */
+const emergencyPhone = emergencies ? contact[emergencies.line] : null
+
 /** Enlace de WhatsApp con un mensaje prerredactado opcional */
 const whatsappLink = (message?: string) =>
     `https://wa.me/34${phoneNumber}${message ? `?text=${encodeURIComponent(message)}` : ""}`
 
 export {
-    phoneNumber, fixedNumber, formatPhone, clinic, openingHours, emergencies, contact, whatsappLink
+    phoneNumber, fixedNumber, formatPhone, clinic, openingHours, emergencies, emergencyPhone, contact, whatsappLink
 }

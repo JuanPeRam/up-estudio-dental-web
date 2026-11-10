@@ -6,7 +6,7 @@ import Form from "@/components/Contact/Form.astro";
 import HoursCard from "@/components/UI/HoursCard.astro";
 import Button from "@/components/UI/Button.astro";
 import Notice from "@/components/UI/Notice.astro";
-import { contact, emergencies, whatsappLink } from "@/constants/personal";
+import { contact, emergencies, emergencyPhone, whatsappLink } from "@/constants/personal";
 import { handleContactForm, SENT_PARAM, SENT_URL, type ContactFormState } from "@/lib/contactForm";
 
 let form: ContactFormState = { status: "idle", values: {} };
@@ -38,10 +38,10 @@ Astro.response.headers.set("Cache-Control", "private, no-store");
 >
     <PageHeader
         title="Pide tu cita"
-        lead={`Escríbenos por el formulario o por WhatsApp, o llámanos. Te respondemos en horario de clínica${emergencies ? " y atendemos urgencias las 24 horas" : ""}.`}
+        lead={`Escríbenos por el formulario o por WhatsApp, o llámanos. Te respondemos en horario de clínica${emergencies && emergencyPhone ? ` y atendemos urgencias las 24 horas en el ${emergencyPhone.display}` : ""}.`}
     >
         <div class="flex flex-wrap gap-3">
-            <Button href={whatsappLink("Hola, me gustaría pedir cita.")} icon="whatsapp" external aria-label="Escribir por WhatsApp (se abre en otra pestaña)">Escribir por WhatsApp</Button>
+            <Button href={whatsappLink("Hola, me gustaría pedir cita.")} icon="whatsapp" external aria-label="Pedir cita por WhatsApp (se abre en otra pestaña)">Pedir cita por WhatsApp</Button>
             <Button href={contact.landline.href} variant="secondary" icon="phone">{contact.landline.display}</Button>
         </div>
     </PageHeader>

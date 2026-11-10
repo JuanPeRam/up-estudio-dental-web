@@ -6,6 +6,7 @@ import Hero from "@/components/Home/Hero.astro";
 import TrustBar from "@/components/Home/TrustBar.astro";
 import ServicesPreview from "@/components/Home/ServicesPreview.astro";
 import ClinicIntro from "@/components/Home/ClinicIntro.astro";
+import FirstVisit from "@/components/Home/FirstVisit.astro";
 import Technology from "@/components/Home/Technology.astro";
 import TeamPreview from "@/components/Home/TeamPreview.astro";
 import Opinions from "@/components/Comments/Opinions.astro";
@@ -19,10 +20,12 @@ import { emergencies } from "@/constants/personal";
 >
   <Hero />
   <TrustBar />
-  <ServicesPreview />
+  {/* Primero lo que diferencia a la clínica para una familia y la primera visita gratis; luego el catálogo. */}
   <ClinicIntro />
+  <FirstVisit />
+  <ServicesPreview />
   <Technology />
   <TeamPreview />
   <Opinions />
-  <CTABand />
+  <CTABand title="Pide cita para toda la familia" description="Escríbenos por WhatsApp o llámanos. Te contestamos en horario de clínica." />
 </Layout>
