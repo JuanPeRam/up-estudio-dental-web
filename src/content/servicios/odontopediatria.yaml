@@ -27,7 +27,6 @@ tarjetas:
   - titulo: Control de la mordida
     texto: Vigilamos el crecimiento de la boca para valorar a tiempo si hará falta ortodoncia.
 beneficios:
-  antetitulo: Pensado para ellos
   titulo: Aquí los peques vienen contentos
   texto: Las primeras visitas son cortas y sin prisas, para que el dentista sea un sitio conocido y no un mal recuerdo.
   items:
@@ -46,7 +45,6 @@ preguntas:
     respuesta: Cuéntanoslo al pedir cita. Vamos poco a poco, explicándole cada paso, y si hace falta dividimos el tratamiento en visitas más cortas.
 avisoCancelacion: false
 cierre:
-  antetitulo: Para los peques
   titulo: Pide su primera revisión
   texto: Es gratuita y sin prisas, para que conozca la clínica y al equipo.
   mensajeWhatsapp: una revisión para mi hijo o hija

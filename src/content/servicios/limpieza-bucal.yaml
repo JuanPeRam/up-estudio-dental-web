@@ -27,7 +27,6 @@ tarjetas:
   - titulo: Encía inflamada
     texto: Encías rojas, hinchadas o que se retraen dejando el diente más largo de lo habitual.
 beneficios:
-  antetitulo: Después de la limpieza
   titulo: Qué notarás al salir
   texto: Una sesión al año basta para mantener a raya el sarro; cada seis meses si tienes tendencia a acumularlo.
   items:
@@ -37,7 +36,6 @@ beneficios:
   - Mejora el aliento de forma inmediata
   - Deja la superficie pulida, para que la placa tarde más en volver
 cierre:
-  antetitulo: Pide tu cita
   titulo: Pide tu limpieza bucal
   texto: Escríbenos y buscamos el hueco que mejor te venga. Si hace más de un año de la última, es buen momento.
   mensajeWhatsapp: una limpieza bucal

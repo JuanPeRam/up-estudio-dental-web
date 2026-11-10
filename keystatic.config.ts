@@ -130,7 +130,6 @@ export default config({
         ),
         beneficios: fields.object(
           {
-            antetitulo: fields.text({ label: "Antetítulo", description: "Ejemplo: Después de la limpieza" }),
             titulo: fields.text({ label: "Título" }),
             texto: fields.text({ label: "Texto", multiline: true }),
             items: fields.array(fields.text({ label: "Beneficio" }), { label: "Lista de beneficios", itemLabel: (p) => p.value }),
@@ -160,7 +159,6 @@ export default config({
         avisoCancelacion: fields.checkbox({ label: "Mostrar la política de cancelación", defaultValue: false }),
         cierre: fields.object(
           {
-            antetitulo: fields.text({ label: "Antetítulo", defaultValue: "Pide tu cita" }),
             titulo: fields.text({ label: "Título", validation: { isRequired: true } }),
             texto: fields.text({ label: "Texto", multiline: true }),
             mensajeWhatsapp: fields.text({

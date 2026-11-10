@@ -99,7 +99,6 @@ const citaWhatsApp = whatsappLink(`Hola, me gustaría pedir cita para ${d.titulo
             beneficios.length > 0 && (
                 <div class="grid gap-8 rounded-md bg-tint p-6 sm:p-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
                     <div class="flex flex-col gap-3">
-                        {d.beneficios?.antetitulo && <p class="up-eyebrow">{d.beneficios.antetitulo}</p>}
                         {d.beneficios?.titulo && <Sub class="up-h2">{d.beneficios.titulo}</Sub>}
                         {d.beneficios?.texto && <p class="up-small">{d.beneficios.texto}</p>}
                     </div>
@@ -143,7 +142,6 @@ const citaWhatsApp = whatsappLink(`Hola, me gustaría pedir cita para ${d.titulo
 </section>
 
 <CTABand
-    eyebrow={d.cierre.antetitulo || undefined}
     service={d.cierre.mensajeWhatsapp || d.titulo.toLowerCase()}
     title={d.cierre.titulo}
     description={d.cierre.texto || undefined}

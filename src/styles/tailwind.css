@@ -93,7 +93,7 @@
   .up-h3 { font-size: 1.5rem; line-height: 1.875rem; font-weight: 500; }
   .up-h4 { margin: 0; font-size: 1.1875rem; line-height: 1.625rem; font-weight: 600; color: var(--ink); }
   .up-on-night :is(.up-display, .up-h1, .up-h2, .up-h3, .up-h4) { color: var(--on-night-strong); }
-  .up-lead { margin: 0; font-size: 1.1875rem; line-height: 1.875rem; color: var(--ink-muted); max-width: 60ch; }
+  .up-lead { margin: 0; font-size: 1.1875rem; line-height: 1.875rem; color: var(--ink-muted); max-width: var(--measure); }
   .up-on-night .up-lead { color: var(--on-night-muted); }
   .up-body { margin: 0; color: var(--ink-muted); max-width: var(--measure); }
   .up-small { margin: 0; font-size: 1rem; line-height: 1.5625rem; color: var(--ink-muted); }
@@ -112,7 +112,7 @@
   /* ---------- SectionHeader ---------- */
   .up-sh { display: flex; flex-direction: column; gap: var(--space-3); max-width: 720px; }
   .up-sh-center { align-items: center; text-align: center; margin-inline: auto; }
-  .up-sh-split { display: grid; grid-template-columns: 1fr; gap: var(--space-4); align-items: end; max-width: none; }
+  .up-sh-split { display: grid; grid-template-columns: 1fr; gap: var(--space-4); align-items: start; max-width: none; }
   @media (min-width: 900px) {
     .up-sh-split { grid-template-columns: 1.1fr 1fr; gap: var(--space-12); }
   }
@@ -285,7 +285,7 @@
   @media (min-width: 900px) {
     .up-ph { padding-block: var(--space-16) var(--space-12); }
   }
-  .up-ph-in { display: grid; gap: var(--space-6); grid-template-columns: 1fr; align-items: end; }
+  .up-ph-in { display: grid; gap: var(--space-6); grid-template-columns: 1fr; align-items: start; }
   @media (min-width: 900px) {
     .up-ph-in { grid-template-columns: 1.2fr 1fr; gap: var(--space-12); }
   }
@@ -670,7 +670,6 @@
   .up-spec:hover { box-shadow: var(--shadow-md); }
   .up-spec:hover img { transform: scale(1.03); }
   .up-spec-label { position: absolute; left: var(--space-3); right: var(--space-3); bottom: var(--space-3); display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); padding: 10px 14px; border-radius: var(--radius-md); background: color-mix(in srgb, var(--surface-raised) 94%, transparent); }
-  .up-spec-label > span { min-width: 0; overflow-wrap: break-word; }
   .up-spec-label b { display: block; font: 600 1.0625rem/1.3125rem var(--font-sans); }
   .up-spec-label small { display: block; font: 500 0.875rem/1.0625rem var(--font-sans); color: var(--ink-muted); }
   .up-spec-label .up-icon { width: 18px; height: 18px; color: var(--brand-strong); flex: none; transition: transform var(--duration-fast); }

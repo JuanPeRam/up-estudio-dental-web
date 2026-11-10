@@ -46,7 +46,6 @@ preguntas:
     respuesta: Casi siempre por la placa acumulada en el borde de la encía. Si el sangrado no desaparece con un buen cepillado, ven a revisarlo.
 avisoCancelacion: false
 cierre:
-  antetitulo: Primera visita
   titulo: Revisa tus encías
   texto: En la revisión gratuita comprobamos el estado de tus encías y te decimos si necesitas tratamiento.
   mensajeWhatsapp: una revisión de encías

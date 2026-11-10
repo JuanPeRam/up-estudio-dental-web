@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-10T12:01:38+00:00",
+  "generatedAt": "2026-11-10T12:10:37+00:00",
   "title": "Design System: Up Estudio Dental y Estética",
   "extensions": {
     "colorMeta": {
@@ -529,9 +529,9 @@
       "name": "Titular con cursiva",
       "kind": "custom",
       "refersTo": null,
-      "description": "Antetítulo + titular serif con una palabra en cursiva verde pino.",
-      "html": "<div class=\"ds-sh\"><p class=\"ds-eyebrow\">Especialidades</p><h2 class=\"ds-h2\">Todo tu tratamiento, en la <em>misma</em> clínica</h2></div>",
-      "css": ".ds-sh { display: flex; flex-direction: column; gap: 12px; } .ds-eyebrow { margin: 0; font: 600 14px/16px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); letter-spacing: .12em; text-transform: uppercase; color: var(--brand-strong, #1d4f4b); } .ds-h2 { margin: 0; font: 400 36px/1.17 var(--font-display, \"Playfair Display Variable\", Georgia, serif); letter-spacing: -.01em; color: var(--ink, #14201f); } .ds-h2 em { font-style: italic; color: var(--brand-strong, #1d4f4b); }"
+      "description": "Titular serif que abre la sección, con una palabra en cursiva verde pino y la entradilla debajo; sin antetítulo.",
+      "html": "<div class=\"ds-sh\"><h2 class=\"ds-h2\">Todo tu tratamiento, en la <em>misma</em> clínica</h2><p class=\"ds-lead\">De la revisión de los peques a los implantes o la ortodoncia invisible, con especialistas que trabajan juntos.</p></div>",
+      "css": ".ds-sh { display: flex; flex-direction: column; gap: 12px; } .ds-h2 { margin: 0; font: 400 36px/1.17 var(--font-display, \"Playfair Display Variable\", Georgia, serif); letter-spacing: -.01em; color: var(--ink, #14201f); } .ds-h2 em { font-style: italic; color: var(--brand-strong, #1d4f4b); } .ds-lead { margin: 0; max-width: 34em; font: 400 19px/30px var(--font-sans, \"Figtree Variable\", system-ui, sans-serif); color: var(--ink-muted, #3d4f4b); }"
     }
   ],
   "narrative": {
@@ -571,8 +571,8 @@
         "section": "typography"
       },
       {
-        "name": "The Eyebrow-Then-Serif Rule",
-        "body": "Las secciones se abren con un antetítulo en Label y un titular en serif; el texto de apoyo va en Lead a la derecha en escritorio (cabecera partida 1,1fr / 1fr desde 900 px).",
+        "name": "The Heading Speaks Rule",
+        "body": "Sin antetítulos: el titular en serif abre la sección y se explica solo, con su palabra en cursiva. Si hace falta contexto, va en la entradilla (Lead), a la derecha en escritorio (cabecera partida 1,1fr / 1fr desde 900 px). Una etiqueta en Label solo encabeza una tarjeta o un dato, o indica una posición («Parada 1 de 6»).",
         "section": "typography"
       },
       {
@@ -593,13 +593,14 @@
     ],
     "dos": [
       "**Do** enmarcar las fotos de personas y espacios en el arco (`999px 999px 20px 20px`) sobre fondo Turquesa Up o Bruma turquesa.",
-      "**Do** abrir cada sección con antetítulo (Label en Pino profundo) y titular en serif con una sola palabra en cursiva.",
+      "**Do** abrir cada sección directamente con el titular en serif, con una sola palabra en cursiva; el contexto, en la entradilla.",
       "**Do** usar el botón principal en tinta y el WhatsApp como acción más visible de cada llamada a la acción.",
       "**Do** usar fotos reales de la clínica, el equipo y los pacientes con permiso.",
       "**Do** mantener el foco visible: 2 px sólido en Pino profundo (Turquesa de acento sobre noche).",
       "**Do** respetar `prefers-reduced-motion`: sin escalados ni desplazamientos suaves cuando se pide menos movimiento."
     ],
     "donts": [
+      "**Don't** poner un antetítulo en mayúsculas encima de un titular: repite lo que el titular ya dice y aplana el ritmo de la página.",
       "**Don't** poner texto en Turquesa Up ni en Turquesa de acento sobre fondos claros.",
       "**Don't** usar esquinas vivas ni radios fuera de 6, 12, 20 px y píldora.",
       "**Don't** usar más de una palabra en cursiva por titular.",

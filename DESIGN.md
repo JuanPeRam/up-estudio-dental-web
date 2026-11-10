@@ -192,10 +192,10 @@ Una paleta de agua y madera: turquesas pastel de la marca, un verde pino profund
 
 ### Primary
 - **Turquesa Up** (`turquesa-up`): el turquesa pastel de la marca. Banda de firma de la portada, fondo de los arcos de retrato y de las cabeceras que presentan a la clínica. Es fondo, nunca texto.
-- **Pino profundo** (`pino-profundo`): el color de lo que se lee como acento y se pulsa sin ser botón: enlaces, antetítulos, la palabra en cursiva de cada titular, iconos de apoyo, insignias y el anillo de foco. Contraste 6,8:1 sobre Turquesa Up.
+- **Pino profundo** (`pino-profundo`): el color de lo que se lee como acento y se pulsa sin ser botón: enlaces, etiquetas de tarjeta, la palabra en cursiva de cada titular, iconos de apoyo, insignias y el anillo de foco. Contraste 6,8:1 sobre Turquesa Up.
 
 ### Secondary
-- **Turquesa de acento** (`turquesa-acento`): el turquesa vivo de la web oficial. Solo sobre Tinta nocturna: antetítulos, cursivas y el botón principal de las bandas oscuras, con texto en **Sobre acento** (`sobre-acento`) y hover en **Turquesa de acento hover** (`turquesa-acento-hover`). Sobre fondo claro no llega a 2:1.
+- **Turquesa de acento** (`turquesa-acento`): el turquesa vivo de la web oficial. Solo sobre Tinta nocturna: etiquetas, cursivas y el botón principal de las bandas oscuras, con texto en **Sobre acento** (`sobre-acento`) y hover en **Turquesa de acento hover** (`turquesa-acento-hover`). Sobre fondo claro no llega a 2:1.
 - **Pino medio** (`pino-medio`): para números grandes de acento sobre fondo claro (paradas de la visita guiada). 3,6:1 sobre papel; solo en tamaños grandes.
 - **Turquesa del logo** (`turquesa-logo`): el azulejo del logotipo y detalles puntuales (el halo al pasar por la tarjeta de la nota de Google).
 
@@ -234,9 +234,9 @@ Una paleta de agua y madera: turquesas pastel de la marca, un verde pino profund
 - **Title** (`title`): subtítulos en serif dentro de una sección (bloques del formulario, «Qué incluye», «Preguntas frecuentes»).
 - **Title sans** (`title-sans`): nombres en tarjetas (equipo, pasos, especialidades) y títulos de elementos de lista.
 - **Body** (`body`): texto corrido; ancho máximo de unos 74 caracteres (`--measure`, 34em).
-- **Lead** (`lead`): entradillas bajo un titular, en Tinta suave, hasta 60ch.
+- **Lead** (`lead`): entradillas bajo un titular, en Tinta suave, con el mismo ancho de lectura (`--measure`).
 - **Small** (`small`): textos de apoyo en tarjetas y paneles.
-- **Label** (`label`): antetítulos en mayúsculas espaciadas, en Pino profundo (Turquesa de acento sobre noche).
+- **Label** (`label`): mayúsculas espaciadas en Pino profundo (Turquesa de acento sobre noche) para etiquetar una tarjeta o un dato («Horario», «Dirección», «Parada 1 de 6», «Error 404»), nunca como antetítulo encima de un titular.
 - **Caption** (`caption`): especialidades bajo un nombre, insignias y metadatos.
 - **Control** (`control`): texto de campos de formulario y de los teléfonos destacados; 17 px para que el móvil no haga zoom al enfocar un campo.
 - **Botón pequeño** (`button-sm`): botón compacto de la cabecera y etiquetas de las tarjetas de especialidad en móvil.
@@ -246,7 +246,7 @@ Una paleta de agua y madera: turquesas pastel de la marca, un verde pino profund
 
 **The Rem Rule.** Tamaños de letra y alturas de línea en rem, nunca en px: así la web respeta el tamaño de letra que cada persona elige en su navegador.
 
-**The Eyebrow-Then-Serif Rule.** Las secciones se abren con un antetítulo en Label y un titular en serif; el texto de apoyo va en Lead a la derecha en escritorio (cabecera partida 1,1fr / 1fr desde 900 px).
+**The Heading Speaks Rule.** Sin antetítulos: el titular en serif abre la sección y se explica solo, con su palabra en cursiva. Si hace falta contexto, va en la entradilla (Lead), a la derecha en escritorio (cabecera partida 1,1fr / 1fr desde 900 px). Una etiqueta en Label solo encabeza una tarjeta o un dato, o indica una posición («Parada 1 de 6»).
 
 ## Layout
 
@@ -286,7 +286,7 @@ Todos suaves y acogedores: redondeados, con estados que responden con calma (160
 
 ### Chips
 - **Insignia:** píldora en Bruma turquesa con texto Pino profundo (Caption): especialidades del equipo, «Sin coste».
-- **Dato (fact chip):** píldora blanca con borde de Línea y un icono en círculo de Bruma turquesa; antetítulo pequeño en mayúsculas y valor en negrita («Precio · Presupuesto tras el estudio»).
+- **Dato (fact chip):** píldora blanca con borde de Línea y un icono en círculo de Bruma turquesa; etiqueta pequeña en mayúsculas y valor en negrita («Precio · Presupuesto tras el estudio»).
 
 ### Cards / Containers
 - **Corner Style:** 12 px en paneles y avisos, 20 px en tarjetas con foto.
@@ -315,13 +315,14 @@ Lista vertical con números en círculo de 40 px (serif 18 px en Pino, borde de 
 
 ### Do:
 - **Do** enmarcar las fotos de personas y espacios en el arco (`999px 999px 20px 20px`) sobre fondo Turquesa Up o Bruma turquesa.
-- **Do** abrir cada sección con antetítulo (Label en Pino profundo) y titular en serif con una sola palabra en cursiva.
+- **Do** abrir cada sección directamente con el titular en serif, con una sola palabra en cursiva; el contexto, en la entradilla.
 - **Do** usar el botón principal en tinta y el WhatsApp como acción más visible de cada llamada a la acción.
 - **Do** usar fotos reales de la clínica, el equipo y los pacientes con permiso.
 - **Do** mantener el foco visible: 2 px sólido en Pino profundo (Turquesa de acento sobre noche).
 - **Do** respetar `prefers-reduced-motion`: sin escalados ni desplazamientos suaves cuando se pide menos movimiento.
 
 ### Don't:
+- **Don't** poner un antetítulo en mayúsculas encima de un titular: repite lo que el titular ya dice y aplana el ritmo de la página.
 - **Don't** poner texto en Turquesa Up ni en Turquesa de acento sobre fondos claros.
 - **Don't** usar esquinas vivas ni radios fuera de 6, 12, 20 px y píldora.
 - **Don't** usar más de una palabra en cursiva por titular.

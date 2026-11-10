@@ -46,7 +46,6 @@ preguntas:
     respuesta: Siempre que se pueda, conservar el propio diente es la mejor opción. Si no es viable, te lo explicamos y valoramos juntos las alternativas.
 avisoCancelacion: false
 cierre:
-  antetitulo: ¿Te duele una muela?
   titulo: Pide cita o llámanos si es urgente
   texto: Atendemos urgencias odontológicas las 24 horas.
   mensajeWhatsapp: una consulta de endodoncia

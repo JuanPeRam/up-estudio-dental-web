@@ -27,11 +27,11 @@ const servicios = defineCollection({
       pasos: z.object({ titulo: texto, items: lista(tituloYTexto) }).nullish(),
       incluye: z.object({ titulo: texto, items: lista(z.string()), boton: texto }).nullish(),
       tarjetas: z.object({ titulo: texto, items: lista(tituloYTexto) }).nullish(),
-      beneficios: z.object({ antetitulo: texto, titulo: texto, texto: texto, items: lista(z.string()) }).nullish(),
+      beneficios: z.object({ titulo: texto, texto: texto, items: lista(z.string()) }).nullish(),
       tratamientos: lista(z.object({ titulo: z.string(), texto: texto, imagen: image(), imagenAlt: z.string(), puntos: lista(z.string()) })),
       preguntas: z.object({ titulo: texto, items: lista(z.object({ pregunta: z.string(), respuesta: z.string() })) }).nullish(),
       avisoCancelacion: z.boolean().default(false),
-      cierre: z.object({ antetitulo: texto, titulo: z.string(), texto: texto, mensajeWhatsapp: texto }),
+      cierre: z.object({ titulo: z.string(), texto: texto, mensajeWhatsapp: texto }),
     }),
 });
 
