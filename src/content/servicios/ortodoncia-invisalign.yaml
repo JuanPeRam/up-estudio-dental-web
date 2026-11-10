@@ -29,13 +29,17 @@ pasos:
 tarjetas:
   titulo: Cuándo conviene consultarlo
   items:
-  - titulo: Dientes apiñados o separados
+  - icono: spacing
+    titulo: Dientes apiñados o separados
     texto: Cuando los dientes no tienen espacio o quedan huecos, cuesta más limpiarlos y aparecen antes la placa y las caries.
-  - titulo: La mordida no encaja
+  - icono: puzzle
+    titulo: La mordida no encaja
     texto: Si los dientes de arriba y de abajo no cierran bien, se desgastan de forma desigual y puede cargarse la articulación.
-  - titulo: En los niños, hacia los 7 años
+  - icono: smile
+    titulo: En los niños, hacia los 7 años
     texto: Es buena edad para una primera revisión de ortodoncia, aunque no siempre haga falta tratar todavía.
-  - titulo: En adultos, a cualquier edad
+  - icono: user-round
+    titulo: En adultos, a cualquier edad
     texto: Los dientes se pueden mover a cualquier edad si las encías están sanas, y los alineadores apenas se notan.
 preguntas:
   titulo: Preguntas frecuentes

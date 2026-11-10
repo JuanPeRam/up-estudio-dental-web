@@ -1,6 +1,7 @@
 import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
+import { iconosTarjeta } from "./constants/iconosTarjeta";
 
 /**
  * Esquema de los datos que se editan desde el panel /keystatic (ver keystatic.config.ts).
@@ -10,6 +11,8 @@ import { z } from "astro/zod";
 const texto = z.string().nullish().transform((v) => v ?? "");
 const lista = <T extends z.ZodTypeAny>(item: T) => z.array(item).nullish().transform((v) => v ?? []);
 const tituloYTexto = z.object({ titulo: texto, texto: texto });
+const iconos = iconosTarjeta.map((i) => i.value) as [string, ...string[]];
+const tarjeta = tituloYTexto.extend({ icono: z.enum(iconos).nullish() });
 
 const servicios = defineCollection({
   loader: glob({ pattern: "*.yaml", base: "./src/content/servicios" }),
@@ -26,7 +29,7 @@ const servicios = defineCollection({
       datos: lista(z.object({ icono: z.enum(["euro", "clock", "repeat", "calendar"]).default("euro"), etiqueta: texto, valor: texto })),
       pasos: z.object({ titulo: texto, items: lista(tituloYTexto) }).nullish(),
       incluye: z.object({ titulo: texto, items: lista(z.string()), boton: texto }).nullish(),
-      tarjetas: z.object({ titulo: texto, items: lista(tituloYTexto) }).nullish(),
+      tarjetas: z.object({ titulo: texto, items: lista(tarjeta) }).nullish(),
       beneficios: z.object({ titulo: texto, texto: texto, items: lista(z.string()) }).nullish(),
       tratamientos: lista(z.object({ titulo: z.string(), texto: texto, imagen: image(), imagenAlt: z.string(), puntos: lista(z.string()) })),
       preguntas: z.object({ titulo: texto, items: lista(z.object({ pregunta: z.string(), respuesta: z.string() })) }).nullish(),

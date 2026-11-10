@@ -18,13 +18,17 @@ datos:
 tarjetas:
   titulo: Señales de que ya te toca
   items:
-  - titulo: Sangrado al cepillarte
+  - icono: droplet
+    titulo: Sangrado al cepillarte
     texto: Es la primera señal de gingivitis. Una encía sana no sangra, por mucho que la cepilles.
-  - titulo: Mal aliento persistente
+  - icono: wind
+    titulo: Mal aliento persistente
     texto: La placa acumulada entre el diente y la encía libera compuestos que el cepillado no llega a arrastrar.
-  - titulo: Manchas o sarro visible
+  - icono: eye
+    titulo: Manchas o sarro visible
     texto: El sarro se ve como una banda amarillenta en la base del diente y ya no se elimina en casa.
-  - titulo: Encía inflamada
+  - icono: flame
+    titulo: Encía inflamada
     texto: Encías rojas, hinchadas o que se retraen dejando el diente más largo de lo habitual.
 beneficios:
   titulo: Qué notarás al salir

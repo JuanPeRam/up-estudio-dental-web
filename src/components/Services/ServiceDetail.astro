@@ -5,6 +5,8 @@
  */
 import type { CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import { iconoTarjetaPorDefecto } from "@/constants/iconosTarjeta";
 import ServiceIntro from "./ServiceIntro.astro";
 import ProcessSteps from "@/components/UI/ProcessSteps.astro";
 import Checklist from "@/components/UI/Checklist.astro";
@@ -82,15 +84,15 @@ const citaWhatsApp = whatsappLink(`Hola, me gustaría pedir cita para ${d.titulo
             tarjetas.length > 0 && (
                 <div class="up-signs">
                     {d.tarjetas?.titulo && <Sub class="up-h3">{d.tarjetas.titulo}</Sub>}
-                    <ol class="up-grid-4 up-signs-list">
-                        {tarjetas.map((t, i) => (
+                    <ul class="up-grid-4 up-signs-list">
+                        {tarjetas.map((t) => (
                             <li class="up-sign">
-                                <span class="up-sign-num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+                                <span class="up-sign-ico" aria-hidden="true"><Icon name={t.icono || iconoTarjetaPorDefecto} class="up-icon" /></span>
                                 <SubSub class="up-h4">{t.titulo}</SubSub>
                                 {t.texto && <p class="up-small">{t.texto}</p>}
                             </li>
                         ))}
-                    </ol>
+                    </ul>
                 </div>
             )
         }

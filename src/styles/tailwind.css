@@ -412,14 +412,14 @@
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
   }
-  .up-sign-num {
+  .up-sign-ico {
     display: grid; place-items: center;
     width: 48px; height: 48px; margin-bottom: var(--space-2);
     border-radius: 50%;
     background: var(--surface-tint);
-    font: 500 1.25rem/1 var(--font-display);
     color: var(--brand-strong);
   }
+  .up-sign-ico .up-icon { width: 24px; height: 24px; }
   .up-sign .up-h4 { text-wrap: balance; }
   .up-sign .up-small { text-wrap: pretty; }
 

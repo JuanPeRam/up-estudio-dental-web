@@ -18,13 +18,17 @@ datos:
 tarjetas:
   titulo: Qué hacemos en la consulta infantil
   items:
-  - titulo: Revisiones y prevención
+  - icono: scan-search
+    titulo: Revisiones y prevención
     texto: Comprobamos cómo salen los dientes, enseñamos a cepillarse y damos pautas de alimentación a las familias.
-  - titulo: Selladores y flúor
+  - icono: shield-check
+    titulo: Selladores y flúor
     texto: Protegen las muelas, que es donde más caries aparecen en los niños.
-  - titulo: Empastes en dientes de leche
+  - icono: tooth
+    titulo: Empastes en dientes de leche
     texto: Los dientes de leche también se tratan, porque guardan el sitio a los definitivos.
-  - titulo: Control de la mordida
+  - icono: scan-face
+    titulo: Control de la mordida
     texto: Vigilamos el crecimiento de la boca para valorar a tiempo si hará falta ortodoncia.
 beneficios:
   titulo: Aquí los peques vienen contentos

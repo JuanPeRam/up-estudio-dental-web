@@ -308,6 +308,9 @@ Todos suaves y acogedores: redondeados, con estados que responden con calma (160
 ### Tarjeta de especialidad (signature)
 Foto a sangre con radio de 20 px y una etiqueta blanca translúcida que flota abajo (radio de 12 px) con el nombre, una línea de apoyo y una flecha en Pino que se desplaza 3 px al pasar; la foto escala un 3 % en 600 ms.
 
+### Tarjetas informativas (signature)
+Tarjetas blancas con sombra de reposo y radio de 12 px sobre un bloque en Bruma turquesa: un icono de 24 px en Pino profundo dentro de un círculo de 48 px en Bruma turquesa, el título (Title sans) y el texto (Small). Son informativas: no se elevan al pasar el ratón ni van numeradas. El icono se elige en Keystatic de una lista cerrada (`src/constants/iconosTarjeta.ts`): Lucide con trazo de 1,75 y un diente dibujado para la web con el mismo trazo.
+
 ### Pasos del tratamiento (signature)
 Lista vertical con números en círculo de 40 px (serif 18 px en Pino, borde de 1,5 px en Turquesa de acento) unidos por una línea de 1,5 px en Línea.
 

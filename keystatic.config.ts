@@ -1,4 +1,5 @@
 import { config, collection, fields } from "@keystatic/core";
+import { iconosTarjeta, iconoTarjetaPorDefecto } from "./src/constants/iconosTarjeta";
 
 /**
  * Panel de administración (Keystatic) para que la clínica edite servicios, especialidades y equipo.
@@ -122,7 +123,11 @@ export default config({
           {
             titulo: fields.text({ label: "Título del bloque", description: "Ejemplo: Señales de que ya te toca" }),
             items: fields.array(
-              fields.object({ titulo: fields.text({ label: "Título" }), texto: fields.text({ label: "Texto", multiline: true }) }),
+              fields.object({
+                icono: fields.select({ label: "Icono", options: [...iconosTarjeta], defaultValue: iconoTarjetaPorDefecto }),
+                titulo: fields.text({ label: "Título" }),
+                texto: fields.text({ label: "Texto", multiline: true }),
+              }),
               { label: "Tarjetas", itemLabel: (p) => p.fields.titulo.value },
             ),
           },

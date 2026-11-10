@@ -18,13 +18,17 @@ datos:
 tarjetas:
   titulo: Señales de que el nervio puede estar afectado
   items:
-  - titulo: Dolor intenso o que late
+  - icono: zap
+    titulo: Dolor intenso o que late
     texto: Sobre todo si aparece solo, sin que comas nada, o te despierta por la noche.
-  - titulo: Sensibilidad que no se va
+  - icono: thermometer
+    titulo: Sensibilidad que no se va
     texto: Al frío o al calor, y que dura más de unos segundos después de retirarlo.
-  - titulo: Encía inflamada o con flemón
+  - icono: flame
+    titulo: Encía inflamada o con flemón
     texto: Una bolita o hinchazón junto al diente puede ser señal de infección.
-  - titulo: Diente oscurecido
+  - icono: tooth
+    titulo: Diente oscurecido
     texto: Tras un golpe, el diente puede cambiar de color aunque no duela.
 pasos:
   titulo: Cómo es el tratamiento
