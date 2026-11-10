@@ -584,6 +584,10 @@
   .up-footer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
   .up-footer a { color: var(--on-night); text-decoration: none; transition: color var(--duration-fast); }
   .up-footer a:hover { color: var(--brand); }
+  /* Zona táctil de 44 px en los enlaces de las listas del pie (también los teléfonos dentro de su línea):
+     la caja crece en alto sin cambiar el texto; las listas con enlaces no necesitan hueco extra. */
+  .up-footer ul:not(.up-social) > li > a { display: inline-flex; align-items: center; min-height: 44px; vertical-align: middle; }
+  .up-footer ul:not(.up-social):has(> li > a) { gap: 0; }
   /* Enlaces dentro de una línea de texto («919 931 329 · fijo»): el color solo no basta para distinguirlos. */
   .up-footer a.up-footer-inline { text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 45%, transparent); text-underline-offset: 4px; }
   .up-footer-logo { width: 64px; height: auto; margin-bottom: var(--space-4); }
@@ -593,7 +597,7 @@
   .up-social .up-icon { width: 18px; height: 18px; }
   .up-footer-legal { margin-top: var(--space-12); padding-top: var(--space-6); border-top: 1px solid color-mix(in srgb, var(--on-night) 10%, transparent); display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-3); font-size: 0.875rem; line-height: 1.1875rem; }
   .up-footer-legal nav { display: flex; flex-wrap: wrap; gap: 0 var(--space-4); }
-  .up-footer-legal nav a { display: inline-flex; align-items: center; min-height: 32px; }
+  .up-footer-legal nav a { display: inline-flex; align-items: center; min-height: 44px; }
 
   /* ---------- MobileActionBar ---------- */
   .up-mbar {
