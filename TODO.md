@@ -10,13 +10,16 @@
 - [x] Remove obsolete meta keywords tag and fill empty page descriptions (e.g. 'Clinica' section).
 - [x] Optimize gallery images to WebP for performance (astro:assets, responsive widths).
 - [x] Fix background-attachment: fixed fallback for iOS Safari (fixed backgrounds removed in the redesign).
-- [ ] Rewrite 'Nuestro Equipo' content (remove placeholder Lorem ipsum, add real bios and qualifications).
+- [x] Rewrite 'Nuestro Equipo' content (ya no queda Lorem ipsum; la formación y el nº de colegiado siguen pendientes, ver abajo).
 - [x] Cache Google Reviews fetch server-side instead of calling the API live in 'Opiniones' section.
 - [x] Redesign every section with the new design system (tokens, Playfair Display + Figtree). Solo tema claro: el oscuro no se llegó a hacer.
 - [x] Send contact form submissions by email (Resend).
 - [x] Crear cuenta en Resend, verificar el dominio upestudiodental.es (DNS) y añadir RESEND_API_KEY en Vercel.
 - [ ] Enviar un mensaje de prueba desde la web y comprobar que llega a info@upestudiodental.com.
 - [ ] Que la clínica (o su DPO) revise el apartado «Destinatarios» de la política de privacidad (Vercel, Resend, Arsys).
+- [ ] Que la clínica revise también el punto 7 de la política de privacidad (habla de «campos marcados como obligatorios», pero el formulario solo marca el opcional) y la política de cookies reescrita en noviembre de 2026.
+- [ ] Confirmar que el correo de la clínica es info@upestudiodental.com (.com), aunque la web sea .es. Está en src/constants/personal.ts.
+- [ ] Elegir un criterio para las etiquetas del equipo: hoy mezclan profesiones («Periodoncista», «Cirujano bucal») con disciplinas («Ortodoncia»).
 - [x] Admin panel (Keystatic) for services, specialties and team at /keystatic.
 - [ ] Create the Keystatic Cloud project, set PUBLIC_KEYSTATIC_CLOUD_PROJECT in Vercel and invite the owners.
 - [ ] Get a vector (SVG) version of the logo.

@@ -27,7 +27,7 @@ const socialLabel: Record<string, string> = { instagram: "Instagram", tiktok: "T
               <Icon name="pin" class="up-icon" />Cómo llegar
             </a>
           </li>
-          {contact.hours.map((h) => <li class="tabular-nums">{h.days ? `${h.days}: ` : ""}{h.time}</li>)}
+          {contact.hours.map((h) => <li class="tabular-nums">{h.days}: {h.times.join(" y ")}</li>)}
         </ul>
       </div>
 

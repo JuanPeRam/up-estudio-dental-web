@@ -20,9 +20,11 @@ interface Props {
   jsonLd?: Record<string, unknown>[];
   /** Foto para compartir en redes; por defecto, el equipo. */
   shareImage?: ImageMetadata;
+  /** Páginas que no deben salir en Google (la 404): noindex y sin canonical. */
+  noindex?: boolean;
 }
 
-const { title, description, breadcrumbs = [], jsonLd = [], shareImage = defaultShareImage } = Astro.props;
+const { title, description, breadcrumbs = [], jsonLd = [], shareImage = defaultShareImage, noindex = false } = Astro.props;
 
 const pageTitle = title === "Inicio" ? "Up Estudio Dental y Estética · Dentista en Móstoles" : `${title} · Up Estudio Dental`;
 // Sin barra final, igual que el sitemap (trailingSlash: "never").
@@ -108,11 +110,12 @@ const schemas = [structuredData, breadcrumbData, ...jsonLd].filter(Boolean);
     <meta name="twitter:image" content={ogImageURL} />
 
     <link rel="icon" type="image/png" href="/img/up-logo.png" />
-    <link rel="canonical" href={canonicalURL} />
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonicalURL} />}
 
     <title>{pageTitle}</title>
 
-    {schemas.map((schema) => <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />)}
+    {/* "<" escapado: un texto del panel con "</script>" no puede cerrar la etiqueta antes de tiempo. */}
+    {schemas.map((schema) => <script type="application/ld+json" is:inline set:html={JSON.stringify(schema).replace(/</g, "\\u003c")} />)}
   </head>
   <body>
     <a href="#contenido" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-md focus:bg-raised focus:px-4 focus:py-2 focus:font-semibold">Saltar al contenido</a>

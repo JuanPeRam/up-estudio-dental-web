@@ -14,8 +14,13 @@ export interface ContactFormState {
   values: Record<string, string>;
 }
 
-/** Cookie de un solo uso que dice «se acaba de enviar» tras redirigir (patrón POST → redirección → GET). */
-export const SENT_COOKIE = "contacto_enviado";
+/**
+ * Tras un envío correcto se redirige a esta dirección (patrón POST → redirección → GET), así
+ * recargar no reenvía el mensaje. Va en la URL y no en una cookie para que la confirmación se vea
+ * también con las cookies bloqueadas.
+ */
+export const SENT_URL = "/contacto?enviado=1#contact-form";
+export const SENT_PARAM = "enviado";
 
 /**
  * Límite de envíos por dirección IP: cada envío válido es un correo de Resend.

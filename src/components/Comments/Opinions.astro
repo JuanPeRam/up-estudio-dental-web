@@ -44,6 +44,6 @@ const { limit = 3 } = Astro.props;
     full.hidden = !open;
     short.hidden = open;
     button.querySelector("span")!.textContent = open ? "Ver menos" : "Ver más";
-    if (!open) card?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    if (!open) card?.scrollIntoView({ block: "nearest", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
   });
 </script>

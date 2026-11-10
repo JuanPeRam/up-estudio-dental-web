@@ -36,7 +36,6 @@ const jsonLd: Record<string, unknown>[] = [
         name: d.titulo,
         description,
         url,
-        provider: { "@id": new URL("/#clinica", Astro.site).toString() },
     },
 ];
 if (preguntas.length) {

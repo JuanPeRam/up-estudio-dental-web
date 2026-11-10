@@ -15,7 +15,8 @@ const stops = await Promise.all(
       stop.photos.map(async (photo) => ({
         ...photo,
         index: index++,
-        large: (await getImage({ src: photo.src, width: 1600 })).src,
+        // Hasta 1600 px, sin pedir más ancho del que tiene la foto original (algunas son de 680 px).
+        large: (await getImage({ src: photo.src, width: Math.min(1600, photo.src.width) })).src,
       })),
     ),
   })),
@@ -98,7 +99,7 @@ const tourSizes = (count: number, index: number) => {
                   alt={p.alt}
                   widths={[400, 800, 1200, 1600]}
                   sizes={tourSizes(s.photos.length, j)}
-                  quality={85}
+                  quality={80}
                 />
               </button>
             ))}
@@ -135,7 +136,7 @@ const tourSizes = (count: number, index: number) => {
         else a.removeAttribute("aria-current");
         // Centra el chip moviendo solo la barra del índice: scrollIntoView cortaría el scroll de la página.
         const bar = a.closest("ol");
-        if (on && bar) bar.scrollTo({ left: a.offsetLeft - (bar.clientWidth - a.offsetWidth) / 2, behavior: "smooth" });
+        if (on && bar) bar.scrollTo({ left: a.offsetLeft - (bar.clientWidth - a.offsetWidth) / 2, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
       });
     };
     const observer = new IntersectionObserver(
