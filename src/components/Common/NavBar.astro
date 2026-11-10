@@ -73,6 +73,8 @@ const isCurrent = (href: string) =>
 </div>
 
 <script>
+  import { isolate } from "@/lib/modal";
+
   function initNav() {
     const nav = document.getElementById("site-nav");
     const menu = document.getElementById("site-menu");
@@ -89,7 +91,10 @@ const isCurrent = (href: string) =>
       w.__upNavScroll = true;
     }
 
+    let release = () => {};
     const close = () => {
+      release();
+      release = () => {};
       menu.hidden = true;
       openBtn.setAttribute("aria-expanded", "false");
       document.body.style.overflow = "";
@@ -106,6 +111,7 @@ const isCurrent = (href: string) =>
       openBtn.setAttribute("aria-expanded", "true");
       document.body.style.overflow = "hidden";
       document.addEventListener("keydown", onKey);
+      release = isolate(menu);
       closeBtn.focus();
     };
     closeBtn.onclick = () => {

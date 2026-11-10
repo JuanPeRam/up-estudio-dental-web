@@ -1,12 +1,13 @@
 ---
 import { Icon } from "astro-icon/components";
-interface Props { tone?: "info" | "success" | "danger"; class?: string }
-const { tone = "info", class: extra } = Astro.props;
+import type { HTMLAttributes } from "astro/types";
+interface Props extends HTMLAttributes<"p"> { tone?: "info" | "success" | "danger" }
+const { tone = "info", class: extra, ...attrs } = Astro.props;
 const toneClass = { info: "", success: "up-notice-success", danger: "up-notice-danger" }[tone];
 const icon = tone === "success" ? "check-circle" : tone === "danger" ? "alert" : "info";
 ---
 
-<p class:list={["up-notice", toneClass, extra]} role={tone === "info" ? undefined : "status"}>
+<p class:list={["up-notice", toneClass, extra]} role={tone === "info" ? undefined : "status"} {...attrs}>
   <Icon name={icon} class="up-icon" />
   <span><slot /></span>
 </p>

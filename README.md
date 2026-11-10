@@ -42,6 +42,7 @@ Los servicios, la rejilla de especialidades de la portada y el equipo se editan 
 - El esquema del panel está en `keystatic.config.ts` y el que valida la web en `src/content.config.ts`. Si añades un campo, añádelo en los dos.
 - **En local** (`npm run dev`) el panel guarda directamente en los ficheros del proyecto.
 - **En producción** usa Keystatic Cloud: cada cambio se guarda como un commit en GitHub y Vercel republica la web en uno o dos minutos.
+- **Sin `PUBLIC_KEYSTATIC_CLOUD_PROJECT`, el panel no se publica**: `/keystatic` responde 404 en producción, porque el modo local no pide contraseña. Sigue disponible en `npm run dev`.
 
 ### Puesta en marcha de Keystatic Cloud (una vez)
 
@@ -75,3 +76,4 @@ Las reseñas y la nota media se leen en vivo de la ficha de Google (Places API (
 - Necesita la variable de entorno `GOOGLE_PLACES_API_KEY` en Vercel (y, opcionalmente, `GOOGLE_PLACE_ID`; si no está se usa el de `src/constants/personal.ts`) (Settings → Environment Variables), con una clave restringida a Places API (New). Para probarlo en local, ponla en `.env`.
 - Sin clave, o si Google no responde, la sección muestra solo los botones «Leer todas en Google» y «Escribir una reseña».
 - Google devuelve como máximo 5 reseñas; se muestran las 3 más recientes de 4 o más estrellas.
+- Para comprobar la conexión, define en Vercel `DIAGNOSTICO_TOKEN` (una cadena larga al azar) y abre `/api/estado-resenas?token=<ese valor>`. Sin la variable, o con otro token, la ruta responde 404: cada consulta a Places se factura.
