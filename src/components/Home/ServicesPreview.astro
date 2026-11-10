@@ -9,10 +9,13 @@ const list = (await getEspecialidades()).map((e) => e.data);
 
 // Las especialidades se editan en Keystatic, así que su número cambia. Para no dejar huecos,
 // la última tarjeta se ensancha hasta cerrar su fila:
-// - móvil (2 columnas): la primera ocupa la fila entera; si las demás son impares, la última también.
+// - móvil (2 columnas): solo se ven las primeras MOVIL (el resto, en «Ver todos los tratamientos»);
+//   la primera ocupa la fila entera y, si las demás visibles son impares, la última visible también.
 // - escritorio (4 columnas): la primera ocupa 2×2 y las 4 siguientes la rodean; el resto va de 4 en 4.
+const MOVIL = 6;
 const n = list.length;
-const wideMobile = n > 1 && (n - 1) % 2 === 1;
+const visiblesMovil = Math.min(n, MOVIL);
+const wideMobile = visiblesMovil > 1 && (visiblesMovil - 1) % 2 === 1;
 const leftDesktop = n > 5 ? (n - 5) % 4 : 0;
 const spanDesktop = leftDesktop ? 4 - leftDesktop + 1 : 1;
 ---
@@ -30,7 +33,7 @@ const spanDesktop = leftDesktop ? 4 - leftDesktop + 1 : 1;
       {
         list.map((s, i) => (
           <a
-            class:list={["up-spec", i === 0 && "is-big", i === n - 1 && i > 0 && { "is-wide-m": wideMobile, "is-wide-d": spanDesktop > 1 }]}
+            class:list={["up-spec", i === 0 && "is-big", i >= MOVIL && "is-desk-only", i === visiblesMovil - 1 && i > 0 && wideMobile && "is-wide-m", i === n - 1 && i > 0 && spanDesktop > 1 && "is-wide-d"]}
             style={i === n - 1 && spanDesktop > 1 ? `--span-d: ${spanDesktop}` : undefined}
             href={s.enlace}
           >
@@ -43,5 +46,6 @@ const spanDesktop = leftDesktop ? 4 - leftDesktop + 1 : 1;
         ))
       }
     </div>
+    {n > MOVIL && <div class="up-specs-more"><Button href="/tratamientos" variant="secondary" iconAfter="arrow-right" block>Ver todos los tratamientos</Button></div>}
   </div>
 </section>

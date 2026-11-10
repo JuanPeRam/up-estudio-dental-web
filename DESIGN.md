@@ -181,7 +181,7 @@ La tipografía mezcla una serif de revista (Playfair Display) con una sans redon
 
 **Key Characteristics:**
 - Arcos (medio punto arriba, esquinas de 20 px abajo) como marco de las fotos de personas y espacios.
-- Banda de firma en Turquesa Up al principio de la portada; bandas de arena y de tinta nocturna para ritmo.
+- Turquesa Up abre y cierra la portada (cabecera y banda final de cita); arena y tinta nocturna marcan el ritmo entre medias, y el pie es la única banda oscura del final.
 - Una palabra en cursiva verde pino por titular, nunca más.
 - Botones en píldora; el principal, en tinta, no en turquesa.
 - Fotos reales siempre; nada de ilustraciones genéricas ni imágenes de banco.
@@ -269,7 +269,7 @@ Decisión de noviembre de 2026: el sistema gana relieve. Tarjetas y paneles (pan
 
 ## Shapes
 
-Formas suaves y acogedoras: nada de esquinas vivas. Tres radios (6 px en campos, 12 px en paneles y avisos, 20 px en tarjetas de foto) y la píldora para todo lo pulsable o etiquetable (botones, insignias, chips de datos). La forma propia de la marca es el **arco**: medio punto arriba y 20 px abajo (`border-radius: 999px 999px 20px 20px`), reservado para fotos de personas y espacios: foto principal, retratos del equipo y foto grande del collage. Los iconos van en círculo de Bruma turquesa.
+Formas suaves y acogedoras: nada de esquinas vivas. Tres radios (6 px en campos, 12 px en paneles y avisos, 20 px en tarjetas de foto) y la píldora para todo lo pulsable o etiquetable (botones, insignias, chips de datos). La forma propia de la marca es el **arco**: medio punto arriba (radio igual a la mitad del ancho) y 20 px abajo, reservado para fotos de personas y espacios: foto principal, retratos del equipo, fotos de tecnología con el equipo y foto grande del collage. Nunca con `999px`: el navegador reduce todos los radios a la vez y las esquinas de abajo se quedan en 2–5 px. En fotos de proporción fija se usan radios elípticos calculados (`50% 50% 20px 20px / 40% 40% 20px 20px` en 4:5; `/ 37.5% …` en 3:4); si la proporción varía, la caja es contenedor y el radio de arriba es `50cqi`. Una foto en arco solo se amplía al pasar el ratón si es un enlace. Los iconos van en círculo de Bruma turquesa.
 
 **The Arch Is For People Rule.** El arco enmarca personas y lugares de la clínica; no se usa en botones, tarjetas de texto ni iconos.
 
@@ -282,7 +282,7 @@ Todos suaves y acogedores: redondeados, con estados que responden con calma (160
 - **Primary:** fondo Tinta de texto, texto blanco, Figtree 600 16 px; al pasar, fondo Acción hover y sombra elevada; sube 1 px. «Pedir cita» abre WhatsApp con el mensaje ya escrito y lleva su icono; el formulario queda como alternativa secundaria.
 - **Secondary:** transparente con borde de 1,5 px en Borde de control; al pasar, borde y texto en Pino profundo.
 - **Ghost:** texto en Pino profundo, sin borde; al pasar, fondo Bruma turquesa. Para «Ver todos…» con flecha.
-- **Night:** sobre bandas oscuras, fondo Turquesa de acento con texto en tinta; el secundario de noche es transparente con borde claro.
+- **Night:** sobre bandas oscuras, fondo Turquesa de acento con texto en tinta; el secundario de noche es transparente con borde claro. La banda final de cita ya no es oscura: va en Turquesa Up con el botón principal en tinta.
 
 ### Chips
 - **Insignia:** píldora en Bruma turquesa con texto Pino profundo (Caption): especialidades del equipo, «Sin coste».

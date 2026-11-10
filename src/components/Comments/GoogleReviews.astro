@@ -7,6 +7,8 @@ import ReviewCard from "@/components/Cards/ReviewCard.astro";
 import Stars from "@/components/UI/Stars.astro";
 import { getPlaceReviews } from "@/lib/googleReviews";
 import { contact } from "@/constants/personal";
+import SectionHeader from "@/components/UI/SectionHeader.astro";
+import Button from "@/components/UI/Button.astro";
 
 interface Props { limit?: number }
 const { limit = 3 } = Astro.props;
@@ -25,21 +27,33 @@ Astro.response.headers.set(
 );
 
 const ratingText = place?.rating?.toLocaleString("es-ES", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+const hasRating = Boolean(place?.rating && place.total);
+// Sin nota ni reseñas (Google no responde o no hay clave), una tarjeta compacta en vez de un titular sobre un hueco.
+const hasContent = hasRating || reviews.length > 0;
 ---
 
 {
-  place?.rating && place.total ? (
-    <a class="up-rating" href={contact.googleReviewsUrl} target="_blank" rel="noopener noreferrer" aria-label={`Valoración ${ratingText} de 5 con ${place.total} reseñas en Google (se abre en otra pestaña)`}>
-      <b>{ratingText}</b>
-      <Stars rating={place.rating} />
-      <span>{place.total} reseñas en Google</span>
-    </a>
-  ) : null
-}
-{
-  reviews.length > 0 && (
-    <div class="up-grid-3 up-reviews w-full">
-      {reviews.map((r) => <ReviewCard review={r} />)}
+  hasContent ? (
+    <div class="flex flex-col items-center gap-12">
+      <SectionHeader align="center" title="Lo que dicen nuestros pacientes en Google" />
+      {hasRating && (
+        <a class="up-rating" href={contact.googleReviewsUrl} target="_blank" rel="noopener noreferrer" aria-label={`Valoración ${ratingText} de 5 con ${place!.total} reseñas en Google (se abre en otra pestaña)`}>
+          <b>{ratingText}</b>
+          <Stars rating={place!.rating!} />
+          <span>{place!.total} reseñas en Google</span>
+        </a>
+      )}
+      {reviews.length > 0 && (
+        <div class="up-grid-3 up-reviews w-full">
+          {reviews.map((r) => <ReviewCard review={r} />)}
+        </div>
+      )}
+      <Button href={contact.googleReviewsUrl} variant="secondary" external iconAfter="arrow-right" aria-label="Leer todas las reseñas en Google (se abre en otra pestaña)">Leer todas en Google</Button>
+    </div>
+  ) : (
+    <div class="up-reviews-empty">
+      <h2 class="up-h3">Lo que dicen nuestros pacientes</h2>
+      <Button href={contact.googleReviewsUrl} variant="secondary" external iconAfter="arrow-right" aria-label="Leer las opiniones en Google (se abre en otra pestaña)">Leer las opiniones en Google</Button>
     </div>
   )
 }

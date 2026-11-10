@@ -19,7 +19,7 @@ const {
 const message = service ? `Hola, me gustaría pedir cita para ${service}.` : "Hola, me gustaría pedir cita.";
 ---
 
-<section class="up-cta up-on-night">
+<section class="up-cta">
   <div class="up-wrap up-cta-in">
     <div class="flex flex-col gap-3">
       <h2 class="up-h2">{title}</h2>
@@ -27,12 +27,12 @@ const message = service ? `Hola, me gustaría pedir cita para ${service}.` : "Ho
     </div>
     <div class="flex flex-col gap-4">
       <div class="flex flex-wrap gap-3">
-        <Button href={whatsappLink(message)} variant="night" icon="whatsapp" external aria-label="Escribir por WhatsApp (se abre en otra pestaña)">Escribir por WhatsApp</Button>
-        <Button href="/contacto" variant="outline-night">Formulario de contacto</Button>
+        <Button href={whatsappLink(message)} icon="whatsapp" external aria-label="Pedir cita por WhatsApp (se abre en otra pestaña)">Pedir cita por WhatsApp</Button>
+        <Button href="/contacto" variant="secondary">Formulario de contacto</Button>
       </div>
       <div class="up-cta-phones">
-        <a href={contact.mobile.href}><Icon name="phone" class="up-icon" />{contact.mobile.display}</a>
-        <a href={contact.landline.href}><Icon name="landline" class="up-icon" />{contact.landline.display}</a>
+        <a href={contact.mobile.href}><Icon name="phone" class="up-icon" />{contact.mobile.display}<small>móvil</small></a>
+        <a href={contact.landline.href}><Icon name="landline" class="up-icon" />{contact.landline.display}<small>fijo</small></a>
       </div>
     </div>
   </div>

@@ -1,0 +1,39 @@
+---
+// Primera visita gratis: lo que más tranquiliza a quien aún no conoce la clínica, a mitad de la portada
+// y con su propia llamada a WhatsApp (antes solo aparecía en la banda final).
+import { Icon } from "astro-icon/components";
+import Button from "@/components/UI/Button.astro";
+import { whatsappLink } from "@/constants/personal";
+
+const items = [
+  { icon: "tooth", title: "Revisión completa", text: "Te exploramos y te explicamos qué vemos." },
+  { icon: "scan-search", title: "Radiografías en la clínica", text: "Las hacemos aquí mismo y las revisamos contigo en el momento, sin ir a otro centro." },
+  { icon: "euro", title: "Presupuesto por escrito", text: "Sabes qué necesitas y cuánto cuesta antes de decidir, sin compromiso." },
+];
+---
+
+<section class="up-section" id="primera-visita">
+  <div class="up-wrap">
+    <div class="up-signs up-first">
+      <div class="up-sh up-sh-split">
+        <h2 class="up-h2">Tu primera visita, <em>gratis</em></h2>
+        <p class="up-lead">Ven a conocernos sin coste: la primera visita incluye revisión, radiografías y presupuesto por escrito.</p>
+      </div>
+      <ul class="up-grid-3 up-signs-list">
+        {
+          items.map((it) => (
+            <li class="up-sign">
+              <span class="up-sign-ico" aria-hidden="true"><Icon name={it.icon} class="up-icon" /></span>
+              <h3 class="up-h4">{it.title}</h3>
+              <p class="up-small">{it.text}</p>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="up-first-cta">
+        <Button href={whatsappLink("Hola, me gustaría pedir la primera visita gratuita.")} icon="whatsapp" external aria-label="Pedir cita por WhatsApp (se abre en otra pestaña)">Pedir cita por WhatsApp</Button>
+        <p class="up-small">Te contestamos en horario de clínica.</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-10T12:10:37+00:00",
+  "generatedAt": "2026-11-10T13:17:20+00:00",
   "title": "Design System: Up Estudio Dental y Estética",
   "extensions": {
     "colorMeta": {
@@ -523,7 +523,7 @@
       "refersTo": null,
       "description": "Retrato del equipo en arco sobre Turquesa Up, con nombre y especialidades.",
       "html": "<a class=\"ds-cutout\" href=\"#\"><span class=\"ds-cutout-photo\"></span><b>Dra. Cristina Umérez García</b><small>Odontología general · Odontopediatría</small></a>",
-      "css": ".ds-cutout { display: flex; flex-direction: column; gap: 8px; width: 220px; color: var(--ink, #14201f); text-decoration: none; } .ds-cutout-photo { display: block; aspect-ratio: 3 / 4; border-radius: 999px 999px 20px 20px; background: var(--aqua, #c1e4e2); } .ds-cutout b { font: 600 19px/26px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); transition: color 160ms; } .ds-cutout:hover b { color: var(--brand-strong, #1d4f4b); } .ds-cutout small { font: 500 14px/19px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); color: var(--ink-muted, #3d4f4b); } .ds-cutout:focus-visible { outline: 2px solid var(--focus-ring, #1d4f4b); outline-offset: 3px; border-radius: 20px; }"
+      "css": ".ds-cutout { display: flex; flex-direction: column; gap: 8px; width: 220px; color: var(--ink, #14201f); text-decoration: none; } .ds-cutout-photo { display: block; aspect-ratio: 3 / 4; border-radius: 50% 50% 20px 20px / 37.5% 37.5% 20px 20px; background: var(--aqua, #c1e4e2); } .ds-cutout b { font: 600 19px/26px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); transition: color 160ms; } .ds-cutout:hover b { color: var(--brand-strong, #1d4f4b); } .ds-cutout small { font: 500 14px/19px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); color: var(--ink-muted, #3d4f4b); } .ds-cutout:focus-visible { outline: 2px solid var(--focus-ring, #1d4f4b); outline-offset: 3px; border-radius: 20px; }"
     },
     {
       "name": "Titular con cursiva",
@@ -539,7 +539,7 @@
     "overview": "La web es la entrada a una clínica a la que se llega andando. Los arcos que coronan la foto principal, los retratos del equipo y el collage de la zona infantil son puertas que invitan a pasar; el turquesa pastel de la marca baña la primera banda como la luz de un local a pie de calle, y una banda de madera clara recuerda la recepción. Todo es luminoso, cercano y sereno: mucho aire, fotos reales de la clínica y de su gente, y nada que intimide a quien llega con un niño de la mano o con miedo al dentista.\n\nLa tipografía mezcla una serif de revista (Playfair Display) con una sans redonda y amable (Figtree). Cada titular guarda una sola palabra en cursiva verde pino, como un subrayado hablado: «Clínica dental *familiar*», «en la *misma* clínica». Los controles son suaves y acogedores: botones en píldora, esquinas generosas, nada anguloso. La web solo tiene tema claro (`color-scheme: light`).",
     "keyCharacteristics": [
       "Arcos (medio punto arriba, esquinas de 20 px abajo) como marco de las fotos de personas y espacios.",
-      "Banda de firma en Turquesa Up al principio de la portada; bandas de arena y de tinta nocturna para ritmo.",
+      "Turquesa Up abre y cierra la portada (cabecera y banda final de cita); arena y tinta nocturna marcan el ritmo entre medias, y el pie es la única banda oscura del final.",
       "Una palabra en cursiva verde pino por titular, nunca más.",
       "Botones en píldora; el principal, en tinta, no en turquesa.",
       "Fotos reales siempre; nada de ilustraciones genéricas ni imágenes de banco."

@@ -300,6 +300,8 @@
   .up-hours dd { margin: 0; color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; }
   .up-hours hr { border: 0; border-top: 1px solid var(--line); margin: var(--space-1) 0; width: 100%; }
   .up-hours-urg { display: flex; align-items: center; gap: var(--space-2); font: 600 0.875rem/1.0625rem var(--font-sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand-strong); }
+  a.up-hours-urg { min-height: 44px; text-decoration: none; }
+  a.up-hours-urg:hover { text-decoration: underline; text-underline-offset: 3px; }
   .up-hours-urg::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--success); flex: none; }
   .up-tel { display: flex; align-items: center; gap: var(--space-2); min-height: 44px; font: 600 1.0625rem/1.375rem var(--font-sans); color: var(--ink); text-decoration: none; font-variant-numeric: tabular-nums; flex-wrap: wrap; }
   .up-tel .up-icon { color: var(--brand-strong); }
@@ -422,6 +424,13 @@
   .up-sign-ico .up-icon { width: 24px; height: 24px; }
   .up-sign .up-h4 { text-wrap: balance; }
   .up-sign .up-small { text-wrap: pretty; }
+  /* Primera visita: el bloque de tarjetas informativas con cabecera de sección y su propia llamada. */
+  .up-first { display: flex; flex-direction: column; gap: var(--space-8); }
+  @media (max-width: 639px) {
+    .up-first .up-sign { display: grid; grid-template-columns: 48px minmax(0, 1fr); column-gap: var(--space-4); row-gap: var(--space-1); padding: var(--space-4); }
+    .up-first .up-sign-ico { grid-row: span 2; margin-bottom: 0; }
+  }
+  .up-first-cta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-6); }
 
   /* ---------- Accordion ---------- */
   .up-acc { display: flex; flex-direction: column; gap: var(--space-2); }
@@ -480,6 +489,8 @@
   @media (prefers-reduced-motion: reduce) { .up-review-skeleton { animation: none; } }
   .up-rating { display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--space-2) var(--space-3); padding: var(--space-2) var(--space-4) var(--space-2) var(--space-6); border: 1px solid var(--line); border-radius: 999px; background: var(--surface-raised); color: var(--ink); text-decoration: none; font: 500 1rem/1.375rem var(--font-sans); }
   .up-rating b { font: 600 1.375rem/1 var(--font-sans); }
+  .up-reviews-empty { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-4) var(--space-8); padding: var(--space-6) var(--space-8); background: var(--surface-raised); border: 1px solid var(--line); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+  #opiniones:has(.up-reviews-empty) { padding-block: var(--space-12); }
   .up-rating:hover { border-color: var(--brand-strong); }
 
   /* ---------- GalleryGrid ---------- */
@@ -566,14 +577,16 @@
   .up-notice-danger .up-icon { color: var(--danger); }
 
   /* ---------- CTABand ---------- */
-  .up-cta { background: var(--night); color: var(--on-night); padding-block: var(--space-16); }
+  /* Banda final de cita en Turquesa Up: cierra la página como la abre la portada y se separa del pie oscuro. */
+  .up-cta { background: var(--aqua); color: var(--ink); padding-block: var(--space-16); }
   .up-cta-in { display: grid; gap: var(--space-8); grid-template-columns: 1fr; align-items: center; }
   @media (min-width: 900px) { .up-cta-in { grid-template-columns: 1.2fr 1fr; gap: var(--space-12); } }
-  .up-cta p { margin: 0; color: var(--on-night-muted); max-width: 52ch; }
+  .up-cta p { margin: 0; color: var(--ink-muted); max-width: var(--measure); }
   .up-cta-phones { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-6); }
-  .up-cta-phones a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--on-night); font: 600 1.0625rem/1.375rem var(--font-sans); text-decoration: none; font-variant-numeric: tabular-nums; min-height: 44px; }
-  .up-cta-phones a:hover { color: var(--brand); }
-  .up-cta-phones .up-icon { color: var(--brand); }
+  .up-cta-phones a { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--ink); font: 600 1.0625rem/1.375rem var(--font-sans); text-decoration: none; font-variant-numeric: tabular-nums; min-height: 44px; }
+  .up-cta-phones a:hover { color: var(--brand-strong); }
+  .up-cta-phones .up-icon { color: var(--brand-strong); }
+  .up-cta-phones small { font: 500 0.875rem/1.1875rem var(--font-sans); color: var(--ink-muted); }
 
   /* ---------- Footer ---------- */
   .up-footer { background: var(--night); color: var(--on-night-muted); font-size: 1rem; line-height: 1.5625rem; padding-block: var(--space-12) var(--space-6); border-top: 1px solid color-mix(in srgb, var(--on-night) 10%, transparent); }
@@ -589,6 +602,8 @@
   .up-footer ul:not(.up-social) > li > a { display: inline-flex; align-items: center; min-height: 44px; vertical-align: middle; }
   .up-footer ul:not(.up-social):has(> li > a) { gap: 0; }
   /* Enlaces dentro de una línea de texto («919 931 329 · fijo»): el color solo no basta para distinguirlos. */
+  .up-footer a.up-footer-urg { color: var(--brand); }
+  .up-footer a.up-footer-urg:hover { color: var(--brand-hover); }
   .up-footer a.up-footer-inline { text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 45%, transparent); text-underline-offset: 4px; }
   .up-footer-logo { width: 64px; height: auto; margin-bottom: var(--space-4); }
   .up-social { display: flex; gap: var(--space-2); flex-direction: row !important; }
@@ -635,13 +650,17 @@
   /* el arco: foto con la parte superior redondeada (sonrisa, diente), motivo propio de Up */
   .up-arch { position: relative; overflow: hidden; border-radius: 999px 999px var(--radius-lg) var(--radius-lg); background: var(--surface-tint); }
   .up-arch img { width: 100%; height: 100%; object-fit: cover; transition: transform 600ms ease; }
-  a:hover > .up-arch img, .up-arch:hover img { transform: scale(1.03); }
+  /* Solo se amplía si el arco es un enlace: una foto que no se puede pulsar no reacciona al ratón. */
+  a:hover > .up-arch img { transform: scale(1.03); }
+  /* El arco: medio punto arriba (radio = mitad del ancho) y 20 px abajo. Con «999px» el navegador
+     reduce todos los radios a la vez y las esquinas de abajo se quedan en 2–5 px; con radios elípticos
+     calculados para la proporción de cada foto (ancho / alto) no hace falta reducir nada. */
 
   /* héroe v2 */
   .up-hero2 { display: grid; gap: var(--space-8); grid-template-columns: 1fr; align-items: center; padding-block: var(--space-8) var(--space-12); }
   @media (min-width: 900px) { .up-hero2 { grid-template-columns: 1.1fr 0.9fr; gap: var(--space-16); padding-block: var(--space-12) var(--space-16); } }
   .up-hero2-media { position: relative; max-width: 520px; width: 100%; justify-self: center; }
-  .up-hero2-media .up-arch { aspect-ratio: 4 / 5; }
+  .up-hero2-media .up-arch { aspect-ratio: 4 / 5; border-radius: 50% 50% var(--radius-lg) var(--radius-lg) / 40% 40% var(--radius-lg) var(--radius-lg); }
   .up-hero2-card { position: absolute; left: calc(-1 * var(--space-8)); bottom: var(--space-12); display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4) var(--space-3) var(--space-3); background: var(--surface-raised); border-radius: var(--radius-pill); box-shadow: var(--shadow-md); }
   a.up-hero2-card { text-decoration: none; transition: box-shadow var(--duration-fast); }
   a.up-hero2-card:hover { box-shadow: var(--shadow-md), 0 0 0 2px var(--aqua-logo); }
@@ -652,6 +671,11 @@
   .up-perks { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: 0; padding: 0; list-style: none; }
   .up-perks li { display: inline-flex; align-items: center; gap: var(--space-2); padding: 8px 14px; border-radius: var(--radius-pill); background: color-mix(in srgb, var(--surface-raised) 60%, transparent); font: 600 0.9375rem/1.1875rem var(--font-sans); color: var(--ink); }
   .up-perks .up-icon { width: 18px; height: 18px; color: var(--brand-strong); }
+  /* La píldora de urgencias es un enlace de llamada: toda la píldora se pulsa y el número va subrayado. */
+  .up-perks li:has(> a) { padding: 0; }
+  .up-perks li > a { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px; padding: 8px 14px; border-radius: var(--radius-pill); color: inherit; text-decoration: none; transition: background-color var(--duration-fast); }
+  .up-perks li > a:hover { background: var(--surface-raised); }
+  .up-perk-tel { text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 45%, transparent); text-underline-offset: 3px; font-variant-numeric: tabular-nums; }
 
   /* franja de pertenencia: Carné Joven, Móstoles Empresa, Lo mejor del barrio */
   .up-partners { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-4) var(--space-8); padding-block: var(--space-6); border-bottom: 1px solid var(--line); font-size: 1rem; line-height: 1.4375rem; color: var(--ink-muted); }
@@ -671,7 +695,9 @@
   }
   @media (min-width: 900px) { .up-specs { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 260px; } .up-specs > .is-big { grid-column: span 2; grid-row: span 2; } }
   /* La última tarjeta se ensancha hasta cerrar su fila (ServicesPreview calcula cuánto). */
-  @media (max-width: 899px) { .up-specs > .is-wide-m { grid-column: span 2; } }
+  @media (max-width: 899px) { .up-specs > .is-wide-m { grid-column: span 2; } .up-specs > .is-desk-only { display: none; } }
+  .up-specs-more { margin-top: calc(var(--space-12) * -1 + var(--space-4)); }
+  @media (min-width: 900px) { .up-specs-more { display: none; } }
   @media (min-width: 900px) { .up-specs > .is-wide-d { grid-column: span var(--span-d); } }
   .up-spec { position: relative; display: block; overflow: hidden; border-radius: var(--radius-lg); background: var(--surface-tint); min-height: 220px; color: var(--ink); text-decoration: none; }
   .up-spec img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 600ms ease; }
@@ -689,7 +715,7 @@
   /* Tecnología: en móvil, foto y texto en fila; desde tablet, tres columnas. */
   .up-tech { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--space-8); grid-template-columns: minmax(0, 1fr); }
   .up-tech li { display: grid; grid-template-columns: 38% minmax(0, 1fr); gap: var(--space-4); align-items: center; }
-  .up-tech .up-arch { aspect-ratio: 3 / 4; background: var(--night-raised); }
+  .up-tech .up-arch { aspect-ratio: 3 / 4; background: var(--night-raised); border-radius: 50% 50% var(--radius-lg) var(--radius-lg) / 37.5% 37.5% var(--radius-lg) var(--radius-lg); }
   .up-tech-text { display: flex; flex-direction: column; gap: var(--space-2); }
   .up-tech-tag { align-self: flex-start; padding: 2px 10px; border: 1px solid var(--brand-line); border-radius: 999px; font: 600 0.8125rem/1.25rem var(--font-sans); letter-spacing: 0.06em; text-transform: uppercase; color: var(--brand); }
   .up-tech h3 { margin: 0; font: 400 1.375rem/1.75rem var(--font-display); color: var(--on-night-strong); }
@@ -702,7 +728,7 @@
 
   /* retrato recortado sobre aqua (los retratos oficiales tienen ese fondo) */
   .up-cutout { display: flex; flex-direction: column; gap: var(--space-3); text-decoration: none; color: inherit; }
-  .up-cutout-photo { overflow: hidden; border-radius: 999px 999px var(--radius-lg) var(--radius-lg); background: var(--aqua); aspect-ratio: 3 / 4; }
+  .up-cutout-photo { overflow: hidden; border-radius: 50% 50% var(--radius-lg) var(--radius-lg) / 37.5% 37.5% var(--radius-lg) var(--radius-lg); background: var(--aqua); aspect-ratio: 3 / 4; }
   /* los retratos se recortan a 3:4 con el mismo margen sobre la cabeza (src/img/up/retrato-*.webp) */
   .up-cutout-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; transition: transform 600ms ease; }
   .up-cutout:hover .up-cutout-photo img { transform: scale(1.03); }
@@ -715,7 +741,10 @@
   .up-collage { display: grid; gap: var(--space-4); grid-template-columns: 1.2fr 1fr; grid-template-rows: 1fr 1fr; min-height: 520px; }
   .up-collage > :first-child { grid-row: span 2; }
   .up-collage > * { overflow: hidden; border-radius: var(--radius-lg); }
-  .up-collage > :first-child { border-radius: 999px 999px var(--radius-lg) var(--radius-lg); }
+  /* La foto grande del collage no tiene proporción fija: su caja es contenedor y el radio de arriba
+     es la mitad de su ancho (50cqi), aplicado a la imagen. */
+  .up-collage > :first-child { container-type: inline-size; border-radius: 0; }
+  .up-collage > :first-child img { border-radius: 50cqi 50cqi var(--radius-lg) var(--radius-lg); }
   .up-collage img { width: 100%; height: 100%; object-fit: cover; }
   @media (max-width: 639px) { .up-collage { min-height: 420px; } }
   /* En tablet la columna es ancha y las filas crecían con la altura de las fotos (más de 1000px),
