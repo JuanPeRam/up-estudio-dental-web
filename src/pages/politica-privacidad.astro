@@ -11,7 +11,7 @@ const domicilio = `${clinic.streetAddress}, ${clinic.postalCode} ${clinic.locali
 <LegalLayout
     title="Política de privacidad"
     description="Política de privacidad de Up Estudio Dental y Estética: responsable del tratamiento, finalidad, base legal y derechos de los interesados."
-    lastUpdated="agosto de 2026"
+    lastUpdated="noviembre de 2026"
 >
     <LegalSection title="1. Responsable del tratamiento">
         <p>{clinic.legalName}</p>
@@ -19,7 +19,7 @@ const domicilio = `${clinic.streetAddress}, ${clinic.postalCode} ${clinic.locali
         <p>Domicilio: {domicilio}.</p>
         <p>Correo electrónico: {contact.email}</p>
         <p>Teléfono: {contact.landline.display}</p>
-        <p>Delegado de Protección de Datos (DPO): <a href="mailto:proteccion.datos@ceer.es">proteccion.datos@ceer.es</a></p>
+        <p>Delegado de Protección de Datos (DPO): <a href={`mailto:${contact.dpoEmail}`}>{contact.dpoEmail}</a></p>
     </LegalSection>
 
     <LegalSection title="2. Finalidad del tratamiento">
@@ -29,13 +29,21 @@ const domicilio = `${clinic.streetAddress}, ${clinic.postalCode} ${clinic.locali
             responder a tu solicitud de información o de cita, y para gestionar la
             relación que, en su caso, se establezca con la clínica.
         </p>
+        <p>
+            No es necesario que incluyas datos sobre tu salud en el mensaje. Si lo
+            haces, los trataremos solo para atender tu consulta y con la misma
+            confidencialidad que el resto de tu información clínica.
+        </p>
     </LegalSection>
 
     <LegalSection title="3. Legitimación">
         <p>
             La base legal para el tratamiento de tus datos es tu consentimiento
             expreso, otorgado al marcar la casilla de aceptación de esta política de
-            privacidad antes de enviar el formulario de contacto.
+            privacidad antes de enviar el formulario de contacto. Ese consentimiento
+            explícito cubre también los datos de salud que decidas incluir en el
+            mensaje (artículo 9.2.a del RGPD). Puedes retirarlo en cualquier momento,
+            sin que afecte a la licitud del tratamiento anterior.
         </p>
     </LegalSection>
 

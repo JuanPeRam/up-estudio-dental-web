@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import Notice from "@/components/UI/Notice.astro";
-import { contact } from "@/constants/personal";
+import { clinic, contact } from "@/constants/personal";
 import { subjects, type ContactFormState } from "@/lib/contactForm";
 
 // El envío se procesa en la página (src/pages/contacto.astro), que es la única que puede redirigir.
@@ -60,7 +60,8 @@ const fields = [
 
             <div class="up-field">
                 <label for="f-message">Mensaje</label>
-                <textarea class="up-input" id="f-message" name="message" required placeholder="Cuéntanos qué necesitas y qué horario te viene mejor.">{values.message}</textarea>
+                <textarea class="up-input" id="f-message" name="message" required placeholder="Cuéntanos qué necesitas y qué horario te viene mejor." aria-describedby="f-message-h">{values.message}</textarea>
+                <span class="up-hint" id="f-message-h">No hace falta que nos cuentes detalles de tu salud: los vemos contigo en consulta.</span>
                 <span class="up-error" id="f-message-e" hidden><Icon name="alert" class="up-icon" />Cuéntanos en pocas palabras qué necesitas.</span>
             </div>
 
@@ -70,6 +71,11 @@ const fields = [
                     <span>He leído y acepto la <a class="up-link" href="/politica-privacidad">política de privacidad</a></span>
                 </label>
                 <span class="up-error" id="f-privacy-e" hidden><Icon name="alert" class="up-icon" />Necesitamos tu consentimiento para responderte.</span>
+            </div>
+
+            <div class="up-form-legal">
+                <p><b>Información básica sobre protección de datos</b></p>
+                <p><b>Responsable:</b> {clinic.legalName.replace(/\.$/, "")}. <b>Finalidad:</b> responder a tu consulta o solicitud de cita. <b>Legitimación:</b> tu consentimiento, también para los datos de salud que decidas incluir en el mensaje. <b>Destinatarios:</b> no cedemos tus datos a terceros salvo obligación legal; nuestros proveedores de alojamiento web y correo (Vercel, Resend y Arsys) los tratan por encargo nuestro, con posibles transferencias a EE. UU. con las garantías del RGPD. <b>Derechos:</b> acceso, rectificación, supresión, oposición, limitación y portabilidad, escribiendo a <a class="up-link" href={`mailto:${contact.email}`}>{contact.email}</a>. Más información en la <a class="up-link" href="/politica-privacidad">política de privacidad</a>.</p>
             </div>
 
             <button class="up-btn up-btn-primary up-btn-block" type="submit">Enviar mensaje</button>
@@ -100,10 +106,12 @@ const fields = [
             const err = document.getElementById(`${el.id}-e`);
             if (err) {
                 err.hidden = ok;
-                // El mensaje solo se asocia al campo mientras se ve: un aria-describedby que apunta a un
-                // elemento oculto se lee igual con el lector de pantalla.
-                if (ok) el.removeAttribute("aria-describedby");
-                else el.setAttribute("aria-describedby", err.id);
+                // El mensaje de error solo se asocia al campo mientras se ve (un aria-describedby que apunta
+                // a un elemento oculto se lee igual); la ayuda fija del campo, si la tiene, se conserva.
+                const hint = el.dataset.hint ?? (el.dataset.hint = el.getAttribute("aria-describedby") ?? "");
+                const ids = ok ? hint : `${hint} ${err.id}`.trim();
+                if (ids) el.setAttribute("aria-describedby", ids);
+                else el.removeAttribute("aria-describedby");
             }
             return ok;
         };

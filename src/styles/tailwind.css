@@ -546,6 +546,11 @@
   .up-input:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; border-color: var(--focus-ring); }
   textarea.up-input { min-height: 132px; resize: vertical; }
   .up-input[aria-invalid="true"] { border-color: var(--danger); }
+  .up-hint { font: 400 0.875rem/1.1875rem var(--font-sans); color: var(--ink-muted); }
+  .up-form-legal { display: grid; gap: var(--space-1); font: 400 0.875rem/1.25rem var(--font-sans); color: var(--ink-muted); text-wrap: pretty; }
+  .up-form-legal p { margin: 0; }
+  .up-form-legal b { font-weight: 600; color: var(--ink); }
+  .up-form-legal .up-link { font-weight: 600; }
   .up-error { display: flex; align-items: center; gap: 6px; font: 500 0.875rem/1.1875rem var(--font-sans); color: var(--danger); }
   .up-error[hidden] { display: none; }
   .up-error .up-icon { width: 16px; height: 16px; }
