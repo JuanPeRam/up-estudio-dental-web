@@ -1,0 +1,612 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-10T12:10:37+00:00",
+  "title": "Design System: Up Estudio Dental y Estética",
+  "extensions": {
+    "colorMeta": {
+      "turquesa-up": {
+        "role": "primary",
+        "displayName": "Turquesa Up",
+        "canonical": "#c1e4e2",
+        "tonalRamp": [
+          "#1e2f2e",
+          "#305553",
+          "#3f7e7a",
+          "#4ba9a4",
+          "#72bbb7",
+          "#9cc9c7",
+          "#c9dedd",
+          "#f0f5f4"
+        ]
+      },
+      "turquesa-logo": {
+        "role": "secondary",
+        "displayName": "Turquesa del logo",
+        "canonical": "#9bd9dd",
+        "tonalRamp": [
+          "#1b3031",
+          "#2b575a",
+          "#378186",
+          "#40aeb5",
+          "#69bfc4",
+          "#96cccf",
+          "#c7dfe1",
+          "#eff5f5"
+        ]
+      },
+      "pino-profundo": {
+        "role": "primary",
+        "displayName": "Pino profundo",
+        "canonical": "#1d4f4b",
+        "tonalRamp": [
+          "#1c312f",
+          "#2c5855",
+          "#39837d",
+          "#43b2a9",
+          "#6bc2bb",
+          "#98cdc9",
+          "#c8e0de",
+          "#f0f5f5"
+        ]
+      },
+      "pino-medio": {
+        "role": "secondary",
+        "displayName": "Pino medio",
+        "canonical": "#38918b",
+        "tonalRamp": [
+          "#1c302f",
+          "#2d5754",
+          "#3b827d",
+          "#46afa8",
+          "#6dc0ba",
+          "#99ccc9",
+          "#c8dfde",
+          "#f0f5f4"
+        ]
+      },
+      "turquesa-acento": {
+        "role": "secondary",
+        "displayName": "Turquesa de acento",
+        "canonical": "#70cac5",
+        "tonalRamp": [
+          "#1c302f",
+          "#2d5856",
+          "#3a837f",
+          "#44b1ab",
+          "#6cc1bd",
+          "#98cdca",
+          "#c8e0de",
+          "#f0f5f5"
+        ]
+      },
+      "arena": {
+        "role": "tertiary",
+        "displayName": "Arena",
+        "canonical": "#f3eee7",
+        "tonalRamp": [
+          "#2e271f",
+          "#524533",
+          "#796344",
+          "#a28153",
+          "#b69c77",
+          "#c6b69f",
+          "#dcd5cb",
+          "#f4f3f0"
+        ]
+      },
+      "papel": {
+        "role": "neutral",
+        "displayName": "Papel",
+        "canonical": "#fbfcfc",
+        "tonalRamp": [
+          "#232929",
+          "#3c4949",
+          "#536a6a",
+          "#698b8b",
+          "#89a4a4",
+          "#aabbbb",
+          "#d0d7d7",
+          "#f1f3f3"
+        ]
+      },
+      "blanco": {
+        "role": "neutral",
+        "displayName": "Blanco",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#262626",
+          "#424242",
+          "#5e5e5e",
+          "#7a7a7a",
+          "#969696",
+          "#b2b2b2",
+          "#d4d4d4",
+          "#f2f2f2"
+        ]
+      },
+      "bruma-turquesa": {
+        "role": "neutral",
+        "displayName": "Bruma turquesa",
+        "canonical": "#e4f3f2",
+        "tonalRamp": [
+          "#1e2f2e",
+          "#305452",
+          "#407d79",
+          "#4ca8a2",
+          "#73bab6",
+          "#9cc9c6",
+          "#cadedc",
+          "#f0f5f4"
+        ]
+      },
+      "linea": {
+        "role": "neutral",
+        "displayName": "Línea",
+        "canonical": "#d5e3e1",
+        "tonalRamp": [
+          "#222b29",
+          "#394c49",
+          "#4e6e6a",
+          "#63928b",
+          "#84a9a4",
+          "#a7bebb",
+          "#ced9d7",
+          "#f1f3f3"
+        ]
+      },
+      "borde-control": {
+        "role": "neutral",
+        "displayName": "Borde de control",
+        "canonical": "#6f8582",
+        "tonalRamp": [
+          "#242828",
+          "#3e4745",
+          "#576664",
+          "#708582",
+          "#8e9f9d",
+          "#adb8b6",
+          "#d1d6d5",
+          "#f2f3f3"
+        ]
+      },
+      "tinta-texto": {
+        "role": "neutral",
+        "displayName": "Tinta de texto",
+        "canonical": "#14201f",
+        "tonalRamp": [
+          "#212b2b",
+          "#374d4b",
+          "#4c716e",
+          "#5f9691",
+          "#81aca8",
+          "#a5c0be",
+          "#cedad9",
+          "#f1f4f3"
+        ]
+      },
+      "tinta-suave": {
+        "role": "neutral",
+        "displayName": "Tinta suave",
+        "canonical": "#3d4f4b",
+        "tonalRamp": [
+          "#232928",
+          "#3c4846",
+          "#546964",
+          "#6b8a83",
+          "#8aa29d",
+          "#abbab7",
+          "#d0d7d6",
+          "#f1f3f3"
+        ]
+      },
+      "tinta-nocturna": {
+        "role": "neutral",
+        "displayName": "Tinta nocturna",
+        "canonical": "#111716",
+        "tonalRamp": [
+          "#232a28",
+          "#3b4947",
+          "#526a66",
+          "#688c86",
+          "#88a4a0",
+          "#aabbb8",
+          "#d0d8d6",
+          "#f1f3f3"
+        ]
+      },
+      "sobre-noche": {
+        "role": "neutral",
+        "displayName": "Sobre noche",
+        "canonical": "#e3e3e3",
+        "tonalRamp": [
+          "#262626",
+          "#424242",
+          "#5e5e5e",
+          "#7a7a7a",
+          "#969696",
+          "#b2b2b2",
+          "#d4d4d4",
+          "#f2f2f2"
+        ]
+      },
+      "sobre-noche-suave": {
+        "role": "neutral",
+        "displayName": "Sobre noche suave",
+        "canonical": "#a7b5b3",
+        "tonalRamp": [
+          "#242828",
+          "#3e4645",
+          "#576563",
+          "#708582",
+          "#8e9f9c",
+          "#adb8b6",
+          "#d1d6d5",
+          "#f2f3f3"
+        ]
+      },
+      "accion-hover": {
+        "role": "primary",
+        "displayName": "Acción hover",
+        "canonical": "#24645f",
+        "tonalRamp": [
+          "#1c312f",
+          "#2c5955",
+          "#39847e",
+          "#42b3aa",
+          "#6bc2bb",
+          "#97ceca",
+          "#c7e0de",
+          "#eff5f5"
+        ]
+      },
+      "peligro": {
+        "role": "error",
+        "displayName": "Peligro",
+        "canonical": "#b42318",
+        "tonalRamp": [
+          "#371815",
+          "#66231e",
+          "#9b2a21",
+          "#d62c1f",
+          "#de594f",
+          "#df8c86",
+          "#e8c2c0",
+          "#f7eeee"
+        ]
+      },
+      "exito": {
+        "role": "success",
+        "displayName": "Éxito",
+        "canonical": "#2e7d4f",
+        "tonalRamp": [
+          "#1c3025",
+          "#2c583f",
+          "#3a8358",
+          "#43b271",
+          "#6bc28f",
+          "#98cdae",
+          "#c8e0d2",
+          "#f0f5f2"
+        ]
+      },
+      "turquesa-acento-hover": {
+        "role": "secondary",
+        "displayName": "Turquesa de acento hover",
+        "canonical": "#8fd3ce",
+        "tonalRamp": [
+          "#1d302e",
+          "#2e5754",
+          "#3c817c",
+          "#46aea7",
+          "#6ebfb9",
+          "#99ccc8",
+          "#c8dfdd",
+          "#f0f5f4"
+        ]
+      },
+      "sobre-acento": {
+        "role": "neutral",
+        "displayName": "Sobre acento",
+        "canonical": "#0e1413",
+        "tonalRamp": [
+          "#222a29",
+          "#3a4b48",
+          "#506c68",
+          "#658f88",
+          "#86a7a1",
+          "#a8bdb9",
+          "#cfd8d7",
+          "#f1f3f3"
+        ]
+      },
+      "noche-elevada": {
+        "role": "neutral",
+        "displayName": "Noche elevada",
+        "canonical": "#1b2423",
+        "tonalRamp": [
+          "#232929",
+          "#3c4948",
+          "#536a67",
+          "#698b88",
+          "#89a4a1",
+          "#aabbb9",
+          "#d0d7d7",
+          "#f1f3f3"
+        ]
+      },
+      "sobre-noche-fuerte": {
+        "role": "neutral",
+        "displayName": "Sobre noche fuerte",
+        "canonical": "#f2f5f4",
+        "tonalRamp": [
+          "#232927",
+          "#3c4844",
+          "#546962",
+          "#6b8a80",
+          "#8aa39b",
+          "#abbab5",
+          "#d0d7d5",
+          "#f1f3f3"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Solo el titular de la portada."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Titular de cada página interior."
+      },
+      "headline-section": {
+        "displayName": "Headline de sección",
+        "purpose": "Titulares de sección."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Subtítulos en serif dentro de una sección."
+      },
+      "title-sans": {
+        "displayName": "Title sans",
+        "purpose": "Nombres en tarjetas y títulos de elementos de lista."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texto corrido, hasta 68ch."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Entradillas bajo un titular, hasta 60ch."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "Textos de apoyo en tarjetas y paneles."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Antetítulos en mayúsculas espaciadas."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Especialidades, insignias y metadatos."
+      },
+      "control": {
+        "displayName": "Control",
+        "purpose": "Campos de formulario y teléfonos destacados."
+      },
+      "button-sm": {
+        "displayName": "Botón pequeño",
+        "purpose": "Botón compacto de la cabecera y etiquetas de especialidad en móvil."
+      }
+    },
+    "shadows": [
+      {
+        "name": "reposo",
+        "value": "0 1px 2px rgba(20,32,31,.06), 0 1px 1px rgba(20,32,31,.04)",
+        "purpose": "Tarjetas, paneles y botón principal en reposo (--shadow-sm)."
+      },
+      {
+        "name": "elevada",
+        "value": "0 12px 32px -12px rgba(20,32,31,.18)",
+        "purpose": "Hover de tarjetas y botones, cabecera con scroll, tarjetas flotantes sobre fotos (--shadow-md)."
+      }
+    ],
+    "motion": [
+      {
+        "name": "rapida",
+        "value": "160ms ease",
+        "purpose": "Color, borde y desplazamiento de 1 px en botones y enlaces (--duration-fast)."
+      },
+      {
+        "name": "base",
+        "value": "240ms ease",
+        "purpose": "Sombras, subrayado de la navegación, barra móvil (--duration-base)."
+      },
+      {
+        "name": "foto",
+        "value": "600ms ease",
+        "purpose": "Escalado del 3 % de las fotos al pasar el ratón."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "900px"
+      },
+      {
+        "name": "xl",
+        "value": "1000px"
+      },
+      {
+        "name": "2xl",
+        "value": "1100px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón principal",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción principal en tinta: pedir cita, enviar.",
+      "html": "<button class=\"ds-btn-primary\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z\"/></svg>Escribir por WhatsApp</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 22px; border-radius: 999px; border: 1.5px solid transparent; font: 600 16px/21px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); cursor: pointer; transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 240ms ease; background: var(--action, #14201f); color: var(--on-action, #fff); box-shadow: var(--shadow-sm, 0 1px 2px rgba(20,32,31,.06)); } .ds-btn-primary:hover { background: var(--action-hover, #24645f); box-shadow: var(--shadow-md, 0 12px 32px -12px rgba(20,32,31,.18)); transform: translateY(-1px); } .ds-btn-primary:active { transform: translateY(0); } .ds-btn-primary:focus-visible { outline: 2px solid var(--focus-ring, #1d4f4b); outline-offset: 3px; }"
+    },
+    {
+      "name": "Botón secundario",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Alternativa junto al principal: ver tratamientos, formulario.",
+      "html": "<button class=\"ds-btn-secondary\">Ver tratamientos</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 22px; border-radius: 999px; border: 1.5px solid transparent; font: 600 16px/21px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); cursor: pointer; transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 240ms ease; background: transparent; color: var(--ink, #14201f); border-color: var(--control-border, #6f8582); } .ds-btn-secondary:hover { border-color: var(--brand-strong, #1d4f4b); color: var(--brand-strong, #1d4f4b); transform: translateY(-1px); } .ds-btn-secondary:focus-visible { outline: 2px solid var(--focus-ring, #1d4f4b); outline-offset: 3px; }"
+    },
+    {
+      "name": "Botón fantasma",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Enlace con flecha para «Ver todos…».",
+      "html": "<button class=\"ds-btn-ghost\">Conoce a todo el equipo<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 22px; border-radius: 999px; border: 1.5px solid transparent; font: 600 16px/21px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); cursor: pointer; transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 240ms ease; padding-inline: 8px; background: transparent; color: var(--brand-strong, #1d4f4b); } .ds-btn-ghost:hover { background: var(--surface-tint, #e4f3f2); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--focus-ring, #1d4f4b); outline-offset: 3px; }"
+    },
+    {
+      "name": "Botón de noche",
+      "kind": "button",
+      "refersTo": "button-night",
+      "description": "Botón principal sobre bandas de Tinta nocturna.",
+      "html": "<div class=\"ds-night\"><button class=\"ds-btn-night\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z\"/></svg>Escribir por WhatsApp</button></div>",
+      "css": ".ds-night { background: var(--night, #111716); padding: 24px; border-radius: 12px; } .ds-btn-night { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 22px; border-radius: 999px; border: 1.5px solid transparent; font: 600 16px/21px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); cursor: pointer; transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 240ms ease; background: var(--brand, #70cac5); color: #0e1413; } .ds-btn-night:hover { background: #8fd3ce; transform: translateY(-1px); } .ds-btn-night:focus-visible { outline: 2px solid var(--brand, #70cac5); outline-offset: 3px; }"
+    },
+    {
+      "name": "Campo de texto",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Campo del formulario de contacto.",
+      "html": "<label class=\"ds-field\"><span>Nombre</span><input class=\"ds-input\" placeholder=\"Tu nombre y apellido\" /></label>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 6px; font: 600 16px/21px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); color: var(--ink, #14201f); } .ds-input { min-height: 48px; padding: 12px 14px; font: 400 17px/23px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); color: var(--ink, #14201f); background: var(--surface-raised, #fff); border: 1.5px solid var(--control-border, #6f8582); border-radius: 6px; transition: border-color 160ms; } .ds-input::placeholder { color: var(--ink-muted, #3d4f4b); opacity: .8; } .ds-input:hover { border-color: var(--ink-muted, #3d4f4b); } .ds-input:focus-visible { outline: 2px solid var(--focus-ring, #1d4f4b); outline-offset: 2px; border-color: var(--focus-ring, #1d4f4b); }"
+    },
+    {
+      "name": "Navegación",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Enlaces de la cabecera con subrayado que crece desde el centro.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Inicio</a><a href=\"#\">Clínica</a><a href=\"#\">Tratamientos</a><a href=\"#\">Equipo</a><a href=\"#\">Contacto</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 4px; padding: 16px; background: var(--surface, #fbfcfc); } .ds-nav a { position: relative; padding: 8px 12px; font: 600 16px/21px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); color: var(--ink, #14201f); text-decoration: none; } .ds-nav a::after { content: \"\"; position: absolute; left: 12px; right: 12px; bottom: 2px; height: 2px; background: var(--brand-strong, #1d4f4b); transform: scaleX(0); transition: transform 240ms ease; } .ds-nav a:hover, .ds-nav a[aria-current=\"page\"] { color: var(--brand-strong, #1d4f4b); } .ds-nav a:hover::after, .ds-nav a[aria-current=\"page\"]::after { transform: scaleX(1); } .ds-nav a:focus-visible { outline: 2px solid var(--focus-ring, #1d4f4b); outline-offset: 3px; border-radius: 4px; }"
+    },
+    {
+      "name": "Insignia",
+      "kind": "chip",
+      "refersTo": "badge",
+      "description": "Especialidades del equipo y etiquetas como «Sin coste».",
+      "html": "<span class=\"ds-badge\">Odontopediatría</span> <span class=\"ds-badge\">Sin coste</span>",
+      "css": ".ds-badge { display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 999px; font: 600 14px/19px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); background: var(--surface-tint, #e4f3f2); color: var(--brand-strong, #1d4f4b); }"
+    },
+    {
+      "name": "Tarjeta de especialidad",
+      "kind": "card",
+      "refersTo": "specialty-card",
+      "description": "Foto a sangre con etiqueta flotante y flecha; firma de la portada.",
+      "html": "<a class=\"ds-spec\" href=\"#\"><span class=\"ds-spec-photo\"></span><span class=\"ds-spec-label\"><span><b>Odontopediatría</b><small>Dentista para los peques</small></span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></span></a>",
+      "css": ".ds-spec { position: relative; display: block; width: 280px; height: 260px; overflow: hidden; border-radius: 20px; background: var(--surface-tint, #e4f3f2); color: var(--ink, #14201f); text-decoration: none; box-shadow: var(--shadow-sm, 0 1px 2px rgba(20,32,31,.06)); transition: box-shadow 240ms ease; } .ds-spec-photo { position: absolute; inset: 0; background: linear-gradient(160deg, #c1e4e2, #9bd9dd 55%, #38918b); transition: transform 600ms ease; } .ds-spec:hover { box-shadow: var(--shadow-md, 0 12px 32px -12px rgba(20,32,31,.18)); } .ds-spec:hover .ds-spec-photo { transform: scale(1.03); } .ds-spec-label { position: absolute; left: 12px; right: 12px; bottom: 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 14px; border-radius: 12px; background: rgba(255,255,255,.94); } .ds-spec-label b { display: block; font: 600 17px/21px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); } .ds-spec-label small { display: block; font: 500 14px/17px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); color: var(--ink-muted, #3d4f4b); } .ds-spec-label svg { color: var(--brand-strong, #1d4f4b); flex: none; transition: transform 160ms; } .ds-spec:hover .ds-spec-label svg { transform: translateX(3px); } .ds-spec:focus-visible { outline: 2px solid var(--focus-ring, #1d4f4b); outline-offset: 3px; }"
+    },
+    {
+      "name": "Retrato en arco",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Retrato del equipo en arco sobre Turquesa Up, con nombre y especialidades.",
+      "html": "<a class=\"ds-cutout\" href=\"#\"><span class=\"ds-cutout-photo\"></span><b>Dra. Cristina Umérez García</b><small>Odontología general · Odontopediatría</small></a>",
+      "css": ".ds-cutout { display: flex; flex-direction: column; gap: 8px; width: 220px; color: var(--ink, #14201f); text-decoration: none; } .ds-cutout-photo { display: block; aspect-ratio: 3 / 4; border-radius: 999px 999px 20px 20px; background: var(--aqua, #c1e4e2); } .ds-cutout b { font: 600 19px/26px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); transition: color 160ms; } .ds-cutout:hover b { color: var(--brand-strong, #1d4f4b); } .ds-cutout small { font: 500 14px/19px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); color: var(--ink-muted, #3d4f4b); } .ds-cutout:focus-visible { outline: 2px solid var(--focus-ring, #1d4f4b); outline-offset: 3px; border-radius: 20px; }"
+    },
+    {
+      "name": "Titular con cursiva",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Titular serif que abre la sección, con una palabra en cursiva verde pino y la entradilla debajo; sin antetítulo.",
+      "html": "<div class=\"ds-sh\"><h2 class=\"ds-h2\">Todo tu tratamiento, en la <em>misma</em> clínica</h2><p class=\"ds-lead\">De la revisión de los peques a los implantes o la ortodoncia invisible, con especialistas que trabajan juntos.</p></div>",
+      "css": ".ds-sh { display: flex; flex-direction: column; gap: 12px; } .ds-h2 { margin: 0; font: 400 36px/1.17 var(--font-display, \"Playfair Display Variable\", Georgia, serif); letter-spacing: -.01em; color: var(--ink, #14201f); } .ds-h2 em { font-style: italic; color: var(--brand-strong, #1d4f4b); } .ds-lead { margin: 0; max-width: 34em; font: 400 19px/30px var(--font-sans, \"Figtree Variable\", system-ui, sans-serif); color: var(--ink-muted, #3d4f4b); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "La puerta abierta del barrio",
+    "overview": "La web es la entrada a una clínica a la que se llega andando. Los arcos que coronan la foto principal, los retratos del equipo y el collage de la zona infantil son puertas que invitan a pasar; el turquesa pastel de la marca baña la primera banda como la luz de un local a pie de calle, y una banda de madera clara recuerda la recepción. Todo es luminoso, cercano y sereno: mucho aire, fotos reales de la clínica y de su gente, y nada que intimide a quien llega con un niño de la mano o con miedo al dentista.\n\nLa tipografía mezcla una serif de revista (Playfair Display) con una sans redonda y amable (Figtree). Cada titular guarda una sola palabra en cursiva verde pino, como un subrayado hablado: «Clínica dental *familiar*», «en la *misma* clínica». Los controles son suaves y acogedores: botones en píldora, esquinas generosas, nada anguloso. La web solo tiene tema claro (`color-scheme: light`).",
+    "keyCharacteristics": [
+      "Arcos (medio punto arriba, esquinas de 20 px abajo) como marco de las fotos de personas y espacios.",
+      "Banda de firma en Turquesa Up al principio de la portada; bandas de arena y de tinta nocturna para ritmo.",
+      "Una palabra en cursiva verde pino por titular, nunca más.",
+      "Botones en píldora; el principal, en tinta, no en turquesa.",
+      "Fotos reales siempre; nada de ilustraciones genéricas ni imágenes de banco."
+    ],
+    "rules": [
+      {
+        "name": "The Turquesa-Is-Light Rule",
+        "body": "Turquesa Up y Turquesa de acento son luz, no texto: sobre fondo claro, el texto de acento siempre va en Pino profundo. Turquesa de acento como texto solo sobre Tinta nocturna.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ink Button Rule",
+        "body": "El botón principal es de tinta (`tinta-texto`) con texto blanco, como en la web oficial. El turquesa no se usa como fondo de botón sobre superficies claras.",
+        "section": "colors"
+      },
+      {
+        "name": "The Token-Only Rule",
+        "body": "Todo color sale de `src/styles/tokens.css` vía `var(--…)` o de las clases de Tailwind que apuntan a esos tokens. Nada de hex sueltos en componentes nuevos.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Italic Word Rule",
+        "body": "Cada titular en serif lleva como mucho una palabra en cursiva (`<em>`), en Pino profundo (Turquesa de acento sobre noche). Es el acento de la marca; repetirla lo apaga.",
+        "section": "typography"
+      },
+      {
+        "name": "The Rem Rule",
+        "body": "Tamaños de letra y alturas de línea en rem, nunca en px: así la web respeta el tamaño de letra que cada persona elige en su navegador.",
+        "section": "typography"
+      },
+      {
+        "name": "The Heading Speaks Rule",
+        "body": "Sin antetítulos: el titular en serif abre la sección y se explica solo, con su palabra en cursiva. Si hace falta contexto, va en la entradilla (Lead), a la derecha en escritorio (cabecera partida 1,1fr / 1fr desde 900 px). Una etiqueta en Label solo encabeza una tarjeta o un dato, o indica una posición («Parada 1 de 6»).",
+        "section": "typography"
+      },
+      {
+        "name": "The Breathing Room Rule",
+        "body": "Ante la duda, más aire: una sección nunca encaja más de un mensaje principal, y entre bloques se usan los pasos de 48, 64 o 96 px, no valores intermedios.",
+        "section": "layout"
+      },
+      {
+        "name": "The Soft Lift Rule",
+        "body": "Las sombras son siempre difusas y teñidas de tinta, nunca negras ni duras. Un elemento sube como mucho un nivel al interactuar, y solo si es clicable: una tarjeta informativa no se mueve al pasar el ratón.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Arch Is For People Rule",
+        "body": "El arco enmarca personas y lugares de la clínica; no se usa en botones, tarjetas de texto ni iconos.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "**Do** enmarcar las fotos de personas y espacios en el arco (`999px 999px 20px 20px`) sobre fondo Turquesa Up o Bruma turquesa.",
+      "**Do** abrir cada sección directamente con el titular en serif, con una sola palabra en cursiva; el contexto, en la entradilla.",
+      "**Do** usar el botón principal en tinta y el WhatsApp como acción más visible de cada llamada a la acción.",
+      "**Do** usar fotos reales de la clínica, el equipo y los pacientes con permiso.",
+      "**Do** mantener el foco visible: 2 px sólido en Pino profundo (Turquesa de acento sobre noche).",
+      "**Do** respetar `prefers-reduced-motion`: sin escalados ni desplazamientos suaves cuando se pide menos movimiento."
+    ],
+    "donts": [
+      "**Don't** poner un antetítulo en mayúsculas encima de un titular: repite lo que el titular ya dice y aplana el ritmo de la página.",
+      "**Don't** poner texto en Turquesa Up ni en Turquesa de acento sobre fondos claros.",
+      "**Don't** usar esquinas vivas ni radios fuera de 6, 12, 20 px y píldora.",
+      "**Don't** usar más de una palabra en cursiva por titular.",
+      "**Don't** usar sombras negras, duras o de varios niveles; como mucho, reposo y elevada.",
+      "**Don't** dar por hecho un tema oscuro: la web es solo clara.",
+      "**Don't** escribir colores en hex dentro de componentes; siempre tokens."
+    ]
+  }
+}

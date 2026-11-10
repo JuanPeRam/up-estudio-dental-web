@@ -56,7 +56,14 @@ const contact = {
     mapsUrl: `https://www.google.com/maps/search/?api=1&query=Up+Estudio+Dental&query_place_id=${clinic.googlePlaceId}`,
     googleReviewsUrl: `https://search.google.com/local/reviews?placeid=${clinic.googlePlaceId}`,
     writeReviewUrl: `https://search.google.com/local/writereview?placeid=${clinic.googlePlaceId}`,
-    hours: openingHours.map((h) => ({ days: h.label, time: `${h.opens}–${h.closes}` })),
+    /** Horario agrupado por días: una franja sin etiqueta se suma a la anterior (mañana y tarde). */
+    hours: openingHours.reduce<{ days: string; times: string[] }[]>((groups, h) => {
+        const time = `${h.opens}–${h.closes}`;
+        const last = groups.at(-1);
+        if (!h.label && last) last.times.push(time);
+        else groups.push({ days: h.label, times: [time] });
+        return groups;
+    }, []),
 }
 
 /** Enlace de WhatsApp con un mensaje prerredactado opcional */

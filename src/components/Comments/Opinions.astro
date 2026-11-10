@@ -10,7 +10,7 @@ const { limit = 3 } = Astro.props;
 
 <section class="up-section" id="opiniones">
   <div class="up-wrap flex flex-col items-center gap-12">
-    <SectionHeader align="center" eyebrow="Opiniones" title="Lo que dicen nuestros pacientes en Google" />
+    <SectionHeader align="center" title="Lo que dicen nuestros pacientes en Google" />
     <div class="flex w-full flex-col items-center gap-10">
       <GoogleReviews server:defer limit={limit}>
         <div slot="fallback" class="up-grid-3 w-full" aria-hidden="true">
@@ -44,6 +44,6 @@ const { limit = 3 } = Astro.props;
     full.hidden = !open;
     short.hidden = open;
     button.querySelector("span")!.textContent = open ? "Ver menos" : "Ver más";
-    if (!open) card?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    if (!open) card?.scrollIntoView({ block: "nearest", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
   });
 </script>

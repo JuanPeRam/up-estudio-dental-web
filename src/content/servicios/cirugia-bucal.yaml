@@ -18,13 +18,17 @@ datos:
 tarjetas:
   titulo: Qué tratamos
   items:
-  - titulo: Muelas del juicio
+  - icono: tooth
+    titulo: Muelas del juicio
     texto: Cuando no tienen sitio, salen torcidas o se quedan dentro del hueso y causan dolor o infecciones.
-  - titulo: Extracciones complejas
+  - icono: bandage
+    titulo: Extracciones complejas
     texto: Dientes muy dañados, con raíces curvas o que se han roto por debajo de la encía.
-  - titulo: Dientes incluidos
+  - icono: scan-search
+    titulo: Dientes incluidos
     texto: Dientes que no han llegado a salir, como algunos colmillos.
-  - titulo: Implantes
+  - icono: plus
+    titulo: Implantes
     texto: Colocación de implantes para reponer dientes perdidos.
 pasos:
   titulo: Antes y después de la intervención
@@ -44,7 +48,6 @@ preguntas:
     respuesta: Depende de la intervención. Lo habitual es notar molestias o inflamación unos días, que se controlan siguiendo las indicaciones que te damos.
 avisoCancelacion: false
 cierre:
-  antetitulo: Primera visita
   titulo: Te explicamos tu caso sin compromiso
   texto: Pide cita y valoramos si necesitas cirugía, con el presupuesto por escrito.
   mensajeWhatsapp: una consulta de cirugía bucal

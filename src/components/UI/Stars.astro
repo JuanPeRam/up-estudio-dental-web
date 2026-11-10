@@ -2,9 +2,11 @@
 import { Icon } from "astro-icon/components";
 interface Props { rating?: number }
 const { rating = 5 } = Astro.props;
+// Siempre 5 estrellas: las que no se llenan van atenuadas, así un 4 no parece un 4 sobre 4.
 const full = Math.round(rating);
+const label = rating.toLocaleString("es-ES", { maximumFractionDigits: 1 });
 ---
 
-<span class="up-stars" role="img" aria-label={`${rating} de 5 estrellas`}>
-  {Array.from({ length: full }).map(() => <Icon name="star" class="up-icon" />)}
+<span class="up-stars" role="img" aria-label={`${label} de 5 estrellas`}>
+  {Array.from({ length: 5 }, (_, i) => <Icon name="star" class:list={["up-icon", i >= full && "is-off"]} />)}
 </span>

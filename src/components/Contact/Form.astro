@@ -2,46 +2,11 @@
 import { Icon } from "astro-icon/components";
 import Notice from "@/components/UI/Notice.astro";
 import { contact } from "@/constants/personal";
-import { sendContactEmail } from "@/lib/contactEmail";
+import { subjects, type ContactFormState } from "@/lib/contactForm";
 
-const subjects = ["Pedir cita", "Revisión gratuita", "Limpieza bucal", "Blanqueamiento dental", "Otra consulta"];
-
-// "invalid": faltan datos o están mal; "failed": los datos están bien pero el correo no salió.
-let status: "idle" | "sent" | "invalid" | "failed" = "idle";
-// Lo que escribió la persona, para no perderlo si hay que mostrar el formulario otra vez.
-let values: Record<string, string> = {};
-
-if (Astro.request.method === "POST") {
-    try {
-        const data = await Astro.request.formData();
-        const get = (key: string, max: number) => (data.get(key)?.toString() ?? "").trim().slice(0, max);
-        values = { name: get("name", 120), email: get("email", 200), phone: get("phone", 40), subject: get("subject", 60), message: get("message", 5000) };
-
-        // Campo trampa: invisible para personas, los bots lo rellenan. Se finge éxito sin enviar.
-        if (get("website", 200)) {
-            status = "sent";
-        } else if (!values.name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email) || !values.message || !data.get("privacy")) {
-            status = "invalid";
-        } else {
-            const result = await sendContactEmail({
-                name: values.name,
-                email: values.email,
-                phone: values.phone || undefined,
-                subject: subjects.includes(values.subject) ? values.subject : undefined,
-                message: values.message,
-            });
-            if (result.ok) {
-                status = "sent";
-            } else {
-                console.error(`Formulario de contacto: ${result.error}`);
-                status = "failed";
-            }
-        }
-    } catch (error) {
-        console.error("Formulario de contacto:", error);
-        status = "invalid";
-    }
-}
+// El envío se procesa en la página (src/pages/contacto.astro), que es la única que puede redirigir.
+interface Props { state?: ContactFormState }
+const { status, values } = Astro.props.state ?? { status: "idle", values: {} };
 const fields = [
     { id: "name", label: "Nombre", type: "text", autocomplete: "name", placeholder: "Tu nombre y apellido", required: true, error: "Escribe tu nombre para saber cómo dirigirnos a ti." },
     { id: "email", label: "Correo electrónico", type: "email", autocomplete: "email", placeholder: "tu@correo.com", required: true, error: "Revisa el correo: debe tener la forma nombre@dominio.com." },
@@ -52,21 +17,24 @@ const fields = [
 {
     status === "sent" ? (
         <div class="up-form" id="contact-form">
-            <Notice tone="success"><b>Mensaje enviado.</b> Te respondemos en horario de clínica, normalmente el mismo día.</Notice>
+            <Notice tone="success" tabindex="-1" data-autofocus><b>Mensaje enviado.</b> Te respondemos en horario de clínica, normalmente el mismo día.</Notice>
             <p class="up-small">Si es urgente, llámanos al <a class="up-link" href={contact.landline.href}>{contact.landline.display}</a>.</p>
         </div>
     ) : (
-        <form method="POST" class="up-form" id="contact-form" novalidate>
+        <form method="POST" action="/contacto#contact-form" class="up-form" id="contact-form" novalidate>
             <div class="flex flex-col gap-1">
                 <h2 class="up-h3">Escríbenos</h2>
                 <p class="up-small">Te contestamos en horario de clínica, normalmente el mismo día.</p>
             </div>
 
             {status === "invalid" && (
-                <Notice tone="danger"><b>No hemos podido enviar el mensaje.</b> Revisa el nombre, el correo, el mensaje y la casilla de privacidad, o llámanos al {contact.landline.display}.</Notice>
+                <Notice tone="danger" role="alert" tabindex="-1" data-autofocus><b>No hemos podido enviar el mensaje.</b> Revisa el nombre, el correo, el mensaje y la casilla de privacidad, o llámanos al {contact.landline.display}.</Notice>
+            )}
+            {status === "limited" && (
+                <Notice tone="danger" role="alert" tabindex="-1" data-autofocus><b>Has enviado varios mensajes seguidos.</b> Espera unos minutos antes de volver a intentarlo, o llámanos al {contact.landline.display}.</Notice>
             )}
             {status === "failed" && (
-                <Notice tone="danger"><b>No hemos podido enviar el mensaje por un problema técnico.</b> Inténtalo de nuevo en unos minutos, escríbenos a <a class="up-link" href={`mailto:${contact.email}`}>{contact.email}</a> o llámanos al {contact.landline.display}.</Notice>
+                <Notice tone="danger" role="alert" tabindex="-1" data-autofocus><b>No hemos podido enviar el mensaje por un problema técnico.</b> Inténtalo de nuevo en unos minutos, escríbenos a <a class="up-link" href={`mailto:${contact.email}`}>{contact.email}</a> o llámanos al {contact.landline.display}.</Notice>
             )}
 
             <div class="up-hp" aria-hidden="true">
@@ -78,7 +46,7 @@ const fields = [
                 {fields.map((f) => (
                     <div class="up-field">
                         <label for={`f-${f.id}`}>{f.label} {"optional" in f && <span>(opcional)</span>}</label>
-                        <input class="up-input" id={`f-${f.id}`} name={f.id} type={f.type} autocomplete={f.autocomplete} placeholder={f.placeholder} required={f.required} value={values[f.id]} aria-describedby={f.error ? `f-${f.id}-e` : undefined} inputmode={f.type === "tel" ? "tel" : undefined} />
+                        <input class="up-input" id={`f-${f.id}`} name={f.id} type={f.type} autocomplete={f.autocomplete} placeholder={f.placeholder} required={f.required} value={values[f.id]} inputmode={f.type === "tel" ? "tel" : undefined} />
                         {f.error && <span class="up-error" id={`f-${f.id}-e`} hidden><Icon name="alert" class="up-icon" />{f.error}</span>}
                     </div>
                 ))}
@@ -92,13 +60,13 @@ const fields = [
 
             <div class="up-field">
                 <label for="f-message">Mensaje</label>
-                <textarea class="up-input" id="f-message" name="message" required placeholder="Cuéntanos qué necesitas y qué horario te viene mejor." aria-describedby="f-message-e">{values.message}</textarea>
+                <textarea class="up-input" id="f-message" name="message" required placeholder="Cuéntanos qué necesitas y qué horario te viene mejor.">{values.message}</textarea>
                 <span class="up-error" id="f-message-e" hidden><Icon name="alert" class="up-icon" />Cuéntanos en pocas palabras qué necesitas.</span>
             </div>
 
             <div class="up-field">
                 <label class="up-check" for="f-privacy">
-                    <input type="checkbox" id="f-privacy" name="privacy" required aria-describedby="f-privacy-e" />
+                    <input type="checkbox" id="f-privacy" name="privacy" required checked={values.privacy === "on"} />
                     <span>He leído y acepto la <a class="up-link" href="/politica-privacidad">política de privacidad</a></span>
                 </label>
                 <span class="up-error" id="f-privacy-e" hidden><Icon name="alert" class="up-icon" />Necesitamos tu consentimiento para responderte.</span>
@@ -110,6 +78,16 @@ const fields = [
 }
 
 <script>
+    // Tras enviar, la página vuelve con un aviso (enviado o error) y se le da el foco para que se vea
+    // y el lector de pantalla lo lea. Se espera a que cargue: el salto a #contact-form que hace el
+    // navegador al llegar le quitaría el foco si se le diera antes.
+    const notice = document.querySelector<HTMLElement>("#contact-form [data-autofocus]");
+    if (notice) {
+        const focusNotice = () => requestAnimationFrame(() => notice.focus());
+        if (document.readyState === "complete") focusNotice();
+        else window.addEventListener("load", focusNotice, { once: true });
+    }
+
     function initForm() {
         const form = document.querySelector<HTMLFormElement>("form#contact-form");
         if (!form || form.dataset.bound) return;
@@ -120,7 +98,13 @@ const fields = [
             const ok = el.checkValidity();
             el.setAttribute("aria-invalid", ok ? "false" : "true");
             const err = document.getElementById(`${el.id}-e`);
-            if (err) err.hidden = ok;
+            if (err) {
+                err.hidden = ok;
+                // El mensaje solo se asocia al campo mientras se ve: un aria-describedby que apunta a un
+                // elemento oculto se lee igual con el lector de pantalla.
+                if (ok) el.removeAttribute("aria-describedby");
+                else el.setAttribute("aria-describedby", err.id);
+            }
             return ok;
         };
         controls.forEach((el) => {

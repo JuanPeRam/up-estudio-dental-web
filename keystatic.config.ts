@@ -1,4 +1,5 @@
 import { config, collection, fields } from "@keystatic/core";
+import { iconosTarjeta, iconoTarjetaPorDefecto } from "./src/constants/iconosTarjeta";
 
 /**
  * Panel de administración (Keystatic) para que la clínica edite servicios, especialidades y equipo.
@@ -122,7 +123,11 @@ export default config({
           {
             titulo: fields.text({ label: "Título del bloque", description: "Ejemplo: Señales de que ya te toca" }),
             items: fields.array(
-              fields.object({ titulo: fields.text({ label: "Título" }), texto: fields.text({ label: "Texto", multiline: true }) }),
+              fields.object({
+                icono: fields.select({ label: "Icono", options: [...iconosTarjeta], defaultValue: iconoTarjetaPorDefecto }),
+                titulo: fields.text({ label: "Título" }),
+                texto: fields.text({ label: "Texto", multiline: true }),
+              }),
               { label: "Tarjetas", itemLabel: (p) => p.fields.titulo.value },
             ),
           },
@@ -130,7 +135,6 @@ export default config({
         ),
         beneficios: fields.object(
           {
-            antetitulo: fields.text({ label: "Antetítulo", description: "Ejemplo: Después de la limpieza" }),
             titulo: fields.text({ label: "Título" }),
             texto: fields.text({ label: "Texto", multiline: true }),
             items: fields.array(fields.text({ label: "Beneficio" }), { label: "Lista de beneficios", itemLabel: (p) => p.value }),
@@ -160,7 +164,6 @@ export default config({
         avisoCancelacion: fields.checkbox({ label: "Mostrar la política de cancelación", defaultValue: false }),
         cierre: fields.object(
           {
-            antetitulo: fields.text({ label: "Antetítulo", defaultValue: "Pide tu cita" }),
             titulo: fields.text({ label: "Título", validation: { isRequired: true } }),
             texto: fields.text({ label: "Texto", multiline: true }),
             mensajeWhatsapp: fields.text({

@@ -15,7 +15,8 @@ const stops = await Promise.all(
       stop.photos.map(async (photo) => ({
         ...photo,
         index: index++,
-        large: (await getImage({ src: photo.src, width: 1600 })).src,
+        // Hasta 1600 px, sin pedir más ancho del que tiene la foto original (algunas son de 680 px).
+        large: (await getImage({ src: photo.src, width: Math.min(1600, photo.src.width) })).src,
       })),
     ),
   })),
@@ -98,7 +99,7 @@ const tourSizes = (count: number, index: number) => {
                   alt={p.alt}
                   widths={[400, 800, 1200, 1600]}
                   sizes={tourSizes(s.photos.length, j)}
-                  quality={85}
+                  quality={80}
                 />
               </button>
             ))}
@@ -109,7 +110,7 @@ const tourSizes = (count: number, index: number) => {
   }
 </div>
 
-<div class="up-lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visor de fotos de la clínica" hidden>
+<div class="up-lightbox up-on-night" id="lightbox" role="dialog" aria-modal="true" aria-label="Visor de fotos de la clínica" hidden>
   <button class="up-lightbox-btn right-4 top-4 md:right-6 md:top-6" type="button" id="lightbox-close" aria-label="Cerrar visor"><Icon name="close" class="up-icon" /></button>
   <button class="up-lightbox-btn left-2 top-1/2 -translate-y-1/2 md:left-6" type="button" id="lightbox-prev" aria-label="Foto anterior"><Icon name="chevron-left" class="up-icon" /></button>
   <img id="lightbox-image" alt="" />
@@ -118,6 +119,8 @@ const tourSizes = (count: number, index: number) => {
 </div>
 
 <script>
+  import { isolate } from "@/lib/modal";
+
   function initTour() {
     const root = document.getElementById("tour");
     const box = document.getElementById("lightbox");
@@ -133,7 +136,7 @@ const tourSizes = (count: number, index: number) => {
         else a.removeAttribute("aria-current");
         // Centra el chip moviendo solo la barra del índice: scrollIntoView cortaría el scroll de la página.
         const bar = a.closest("ol");
-        if (on && bar) bar.scrollTo({ left: a.offsetLeft - (bar.clientWidth - a.offsetWidth) / 2, behavior: "smooth" });
+        if (on && bar) bar.scrollTo({ left: a.offsetLeft - (bar.clientWidth - a.offsetWidth) / 2, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
       });
     };
     const observer = new IntersectionObserver(
@@ -150,6 +153,7 @@ const tourSizes = (count: number, index: number) => {
     const counter = document.getElementById("lightbox-counter")!;
     let current = 0;
     let opener: HTMLElement | null = null;
+    let release = () => {};
 
     const show = (i: number) => {
       current = (i + buttons.length) % buttons.length;
@@ -170,9 +174,12 @@ const tourSizes = (count: number, index: number) => {
       box.hidden = false;
       document.body.style.overflow = "hidden";
       document.addEventListener("keydown", onKey);
+      release = isolate(box);
       document.getElementById("lightbox-close")?.focus();
     };
     const close = () => {
+      release();
+      release = () => {};
       box.hidden = true;
       document.body.style.overflow = "";
       document.removeEventListener("keydown", onKey);

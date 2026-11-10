@@ -2,17 +2,17 @@
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import Button from "@/components/UI/Button.astro";
+import GoogleRatingBadge from "./GoogleRatingBadge.astro";
 import peluche from "@/img/up/peluche-diente.webp";
-import { emergencies } from "@/constants/personal";
+import { emergencies, whatsappLink } from "@/constants/personal";
 ---
 
 <section class="up-band-aqua">
   <div class="up-wrap up-hero2">
     <div class="flex flex-col gap-6">
-      <p class="up-eyebrow">Móstoles · Desde 2022</p>
       <h1 class="up-display">Clínica dental <em>familiar</em> en Móstoles</h1>
       <p class="up-lead">
-        Cuidamos de tu sonrisa y de la de tus hijos con un trato cercano: odontología general, odontopediatría y ortodoncia en un espacio
+        Desde 2022 cuidamos de tu sonrisa y de la de tus hijos con un trato cercano: odontología general, odontopediatría y ortodoncia en un espacio
         pensado para toda la familia.
       </p>
       <ul class="up-perks">
@@ -21,18 +21,15 @@ import { emergencies } from "@/constants/personal";
         <li><Icon name="smile" class="up-icon" />Zona de juegos infantil</li>
       </ul>
       <div class="flex flex-wrap gap-3 pt-2">
-        <Button href="/contacto" icon="calendar">Pedir cita</Button>
+        <Button href={whatsappLink("Hola, me gustaría pedir cita.")} icon="whatsapp" external aria-label="Pedir cita por WhatsApp (se abre en otra pestaña)">Pedir cita por WhatsApp</Button>
         <Button href="/tratamientos" variant="secondary">Ver tratamientos</Button>
       </div>
     </div>
     <div class="up-hero2-media">
       <div class="up-arch">
-        <Image src={peluche} alt="Miembro del equipo de Up Estudio Dental sonriendo con un peluche de diente" widths={[480, 760, 1040, 1300]} sizes="(min-width: 900px) 520px, 90vw" quality={90} loading="eager" fetchpriority="high" />
+        <Image src={peluche} alt="Miembro del equipo de Up Estudio Dental sonriendo con un peluche de diente" widths={[480, 760, 1040, 1300]} sizes="(min-width: 900px) 520px, 90vw" quality={80} loading="eager" fetchpriority="high" />
       </div>
-      <div class="up-hero2-card" aria-label="Valoración en Google: 5,0">
-        <Icon name="google" class="up-g" />
-        <div class="flex flex-col"><b>5,0</b><span>en Google</span></div>
-      </div>
+      <GoogleRatingBadge server:defer />
     </div>
   </div>
 </section>

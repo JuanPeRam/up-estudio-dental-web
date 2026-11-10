@@ -19,6 +19,12 @@
   --ink-muted: #3d4f4d;        /* 6,4:1 sobre aqua, 7,6:1 sobre aqua suave */
   --brand: #70cac5;            /* turquesa de acento de la web oficial; sobre night */
   --brand-strong: #1d4f4b;     /* enlaces y antetítulos: 6,8:1 sobre aqua */
+  --brand-mid: #38918b;        /* números grandes de acento: 3,6:1 sobre papel, 3,2:1 sobre arena */
+  --brand-hover: #8fd3ce;      /* hover del botón turquesa sobre noche */
+  --brand-line: color-mix(in srgb, var(--brand-hover) 35%, transparent); /* bordes finos turquesa sobre noche */
+  --on-brand: #0e1413;         /* texto sobre turquesa de acento (botón de noche, selección) */
+  --night-raised: #1b2423;     /* reserva de fotos sobre noche */
+  --on-night-strong: #f2f5f4;  /* titulares y texto activo sobre noche */
   --action: #14201f;           /* botón principal en tinta, como la web oficial */
   --action-hover: #24645f;
   --on-action: #ffffff;
@@ -42,7 +48,7 @@
   --space-16: 64px;
   --space-24: 96px;
   --container: 1200px;
-  --measure: 68ch;
+  --measure: 34em;           /* ~74 caracteres por línea en Figtree (el «0» del ch es más ancho que la letra media) */
 
   --radius-sm: 6px;
   --radius-md: 12px;

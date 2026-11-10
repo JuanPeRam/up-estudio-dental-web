@@ -18,13 +18,17 @@ datos:
 tarjetas:
   titulo: Señales de alerta en las encías
   items:
-  - titulo: Sangran al cepillarte
+  - icono: droplet
+    titulo: Sangran al cepillarte
     texto: Es la señal más frecuente de gingivitis. Una encía sana no sangra.
-  - titulo: Están rojas o hinchadas
+  - icono: flame
+    titulo: Están rojas o hinchadas
     texto: La inflamación indica que la placa está irritando la encía.
-  - titulo: Los dientes parecen más largos
+  - icono: move-vertical
+    titulo: Los dientes parecen más largos
     texto: Cuando la encía se retrae, deja al descubierto parte de la raíz.
-  - titulo: Dientes que se mueven
+  - icono: move-horizontal
+    titulo: Dientes que se mueven
     texto: Puede indicar que se está perdiendo el hueso que los sujeta. Conviene consultarlo cuanto antes.
 pasos:
   titulo: Cómo tratamos las encías
@@ -46,7 +50,6 @@ preguntas:
     respuesta: Casi siempre por la placa acumulada en el borde de la encía. Si el sangrado no desaparece con un buen cepillado, ven a revisarlo.
 avisoCancelacion: false
 cierre:
-  antetitulo: Primera visita
   titulo: Revisa tus encías
   texto: En la revisión gratuita comprobamos el estado de tus encías y te decimos si necesitas tratamiento.
   mensajeWhatsapp: una revisión de encías
