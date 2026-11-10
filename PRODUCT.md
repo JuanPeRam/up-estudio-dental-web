@@ -32,6 +32,8 @@ Una sola clínica de barrio donde toda la familia se trata con el mismo equipo d
 
 ## Capabilities and Constraints
 
+- **Fuente de la información:** los datos de la clínica (servicios, duraciones, horarios, teléfonos, dirección, datos legales, equipo y sus títulos) se toman de la web oficial actual, `https://www.upestudiodental.es` (Wix). El diseño, la estructura y los textos de interfaz son los de esta web y no se copian de la oficial. Excepciones decididas por el usuario (noviembre de 2026): el correo es `info@upestudiodental.com` (la oficial usa `upestudiodental@gmail.com`), la cita se pide por WhatsApp (la oficial usa «Reservar ahora» con el calendario de Wix), no se publican precios (la oficial muestra limpieza 50 € y blanqueamiento 500 €), no hay ficha de higienista dental, y se mantienen datos que la oficial no menciona (sesiones de endodoncia, efecto del blanqueamiento, primera visita infantil, frecuencias, escáner iTero y radiografía digital). Ante una diferencia nueva, consultar al usuario antes de decidir.
+
 - Tratamientos con ficha propia e indexable: revisiones dentales (sin coste), limpieza bucal, blanqueamiento Philips Zoom, implantes, ortodoncia e Invisalign, odontopediatría, endodoncia, periodoncia y cirugía bucal.
 - Tecnología en clínica: escáner intraoral iTero, radiografía digital propia, blanqueamiento Philips Zoom.
 - **Urgencias 24 h**: confirmado; se mantiene. Si dejara de ofrecerse, se apaga con `emergencies = null` en `src/constants/personal.ts`.
