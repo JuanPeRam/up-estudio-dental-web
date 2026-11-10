@@ -342,8 +342,11 @@
   .up-grid-3 { display: grid; gap: var(--space-6); grid-template-columns: minmax(0, 1fr); }
   @media (min-width: 640px) { .up-grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (min-width: 1000px) { .up-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-  .up-grid-team { display: grid; gap: var(--space-8) var(--space-4); grid-template-columns: repeat(2, 1fr); }
-  @media (min-width: 1000px) { .up-grid-team { grid-template-columns: repeat(3, 1fr); gap: var(--space-6); } }
+  /* Rejillas de personas: con flex la última fila incompleta queda centrada en vez de dejar un hueco
+     (el número de personas se edita en Keystatic). --cols columnas separadas por --gx. */
+  .up-grid-team, .up-grid-5 { display: flex; flex-wrap: wrap; justify-content: center; --cols: 2; --gx: var(--space-4); gap: var(--space-8) var(--gx); }
+  .up-grid-team > *, .up-grid-5 > * { flex: 0 0 calc((100% - (var(--cols) - 1) * var(--gx)) / var(--cols)); min-width: 0; }
+  @media (min-width: 1000px) { .up-grid-team { --cols: 3; --gx: var(--space-6); row-gap: var(--space-6); } }
   @media (max-width: 639px) { .up-grid-team .up-h4 { font-size: 17px; line-height: 23px; } }
   .up-grid-4 { display: grid; gap: var(--space-6); grid-template-columns: 1fr; }
   @media (min-width: 640px) { .up-grid-4 { grid-template-columns: repeat(2, 1fr); } }
@@ -634,6 +637,8 @@
   .up-footer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
   .up-footer a { color: var(--on-night); text-decoration: none; transition: color var(--duration-fast); }
   .up-footer a:hover { color: var(--brand); }
+  /* Enlaces dentro de una línea de texto («919 931 329 · fijo»): el color solo no basta para distinguirlos. */
+  .up-footer a.up-footer-inline { text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 45%, transparent); text-underline-offset: 4px; }
   .up-footer-logo { width: 64px; height: auto; margin-bottom: var(--space-4); }
   .up-social { display: flex; gap: var(--space-2); flex-direction: row !important; }
   .up-social a { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; border: 1px solid rgba(227, 227, 227, 0.22); transition: background-color var(--duration-fast), border-color var(--duration-fast), color var(--duration-fast); }
@@ -658,9 +663,12 @@
     border-top: 1px solid var(--line);
     box-shadow: var(--shadow-md);
     transform: translateY(110%);
-    transition: transform var(--duration-base) ease;
+    /* Escondida también para el teclado y el lector de pantalla; visibility cambia al final de la
+       salida para que se vea la animación. */
+    visibility: hidden;
+    transition: transform var(--duration-base) ease, visibility 0s linear var(--duration-base);
   }
-  .up-mbar.is-visible { transform: translateY(0); }
+  .up-mbar.is-visible { transform: translateY(0); visibility: visible; transition: transform var(--duration-base) ease, visibility 0s; }
   .up-mbar .up-btn { width: 100%; }
   @media (min-width: 768px) { .up-mbar { display: none; } }
   /* Hueco al final del pie para que la barra fija no tape el copyright ni los enlaces legales. */
@@ -684,6 +692,8 @@
   .up-hero2-media { position: relative; max-width: 520px; width: 100%; justify-self: center; }
   .up-hero2-media .up-arch { aspect-ratio: 4 / 5; }
   .up-hero2-card { position: absolute; left: calc(-1 * var(--space-8)); bottom: var(--space-12); display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4) var(--space-3) var(--space-3); background: var(--surface-raised); border-radius: var(--radius-pill); box-shadow: var(--shadow-md); }
+  a.up-hero2-card { text-decoration: none; transition: box-shadow var(--duration-fast); }
+  a.up-hero2-card:hover { box-shadow: var(--shadow-md), 0 0 0 2px var(--aqua-logo); }
   .up-hero2-card b { font: 400 26px/1 var(--font-display); color: var(--ink); }
   .up-hero2-card span { font-size: 14px; line-height: 17px; color: var(--ink-muted); }
   .up-hero2-card .up-g { width: 28px; height: 28px; }
@@ -709,6 +719,9 @@
     .up-spec-label .up-icon { display: none; }
   }
   @media (min-width: 900px) { .up-specs { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 260px; } .up-specs > .is-big { grid-column: span 2; grid-row: span 2; } }
+  /* La última tarjeta se ensancha hasta cerrar su fila (ServicesPreview calcula cuánto). */
+  @media (max-width: 899px) { .up-specs > .is-wide-m { grid-column: span 2; } }
+  @media (min-width: 900px) { .up-specs > .is-wide-d { grid-column: span var(--span-d); } }
   .up-spec { position: relative; display: block; overflow: hidden; border-radius: var(--radius-lg); background: var(--surface-tint); min-height: 220px; color: var(--ink); text-decoration: none; }
   .up-spec img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 600ms ease; }
   .up-spec:hover img { transform: scale(1.03); }
@@ -742,9 +755,8 @@
   .up-cutout:hover .up-cutout-photo img { transform: scale(1.03); }
   .up-cutout .up-h4 { transition: color var(--duration-fast); }
   .up-cutout:hover .up-h4 { color: var(--brand-strong); }
-  .up-grid-5 { display: grid; gap: var(--space-8) var(--space-4); grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  @media (min-width: 768px) { .up-grid-5 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-  @media (min-width: 1100px) { .up-grid-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-6); } }
+  @media (min-width: 768px) { .up-grid-5 { --cols: 3; } }
+  @media (min-width: 1100px) { .up-grid-5 { --cols: 5; --gx: var(--space-6); row-gap: var(--space-6); } }
 
   /* collage familia: una foto alta y dos apiladas */
   .up-collage { display: grid; gap: var(--space-4); grid-template-columns: 1.2fr 1fr; grid-template-rows: 1fr 1fr; min-height: 520px; }

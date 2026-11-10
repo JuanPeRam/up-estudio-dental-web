@@ -12,7 +12,7 @@
 - [x] Fix background-attachment: fixed fallback for iOS Safari (fixed backgrounds removed in the redesign).
 - [ ] Rewrite 'Nuestro Equipo' content (remove placeholder Lorem ipsum, add real bios and qualifications).
 - [x] Cache Google Reviews fetch server-side instead of calling the API live in 'Opiniones' section.
-- [x] Redesign every section with the new design system (tokens, Newsreader + Figtree, light/dark).
+- [x] Redesign every section with the new design system (tokens, Playfair Display + Figtree). Solo tema claro: el oscuro no se llegó a hacer.
 - [x] Send contact form submissions by email (Resend).
 - [x] Crear cuenta en Resend, verificar el dominio upestudiodental.es (DNS) y añadir RESEND_API_KEY en Vercel.
 - [ ] Enviar un mensaje de prueba desde la web y comprobar que llega a info@upestudiodental.com.

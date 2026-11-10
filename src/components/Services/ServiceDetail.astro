@@ -44,7 +44,7 @@ const SubSub = headingLevel === "h1" ? "h3" : "h4";
                 <div class:list={["grid gap-12 lg:gap-16", incluye.length ? "lg:grid-cols-[1.4fr_1fr]" : "lg:grid-cols-2"]}>
                     <div class="flex flex-col gap-8">
                         {d.pasos?.titulo && <Sub class="up-h3">{d.pasos.titulo}</Sub>}
-                        <ProcessSteps steps={pasos} />
+                        <ProcessSteps steps={pasos} level={headingLevel === "h1" ? 3 : 4} />
                     </div>
                     {incluye.length > 0 && (
                         <aside class="up-panel up-panel-sticky h-fit">

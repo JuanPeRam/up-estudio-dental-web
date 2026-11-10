@@ -46,7 +46,7 @@ const fields = [
                 {fields.map((f) => (
                     <div class="up-field">
                         <label for={`f-${f.id}`}>{f.label} {"optional" in f && <span>(opcional)</span>}</label>
-                        <input class="up-input" id={`f-${f.id}`} name={f.id} type={f.type} autocomplete={f.autocomplete} placeholder={f.placeholder} required={f.required} value={values[f.id]} aria-describedby={f.error ? `f-${f.id}-e` : undefined} inputmode={f.type === "tel" ? "tel" : undefined} />
+                        <input class="up-input" id={`f-${f.id}`} name={f.id} type={f.type} autocomplete={f.autocomplete} placeholder={f.placeholder} required={f.required} value={values[f.id]} inputmode={f.type === "tel" ? "tel" : undefined} />
                         {f.error && <span class="up-error" id={`f-${f.id}-e`} hidden><Icon name="alert" class="up-icon" />{f.error}</span>}
                     </div>
                 ))}
@@ -60,13 +60,13 @@ const fields = [
 
             <div class="up-field">
                 <label for="f-message">Mensaje</label>
-                <textarea class="up-input" id="f-message" name="message" required placeholder="Cuéntanos qué necesitas y qué horario te viene mejor." aria-describedby="f-message-e">{values.message}</textarea>
+                <textarea class="up-input" id="f-message" name="message" required placeholder="Cuéntanos qué necesitas y qué horario te viene mejor.">{values.message}</textarea>
                 <span class="up-error" id="f-message-e" hidden><Icon name="alert" class="up-icon" />Cuéntanos en pocas palabras qué necesitas.</span>
             </div>
 
             <div class="up-field">
                 <label class="up-check" for="f-privacy">
-                    <input type="checkbox" id="f-privacy" name="privacy" required checked={values.privacy === "on"} aria-describedby="f-privacy-e" />
+                    <input type="checkbox" id="f-privacy" name="privacy" required checked={values.privacy === "on"} />
                     <span>He leído y acepto la <a class="up-link" href="/politica-privacidad">política de privacidad</a></span>
                 </label>
                 <span class="up-error" id="f-privacy-e" hidden><Icon name="alert" class="up-icon" />Necesitamos tu consentimiento para responderte.</span>
@@ -98,7 +98,13 @@ const fields = [
             const ok = el.checkValidity();
             el.setAttribute("aria-invalid", ok ? "false" : "true");
             const err = document.getElementById(`${el.id}-e`);
-            if (err) err.hidden = ok;
+            if (err) {
+                err.hidden = ok;
+                // El mensaje solo se asocia al campo mientras se ve: un aria-describedby que apunta a un
+                // elemento oculto se lee igual con el lector de pantalla.
+                if (ok) el.removeAttribute("aria-describedby");
+                else el.setAttribute("aria-describedby", err.id);
+            }
             return ok;
         };
         controls.forEach((el) => {
