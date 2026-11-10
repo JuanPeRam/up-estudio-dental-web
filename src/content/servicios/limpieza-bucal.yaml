@@ -1,7 +1,7 @@
 titulo: Limpieza bucal
 orden: 2
 resumen: Ultrasonidos y pulido para eliminar el sarro y la placa.
-descripcionSeo: 'Limpieza bucal en Móstoles con ultrasonidos y pulido: eliminamos sarro y placa bajo la encía en 30-45 minutos, sin dolor. Pide tu cita en Up Estudio Dental.'
+descripcionSeo: 'Limpieza bucal en Móstoles con ultrasonidos y pulido: eliminamos sarro y placa bajo la encía en unos 30 minutos, sin dolor. Pide tu cita en Up Estudio Dental.'
 imagen: ../../assets/cms/servicios/limpieza-bucal/imagen.webp
 imagenAlt: Higienista realizando una limpieza a un paciente
 entradilla: Retiramos con ultrasonidos el sarro y la placa adheridos al diente y bajo la encía, justo donde el cepillo no llega. Después pulimos el esmalte para que la placa tarde más en volver. Es indoloro; si tienes los dientes sensibles, ajustamos la potencia y aplicamos un gel desensibilizante.
@@ -11,7 +11,7 @@ datos:
   valor: Según valoración
 - icono: clock
   etiqueta: Duración
-  valor: 30-45 min, una sesión
+  valor: 30 min, una sesión
 - icono: repeat
   etiqueta: Frecuencia
   valor: Al menos 1 vez al año
