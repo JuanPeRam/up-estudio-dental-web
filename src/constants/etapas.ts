@@ -5,11 +5,13 @@
  * confirmados (PRODUCT.md y docs/marca/investigacion-redes.md).
  */
 import type { ImageMetadata } from "astro";
-import zonaInfantil from "@/img/up/zona-infantil-nino.webp";
+// Fotos sacadas de Instagram y de las presentaciones de Canva de la clínica (noviembre de 2026),
+// distintas de las del resto de la portada para no repetir imágenes.
+import recepcion from "@/img/up/recepcion-logo.webp";
 import ninoSonrisa from "@/img/up/nino-sonrisa.webp";
-import escaner from "@/img/up/escaner-intraoral.webp";
-import philipsZoom from "@/img/up/philips-zoom.webp";
-import cirugia from "@/assets/cms/especialidades/cirugia-bucal/imagen.webp";
+import alineadores from "@/img/up/alineadores-invisalign.webp";
+import revision from "@/img/up/primera-revision.webp";
+import instrumental from "@/img/up/instrumental.webp";
 
 export type Etapa = {
   id: string;
@@ -22,6 +24,10 @@ export type Etapa = {
   servicios: string[];
   imagen: ImageMetadata;
   imagenAlt: string;
+  /** Foto vertical: en escritorio se muestra en 4:5 en lugar de 4:3. */
+  vertical?: boolean;
+  /** Punto de la foto que se conserva al recortarla (object-position). */
+  foco?: string;
   mensaje: string;
 };
 
@@ -34,8 +40,10 @@ export const etapas: Etapa[] = [
       "Os recomendamos venir cuando sale el primer diente o, como tarde, hacia el año. Son visitas cortas para que el peque conozca la consulta y vuelva tranquilo.",
     puntos: ["Zona de juegos en la sala de espera", "Los padres pueden entrar al gabinete", "Revisión cada 6 meses"],
     servicios: ["odontopediatria", "revisiones-dentales"],
-    imagen: zonaInfantil,
-    imagenAlt: "Un niño juega en el tipi de la zona infantil de la sala de espera",
+    imagen: recepcion,
+    imagenAlt: "Recepción de Up Estudio Dental, con el logotipo en la pared y una planta",
+    vertical: true,
+    foco: "50% 30%",
     mensaje: "la primera visita de mi peque",
   },
   {
@@ -58,8 +66,8 @@ export const etapas: Etapa[] = [
       "Brackets o alineadores transparentes Invisalign. Escaneamos la boca en 3D con el iTero en pocos minutos, sin moldes de pasta, y te enseñamos el plan en pantalla.",
     puntos: ["Escáner intraoral iTero", "Plan y presupuesto por escrito", "Seguimiento periódico"],
     servicios: ["ortodoncia-invisalign"],
-    imagen: escaner,
-    imagenAlt: "Una doctora revisa en la pantalla del escáner iTero el modelo 3D de una boca",
+    imagen: alineadores,
+    imagenAlt: "Una profesional de la clínica enseña unos alineadores transparentes Invisalign",
     mensaje: "la primera revisión gratuita (ortodoncia)",
   },
   {
@@ -70,8 +78,10 @@ export const etapas: Etapa[] = [
       "Las revisiones son gratuitas. Hacemos limpiezas, blanqueamiento Philips Zoom en una sesión de una hora, endodoncias diagnosticadas con radiografía digital y cuidamos tus encías con periodoncia.",
     puntos: ["Radiografía digital en la propia clínica", "Blanqueamiento en consulta, supervisado", "Dra. Nilyam: periodoncia"],
     servicios: ["revisiones-dentales", "limpieza-bucal", "blanqueamiento-dental", "endodoncia", "periodoncia"],
-    imagen: philipsZoom,
-    imagenAlt: "Sesión de blanqueamiento con la lámpara Philips Zoom",
+    imagen: revision,
+    imagenAlt: "Una doctora explora la boca de una paciente durante una revisión",
+    vertical: true,
+    foco: "50% 40%",
     mensaje: "una revisión para mí",
   },
   {
@@ -82,8 +92,8 @@ export const etapas: Etapa[] = [
       "El Dr. Rafael Sosa, cirujano bucal e implantólogo con más de 30 años de experiencia, coloca los implantes y se ocupa de las extracciones complejas y las muelas del juicio. La Dra. Isabel Sosa, con máster en Implantoprótesis, diseña la prótesis.",
     puntos: ["Estudio previo y presupuesto por escrito", "Muelas del juicio y extracciones complejas", "Prótesis sobre implantes"],
     servicios: ["implantes-dentales", "cirugia-bucal"],
-    imagen: cirugia,
-    imagenAlt: "Cirujano y asistente durante una intervención",
+    imagen: instrumental,
+    imagenAlt: "Instrumental rotatorio del gabinete, en primer plano",
     mensaje: "la primera revisión gratuita (implantes)",
   },
 ];

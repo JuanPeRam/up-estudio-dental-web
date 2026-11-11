@@ -51,8 +51,8 @@ const porSlug = new Map(servicios.map((s) => [s.id, s]));
                 Pedir cita para esta etapa<span class="sr-only"> por WhatsApp (se abre en otra pestaña)</span>
               </a>
             </div>
-            <figure class="up-etapa-foto">
-              <Image src={e.imagen} alt={e.imagenAlt} widths={[480, 720, 960, 1200]} sizes="(min-width: 60em) 36vw, 90vw" quality={76} />
+            <figure class:list={["up-etapa-foto", e.vertical && "is-vertical"]}>
+              <Image src={e.imagen} alt={e.imagenAlt} widths={[480, 720, 960]} sizes="(min-width: 60em) 36vw, 90vw" quality={78} style={e.foco ? `object-position: ${e.foco}` : undefined} />
             </figure>
           </li>
         );
