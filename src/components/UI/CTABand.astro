@@ -28,11 +28,11 @@ const message = service ? `Hola, me gustaría pedir cita para ${service}.` : "Ho
     <div class="flex flex-col gap-4">
       <div class="flex flex-wrap gap-3">
         <Button href={whatsappLink(message)} icon="whatsapp" external aria-label="Pedir cita por WhatsApp (se abre en otra pestaña)">Pedir cita por WhatsApp</Button>
-        <Button href="/contacto" variant="secondary">Formulario de contacto</Button>
+        <Button href="/contacto" variant="secondary">Escribir por el formulario</Button>
       </div>
       <div class="up-cta-phones">
-        <a href={contact.mobile.href}><Icon name="phone" class="up-icon" />{contact.mobile.display}<small>móvil</small></a>
-        <a href={contact.landline.href}><Icon name="landline" class="up-icon" />{contact.landline.display}<small>fijo</small></a>
+        <a href={contact.mobile.href} aria-label={`Llamar al móvil ${contact.mobile.display}`}><Icon name="phone" class="up-icon" />{contact.mobile.display}<small>móvil</small></a>
+        <a href={contact.landline.href} aria-label={`Llamar al fijo ${contact.landline.display}`}><Icon name="landline" class="up-icon" />{contact.landline.display}<small>fijo</small></a>
       </div>
     </div>
   </div>

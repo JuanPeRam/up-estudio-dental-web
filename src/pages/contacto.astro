@@ -42,7 +42,7 @@ Astro.response.headers.set("Cache-Control", "private, no-store");
     >
         <div class="flex flex-wrap gap-3">
             <Button href={whatsappLink("Hola, me gustaría pedir cita.")} icon="whatsapp" external aria-label="Pedir cita por WhatsApp (se abre en otra pestaña)">Pedir cita por WhatsApp</Button>
-            <Button href={contact.landline.href} variant="secondary" icon="phone">{contact.landline.display}</Button>
+            <Button href={contact.landline.href} variant="secondary" icon="phone" aria-label={`Llamar a la clínica: ${contact.landline.display}`}>{contact.landline.display}</Button>
         </div>
     </PageHeader>
 
