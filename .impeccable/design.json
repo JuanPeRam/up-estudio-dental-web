@@ -540,21 +540,21 @@
       "css": ".ds-cutout { display: flex; flex-direction: column; gap: 8px; width: 220px; color: var(--ink, #14201f); text-decoration: none; } .ds-cutout-photo { display: block; aspect-ratio: 3 / 4; border-radius: 20px; overflow: hidden; background: var(--aqua, #c1e4e2); } .ds-cutout b { font: 600 19px/26px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); transition: color 160ms; } .ds-cutout:hover b { color: var(--brand-strong, #1d4f4b); } .ds-cutout small { font: 500 14px/19px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); color: var(--ink-muted, #3d4f4d); } .ds-cutout:focus-visible { outline: 2px solid var(--focus-ring, #1d4f4b); outline-offset: 3px; border-radius: 20px; }"
     },
     {
-      "name": "Titular con cursiva",
+      "name": "Titular de sección",
       "kind": "custom",
       "refersTo": null,
-      "description": "Titular serif que abre la sección, con una palabra en cursiva verde pino y la entradilla debajo; sin antetítulo.",
-      "html": "<div class=\"ds-sh\"><h2 class=\"ds-h2\">Todo tu tratamiento, en la <em>misma</em> clínica</h2><p class=\"ds-lead\">De la revisión de los peques a los implantes o la ortodoncia invisible, con especialistas que trabajan juntos.</p></div>",
-      "css": ".ds-sh { display: flex; flex-direction: column; gap: 12px; } .ds-h2 { margin: 0; font: 400 36px/1.17 var(--font-display, \"Playfair Display Variable\", Georgia, serif); letter-spacing: -.01em; color: var(--ink, #14201f); } .ds-h2 em { font-style: italic; color: var(--brand-strong, #1d4f4b); } .ds-lead { margin: 0; max-width: 34em; font: 400 19px/30px var(--font-sans, \"Figtree Variable\", system-ui, sans-serif); color: var(--ink-muted, #3d4f4d); }"
+      "description": "Titular serif en redonda que abre la sección, con la entradilla debajo; sin antetítulo ni palabras resaltadas.",
+      "html": "<div class=\"ds-sh\"><h2 class=\"ds-h2\">Todo tu tratamiento, en la misma clínica</h2><p class=\"ds-lead\">De la revisión de los peques a los implantes o la ortodoncia invisible, con especialistas que trabajan juntos.</p></div>",
+      "css": ".ds-sh { display: flex; flex-direction: column; gap: 12px; } .ds-h2 { margin: 0; font: 400 36px/1.17 var(--font-display, \"Playfair Display Variable\", Georgia, serif); letter-spacing: -.01em; color: var(--ink, #14201f); } .ds-lead { margin: 0; max-width: 34em; font: 400 19px/30px var(--font-sans, \"Figtree Variable\", system-ui, sans-serif); color: var(--ink-muted, #3d4f4d); }"
     }
   ],
   "narrative": {
     "northStar": "La puerta abierta del barrio",
-    "overview": "La web es la entrada a una clínica a la que se llega andando. Las fotos reales de la clínica y de su equipo, enmarcadas con el mismo rectángulo suave, invitan a pasar; el turquesa pastel de la marca baña la primera banda como la luz de un local a pie de calle, y una banda de madera clara recuerda la recepción. Todo es luminoso, cercano y sereno: mucho aire, fotos reales de la clínica y de su gente, y nada que intimide a quien llega con un niño de la mano o con miedo al dentista.\n\nLa tipografía mezcla una serif de revista (Playfair Display) con una sans redonda y amable (Figtree). Cada titular guarda una sola palabra en cursiva verde pino, como un subrayado hablado: «Clínica dental *familiar*», «en la *misma* clínica». Los controles son suaves y acogedores: botones en píldora, esquinas generosas, nada anguloso. La web solo tiene tema claro (`color-scheme: light`).",
+    "overview": "La web es la entrada a una clínica a la que se llega andando. Las fotos reales de la clínica y de su equipo, enmarcadas con el mismo rectángulo suave, invitan a pasar; el turquesa pastel de la marca baña la primera banda como la luz de un local a pie de calle, y una banda de madera clara recuerda la recepción. Todo es luminoso, cercano y sereno: mucho aire, fotos reales de la clínica y de su gente, y nada que intimide a quien llega con un niño de la mano o con miedo al dentista.\n\nLa tipografía mezcla una serif de revista (Playfair Display) con una sans redonda y amable (Figtree). Los titulares van en redonda, en un solo color de tinta: el peso de la serif basta, sin palabras resaltadas. Los controles son suaves y acogedores: botones en píldora, esquinas generosas, nada anguloso. La web solo tiene tema claro (`color-scheme: light`).",
     "keyCharacteristics": [
       "Un solo marco de foto: rectángulo con esquinas de 20 px, el mismo en la foto principal, los retratos, las especialidades y el collage.",
       "Turquesa Up abre y cierra la portada (cabecera y banda final de cita); arena y tinta nocturna marcan el ritmo entre medias, y el pie es la única banda oscura del final.",
-      "Una palabra en cursiva verde pino por titular, nunca más.",
+      "Titulares en redonda y en tinta, sin cursivas ni palabras de acento.",
       "Botones en píldora; el principal, en tinta, no en turquesa.",
       "Fotos reales siempre; nada de ilustraciones genéricas ni imágenes de banco."
     ],
@@ -575,8 +575,8 @@
         "section": "colors"
       },
       {
-        "name": "The One Italic Word Rule",
-        "body": "Cada titular en serif lleva como mucho una palabra en cursiva (`<em>`), en Pino profundo (Turquesa de acento sobre noche). Es el acento de la marca; repetirla lo apaga.",
+        "name": "The No Italics Rule",
+        "body": "Sin cursivas en toda la web, ni en titulares ni en texto (decisión de noviembre de 2026). Los titulares no resaltan palabras: van enteros en Tinta de texto (Sobre noche fuerte en bandas oscuras). Por eso solo se carga la Playfair redonda.",
         "section": "typography"
       },
       {
@@ -586,7 +586,7 @@
       },
       {
         "name": "The Heading Speaks Rule",
-        "body": "Sin antetítulos: el titular en serif abre la sección y se explica solo, con su palabra en cursiva. Si hace falta contexto, va en la entradilla (Lead), a la derecha en escritorio (cabecera partida 1,1fr / 1fr desde 900 px). Una etiqueta en Label solo encabeza una tarjeta o un dato, o indica una posición («Parada 1 de 6»).",
+        "body": "Sin antetítulos: el titular en serif abre la sección y se explica solo. Si hace falta contexto, va en la entradilla (Lead), a la derecha en escritorio (cabecera partida 1,1fr / 1fr desde 900 px). Una etiqueta en Label solo encabeza una tarjeta o un dato, o indica una posición («Parada 1 de 6»).",
         "section": "typography"
       },
       {
@@ -622,7 +622,7 @@
     ],
     "dos": [
       "**Do** enmarcar todas las fotos en el rectángulo de 20 px sobre fondo Turquesa Up o Bruma turquesa.",
-      "**Do** abrir cada sección directamente con el titular en serif, con una sola palabra en cursiva; el contexto, en la entradilla.",
+      "**Do** abrir cada sección directamente con el titular en serif, en redonda; el contexto, en la entradilla.",
       "**Do** usar el botón principal en tinta y el WhatsApp como acción más visible de cada llamada a la acción.",
       "**Do** usar fotos reales de la clínica, el equipo y los pacientes con permiso.",
       "**Do** mantener el foco visible: 2 px sólido en Pino profundo (Turquesa de acento sobre noche).",
@@ -633,7 +633,7 @@
       "**Don't** poner un antetítulo en mayúsculas encima de un titular: repite lo que el titular ya dice y aplana el ritmo de la página.",
       "**Don't** poner texto en Turquesa Up ni en Turquesa de acento sobre fondos claros.",
       "**Don't** usar esquinas vivas ni radios fuera de 6, 12, 20 px y píldora.",
-      "**Don't** usar más de una palabra en cursiva por titular.",
+      "**Don't** usar cursivas ni resaltar palabras de un titular con otro color.",
       "**Don't** usar sombras negras, duras o de varios niveles; como mucho, reposo y elevada.",
       "**Don't** dar por hecho un tema oscuro: la web es solo clara.",
       "**Don't** animar la entrada de fotos, texto o tarjetas al hacer scroll, ni repetir la misma entrada en cada sección: el único momento es la entrada de la portada.",

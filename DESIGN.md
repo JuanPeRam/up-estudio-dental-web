@@ -177,12 +177,12 @@ components:
 
 La web es la entrada a una clínica a la que se llega andando. Las fotos reales de la clínica y de su equipo, enmarcadas con el mismo rectángulo suave, invitan a pasar; el turquesa pastel de la marca baña la primera banda como la luz de un local a pie de calle, y una banda de madera clara recuerda la recepción. Todo es luminoso, cercano y sereno: mucho aire, fotos reales de la clínica y de su gente, y nada que intimide a quien llega con un niño de la mano o con miedo al dentista.
 
-La tipografía mezcla una serif de revista (Playfair Display) con una sans redonda y amable (Figtree). Cada titular guarda una sola palabra en cursiva verde pino, como un subrayado hablado: «Clínica dental *familiar*», «en la *misma* clínica». Los controles son suaves y acogedores: botones en píldora, esquinas generosas, nada anguloso. La web solo tiene tema claro (`color-scheme: light`).
+La tipografía mezcla una serif de revista (Playfair Display) con una sans redonda y amable (Figtree). Los titulares van en redonda, en un solo color de tinta: el peso de la serif basta, sin palabras resaltadas. Los controles son suaves y acogedores: botones en píldora, esquinas generosas, nada anguloso. La web solo tiene tema claro (`color-scheme: light`).
 
 **Key Characteristics:**
 - Un solo marco de foto: rectángulo con esquinas de 20 px, el mismo en la foto principal, los retratos, las especialidades y el collage.
 - Turquesa Up abre y cierra la portada (cabecera y banda final de cita); arena y tinta nocturna marcan el ritmo entre medias, y el pie es la única banda oscura del final.
-- Una palabra en cursiva verde pino por titular, nunca más.
+- Titulares en redonda y en tinta, sin cursivas ni palabras de acento.
 - Botones en píldora; el principal, en tinta, no en turquesa.
 - Fotos reales siempre; nada de ilustraciones genéricas ni imágenes de banco.
 
@@ -192,10 +192,10 @@ Una paleta de agua y madera: turquesas pastel de la marca, un verde pino profund
 
 ### Primary
 - **Turquesa Up** (`turquesa-up`): el turquesa pastel de la marca. Banda de firma de la portada, fondo de los marcos de retrato y de las cabeceras que presentan a la clínica. Es fondo, nunca texto.
-- **Pino profundo** (`pino-profundo`): el color de lo que se lee como acento y se pulsa sin ser botón: enlaces, etiquetas de tarjeta, la palabra en cursiva de cada titular, iconos de apoyo, insignias y el anillo de foco. Contraste 6,8:1 sobre Turquesa Up.
+- **Pino profundo** (`pino-profundo`): el color de lo que se lee como acento y se pulsa sin ser botón: enlaces, etiquetas de tarjeta, iconos de apoyo, insignias y el anillo de foco. Contraste 6,8:1 sobre Turquesa Up.
 
 ### Secondary
-- **Turquesa de acento** (`turquesa-acento`): el turquesa vivo de la web oficial. Solo sobre Tinta nocturna: etiquetas, cursivas y el botón principal de las bandas oscuras, con texto en **Sobre acento** (`sobre-acento`) y hover en **Turquesa de acento hover** (`turquesa-acento-hover`). Sobre fondo claro no llega a 2:1.
+- **Turquesa de acento** (`turquesa-acento`): el turquesa vivo de la web oficial. Solo sobre Tinta nocturna: etiquetas y el botón principal de las bandas oscuras, con texto en **Sobre acento** (`sobre-acento`) y hover en **Turquesa de acento hover** (`turquesa-acento-hover`). Sobre fondo claro no llega a 2:1.
 - **Pino medio** (`pino-medio`): para números grandes de acento sobre fondo claro (paradas de la visita guiada). 3,6:1 sobre papel; solo en tamaños grandes.
 - **Turquesa del logo** (`turquesa-logo`): el azulejo del logotipo y detalles puntuales (el halo al pasar por la tarjeta de la nota de Google).
 
@@ -242,11 +242,11 @@ Una paleta de agua y madera: turquesas pastel de la marca, un verde pino profund
 - **Botón pequeño** (`button-sm`): botón compacto de la cabecera y etiquetas de las tarjetas de especialidad en móvil.
 
 ### Named Rules
-**The One Italic Word Rule.** Cada titular en serif lleva como mucho una palabra en cursiva (`<em>`), en Pino profundo (Turquesa de acento sobre noche). Es el acento de la marca; repetirla lo apaga.
+**The No Italics Rule.** Sin cursivas en toda la web, ni en titulares ni en texto (decisión de noviembre de 2026). Los titulares no resaltan palabras: van enteros en Tinta de texto (Sobre noche fuerte en bandas oscuras). Por eso solo se carga la Playfair redonda.
 
 **The Rem Rule.** Tamaños de letra y alturas de línea en rem, nunca en px: así la web respeta el tamaño de letra que cada persona elige en su navegador. Los puntos de corte van en em por lo mismo (los px de este documento divididos entre 16, también en las clases `sm:`, `md:` y `lg:` de Tailwind): con la letra al doble, una pantalla de 1280 px se compone como una de 640 px y nada se sale. Por debajo de 20em de ancho, que solo se da con la letra ampliada en el móvil, las palabras largas pueden partirse y las rejillas de dos columnas pasan a una.
 
-**The Heading Speaks Rule.** Sin antetítulos: el titular en serif abre la sección y se explica solo, con su palabra en cursiva. Si hace falta contexto, va en la entradilla (Lead), a la derecha en escritorio (cabecera partida 1,1fr / 1fr desde 900 px). Una etiqueta en Label solo encabeza una tarjeta o un dato, o indica una posición («Parada 1 de 6»).
+**The Heading Speaks Rule.** Sin antetítulos: el titular en serif abre la sección y se explica solo. Si hace falta contexto, va en la entradilla (Lead), a la derecha en escritorio (cabecera partida 1,1fr / 1fr desde 900 px). Una etiqueta en Label solo encabeza una tarjeta o un dato, o indica una posición («Parada 1 de 6»).
 
 ## Layout
 
@@ -343,7 +343,7 @@ Lista vertical con números en círculo de 40 px (serif 18 px en Pino, borde de 
 
 ### Do:
 - **Do** enmarcar todas las fotos en el rectángulo de 20 px sobre fondo Turquesa Up o Bruma turquesa.
-- **Do** abrir cada sección directamente con el titular en serif, con una sola palabra en cursiva; el contexto, en la entradilla.
+- **Do** abrir cada sección directamente con el titular en serif, en redonda; el contexto, en la entradilla.
 - **Do** usar el botón principal en tinta y el WhatsApp como acción más visible de cada llamada a la acción.
 - **Do** usar fotos reales de la clínica, el equipo y los pacientes con permiso.
 - **Do** mantener el foco visible: 2 px sólido en Pino profundo (Turquesa de acento sobre noche).
@@ -354,7 +354,7 @@ Lista vertical con números en círculo de 40 px (serif 18 px en Pino, borde de 
 - **Don't** poner un antetítulo en mayúsculas encima de un titular: repite lo que el titular ya dice y aplana el ritmo de la página.
 - **Don't** poner texto en Turquesa Up ni en Turquesa de acento sobre fondos claros.
 - **Don't** usar esquinas vivas ni radios fuera de 6, 12, 20 px y píldora.
-- **Don't** usar más de una palabra en cursiva por titular.
+- **Don't** usar cursivas ni resaltar palabras de un titular con otro color.
 - **Don't** usar sombras negras, duras o de varios niveles; como mucho, reposo y elevada.
 - **Don't** dar por hecho un tema oscuro: la web es solo clara.
 - **Don't** animar la entrada de fotos, texto o tarjetas al hacer scroll, ni repetir la misma entrada en cada sección: el único momento es la entrada de la portada.

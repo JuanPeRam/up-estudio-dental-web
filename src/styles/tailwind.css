@@ -665,9 +665,6 @@
   @media (max-width: 47.9375em) { .up-footer { padding-bottom: calc(var(--space-6) + 72px + env(safe-area-inset-bottom, 0px)); } }
 
   /* ============================================================ v2: piezas de la síntesis */
-  /* cursiva de acento: una palabra por titular, como la web oficial (Didot/Playfair cursiva) */
-  :is(.up-display, .up-h1, .up-h2, .up-h3) em { font-style: italic; color: var(--brand-strong); }
-  .up-on-night :is(.up-display, .up-h1, .up-h2, .up-h3) em { color: var(--brand); }
   .up-band-aqua { background: var(--aqua); }
   .up-band-aqua .up-lead, .up-band-aqua .up-small, .up-band-aqua .up-body { color: var(--ink-muted); }
 
