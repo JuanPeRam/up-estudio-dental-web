@@ -36,7 +36,6 @@ const spanDesktop = leftDesktop ? 4 - leftDesktop + 1 : 1;
             class:list={["up-spec", i === 0 && "is-big", i >= MOVIL && "is-desk-only", i === visiblesMovil - 1 && i > 0 && wideMobile && "is-wide-m", i === n - 1 && i > 0 && spanDesktop > 1 && "is-wide-d"]}
             style={i === n - 1 && spanDesktop > 1 ? `--span-d: ${spanDesktop}` : undefined}
             href={s.enlace}
-            data-reveal
           >
             <Image src={s.imagen} alt={s.imagenAlt} widths={[400, 800, 1200, 1600]} sizes={i === 0 || i === n - 1 ? "(min-width: 900px) 600px, 92vw" : "(min-width: 900px) 360px, 75vw"} quality={80} />
             <span class="up-spec-label">

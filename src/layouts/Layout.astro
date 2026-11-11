@@ -124,51 +124,6 @@ const schemas = [structuredData, breadcrumbData, ...jsonLd].filter(Boolean);
 
     <title>{pageTitle}</title>
 
-    {/* Fotos que se abren al llegar a ellas (src/styles/motion.css, [data-reveal]). Va en línea para que
-        no dependa de la red: este script es el único que las oculta, y solo las que quedan por debajo de
-        la primera pantalla. Si no se ejecuta, o se pide menos movimiento, la página se ve entera. */}
-    <script is:inline>
-      (() => {
-        if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-        const start = () => {
-          const fold = innerHeight * 0.9;
-          const pending = Array.from(document.querySelectorAll("[data-reveal]")).filter((el) => el.getBoundingClientRect().top > fold);
-          if (!pending.length) return;
-          const io = new IntersectionObserver(
-            (entries) => {
-              let order = 0;
-              for (const entry of entries) {
-                if (!entry.isIntersecting) continue;
-                const el = entry.target;
-                io.unobserve(el);
-                // Las que entran a la vez se abren una tras otra, con un tope para no hacer esperar.
-                el.style.setProperty("--reveal-delay", Math.min(order++, 4) * 70 + "ms");
-                let done = false;
-                const open = () => {
-                  if (done) return;
-                  done = true;
-                  el.classList.replace("is-pending", "is-in");
-                };
-                // Se espera a que la foto haya cargado para no abrir un marco vacío (con un tope de 1,5 s).
-                const img = el.querySelector("img");
-                if (img && !img.complete) {
-                  img.addEventListener("load", open, { once: true });
-                  img.addEventListener("error", open, { once: true });
-                  setTimeout(open, 1500);
-                } else open();
-              }
-            },
-            { rootMargin: "0px 0px -8% 0px" },
-          );
-          pending.forEach((el) => {
-            el.classList.add("is-pending");
-            io.observe(el);
-          });
-        };
-        if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start, { once: true });
-        else start();
-      })();
-    </script>
 
     {/* "<" escapado: un texto del panel con "</script>" no puede cerrar la etiqueta antes de tiempo. */}
     {schemas.map((schema) => <script type="application/ld+json" is:inline set:html={JSON.stringify(schema).replace(/</g, "\\u003c")} />)}

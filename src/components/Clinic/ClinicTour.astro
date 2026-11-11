@@ -93,7 +93,7 @@ const tourSizes = (count: number, index: number) => {
           </div>
           <div class="up-tour-photos" data-count={s.photos.length}>
             {s.photos.map((p, j) => (
-              <button type="button" data-index={p.index} data-large={p.large} aria-label={`Ampliar foto: ${p.alt}`} data-reveal>
+              <button type="button" data-index={p.index} data-large={p.large} aria-label={`Ampliar foto: ${p.alt}`}>
                 <Image
                   src={p.src}
                   alt={p.alt}
