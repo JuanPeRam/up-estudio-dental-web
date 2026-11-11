@@ -8,7 +8,7 @@ entradilla: Aclaramos el tono de tus dientes en consulta con un gel blanqueador 
 datos:
 - icono: euro
   etiqueta: Precio
-  valor: Según valoración
+  valor: Presupuesto tras la revisión
 - icono: clock
   etiqueta: Sesión
   valor: 1 h
@@ -18,7 +18,7 @@ datos:
 pasos:
   titulo: Las tres fases del tratamiento
   items:
-  - titulo: Valoración previa
+  - titulo: Primera revisión gratuita
     texto: Revisamos el estado de tus encías y de tu esmalte y descartamos caries activas. Si hace falta, hacemos antes una limpieza para que el gel actúe de forma uniforme.
   - titulo: Sesión de blanqueamiento
     texto: Protegemos la encía y aplicamos el gel blanqueador de uso profesional. Trabajamos por tandas, controlando el tono para que el resultado sea natural y no un blanco artificial.
@@ -36,6 +36,6 @@ preguntas:
   - pregunta: ¿Cuánto dura el resultado?
     respuesta: Entre uno y tres años, según tus hábitos. El café, el té, el vino tinto y el tabaco son los que más aceleran la vuelta al tono original.
 cierre:
-  titulo: Empieza por la valoración
-  texto: Antes de blanquear necesitamos ver tu boca. La cita de valoración es gratuita y sales sabiendo qué resultado puedes esperar.
+  titulo: Empieza por la primera revisión gratuita
+  texto: Antes de blanquear necesitamos ver tu boca. En la primera revisión gratuita sales sabiendo qué resultado puedes esperar.
   mensajeWhatsapp: un blanqueamiento dental

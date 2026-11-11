@@ -10,7 +10,7 @@ datos:
   etiqueta: Primera revisión
   valor: Gratuita
 - icono: calendar
-  etiqueta: Primera visita
+  etiqueta: Primera visita al dentista
   valor: Con el primer diente o antes del año
 - icono: repeat
   etiqueta: Frecuencia
@@ -49,6 +49,6 @@ preguntas:
     respuesta: Cuéntanoslo al pedir cita. Vamos poco a poco, explicándole cada paso, y si hace falta dividimos el tratamiento en visitas más cortas.
 avisoCancelacion: false
 cierre:
-  titulo: Pide su primera revisión
-  texto: Es gratuita y sin prisas, para que conozca la clínica y al equipo.
+  titulo: Pide su primera revisión gratuita
+  texto: Sin prisas, para que conozca la clínica y al equipo.
   mensajeWhatsapp: una revisión para mi hijo o hija

@@ -8,7 +8,7 @@ entradilla: La periodoncia se ocupa de las encías y del hueso que sujetan los d
 datos:
 - icono: euro
   etiqueta: Precio
-  valor: Según valoración
+  valor: Presupuesto tras la revisión
 - icono: clock
   etiqueta: Duración
   valor: Según el estado de las encías
@@ -51,5 +51,5 @@ preguntas:
 avisoCancelacion: false
 cierre:
   titulo: Revisa tus encías
-  texto: En la revisión gratuita comprobamos el estado de tus encías y te decimos si necesitas tratamiento.
+  texto: En la primera revisión gratuita comprobamos el estado de tus encías y te decimos si necesitas tratamiento.
   mensajeWhatsapp: una revisión de encías

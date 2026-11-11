@@ -1,24 +1,24 @@
 titulo: Ortodoncia e Invisalign
 orden: 5
 resumen: Brackets o alineadores transparentes, planificados con escáner 3D iTero.
-descripcionSeo: 'Ortodoncia e Invisalign en Móstoles para niños y adultos: brackets o alineadores transparentes, planificados con escáner iTero. Primera visita gratuita.'
+descripcionSeo: 'Ortodoncia e Invisalign en Móstoles para niños y adultos: brackets o alineadores transparentes, planificados con escáner iTero. Primera revisión gratuita.'
 imagen: ../../assets/cms/servicios/ortodoncia-invisalign/imagen.webp
 imagenAlt: Escáner iTero para planificar la ortodoncia invisible
 entradilla: La ortodoncia corrige la posición de los dientes y la mordida para que tu boca funcione mejor y sea más fácil de mantener sana. La Dra. Cristina Umérez, con más de 25 años de experiencia en ortodoncia, te explica si en tu caso encajan mejor los brackets o los alineadores transparentes Invisalign.
 datos:
 - icono: euro
   etiqueta: Precio
-  valor: Según valoración
+  valor: Presupuesto tras la revisión
 - icono: clock
   etiqueta: Duración
   valor: Según tu caso
 - icono: calendar
-  etiqueta: Primera visita
+  etiqueta: Primera revisión
   valor: Gratuita
 pasos:
   titulo: Cómo empezamos
   items:
-  - titulo: Valoración inicial
+  - titulo: Primera revisión gratuita
     texto: Revisamos tu mordida, la posición de los dientes y, si hace falta, hacemos una radiografía panorámica en la propia clínica.
   - titulo: Escaneo 3D con iTero
     texto: En lugar de moldes de pasta, escaneamos tu boca en pocos minutos. Con el modelo 3D planificamos el movimiento de los dientes.
@@ -45,7 +45,7 @@ preguntas:
   titulo: Preguntas frecuentes
   items:
   - pregunta: ¿Qué diferencia hay entre brackets e Invisalign?
-    respuesta: Los brackets van fijos sobre los dientes. Invisalign usa alineadores transparentes y removibles que se cambian cada pocas semanas. Los dos mueven los dientes; en la valoración te decimos cuál es más adecuado para tu caso.
+    respuesta: Los brackets van fijos sobre los dientes. Invisalign usa alineadores transparentes y removibles que se cambian cada pocas semanas. Los dos mueven los dientes; en la primera revisión gratuita te decimos cuál es más adecuado para tu caso.
   - pregunta: ¿Los alineadores se ven?
     respuesta: Son transparentes y muy finos, así que apenas se notan. Te los quitas para comer y para cepillarte los dientes.
   - pregunta: ¿Cuánto dura el tratamiento?
@@ -53,5 +53,5 @@ preguntas:
 avisoCancelacion: false
 cierre:
   titulo: Descubre si la ortodoncia es para ti
-  texto: Te hacemos la valoración sin coste y te explicamos las opciones, con el presupuesto por escrito.
-  mensajeWhatsapp: una valoración de ortodoncia
+  texto: En la primera revisión gratuita te explicamos las opciones, con el presupuesto por escrito.
+  mensajeWhatsapp: la primera revisión gratuita (ortodoncia)

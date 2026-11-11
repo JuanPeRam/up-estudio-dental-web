@@ -8,7 +8,7 @@ entradilla: Cuando una caries profunda o un golpe dañan el nervio del diente, l
 datos:
 - icono: euro
   etiqueta: Precio
-  valor: Según valoración
+  valor: Presupuesto tras la revisión
 - icono: clock
   etiqueta: Duración
   valor: Una o dos sesiones

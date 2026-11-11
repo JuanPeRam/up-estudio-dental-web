@@ -1,7 +1,7 @@
 titulo: Implantes dentales
 orden: 4
 resumen: Sustituimos los dientes que faltan con implantes y prótesis fijas.
-descripcionSeo: 'Implantes dentales en Móstoles: estudio con radiografía, cirugía con un implantólogo con más de 30 años de experiencia y prótesis a medida. Primera visita gratis.'
+descripcionSeo: 'Implantes dentales en Móstoles: estudio con radiografía, cirugía con un implantólogo con más de 30 años de experiencia y prótesis a medida. Primera revisión gratuita.'
 imagen: ../../assets/cms/servicios/implantes-dentales/imagen.webp
 imagenAlt: Detalle de un tratamiento dental con instrumental
 entradilla: Un implante es una pequeña raíz de titanio que se coloca en el hueso para sostener un diente nuevo, una corona o una prótesis completa. En Up planificamos cada caso entre el cirujano implantólogo, el Dr. Rafael Darío Sosa, y la Dra. Isabel Sosa, especialista en implantoprótesis, para que la cirugía y el diente final encajen desde el principio.
@@ -13,7 +13,7 @@ datos:
   etiqueta: Duración
   valor: Varias fases, según tu caso
 - icono: calendar
-  etiqueta: Primera visita
+  etiqueta: Primera revisión
   valor: Gratuita
 pasos:
   titulo: Cómo es el tratamiento, paso a paso
@@ -36,7 +36,7 @@ incluye:
   - Prótesis diseñada por una especialista en implantoprótesis
   - Revisiones durante la cicatrización
   - Pautas de higiene para que el implante dure
-  boton: Pedir valoración
+  boton: Pedir revisión gratuita
 preguntas:
   titulo: Preguntas frecuentes
   items:
@@ -48,6 +48,6 @@ preguntas:
     respuesta: Con una buena higiene y revisiones periódicas, un implante puede durar muchos años. El tabaco y la enfermedad de las encías son los principales riesgos, por eso los vigilamos en cada revisión.
 avisoCancelacion: false
 cierre:
-  titulo: Valoramos tu caso sin coste
-  texto: Ven a la revisión gratuita y te diremos si los implantes son la mejor opción para ti, con el presupuesto por escrito.
-  mensajeWhatsapp: una valoración de implantes
+  titulo: Valoramos tu caso en la primera revisión gratuita
+  texto: Ven a la primera revisión gratuita y te diremos si los implantes son la mejor opción para ti, con el presupuesto por escrito.
+  mensajeWhatsapp: la primera revisión gratuita (implantes)

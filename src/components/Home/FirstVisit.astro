@@ -1,12 +1,12 @@
 ---
-// Primera visita gratis: lo que más tranquiliza a quien aún no conoce la clínica, a mitad de la portada
+// Primera revisión gratuita: lo que más tranquiliza a quien aún no conoce la clínica, a mitad de la portada
 // y con su propia llamada a WhatsApp (antes solo aparecía en la banda final).
 import { Icon } from "astro-icon/components";
 import Button from "@/components/UI/Button.astro";
 import { whatsappLink } from "@/constants/personal";
 
 const items = [
-  { icon: "tooth", title: "Revisión completa", text: "Te exploramos y te explicamos qué vemos." },
+  { icon: "tooth", title: "Exploración completa", text: "Te exploramos y te explicamos qué vemos." },
   { icon: "scan-search", title: "Radiografías en la clínica", text: "Las hacemos aquí mismo y las revisamos contigo en el momento, sin ir a otro centro." },
   { icon: "euro", title: "Presupuesto por escrito", text: "Sabes qué necesitas y cuánto cuesta antes de decidir, sin compromiso." },
 ];
@@ -16,8 +16,8 @@ const items = [
   <div class="up-wrap">
     <div class="up-signs up-first">
       <div class="up-sh up-sh-split">
-        <h2 class="up-h2">Tu primera visita, gratis</h2>
-        <p class="up-lead">Ven a conocernos sin coste: la primera visita incluye revisión, radiografías y presupuesto por escrito.</p>
+        <h2 class="up-h2">Tu primera revisión es gratuita</h2>
+        <p class="up-lead">Ven a conocernos: la primera revisión gratuita incluye exploración, radiografías y presupuesto por escrito.</p>
       </div>
       <ul class="up-grid-3 up-signs-list">
         {
@@ -31,7 +31,7 @@ const items = [
         }
       </ul>
       <div class="up-first-cta">
-        <Button href={whatsappLink("Hola, me gustaría pedir la primera visita gratuita.")} icon="whatsapp" external aria-label="Pedir cita por WhatsApp (se abre en otra pestaña)">Pedir cita por WhatsApp</Button>
+        <Button href={whatsappLink("Hola, me gustaría pedir la primera revisión gratuita.")} icon="whatsapp" external aria-label="Pedir revisión gratuita por WhatsApp (se abre en otra pestaña)">Pedir revisión gratuita</Button>
         <p class="up-small">Te contestamos en horario de clínica.</p>
       </div>
     </div>
