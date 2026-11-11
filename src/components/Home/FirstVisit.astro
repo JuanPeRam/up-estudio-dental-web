@@ -19,14 +19,14 @@ const items = [
         <h2 class="up-h1" id="revision-titulo">Tu primera revisión es gratuita</h2>
         <p class="up-lead">Y después, todas las revisiones lo siguen siendo. Así empieza cualquier tratamiento en Up, a cualquier edad.</p>
       </div>
-      <ol class="up-revision-list">
+      <dl class="up-revision-list">
         {items.map((it) => (
-          <li>
-            <h3 class="up-h3">{it.title}</h3>
-            <p class="up-small">{it.text}</p>
-          </li>
+          <div>
+            <dt>{it.title}</dt>
+            <dd>{it.text}</dd>
+          </div>
         ))}
-      </ol>
+      </dl>
       <div class="up-revision-cta">
         <a class="up-btn up-btn-light" href={whatsappLink("Hola, me gustaría pedir la primera revisión gratuita.")} target="_blank" rel="noopener noreferrer">
           <Icon name="whatsapp" class="up-icon" />Pedir revisión gratuita<span class="sr-only"> por WhatsApp (se abre en otra pestaña)</span>

@@ -52,6 +52,8 @@
 
   /* La línea: un trazo, tres colores según el campo que cruza. */
   --trazo: var(--turquesa);
+  --trazo-sobre-salvia: #ffffff;     /* el blanco del trazo en las publicaciones sobre salvia */
+  --pino-pulsado: #10241f;           /* botón principal mientras se pulsa */
   --trazo-w: 1.5px;
 
   /* Sin sombras: la profundidad la dan los planos de color superpuestos. */

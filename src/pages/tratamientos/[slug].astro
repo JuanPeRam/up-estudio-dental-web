@@ -1,10 +1,10 @@
 ---
+import { Icon } from "astro-icon/components";
 export const prerender = true;
 
 import type { CollectionEntry } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import ServiceDetail from "@/components/Services/ServiceDetail.astro";
-import ServiceCard from "@/components/Cards/ServiceCard.astro";
 import { getServicios } from "@/lib/contenido";
 import { treatmentPath } from "@/constants/pages";
 
@@ -64,12 +64,20 @@ if (preguntas.length) {
 
     {
         others.length > 0 && (
-            <section class="up-band-tint py-12" aria-labelledby="otros-tratamientos">
-                <div class="up-wrap flex flex-col gap-8">
+            <section class="up-otros" aria-labelledby="otros-tratamientos">
+                <div class="up-wrap up-otros-in">
                     <h2 class="up-h2" id="otros-tratamientos">Otros tratamientos</h2>
-                    <div class="up-svc-grid" style={`--cols: ${others.length}`}>
-                        {others.map((s) => <ServiceCard service={s} />)}
-                    </div>
+                    <ul class="up-otros-list">
+                        {others.map((s) => (
+                            <li>
+                                <a href={treatmentPath(s.id)}>
+                                    <span class="up-otros-titulo">{s.data.titulo}</span>
+                                    <span class="up-otros-resumen">{s.data.resumen}</span>
+                                    <Icon name="arrow-right" class="up-icon" />
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </section>
         )

@@ -22,7 +22,7 @@ body { caret-color: var(--turquesa-texto); font-feature-settings: "kern"; }
 .up-linea { position: absolute; inset: 0 auto auto 0; z-index: 2; pointer-events: none; overflow: visible; }
 .up-linea path { fill: none; stroke-width: var(--trazo-w); stroke-linecap: round; stroke-linejoin: round; }
 .up-linea [data-campo="claro"] { stroke: var(--turquesa); }
-.up-linea [data-campo="salvia"] { stroke: #fff; }
+.up-linea [data-campo="salvia"] { stroke: var(--trazo-sobre-salvia); }
 .up-linea [data-campo="pino"] { stroke: var(--salvia); }
 .up-linea-guia path { stroke-dasharray: 1 7; opacity: 0.55; }
 .up-linea:not(.is-lista) { display: none; }
@@ -43,6 +43,7 @@ html:not(.has-linea) .up-linea-host .up-railed::before {
   -webkit-mask: url("/img/up-logo-mask.png") center / contain no-repeat;
   mask: url("/img/up-logo-mask.png") center / contain no-repeat;
 }
+.up-logo.is-simbolo { -webkit-mask-image: url("/img/up-logo-mark-mask.png"); mask-image: url("/img/up-logo-mark-mask.png"); }
 
 /* ---------- Tipografía ---------- */
 .up-display, .up-h1, .up-h2, .up-h3 { font-family: var(--font-display); font-weight: 400; color: var(--ink); }
@@ -67,7 +68,7 @@ html:not(.has-linea) .up-linea-host .up-railed::before {
 .up-btn:hover { transform: none; }
 .up-btn-primary { background: var(--pino); color: var(--crema); border-color: var(--pino); }
 .up-btn-primary:hover { background: var(--pino-hondo); box-shadow: none; }
-.up-btn-primary:active { background: #10241f; }
+.up-btn-primary:active { background: var(--pino-pulsado); }
 .up-btn-secondary { background: transparent; color: var(--pino); border-color: var(--pino); }
 .up-btn-secondary:hover { background: var(--pino); color: var(--crema); border-color: var(--pino); }
 .up-btn-ghost { color: var(--turquesa-texto); }
@@ -106,17 +107,17 @@ html:not(.has-linea) .up-linea-host .up-railed::before {
 @media (min-width: 60em) {
   .up-hero-in { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); align-items: end; }
 }
-.up-hero-copy { display: flex; flex-direction: column; gap: var(--space-6); padding-block: var(--space-12) var(--space-8); }
-@media (min-width: 60em) { .up-hero-copy { padding-block: var(--space-16) var(--space-12); } }
-.up-hero .up-display { color: var(--pino); max-width: 14ch; font-size: clamp(2.75rem, 5.4vw, 4.75rem); }
+.up-hero-copy { display: flex; flex-direction: column; gap: var(--space-4); padding-block: var(--space-12) var(--space-6); }
+@media (min-width: 60em) { .up-hero-copy { gap: var(--space-6); padding-block: var(--space-12) var(--space-12); } }
+.up-hero .up-display { color: var(--pino); max-width: 15ch; font-size: clamp(2.5rem, 4.6vw, 4.25rem); }
 .up-hero .up-lead { color: var(--pino); max-width: 38ch; }
 .up-hero-diente {
-  position: absolute; color: #fff;
+  position: absolute; color: var(--trazo-sobre-salvia);
   width: 64px; height: 64px;
   left: calc(var(--rail-x) - 64px * 0.31);
   top: calc(var(--space-12) - 6px);
 }
-@media (min-width: 60em) { .up-hero-diente { top: calc(var(--space-16) + 2px); width: 80px; height: 80px; left: calc(var(--rail-x) - 80px * 0.31); } }
+@media (min-width: 60em) { .up-hero-diente { top: calc(var(--space-12) + 2px); width: 80px; height: 80px; left: calc(var(--rail-x) - 80px * 0.31); } }
 @media (max-width: 47.9375em) {
   /* En el móvil el diente abre la cabecera y el titular baja para dejarle sitio. */
   .up-hero-copy { padding-top: calc(var(--space-8) + 72px); }
@@ -132,11 +133,13 @@ html:not(.has-linea) .up-linea-host .up-railed::before {
 
 /* La foto del equipo: banda ancha a sangre bajo la cabecera, el equipo entero. */
 .up-hero-media {
-  grid-column: 1 / -1; position: relative; margin: 0;
+  grid-column: 1 / -1; position: relative; z-index: 3; margin: 0;
   margin-inline: calc(-1 * max(var(--space-4), env(safe-area-inset-left, 0px)));
   aspect-ratio: 3 / 2; max-height: 78svh; background: var(--salvia-clara);
 }
 @media (min-width: 48em) { .up-hero-media { margin-inline: calc(-1 * var(--space-8)); aspect-ratio: 16 / 9; } }
+/* Móvil y tableta: la foto del equipo sube antes del preparador, dentro de la primera pantalla. */
+@media (max-width: 59.9375em) { .up-hero-media { order: 2; } .up-hero-cita { order: 3; padding-top: var(--space-6); } }
 @media (min-width: 80em) { .up-hero-media { margin-inline: calc(-1 * ((100vw - var(--container)) / 2)); aspect-ratio: 21 / 9; max-height: 82svh; } }
 .up-hero-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; }
 
@@ -243,14 +246,11 @@ a.up-hero2-card:hover b { text-decoration: underline; text-decoration-thickness:
 .up-revision-head { display: flex; flex-direction: column; gap: var(--space-4); max-width: 44rem; }
 .up-revision .up-h1 { color: var(--crema); }
 .up-revision .up-lead { color: var(--salvia); }
-.up-revision-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); counter-reset: rev; border-top: 1px solid color-mix(in srgb, var(--salvia) 40%, transparent); }
-@media (min-width: 48em) { .up-revision-list { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-.up-revision-list li { counter-increment: rev; display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-6) var(--space-6) var(--space-6) 0; border-bottom: 1px solid color-mix(in srgb, var(--salvia) 40%, transparent); }
-@media (min-width: 48em) {
-  .up-revision-list li { border-bottom: 0; padding-top: var(--space-8); }
-  .up-revision-list li + li { padding-left: var(--space-6); border-left: 1px solid color-mix(in srgb, var(--salvia) 40%, transparent); }
-}
-.up-revision-list li::before { content: counter(rev); font: 400 2.5rem/1 var(--font-display); color: var(--turquesa-logo); margin-bottom: var(--space-2); }
+.up-revision-list { margin: 0; border-top: 1px solid color-mix(in srgb, var(--salvia) 40%, transparent); max-width: 52rem; }
+.up-revision-list > div { display: grid; gap: 2px var(--space-8); padding: var(--space-4) 0; border-bottom: 1px solid color-mix(in srgb, var(--salvia) 40%, transparent); }
+@media (min-width: 40em) { .up-revision-list > div { grid-template-columns: minmax(0, 16rem) minmax(0, 1fr); align-items: baseline; } }
+.up-revision-list dt { font: 400 1.5rem/1.9rem var(--font-display); color: var(--crema); }
+.up-revision-list dd { margin: 0; font-size: 1rem; line-height: 1.5625rem; color: var(--salvia); }
 .up-revision .up-h3 { color: var(--crema); }
 .up-revision .up-small { color: var(--salvia); }
 .up-revision-cta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) var(--space-8); }
@@ -307,7 +307,7 @@ a.up-hero2-card:hover b { text-decoration: underline; text-decoration-thickness:
 @media (min-width: 60em) { .up-cierre { padding-block: var(--space-24); } }
 .up-cierre-in { display: grid; gap: var(--space-12); }
 @media (min-width: 64em) { .up-cierre-in { grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); align-items: end; } }
-.up-cierre-corazon { position: absolute; color: #fff; width: 72px; height: 72px; left: calc(var(--rail-x) - 36px); top: -8px; }
+.up-cierre-corazon { position: absolute; color: var(--trazo-sobre-salvia); width: 72px; height: 72px; left: calc(var(--rail-x) - 36px); top: -8px; }
 @media (max-width: 47.9375em) { .up-cierre-in { padding-top: 72px; } .up-cierre-corazon { left: max(0px, calc(var(--rail-x) - 20px)); width: 56px; height: 56px; } }
 .up-cierre-texto { display: flex; flex-direction: column; gap: var(--space-6); }
 .up-cierre-titulo { max-width: 12ch; }
@@ -322,21 +322,26 @@ a.up-hero2-card:hover b { text-decoration: underline; text-decoration-thickness:
 
 /* ---------- Opiniones ---------- */
 #opiniones { background: var(--crema); }
+.up-linea-host #opiniones > .up-wrap { padding-left: calc(var(--rail-pad) + max(var(--space-4), env(safe-area-inset-left, 0px))); }
+@media (min-width: 48em) { .up-linea-host #opiniones > .up-wrap { padding-left: calc(var(--rail-pad) + var(--space-8)); } }
+.up-linea-host #opiniones:has(.up-reviews-empty) { padding-block: 0 var(--space-12); }
 .up-review { border-radius: 0; border: 0; border-top: 1px solid var(--pino); padding: var(--space-6) 0 0; background: transparent; }
 .up-review blockquote { font: 400 1.25rem/1.875rem var(--font-display); color: var(--pino); }
 .up-review figcaption { border-top-color: var(--line); }
 .up-stars { color: var(--turquesa); }
 .up-avatar { background: var(--salvia); color: var(--pino); }
 .up-rating { border-radius: 0; border-color: var(--pino); background: transparent; }
-.up-reviews-empty { border-radius: 0; background: transparent; border: 0; border-top: 1px solid var(--pino); border-bottom: 1px solid var(--pino); padding-inline: 0; }
+.up-reviews-empty { border-radius: 0; background: transparent; border: 0; padding: 0; justify-content: flex-start; gap: var(--space-3) var(--space-8); }
+@media (min-width: 64em) { .up-reviews-empty { display: grid; grid-template-columns: 12rem minmax(0, 1fr); } .up-reviews-empty .up-btn { justify-self: start; } }
 .up-review-skeleton { background: linear-gradient(90deg, var(--crema), var(--salvia-clara), var(--crema)); background-size: 200% 100%; border-top: 1px solid var(--line); }
 
 /* ---------- Pie ---------- */
-.up-footer { background: var(--pino-hondo); color: var(--salvia); border-top: 0; }
+.up-footer { background: var(--pino); color: var(--salvia); border-top: 0; }
 .up-footer h2 { font: 500 0.8125rem/1.125rem var(--font-sans); letter-spacing: 0.16em; color: var(--crema); }
 .up-footer a { color: var(--crema); }
 .up-footer a:hover { color: var(--turquesa-logo-claro); }
 .up-footer a.up-footer-urg { color: var(--turquesa-logo-claro); }
+.up-footer-legal span, .up-footer p { color: var(--salvia); }
 .up-footer-marca { color: var(--crema); margin-bottom: var(--space-4); }
 .up-social a { border-color: color-mix(in srgb, var(--salvia) 45%, transparent); }
 .up-social a:hover { background: var(--crema); border-color: var(--crema); color: var(--pino); }
@@ -385,8 +390,8 @@ a.up-hero2-card:hover b { text-decoration: underline; text-decoration-thickness:
 /* ---------- Cabecera de las páginas interiores: el diente abre la línea ---------- */
 .up-ph { position: relative; overflow: hidden; }
 .up-ph-in { position: relative; }
-.up-ph-diente { position: absolute; color: #fff; width: 52px; height: 52px; left: calc(var(--rail-x) - 52px * 0.31); top: -4px; }
-.up-ph-in::after { content: ""; position: absolute; left: var(--rail-x); top: 48px; bottom: calc(-1 * var(--space-24)); width: var(--trazo-w); background: #fff; }
+.up-ph-diente { position: absolute; color: var(--trazo-sobre-salvia); width: 52px; height: 52px; left: calc(var(--rail-x) - 52px * 0.31); top: -4px; }
+.up-ph-in::after { content: ""; position: absolute; left: var(--rail-x); top: 48px; bottom: calc(-1 * var(--space-24)); width: var(--trazo-w); background: var(--trazo-sobre-salvia); }
 @media (max-width: 47.9375em) { .up-ph-diente { width: 40px; height: 40px; left: max(0px, calc(var(--rail-x) - 40px * 0.31)); } .up-ph-in::after { top: 38px; } }
 
 /* ---------- Ficha de tratamiento ---------- */
@@ -400,3 +405,18 @@ a.up-hero2-card:hover b { text-decoration: underline; text-decoration-thickness:
 .up-checks .up-icon { color: var(--pino); }
 .up-step::before { border-color: var(--turquesa); color: var(--pino); background: var(--crema); }
 .up-step::after { background: var(--turquesa); opacity: 0.45; }
+
+/* ---------- Otros tratamientos: registro de enlaces en el campo madera (la banda de cita, encima, es salvia) ---------- */
+.up-otros { background: var(--madera); padding-block: var(--space-16); }
+.up-otros-in { display: grid; gap: var(--space-8); }
+@media (min-width: 60em) { .up-otros-in { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: var(--space-16); align-items: start; } }
+.up-otros-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--pino); }
+.up-otros-list a { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px var(--space-6); align-items: center; padding: var(--space-4) 0; border-bottom: 1px solid color-mix(in srgb, var(--pino) 30%, transparent); color: var(--pino); text-decoration: none; min-height: 44px; }
+.up-otros-titulo { font: 400 1.5rem/1.9rem var(--font-display); }
+.up-otros-resumen { grid-column: 1; font-size: 1rem; line-height: 1.5rem; color: var(--pino-suave); }
+.up-otros-list .up-icon { grid-column: 2; grid-row: 1 / span 2; width: 22px; height: 22px; transition: translate var(--duration-fast) var(--ease-out); }
+.up-otros-list a:hover .up-otros-titulo { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+.up-otros-list a:hover .up-icon { translate: 4px 0; }
+.up-footer .up-footer-nombre { margin: 0 0 var(--space-2); font: 400 1.375rem/1.75rem var(--font-display); color: var(--crema); }
+/* Sobre la madera el turquesa de los enlaces no llega a 4,5:1: ahí van en pino (8,5:1). */
+.up-band-sand :is(.up-tour-next, .up-link), .up-clinica .up-link { color: var(--pino); }

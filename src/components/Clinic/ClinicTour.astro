@@ -22,7 +22,6 @@ const stops = await Promise.all(
   })),
 );
 const total = stops.length;
-const pad = (n: number) => String(n).padStart(2, "0");
 
 /**
  * Ancho que necesita cada foto. Las fotos (3:2) se recortan para llenar su caja, así que en cajas
@@ -59,12 +58,6 @@ const tourSizes = (count: number, index: number) => {
       <section class:list={["up-section up-tour-stop", i % 2 === 1 && "up-band-sand"]} id={s.id} aria-labelledby={`${s.id}-title`}>
         <div class:list={["up-wrap up-tour-grid", i % 2 === 1 && "is-reversed"]}>
           <div class="up-tour-text">
-            <p class="up-tour-step">
-              <span class="up-tour-num" aria-hidden="true">{pad(i + 1)}</span>
-              <span>
-                Parada {i + 1} de {total} · {s.label}
-              </span>
-            </p>
             <h2 class="up-h2" id={`${s.id}-title`}>{s.title}</h2>
             <p class="up-lead">{s.text}</p>
             <ul class="up-checks">
