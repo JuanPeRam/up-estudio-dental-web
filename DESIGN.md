@@ -244,7 +244,7 @@ Una paleta de agua y madera: turquesas pastel de la marca, un verde pino profund
 ### Named Rules
 **The One Italic Word Rule.** Cada titular en serif lleva como mucho una palabra en cursiva (`<em>`), en Pino profundo (Turquesa de acento sobre noche). Es el acento de la marca; repetirla lo apaga.
 
-**The Rem Rule.** Tamaños de letra y alturas de línea en rem, nunca en px: así la web respeta el tamaño de letra que cada persona elige en su navegador.
+**The Rem Rule.** Tamaños de letra y alturas de línea en rem, nunca en px: así la web respeta el tamaño de letra que cada persona elige en su navegador. Los puntos de corte van en em por lo mismo (los px de este documento divididos entre 16, también en las clases `sm:`, `md:` y `lg:` de Tailwind): con la letra al doble, una pantalla de 1280 px se compone como una de 640 px y nada se sale. Por debajo de 20em de ancho, que solo se da con la letra ampliada en el móvil, las palabras largas pueden partirse y las rejillas de dos columnas pasan a una.
 
 **The Heading Speaks Rule.** Sin antetítulos: el titular en serif abre la sección y se explica solo, con su palabra en cursiva. Si hace falta contexto, va en la entradilla (Lead), a la derecha en escritorio (cabecera partida 1,1fr / 1fr desde 900 px). Una etiqueta en Label solo encabeza una tarjeta o un dato, o indica una posición («Parada 1 de 6»).
 
@@ -273,12 +273,38 @@ Formas suaves y acogedoras: nada de esquinas vivas. Tres radios (6 px en campos,
 
 **The Arch Is For People Rule.** El arco enmarca personas y lugares de la clínica; no se usa en botones, tarjetas de texto ni iconos.
 
+## Motion
+
+**Tesis: «Las puertas se abren».** El movimiento tiene una sola idea propia: las fotos de personas y espacios se abren como una puerta. La abertura (un arco más pequeño, o un rectángulo redondeado en las fotos sin arco) crece desde el suelo hasta llenar su marco mientras la foto se posa de un 108 % a su tamaño. El texto no se anima al hacer scroll. Todo lo demás explica un cambio de estado. Las reglas están en `src/styles/motion.css`; los tiempos y la curva, en `src/styles/tokens.css`.
+
+- **Momento principal:** al entrar en la portada, el titular, la entradilla, las ventajas y los botones suben 16 px en cascada (80 ms entre uno y otro) y la foto del arco se abre en 1,2 s. La nota de Google entra cuando llega del servidor.
+- **Fotos al llegar a ellas** (`data-reveal` en el marco): se abren en 900 ms; las que entran a la vez, una tras otra con 70 ms de diferencia y un tope de 280 ms. Solo se ocultan las que están por debajo de la primera pantalla, y solo lo hace el script en línea de `Layout.astro`: sin JavaScript la página se ve entera.
+- **Cambio de página:** fundido de 240 ms entre páginas (View Transitions, sin JavaScript). El retrato de una persona viaja de su tarjeta (portada y `/equipo`) a su ficha y vuelve, en 420 ms (`portraitTransition` en `src/constants/pages.ts`).
+- **Capas:** el menú móvil y el visor de fotos entran con un fundido de 240 ms y salen en 160 ms; los enlaces del menú entran como lista. En el visor, la foto entra desde el lado hacia el que se avanza, cuando ya ha cargado; con el dedo se pasa de foto deslizando, y la foto acompaña al dedo.
+- **Acordeón:** la respuesta se despliega en 420 ms.
+- **Pasos del tratamiento:** la línea que une los pasos se dibuja con el scroll y cada número se activa al llegar a él. Es el único movimiento ligado al scroll, porque ahí el scroll es el recorrido.
+- **Formulario:** los errores aparecen con un fundido; al enviar, el botón pasa a «Enviando…» con un indicador y no admite un segundo envío.
+
+### Tiempos
+- `--duration-fast` (160 ms): respuesta inmediata y salidas.
+- `--duration-base` (240 ms): cambios de estado y entrada de capas.
+- `--duration-slow` (420 ms): acordeón y viaje del retrato.
+- `--duration-reveal` (900 ms): una foto que se abre.
+- `--ease-out` (`cubic-bezier(0.16, 1, 0.3, 1)`): todas las llegadas. Sin rebotes ni curvas elásticas.
+
+### Named Rules
+**The Door Rule.** Solo se abren las fotos. Un bloque de texto, una tarjeta informativa o un titular no entran con animación al hacer scroll.
+
+**The Visible By Default Rule.** El estado por defecto es el contenido visible. Una animación de entrada parte de ahí: si el CSS moderno o el script no están, la página se ve completa y quieta.
+
+**The Less Motion Rule.** Con `prefers-reduced-motion` no hay entradas, desplazamientos ni escalados, y el retrato no viaja; quedan los fundidos y los cambios de color y sombra que confirman un estado (hover, foco, capa abierta, «Enviando…»).
+
 ## Components
 
 Todos suaves y acogedores: redondeados, con estados que responden con calma (160–240 ms) y un foco siempre visible (contorno sólido de 2 px en Pino profundo, separado 2–3 px; en Turquesa de acento sobre noche).
 
 ### Buttons
-- **Shape:** píldora completa, 48 px de alto (40 px en la variante pequeña). Por debajo de 480 px el texto puede pasar a dos líneas en vez de salirse.
+- **Shape:** píldora completa, 48 px de alto (40 px en la variante pequeña; 44 px en pantallas táctiles, igual que las paradas de la visita guiada y los enlaces de la cabecera). Por debajo de 480 px el texto puede pasar a dos líneas en vez de salirse.
 - **Primary:** fondo Tinta de texto, texto blanco, Figtree 600 16 px; al pasar, fondo Acción hover y sombra elevada; sube 1 px. «Pedir cita» abre WhatsApp con el mensaje ya escrito y lleva su icono; el formulario queda como alternativa secundaria.
 - **Secondary:** transparente con borde de 1,5 px en Borde de control; al pasar, borde y texto en Pino profundo.
 - **Ghost:** texto en Pino profundo, sin borde; al pasar, fondo Bruma turquesa. Para «Ver todos…» con flecha.
@@ -322,7 +348,8 @@ Lista vertical con números en círculo de 40 px (serif 18 px en Pino, borde de 
 - **Do** usar el botón principal en tinta y el WhatsApp como acción más visible de cada llamada a la acción.
 - **Do** usar fotos reales de la clínica, el equipo y los pacientes con permiso.
 - **Do** mantener el foco visible: 2 px sólido en Pino profundo (Turquesa de acento sobre noche).
-- **Do** respetar `prefers-reduced-motion`: sin escalados ni desplazamientos suaves cuando se pide menos movimiento.
+- **Do** respetar `prefers-reduced-motion`: sin entradas, escalados ni desplazamientos cuando se pide menos movimiento; los cambios de color, opacidad y sombra se mantienen.
+- **Do** partir siempre del contenido visible: una animación de entrada es un añadido, nunca la condición para ver la página.
 
 ### Don't:
 - **Don't** poner un antetítulo en mayúsculas encima de un titular: repite lo que el titular ya dice y aplana el ritmo de la página.
@@ -331,4 +358,5 @@ Lista vertical con números en círculo de 40 px (serif 18 px en Pino, borde de 
 - **Don't** usar más de una palabra en cursiva por titular.
 - **Don't** usar sombras negras, duras o de varios niveles; como mucho, reposo y elevada.
 - **Don't** dar por hecho un tema oscuro: la web es solo clara.
+- **Don't** animar la entrada de texto o tarjetas al hacer scroll, ni repetir la misma entrada en cada sección: solo se abren las fotos.
 - **Don't** escribir colores en hex dentro de componentes; siempre tokens.

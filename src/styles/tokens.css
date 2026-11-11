@@ -57,6 +57,9 @@
 
   --duration-fast: 160ms;
   --duration-base: 240ms;
+  --duration-slow: 420ms;      /* capas que entran: menú, visor, acordeón, cambio de página */
+  --duration-reveal: 900ms;    /* una foto que se abre al llegar a ella */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* llegada con calma: frena pronto y se posa */
 
   --nav-h: 76px;
 }

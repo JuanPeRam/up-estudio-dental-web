@@ -78,7 +78,7 @@ const fields = [
                 <p><b>Responsable:</b> {clinic.legalName.replace(/\.$/, "")}. <b>Finalidad:</b> responder a tu consulta o solicitud de cita. <b>Legitimación:</b> tu consentimiento, también para los datos de salud que decidas incluir en el mensaje. <b>Destinatarios:</b> no cedemos tus datos a terceros salvo obligación legal; nuestros proveedores de alojamiento web y correo (Vercel, Resend y Arsys) los tratan por encargo nuestro, con posibles transferencias a EE. UU. con las garantías del RGPD. <b>Derechos:</b> acceso, rectificación, supresión, oposición, limitación y portabilidad, escribiendo a <a class="up-link" href={`mailto:${contact.email}`}>{contact.email}</a>. Más información en la <a class="up-link" href="/politica-privacidad">política de privacidad</a>.</p>
             </div>
 
-            <button class="up-btn up-btn-primary up-btn-block" type="submit">Enviar mensaje</button>
+            <button class="up-btn up-btn-primary up-btn-block" type="submit"><span class="up-spinner" aria-hidden="true"></span><span data-label>Enviar mensaje</span></button>
         </form>
     )
 }
@@ -120,13 +120,30 @@ const fields = [
             el.addEventListener("input", () => el.getAttribute("aria-invalid") === "true" && check(el));
             el.addEventListener("change", () => el.getAttribute("aria-invalid") === "true" && check(el));
         });
+        // Enviar tarda uno o dos segundos (sale un correo): el botón lo dice y no admite un segundo envío.
+        const submit = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+        const label = submit?.querySelector<HTMLElement>("[data-label]");
+        const idleText = label?.textContent ?? "";
+        const setSending = (sending: boolean) => {
+            submit?.classList.toggle("is-loading", sending);
+            submit?.setAttribute("aria-disabled", String(sending));
+            if (label) label.textContent = sending ? "Enviando…" : idleText;
+        };
         form.addEventListener("submit", (e) => {
             const invalid = controls.filter((el) => !check(el));
             if (invalid.length) {
                 e.preventDefault();
                 invalid[0].focus();
+                return;
             }
+            if (submit?.classList.contains("is-loading")) {
+                e.preventDefault();
+                return;
+            }
+            setSending(true);
         });
+        // Al volver atrás, el navegador puede restaurar la página tal como quedó: el botón vuelve a su estado.
+        window.addEventListener("pageshow", (e) => e.persisted && setSending(false));
     }
     initForm();
 </script>

@@ -18,6 +18,13 @@ const treatmentPath = (slug: string) => `/tratamientos/${slug}`
 /** Ficha de una persona del equipo: /equipo/<slug> */
 const memberPath = (slug: string) => `/equipo/${slug}`
 
+/**
+ * Nombre de la transición del retrato de una persona (view-transition-name): la tarjeta y la ficha
+ * comparten nombre y el navegador lleva la foto de una a otra al cambiar de página. Va como
+ * `style={portraitTransition(id)}` en el marco .up-cutout-photo; cada nombre, una sola vez por página.
+ */
+const portraitTransition = (slug: string) => `--vt: retrato-${slug.replace(/[^a-zA-Z0-9_-]/g, "-")}`
+
 export {
-  paths, politicsPaths, treatmentPath, memberPath
+  paths, politicsPaths, treatmentPath, memberPath, portraitTransition
 }

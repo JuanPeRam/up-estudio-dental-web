@@ -19,7 +19,8 @@ import { emergencies, emergencyPhone, whatsappLink } from "@/constants/personal"
         <li><Icon name="check-circle" class="up-icon" />Primera revisión gratis</li>
         {emergencies && emergencyPhone && (
           <li>
-            <a href={emergencyPhone.href} aria-label={`${emergencies.short}: llamar al ${emergencyPhone.display}`}>
+            {/* Sin aria-label: el nombre del enlace es su texto, para que quien navega por voz pueda decir lo que ve. */}
+            <a href={emergencyPhone.href}>
               <Icon name="shield" class="up-icon" />{emergencies.short} · <span class="up-perk-tel">{emergencyPhone.display}</span>
             </a>
           </li>
