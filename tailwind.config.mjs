@@ -5,6 +5,15 @@
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
+		// Los cortes de siempre de Tailwind (640, 768, 1024, 1280 y 1536 px) escritos en em, para que
+		// sigan al tamaño de letra del navegador igual que los de src/styles/tailwind.css.
+		screens: {
+			sm: '40em',
+			md: '48em',
+			lg: '64em',
+			xl: '80em',
+			'2xl': '96em',
+		},
 		extend: {
 			fontFamily: {
 				display: ['"Playfair Display Variable"', '"Playfair Display"', 'Georgia', 'serif'],

@@ -244,7 +244,7 @@ Una paleta de agua y madera: turquesas pastel de la marca, un verde pino profund
 ### Named Rules
 **The One Italic Word Rule.** Cada titular en serif lleva como mucho una palabra en cursiva (`<em>`), en Pino profundo (Turquesa de acento sobre noche). Es el acento de la marca; repetirla lo apaga.
 
-**The Rem Rule.** Tamaños de letra y alturas de línea en rem, nunca en px: así la web respeta el tamaño de letra que cada persona elige en su navegador.
+**The Rem Rule.** Tamaños de letra y alturas de línea en rem, nunca en px: así la web respeta el tamaño de letra que cada persona elige en su navegador. Los puntos de corte van en em por lo mismo (los px de este documento divididos entre 16, también en las clases `sm:`, `md:` y `lg:` de Tailwind): con la letra al doble, una pantalla de 1280 px se compone como una de 640 px y nada se sale. Por debajo de 20em de ancho, que solo se da con la letra ampliada en el móvil, las palabras largas pueden partirse y las rejillas de dos columnas pasan a una.
 
 **The Heading Speaks Rule.** Sin antetítulos: el titular en serif abre la sección y se explica solo, con su palabra en cursiva. Si hace falta contexto, va en la entradilla (Lead), a la derecha en escritorio (cabecera partida 1,1fr / 1fr desde 900 px). Una etiqueta en Label solo encabeza una tarjeta o un dato, o indica una posición («Parada 1 de 6»).
 
@@ -280,7 +280,7 @@ Formas suaves y acogedoras: nada de esquinas vivas. Tres radios (6 px en campos,
 - **Momento principal:** al entrar en la portada, el titular, la entradilla, las ventajas y los botones suben 16 px en cascada (80 ms entre uno y otro) y la foto del arco se abre en 1,2 s. La nota de Google entra cuando llega del servidor.
 - **Fotos al llegar a ellas** (`data-reveal` en el marco): se abren en 900 ms; las que entran a la vez, una tras otra con 70 ms de diferencia y un tope de 280 ms. Solo se ocultan las que están por debajo de la primera pantalla, y solo lo hace el script en línea de `Layout.astro`: sin JavaScript la página se ve entera.
 - **Cambio de página:** fundido de 240 ms entre páginas (View Transitions, sin JavaScript). El retrato de una persona viaja de su tarjeta (portada y `/equipo`) a su ficha y vuelve, en 420 ms (`portraitTransition` en `src/constants/pages.ts`).
-- **Capas:** el menú móvil y el visor de fotos entran con un fundido de 240 ms y salen en 160 ms; los enlaces del menú entran como lista. En el visor, la foto entra desde el lado hacia el que se avanza, cuando ya ha cargado.
+- **Capas:** el menú móvil y el visor de fotos entran con un fundido de 240 ms y salen en 160 ms; los enlaces del menú entran como lista. En el visor, la foto entra desde el lado hacia el que se avanza, cuando ya ha cargado; con el dedo se pasa de foto deslizando, y la foto acompaña al dedo.
 - **Acordeón:** la respuesta se despliega en 420 ms.
 - **Pasos del tratamiento:** la línea que une los pasos se dibuja con el scroll y cada número se activa al llegar a él. Es el único movimiento ligado al scroll, porque ahí el scroll es el recorrido.
 - **Formulario:** los errores aparecen con un fundido; al enviar, el botón pasa a «Enviando…» con un indicador y no admite un segundo envío.
@@ -304,7 +304,7 @@ Formas suaves y acogedoras: nada de esquinas vivas. Tres radios (6 px en campos,
 Todos suaves y acogedores: redondeados, con estados que responden con calma (160–240 ms) y un foco siempre visible (contorno sólido de 2 px en Pino profundo, separado 2–3 px; en Turquesa de acento sobre noche).
 
 ### Buttons
-- **Shape:** píldora completa, 48 px de alto (40 px en la variante pequeña). Por debajo de 480 px el texto puede pasar a dos líneas en vez de salirse.
+- **Shape:** píldora completa, 48 px de alto (40 px en la variante pequeña; 44 px en pantallas táctiles, igual que las paradas de la visita guiada y los enlaces de la cabecera). Por debajo de 480 px el texto puede pasar a dos líneas en vez de salirse.
 - **Primary:** fondo Tinta de texto, texto blanco, Figtree 600 16 px; al pasar, fondo Acción hover y sombra elevada; sube 1 px. «Pedir cita» abre WhatsApp con el mensaje ya escrito y lleva su icono; el formulario queda como alternativa secundaria.
 - **Secondary:** transparente con borde de 1,5 px en Borde de control; al pasar, borde y texto en Pino profundo.
 - **Ghost:** texto en Pino profundo, sin borde; al pasar, fondo Bruma turquesa. Para «Ver todos…» con flecha.

@@ -56,7 +56,7 @@ const citaWhatsApp = whatsappLink(`Hola, me gustaría pedir cita para ${d.titulo
                             {d.incluye?.titulo && <Sub class="up-h3">{d.incluye.titulo}</Sub>}
                             <Checklist items={incluye} />
                             <Button href={citaWhatsApp} icon="whatsapp" block external aria-label={`${boton} por WhatsApp (se abre en otra pestaña)`}>{boton}</Button>
-                            <a class="up-link self-center text-[1rem]" href="/contacto">Prefiero el formulario de contacto</a>
+                            <a class="up-link up-link-tap self-center text-[1rem]" href="/contacto">Prefiero el formulario de contacto</a>
                         </div>
                     )}
                     {preguntasJuntoAPasos && (
@@ -75,7 +75,7 @@ const citaWhatsApp = whatsappLink(`Hola, me gustaría pedir cita para ${d.titulo
                     {d.incluye?.titulo && <Sub class="up-h3">{d.incluye.titulo}</Sub>}
                     <Checklist items={incluye} />
                     <Button href={citaWhatsApp} icon="whatsapp" block external aria-label={`${boton} por WhatsApp (se abre en otra pestaña)`}>{boton}</Button>
-                    <a class="up-link self-center text-[1rem]" href="/contacto">Prefiero el formulario de contacto</a>
+                    <a class="up-link up-link-tap self-center text-[1rem]" href="/contacto">Prefiero el formulario de contacto</a>
                 </div>
             )
         }

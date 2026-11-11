@@ -113,7 +113,7 @@ const tourSizes = (count: number, index: number) => {
 <div class="up-lightbox up-on-night" id="lightbox" role="dialog" aria-modal="true" aria-label="Visor de fotos de la clínica" hidden>
   <button class="up-lightbox-btn right-4 top-4 md:right-6 md:top-6" type="button" id="lightbox-close" aria-label="Cerrar visor"><Icon name="close" class="up-icon" /></button>
   <button class="up-lightbox-btn left-2 top-1/2 -translate-y-1/2 md:left-6" type="button" id="lightbox-prev" aria-label="Foto anterior"><Icon name="chevron-left" class="up-icon" /></button>
-  <img id="lightbox-image" alt="" />
+  <img id="lightbox-image" alt="" draggable="false" />
   <button class="up-lightbox-btn right-2 top-1/2 -translate-y-1/2 md:right-6" type="button" id="lightbox-next" aria-label="Foto siguiente"><Icon name="chevron-right" class="up-icon" /></button>
   <p class="up-lightbox-count m-0" id="lightbox-counter" aria-live="polite"></p>
 </div>
@@ -156,7 +156,10 @@ const tourSizes = (count: number, index: number) => {
     let release = () => {};
 
     const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
+    const EASE = "cubic-bezier(0.16, 1, 0.3, 1)";
     let request = 0;
+    // Salida de la foto al deslizar: se mantiene hasta que entra la siguiente.
+    let exit: Animation | null = null;
     // dir: 1 si se avanza, -1 si se retrocede, 0 al abrir. La foto entra desde el lado hacia el que se va.
     const show = (i: number, dir = 0) => {
       current = (i + buttons.length) % buttons.length;
@@ -170,10 +173,12 @@ const tourSizes = (count: number, index: number) => {
         if (id !== request) return;
         image.src = src;
         image.alt = thumb?.alt ?? "";
+        exit?.cancel();
+        exit = null;
         if (reduceMotion.matches) return;
         image.animate(
           [{ opacity: 0, transform: dir ? `translateX(${dir * 24}px)` : "scale(0.96)" }, { opacity: 1, transform: "none" }],
-          { duration: 320, easing: "cubic-bezier(0.16, 1, 0.3, 1)" },
+          { duration: 320, easing: EASE },
         );
       };
       const preload = new Image();
@@ -196,7 +201,59 @@ const tourSizes = (count: number, index: number) => {
       release = isolate(box);
       document.getElementById("lightbox-close")?.focus();
     };
+    // Deslizar con el dedo (o el lápiz): hacia la izquierda, la foto siguiente; hacia la derecha, la
+    // anterior. La foto acompaña al dedo y, si no se llega a un quinto del ancho (80 px como mucho),
+    // vuelve a su sitio. Con el ratón no hay arrastre: están las flechas y el teclado.
+    let drag: { id: number; x: number; y: number; dx: number; active: boolean } | null = null;
+    let swiped = false;
+    const endDrag = (commit: boolean) => {
+      if (!drag) return;
+      const { dx, active } = drag;
+      drag = null;
+      if (!active) return;
+      image.style.transform = "";
+      const dir = dx < 0 ? 1 : -1;
+      if (commit && buttons.length > 1 && Math.abs(dx) > Math.min(80, box.clientWidth * 0.2)) {
+        if (!reduceMotion.matches) {
+          exit = image.animate(
+            [{ transform: `translateX(${dx}px)`, opacity: 1 }, { transform: `translateX(${dx - dir * 60}px)`, opacity: 0 }],
+            { duration: 160, easing: "ease-out", fill: "forwards" },
+          );
+        }
+        show(current + dir, dir);
+      } else if (!reduceMotion.matches) {
+        image.animate([{ transform: `translateX(${dx}px)` }, { transform: "none" }], { duration: 240, easing: EASE });
+      }
+    };
+    box.addEventListener("pointerdown", (e) => {
+      swiped = false;
+      // Un segundo dedo es un pellizco para ampliar: se suelta el arrastre.
+      if (!e.isPrimary) return endDrag(false);
+      if (e.pointerType === "mouse" || (e.target as Element).closest("button")) return;
+      drag = { id: e.pointerId, x: e.clientX, y: e.clientY, dx: 0, active: false };
+    });
+    box.addEventListener("pointermove", (e) => {
+      if (!drag || e.pointerId !== drag.id) return;
+      const dx = e.clientX - drag.x;
+      if (!drag.active) {
+        if (Math.abs(dx) < 10 || Math.abs(dx) < Math.abs(e.clientY - drag.y)) return;
+        // Sin setPointerCapture: un toque ya queda ligado al elemento donde empezó, y pasar la captura
+        // al visor dispararía «lostpointercapture» en la foto y daría el gesto por interrumpido.
+        drag.active = true;
+        swiped = true;
+      }
+      drag.dx = dx;
+      if (!reduceMotion.matches) image.style.transform = `translateX(${dx}px)`;
+    });
+    box.addEventListener("pointerup", (e) => {
+      if (drag && e.pointerId === drag.id) endDrag(true);
+    });
+    // Gesto interrumpido (el navegador se queda con el toque, se pierde la captura): la foto vuelve.
+    box.addEventListener("pointercancel", () => endDrag(false));
+    box.addEventListener("lostpointercapture", () => endDrag(false));
+
     const close = () => {
+      endDrag(false);
       release();
       release = () => {};
       box.hidden = true;
@@ -210,7 +267,9 @@ const tourSizes = (count: number, index: number) => {
     document.getElementById("lightbox-prev")?.addEventListener("click", () => show(current - 1, -1));
     document.getElementById("lightbox-next")?.addEventListener("click", () => show(current + 1, 1));
     box.addEventListener("click", (e) => {
-      if (e.target === box) close();
+      // Tras deslizar, el toque que termina el gesto no cierra el visor.
+      if (e.target === box && !swiped) close();
+      swiped = false;
     });
   }
   initTour();
