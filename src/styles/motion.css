@@ -1,20 +1,12 @@
 /* ============================================================
-   Movimiento — una entrada y respuestas
-   Un solo momento propio: la portada entra una vez al cargar (el texto sube en cascada y la foto se
-   desvela desde un rectángulo algo menor, con el mismo radio de 20 px que su marco). Nada aparece al
-   hacer scroll salvo la línea de los pasos del tratamiento, que es el recorrido del propio tratamiento.
-   El resto explica un cambio de estado: hover, una capa que entra, un envío en curso.
-   Se carga después de tailwind.css (ver Layout.astro). Tiempos y curva en tokens.css.
+   Movimiento — un solo gesto propio: la línea
+   El diente se dibuja al cargar, la línea avanza con el scroll (Linea.astro), cada punto se rellena
+   al llegar el trazo y el corazón del cierre se dibuja al final. Lo demás solo responde a lo que hace
+   la persona: hover, una capa que entra, un envío en curso. Tiempos y curva en tokens.css.
    ============================================================ */
 
 @keyframes up-trazo-inverso { from { stroke-dashoffset: -1; } to { stroke-dashoffset: 0; } }
-@keyframes up-unveil {
-  from { clip-path: inset(5% 5% 5% 5% round var(--radius-lg)); scale: 1.06; opacity: 0; }
-  40% { opacity: 1; }
-  to { clip-path: inset(0 round var(--radius-lg)); scale: 1; opacity: 1; }
-}
 @keyframes up-rise { from { opacity: 0; translate: 0 16px; } }
-@keyframes up-pop { from { opacity: 0; translate: 0 10px; scale: 0.94; } }
 @keyframes up-spin { to { rotate: 1turn; } }
 @keyframes up-line-draw { from { transform: scaleY(0); } }
 @keyframes up-step-on { from { border-color: var(--line); color: var(--ink-muted); scale: 0.86; } }

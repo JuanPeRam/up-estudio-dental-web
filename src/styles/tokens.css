@@ -34,7 +34,7 @@
   --on-night-muted: var(--salvia);   /* 7,2:1 sobre pino */
   --line: #d8d3c4;                   /* filetes sobre crema */
   --line-strong: #b9b3a2;
-  --control-border: #6d7b74;         /* 4,2:1 sobre crema */
+  --control-border: #6d7b74;         /* 4,1:1 sobre crema */
   --ink: var(--pino);
   --ink-muted: var(--pino-suave);
   --brand: var(--turquesa-logo);     /* acento sobre pino */

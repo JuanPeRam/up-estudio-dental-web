@@ -1,572 +1,536 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-11T17:58:49+00:00",
+  "generatedAt": "2026-11-11T21:46:00+00:00",
   "title": "Design System: Up Estudio Dental y Estética",
   "extensions": {
     "colorMeta": {
-      "turquesa-up": {
-        "role": "primary",
-        "displayName": "Turquesa Up",
-        "canonical": "#c1e4e2",
+      "crema": {
+        "role": "neutral",
+        "displayName": "Crema de las publicaciones",
+        "canonical": "#faf6ec",
         "tonalRamp": [
-          "#1e2f2e",
-          "#305553",
-          "#3f7e7a",
-          "#4ba9a4",
-          "#72bbb7",
-          "#9cc9c7",
-          "#c9dedd",
-          "#f0f5f4"
-        ]
-      },
-      "turquesa-logo": {
-        "role": "secondary",
-        "displayName": "Turquesa del logo",
-        "canonical": "#9bd9dd",
-        "tonalRamp": [
-          "#1b3031",
-          "#2b575a",
-          "#378186",
-          "#40aeb5",
-          "#69bfc4",
-          "#96cccf",
-          "#c7dfe1",
-          "#eff5f5"
-        ]
-      },
-      "pino-profundo": {
-        "role": "primary",
-        "displayName": "Pino profundo",
-        "canonical": "#1d4f4b",
-        "tonalRamp": [
-          "#1c312f",
-          "#2c5855",
-          "#39837d",
-          "#43b2a9",
-          "#6bc2bb",
-          "#98cdc9",
-          "#c8e0de",
-          "#f0f5f5"
-        ]
-      },
-      "pino-medio": {
-        "role": "secondary",
-        "displayName": "Pino medio",
-        "canonical": "#38918b",
-        "tonalRamp": [
-          "#1c302f",
-          "#2d5754",
-          "#3b827d",
-          "#46afa8",
-          "#6dc0ba",
-          "#99ccc9",
-          "#c8dfde",
-          "#f0f5f4"
-        ]
-      },
-      "turquesa-acento": {
-        "role": "secondary",
-        "displayName": "Turquesa de acento",
-        "canonical": "#70cac5",
-        "tonalRamp": [
-          "#1c302f",
-          "#2d5856",
-          "#3a837f",
-          "#44b1ab",
-          "#6cc1bd",
-          "#98cdca",
-          "#c8e0de",
-          "#f0f5f5"
-        ]
-      },
-      "arena": {
-        "role": "tertiary",
-        "displayName": "Arena",
-        "canonical": "#f3eee7",
-        "tonalRamp": [
-          "#2e271f",
-          "#524533",
-          "#796344",
-          "#a28153",
-          "#b69c77",
-          "#c6b69f",
-          "#dcd5cb",
-          "#f4f3f0"
+          "#121110",
+          "#2c2b28",
+          "#494844",
+          "#686661",
+          "#888680",
+          "#aaa7a0",
+          "#cecac2",
+          "#f2eee4"
         ]
       },
       "papel": {
         "role": "neutral",
         "displayName": "Papel",
-        "canonical": "#fbfcfc",
+        "canonical": "#fffdf8",
         "tonalRamp": [
-          "#232929",
-          "#3c4949",
-          "#536a6a",
-          "#698b8b",
-          "#89a4a4",
-          "#aabbbb",
-          "#d0d7d7",
-          "#f1f3f3"
+          "#121211",
+          "#2c2b2a",
+          "#484846",
+          "#676664",
+          "#878683",
+          "#a9a7a4",
+          "#cccac6",
+          "#f0eee9"
         ]
       },
-      "blanco": {
+      "salvia": {
+        "role": "primary",
+        "displayName": "Salvia",
+        "canonical": "#b8cfc8",
+        "tonalRamp": [
+          "#0d1311",
+          "#242e2b",
+          "#3f4b47",
+          "#5b6a65",
+          "#798b85",
+          "#99ada7",
+          "#bad1ca",
+          "#dff4ee"
+        ]
+      },
+      "salvia-clara": {
         "role": "neutral",
-        "displayName": "Blanco",
+        "displayName": "Salvia clara",
+        "canonical": "#e2ebe7",
+        "tonalRamp": [
+          "#101211",
+          "#292c2b",
+          "#454947",
+          "#636765",
+          "#828885",
+          "#a3aaa6",
+          "#c5cdc9",
+          "#e8f1ed"
+        ]
+      },
+      "pino": {
+        "role": "primary",
+        "displayName": "Verde pino",
+        "canonical": "#1f3d36",
+        "tonalRamp": [
+          "#001611",
+          "#15312b",
+          "#324e47",
+          "#536c66",
+          "#758c86",
+          "#98ada7",
+          "#bdcfca",
+          "#e3f2ee"
+        ]
+      },
+      "pino-suave": {
+        "role": "neutral",
+        "displayName": "Pino suave",
+        "canonical": "#3e5a53",
+        "tonalRamp": [
+          "#031511",
+          "#1a302b",
+          "#334e47",
+          "#526d66",
+          "#748c86",
+          "#97ada7",
+          "#bcd0ca",
+          "#e2f3ee"
+        ]
+      },
+      "pino-hondo": {
+        "role": "primary",
+        "displayName": "Pino hondo",
+        "canonical": "#17302a",
+        "tonalRamp": [
+          "#021611",
+          "#18312b",
+          "#364d47",
+          "#566b66",
+          "#788b86",
+          "#9baca7",
+          "#c0ceca",
+          "#e6f2ee"
+        ]
+      },
+      "pino-pulsado": {
+        "role": "primary",
+        "displayName": "Pino pulsado",
+        "canonical": "#10241f",
+        "tonalRamp": [
+          "#041511",
+          "#1d302b",
+          "#3a4c47",
+          "#5a6a65",
+          "#7b8a86",
+          "#9eaba7",
+          "#c2cdca",
+          "#e8f1ee"
+        ]
+      },
+      "madera": {
+        "role": "tertiary",
+        "displayName": "Madera de la recepción",
+        "canonical": "#e8d9c3",
+        "tonalRamp": [
+          "#15110c",
+          "#302a23",
+          "#4d473d",
+          "#6d6558",
+          "#8f8575",
+          "#b2a694",
+          "#d6c8b4",
+          "#fbecd7"
+        ]
+      },
+      "turquesa": {
+        "role": "secondary",
+        "displayName": "Turquesa del trazo",
+        "canonical": "#2a8c83",
+        "tonalRamp": [
+          "#001915",
+          "#003530",
+          "#00544e",
+          "#16756d",
+          "#3d978e",
+          "#6bb8af",
+          "#97dad1",
+          "#c2fcf4"
+        ]
+      },
+      "turquesa-texto": {
+        "role": "secondary",
+        "displayName": "Turquesa de texto",
+        "canonical": "#1d6f68",
+        "tonalRamp": [
+          "#001915",
+          "#003530",
+          "#00544e",
+          "#26746d",
+          "#53948d",
+          "#7bb4ae",
+          "#a4d6d0",
+          "#cef9f3"
+        ]
+      },
+      "turquesa-logo": {
+        "role": "secondary",
+        "displayName": "Turquesa del logo",
+        "canonical": "#3cb4a8",
+        "tonalRamp": [
+          "#001915",
+          "#003530",
+          "#00554e",
+          "#08766d",
+          "#29998e",
+          "#4cbdb1",
+          "#7fdfd3",
+          "#aefff6"
+        ]
+      },
+      "turquesa-logo-claro": {
+        "role": "secondary",
+        "displayName": "Turquesa del logo claro",
+        "canonical": "#6fcbc0",
+        "tonalRamp": [
+          "#001714",
+          "#01332f",
+          "#19524c",
+          "#31736b",
+          "#49958d",
+          "#63b9af",
+          "#87ddd2",
+          "#b3fff6"
+        ]
+      },
+      "trazo-sobre-salvia": {
+        "role": "secondary",
+        "displayName": "Trazo sobre salvia",
         "canonical": "#ffffff",
         "tonalRamp": [
-          "#262626",
-          "#424242",
-          "#5e5e5e",
-          "#7a7a7a",
-          "#969696",
-          "#b2b2b2",
-          "#d4d4d4",
-          "#f2f2f2"
+          "#121212",
+          "#2b2b2b",
+          "#484848",
+          "#666666",
+          "#868686",
+          "#a8a8a8",
+          "#cacaca",
+          "#eeeeee"
         ]
       },
-      "bruma-turquesa": {
+      "sobre-pino": {
         "role": "neutral",
-        "displayName": "Bruma turquesa",
-        "canonical": "#e4f3f2",
+        "displayName": "Sobre pino",
+        "canonical": "#efe9dc",
         "tonalRamp": [
-          "#1e2f2e",
-          "#305452",
-          "#407d79",
-          "#4ca8a2",
-          "#73bab6",
-          "#9cc9c6",
-          "#cadedc",
-          "#f0f5f4"
+          "#13110f",
+          "#2d2b27",
+          "#4a4742",
+          "#69665f",
+          "#8a867d",
+          "#aca79d",
+          "#cfcabe",
+          "#f4eee1"
         ]
       },
       "linea": {
         "role": "neutral",
         "displayName": "Línea",
-        "canonical": "#d5e3e1",
+        "canonical": "#d8d3c4",
         "tonalRamp": [
-          "#222b29",
-          "#394c49",
-          "#4e6e6a",
-          "#63928b",
-          "#84a9a4",
-          "#a7bebb",
-          "#ced9d7",
-          "#f1f3f3"
+          "#13120e",
+          "#2d2b26",
+          "#4a4840",
+          "#69665d",
+          "#8a867b",
+          "#aca89b",
+          "#cfcabc",
+          "#f3eee0"
         ]
       },
       "borde-control": {
         "role": "neutral",
         "displayName": "Borde de control",
-        "canonical": "#6f8582",
+        "canonical": "#6d7b74",
         "tonalRamp": [
-          "#242828",
-          "#3e4745",
-          "#576664",
-          "#708582",
-          "#8e9f9d",
-          "#adb8b6",
-          "#d1d6d5",
-          "#f2f3f3"
-        ]
-      },
-      "tinta-texto": {
-        "role": "neutral",
-        "displayName": "Tinta de texto",
-        "canonical": "#14201f",
-        "tonalRamp": [
-          "#212b2b",
-          "#374d4b",
-          "#4c716e",
-          "#5f9691",
-          "#81aca8",
-          "#a5c0be",
-          "#cedad9",
-          "#f1f4f3"
-        ]
-      },
-      "tinta-suave": {
-        "role": "neutral",
-        "displayName": "Tinta suave",
-        "canonical": "#3d4f4d",
-        "tonalRamp": [
-          "#232928",
-          "#3c4846",
-          "#546964",
-          "#6b8a83",
-          "#8aa29d",
-          "#abbab7",
-          "#d0d7d6",
-          "#f1f3f3"
-        ]
-      },
-      "tinta-nocturna": {
-        "role": "neutral",
-        "displayName": "Tinta nocturna",
-        "canonical": "#111716",
-        "tonalRamp": [
-          "#232a28",
-          "#3b4947",
-          "#526a66",
-          "#688c86",
-          "#88a4a0",
-          "#aabbb8",
-          "#d0d8d6",
-          "#f1f3f3"
-        ]
-      },
-      "sobre-noche": {
-        "role": "neutral",
-        "displayName": "Sobre noche",
-        "canonical": "#e3e3e3",
-        "tonalRamp": [
-          "#262626",
-          "#424242",
-          "#5e5e5e",
-          "#7a7a7a",
-          "#969696",
-          "#b2b2b2",
-          "#d4d4d4",
-          "#f2f2f2"
-        ]
-      },
-      "sobre-noche-suave": {
-        "role": "neutral",
-        "displayName": "Sobre noche suave",
-        "canonical": "#a7b5b3",
-        "tonalRamp": [
-          "#242828",
-          "#3e4645",
-          "#576563",
-          "#708582",
-          "#8e9f9c",
-          "#adb8b6",
-          "#d1d6d5",
-          "#f2f3f3"
-        ]
-      },
-      "accion-hover": {
-        "role": "primary",
-        "displayName": "Acción hover",
-        "canonical": "#24645f",
-        "tonalRamp": [
-          "#1c312f",
-          "#2c5955",
-          "#39847e",
-          "#42b3aa",
-          "#6bc2bb",
-          "#97ceca",
-          "#c7e0de",
-          "#eff5f5"
+          "#0c1310",
+          "#252e29",
+          "#404b45",
+          "#5d6a63",
+          "#7c8a83",
+          "#9faba5",
+          "#c2cec8",
+          "#e7f1ec"
         ]
       },
       "peligro": {
         "role": "error",
         "displayName": "Peligro",
-        "canonical": "#b42318",
+        "canonical": "#a3291c",
         "tonalRamp": [
-          "#371815",
-          "#66231e",
-          "#9b2a21",
-          "#d62c1f",
-          "#de594f",
-          "#df8c86",
-          "#e8c2c0",
-          "#f7eeee"
+          "#360000",
+          "#5d0000",
+          "#861409",
+          "#ad382a",
+          "#cc6151",
+          "#eb8879",
+          "#ffb0a1",
+          "#ffd8ca"
         ]
       },
       "exito": {
         "role": "success",
         "displayName": "Éxito",
-        "canonical": "#2e7d4f",
+        "canonical": "#2c6e4a",
         "tonalRamp": [
-          "#1c3025",
-          "#2c583f",
-          "#3a8358",
-          "#43b271",
-          "#6bc28f",
-          "#98cdae",
-          "#c8e0d2",
-          "#f0f5f2"
-        ]
-      },
-      "turquesa-acento-hover": {
-        "role": "secondary",
-        "displayName": "Turquesa de acento hover",
-        "canonical": "#8fd3ce",
-        "tonalRamp": [
-          "#1d302e",
-          "#2e5754",
-          "#3c817c",
-          "#46aea7",
-          "#6ebfb9",
-          "#99ccc8",
-          "#c8dfdd",
-          "#f0f5f4"
-        ]
-      },
-      "sobre-acento": {
-        "role": "neutral",
-        "displayName": "Sobre acento",
-        "canonical": "#0e1413",
-        "tonalRamp": [
-          "#222a29",
-          "#3a4b48",
-          "#506c68",
-          "#658f88",
-          "#86a7a1",
-          "#a8bdb9",
-          "#cfd8d7",
-          "#f1f3f3"
-        ]
-      },
-      "noche-elevada": {
-        "role": "neutral",
-        "displayName": "Noche elevada",
-        "canonical": "#1b2423",
-        "tonalRamp": [
-          "#232929",
-          "#3c4948",
-          "#536a67",
-          "#698b88",
-          "#89a4a1",
-          "#aabbb9",
-          "#d0d7d7",
-          "#f1f3f3"
-        ]
-      },
-      "sobre-noche-fuerte": {
-        "role": "neutral",
-        "displayName": "Sobre noche fuerte",
-        "canonical": "#f2f5f4",
-        "tonalRamp": [
-          "#232927",
-          "#3c4844",
-          "#546962",
-          "#6b8a80",
-          "#8aa39b",
-          "#abbab5",
-          "#d0d7d5",
-          "#f1f3f3"
+          "#001905",
+          "#00361c",
+          "#175535",
+          "#357551",
+          "#5d9573",
+          "#83b596",
+          "#abd7bb",
+          "#d3fae1"
         ]
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Solo el titular de la portada."
+        "purpose": "Titular del cierre de cita."
+      },
+      "display-portada": {
+        "displayName": "Display de portada",
+        "purpose": "Titular de la portada, contenido para que la foto del equipo entre en la primera pantalla."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Titular de cada página interior."
+        "purpose": "Titular de cada sección de la portada y de cada página interior."
       },
       "headline-section": {
         "displayName": "Headline de sección",
-        "purpose": "Titulares de sección."
+        "purpose": "Titulares de etapa y bloques de la ficha de tratamiento."
       },
       "title": {
         "displayName": "Title",
         "purpose": "Subtítulos en serif dentro de una sección."
       },
+      "registro": {
+        "displayName": "Registro",
+        "purpose": "Término de cada línea de un registro sobre pino o madera."
+      },
+      "cita": {
+        "displayName": "Cita",
+        "purpose": "Texto de una reseña."
+      },
       "title-sans": {
         "displayName": "Title sans",
-        "purpose": "Nombres en tarjetas y títulos de elementos de lista."
-      },
-      "body": {
-        "displayName": "Body",
-        "purpose": "Texto corrido, hasta 68ch."
+        "purpose": "Títulos de elementos de lista en sans."
       },
       "lead": {
         "displayName": "Lead",
-        "purpose": "Entradillas bajo un titular, hasta 60ch."
+        "purpose": "Entradillas bajo un titular, hasta 34em."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texto corrido, hasta 34em."
       },
       "small": {
         "displayName": "Small",
-        "purpose": "Textos de apoyo en tarjetas y paneles."
+        "purpose": "Apoyo y descripciones de registros."
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Antetítulos en mayúsculas espaciadas."
+        "purpose": "Mayúsculas espaciadas: nombra un dato, un grupo de controles o la edad de una etapa. Nunca antetítulo."
       },
-      "caption": {
-        "displayName": "Caption",
-        "purpose": "Especialidades, insignias y metadatos."
+      "button": {
+        "displayName": "Button",
+        "purpose": "Texto de botones."
       },
       "control": {
         "displayName": "Control",
-        "purpose": "Campos de formulario y teléfonos destacados."
-      },
-      "button-sm": {
-        "displayName": "Botón pequeño",
-        "purpose": "Botón compacto de la cabecera y etiquetas de especialidad en móvil."
+        "purpose": "Texto de campos; 17 px para evitar el zoom del móvil."
       }
     },
-    "shadows": [
-      {
-        "name": "reposo",
-        "value": "0 1px 2px rgba(20,32,31,.06), 0 1px 1px rgba(20,32,31,.04)",
-        "purpose": "Tarjetas, paneles y botón principal en reposo (--shadow-sm)."
-      },
-      {
-        "name": "elevada",
-        "value": "0 12px 32px -12px rgba(20,32,31,.18)",
-        "purpose": "Hover de tarjetas y botones, cabecera con scroll, tarjetas flotantes sobre fotos (--shadow-md)."
-      }
-    ],
+    "shadows": [],
     "motion": [
       {
-        "name": "rapida",
-        "value": "160ms ease",
-        "purpose": "Respuesta inmediata (color, borde, desplazamiento de 1 px en botones y enlaces) y salida de capas (--duration-fast)."
+        "name": "duration-fast",
+        "value": "160ms",
+        "purpose": "Respuesta inmediata (hover, chips) y salidas de capas."
       },
       {
-        "name": "base",
-        "value": "240ms ease",
-        "purpose": "Cambios de estado: sombras, subrayado de la navegación, barra móvil, entrada del menú y del visor, fundido entre páginas (--duration-base)."
+        "name": "duration-base",
+        "value": "240ms",
+        "purpose": "Cambios de estado, entrada de capas, fundido entre páginas."
       },
       {
-        "name": "lenta",
-        "value": "420ms cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Acordeón que se despliega y viaje del retrato de la tarjeta a la ficha (--duration-slow)."
+        "name": "duration-slow",
+        "value": "420ms",
+        "purpose": "Acordeón, puntos de etapa al llegar la línea, viaje del retrato."
       },
       {
-        "name": "llegada",
+        "name": "ease-out",
         "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Curva de todas las llegadas: frena pronto y se posa, sin rebotes (--ease-out)."
+        "purpose": "Todas las llegadas; sin rebotes."
       },
       {
-        "name": "foto",
-        "value": "600ms ease",
-        "purpose": "Escalado del 3 % de las fotos al pasar el ratón."
+        "name": "linea-scroll",
+        "value": "strokeDashoffset ligado al scroll; meta en el 62 % de la pantalla",
+        "purpose": "La línea se dibuja con el scroll; con movimiento reducido aparece entera."
+      },
+      {
+        "name": "diente-entrada",
+        "value": "1100ms var(--ease-out) 150ms",
+        "purpose": "El diente de cabecera se dibuja una vez al cargar, desde la raíz."
+      },
+      {
+        "name": "corazon-cierre",
+        "value": "900ms var(--ease-out)",
+        "purpose": "El corazón se dibuja cuando la línea lo alcanza."
+      },
+      {
+        "name": "bocadillo",
+        "value": "320ms clip-path inset de izquierda a derecha",
+        "purpose": "El mensaje nuevo del preparador se escribe al cambiar la elección."
       }
     ],
     "breakpoints": [
       {
-        "name": "letra-ampliada",
-        "value": "20em"
+        "name": "rail-sm",
+        "value": "48em"
+      },
+      {
+        "name": "composicion",
+        "value": "60em"
+      },
+      {
+        "name": "rail-lg",
+        "value": "64em"
       },
       {
         "name": "sm",
         "value": "40em"
       },
       {
-        "name": "md",
-        "value": "48em"
-      },
-      {
-        "name": "lg",
-        "value": "56.25em"
-      },
-      {
         "name": "xl",
-        "value": "62.5em"
-      },
-      {
-        "name": "2xl",
-        "value": "68.75em"
+        "value": "80em"
       }
-    ]
+    ],
+    "rail": {
+      "--rail-x": {
+        "base": "14px",
+        "48em": "56px",
+        "64em": "164px"
+      },
+      "--rail-pad": {
+        "base": "44px",
+        "48em": "112px",
+        "64em": "216px"
+      },
+      "--trazo-w": "1.5px",
+      "trazoPorCampo": {
+        "claro": "var(--turquesa)",
+        "salvia": "var(--trazo-sobre-salvia)",
+        "pino": "var(--salvia)"
+      }
+    }
   },
   "components": [
     {
       "name": "Botón principal",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Acción principal en tinta: pedir cita, enviar.",
-      "html": "<button class=\"ds-btn-primary\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z\"/></svg>Escribir por WhatsApp</button>",
-      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 22px; border-radius: 999px; border: 1.5px solid transparent; font: 600 16px/21px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); cursor: pointer; transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 240ms ease; background: var(--action, #14201f); color: var(--on-action, #fff); box-shadow: var(--shadow-sm, 0 1px 2px rgba(20,32,31,.06)); } .ds-btn-primary:hover { background: var(--action-hover, #24645f); box-shadow: var(--shadow-md, 0 12px 32px -12px rgba(20,32,31,.18)); transform: translateY(-1px); } .ds-btn-primary:active { transform: translateY(0); } .ds-btn-primary:focus-visible { outline: 2px solid var(--focus-ring, #1d4f4b); outline-offset: 3px; }"
+      "description": "La acción de WhatsApp: píldora pino con texto crema, plana.",
+      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 21l1.65-3.8A9 9 0 1 1 7.8 20.4L3 21\"/></svg>Escribir por WhatsApp</a>",
+      "css": ".ds-btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:48px; padding:12px 24px; border-radius:999px; border:1.5px solid transparent; font:600 1rem/1.3125rem var(--font-sans); letter-spacing:0.005em; text-decoration:none; cursor:pointer; transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease; } .ds-btn:focus-visible { outline:2px solid #1d6f68; outline-offset:3px; } .ds-btn-primary { background:#1f3d36; color:#faf6ec; border-color:#1f3d36; } .ds-btn-primary:hover { background:#17302a; } .ds-btn-primary:active { background:#10241f; }"
     },
     {
       "name": "Botón secundario",
       "kind": "button",
       "refersTo": "button-secondary",
-      "description": "Alternativa junto al principal: ver tratamientos, formulario.",
-      "html": "<button class=\"ds-btn-secondary\">Ver tratamientos</button>",
-      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 22px; border-radius: 999px; border: 1.5px solid transparent; font: 600 16px/21px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); cursor: pointer; transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 240ms ease; background: transparent; color: var(--ink, #14201f); border-color: var(--control-border, #6f8582); } .ds-btn-secondary:hover { border-color: var(--brand-strong, #1d4f4b); color: var(--brand-strong, #1d4f4b); transform: translateY(-1px); } .ds-btn-secondary:focus-visible { outline: 2px solid var(--focus-ring, #1d4f4b); outline-offset: 3px; }"
+      "description": "Contorno pino que se rellena al pasar.",
+      "html": "<a class=\"ds-btn-secondary\" href=\"#\">Escribir por el formulario</a>",
+      "css": ".ds-btn-secondary { display:inline-flex; align-items:center; min-height:48px; padding:12px 24px; border-radius:999px; border:1.5px solid #1f3d36; background:transparent; color:#1f3d36; font:600 1rem/1.3125rem var(--font-sans); text-decoration:none; transition: background-color 160ms ease, color 160ms ease; } .ds-btn-secondary:hover { background:#1f3d36; color:#faf6ec; } .ds-btn-secondary:focus-visible { outline:2px solid #1d6f68; outline-offset:3px; }"
     },
     {
-      "name": "Botón fantasma",
+      "name": "Botón claro sobre pino",
       "kind": "button",
-      "refersTo": "button-ghost",
-      "description": "Enlace con flecha para «Ver todos…».",
-      "html": "<button class=\"ds-btn-ghost\">Conoce a todo el equipo<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></button>",
-      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 22px; border-radius: 999px; border: 1.5px solid transparent; font: 600 16px/21px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); cursor: pointer; transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 240ms ease; padding-inline: 8px; background: transparent; color: var(--brand-strong, #1d4f4b); } .ds-btn-ghost:hover { background: var(--surface-tint, #e4f3f2); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--focus-ring, #1d4f4b); outline-offset: 3px; }"
+      "refersTo": "button-light",
+      "description": "Acción principal dentro del campo pino.",
+      "html": "<div class=\"ds-night\"><a class=\"ds-btn-light\" href=\"#\">Pedir revisión gratuita</a></div>",
+      "css": ".ds-night { background:#1f3d36; padding:24px; } .ds-btn-light { display:inline-flex; align-items:center; min-height:48px; padding:12px 24px; border-radius:999px; border:1.5px solid #faf6ec; background:#faf6ec; color:#1f3d36; font:600 1rem/1.3125rem var(--font-sans); text-decoration:none; transition: background-color 160ms ease, border-color 160ms ease; } .ds-btn-light:hover { background:#b8cfc8; border-color:#b8cfc8; } .ds-btn-light:focus-visible { outline:2px solid #3cb4a8; outline-offset:3px; }"
     },
     {
-      "name": "Botón de noche",
-      "kind": "button",
-      "refersTo": "button-night",
-      "description": "Botón principal sobre bandas de Tinta nocturna.",
-      "html": "<div class=\"ds-night\"><button class=\"ds-btn-night\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3z\"/></svg>Escribir por WhatsApp</button></div>",
-      "css": ".ds-night { background: var(--night, #111716); padding: 24px; border-radius: 12px; } .ds-btn-night { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 22px; border-radius: 999px; border: 1.5px solid transparent; font: 600 16px/21px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); cursor: pointer; transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 240ms ease; background: var(--brand, #70cac5); color: #0e1413; } .ds-btn-night:hover { background: #8fd3ce; transform: translateY(-1px); } .ds-btn-night:focus-visible { outline: 2px solid var(--brand, #70cac5); outline-offset: 3px; }"
+      "name": "Chips del preparador",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Radios en píldora; el elegido se enciende en pino.",
+      "html": "<div class=\"ds-chips\"><label class=\"ds-chip\"><input type=\"radio\" name=\"q\" checked><span>Para mí</span></label><label class=\"ds-chip\"><input type=\"radio\" name=\"q\"><span>Para mi peque</span></label><label class=\"ds-chip\"><input type=\"radio\" name=\"q\"><span>Para toda la familia</span></label></div>",
+      "css": ".ds-chips { display:flex; flex-wrap:wrap; gap:8px; } .ds-chip { position:relative; cursor:pointer; } .ds-chip input { position:absolute; inset:0; opacity:0; margin:0; cursor:pointer; } .ds-chip span { display:inline-flex; align-items:center; min-height:44px; padding:10px 18px; border:1px solid color-mix(in srgb, #1f3d36 55%, transparent); border-radius:999px; font:500 1rem/1.25rem var(--font-sans); color:#1f3d36; transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease; } .ds-chip:hover span { border-color:#1f3d36; } .ds-chip input:checked + span { background:#1f3d36; border-color:#1f3d36; color:#faf6ec; } .ds-chip input:focus-visible + span { outline:2px solid #1f3d36; outline-offset:3px; }"
     },
     {
-      "name": "Campo de texto",
+      "name": "Campo de formulario",
       "kind": "input",
       "refersTo": "input",
-      "description": "Campo del formulario de contacto.",
-      "html": "<label class=\"ds-field\"><span>Nombre</span><input class=\"ds-input\" placeholder=\"Tu nombre y apellido\" /></label>",
-      "css": ".ds-field { display: flex; flex-direction: column; gap: 6px; font: 600 16px/21px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); color: var(--ink, #14201f); } .ds-input { min-height: 48px; padding: 12px 14px; font: 400 17px/23px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); color: var(--ink, #14201f); background: var(--surface-raised, #fff); border: 1.5px solid var(--control-border, #6f8582); border-radius: 6px; transition: border-color 160ms; } .ds-input::placeholder { color: var(--ink-muted, #3d4f4d); opacity: .8; } .ds-input:hover { border-color: var(--ink-muted, #3d4f4d); } .ds-input:focus-visible { outline: 2px solid var(--focus-ring, #1d4f4b); outline-offset: 2px; border-color: var(--focus-ring, #1d4f4b); }"
+      "description": "Campo papel casi recto, 48 px, borde de control.",
+      "html": "<label class=\"ds-field\"><span>Nombre</span><input class=\"ds-input\" type=\"text\" placeholder=\"Tu nombre\"></label>",
+      "css": ".ds-field { display:flex; flex-direction:column; gap:6px; font:600 0.9375rem/1.3125rem var(--font-sans); color:#1f3d36; } .ds-input { min-height:48px; padding:12px 14px; font:400 1.0625rem/1.4375rem var(--font-sans); color:#1f3d36; background:#fffdf8; border:1.5px solid #6d7b74; border-radius:2px; transition: border-color 160ms; } .ds-input:hover { border-color:#3e5a53; } .ds-input:focus-visible { outline:2px solid #1d6f68; outline-offset:2px; border-color:#1d6f68; }"
     },
     {
-      "name": "Navegación",
+      "name": "Cabecera",
       "kind": "nav",
       "refersTo": "nav",
-      "description": "Enlaces de la cabecera con subrayado que crece desde el centro.",
-      "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Inicio</a><a href=\"#\">Clínica</a><a href=\"#\">Tratamientos</a><a href=\"#\">Equipo</a><a href=\"#\">Contacto</a></nav>",
-      "css": ".ds-nav { display: flex; gap: 4px; padding: 16px; background: var(--surface, #fbfcfc); } .ds-nav a { position: relative; padding: 10px 14px; font: 600 16px/21px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); color: var(--ink, #14201f); text-decoration: none; transition: color 160ms; } .ds-nav a::after { content: \"\"; position: absolute; left: 14px; right: 14px; bottom: 4px; height: 2px; border-radius: 999px; background: var(--brand, #70cac5); transform: scaleX(0); transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-nav a:hover, .ds-nav a[aria-current=\"page\"] { color: var(--brand-strong, #1d4f4b); } .ds-nav a:hover::after, .ds-nav a[aria-current=\"page\"]::after { transform: scaleX(1); } .ds-nav a:focus-visible { outline: 2px solid var(--focus-ring, #1d4f4b); outline-offset: 3px; border-radius: 6px; } @media (pointer: coarse) { .ds-nav a { padding-block: 12px; } }"
+      "description": "Cabecera crema plana con subrayado turquesa que crece desde el centro.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-nav-word\"><b>Up</b>Estudio dental</span><ul><li><a href=\"#\" aria-current=\"page\">Inicio</a></li><li><a href=\"#\">Tratamientos</a></li><li><a href=\"#\">Equipo</a></li></ul></nav>",
+      "css": ".ds-nav { display:flex; align-items:center; justify-content:space-between; height:76px; padding:0 32px; background:#faf6ec; border-bottom:1px solid #d8d3c4; } .ds-nav-word { display:flex; flex-direction:column; font:500 0.75rem/1rem var(--font-sans); letter-spacing:0.18em; text-transform:uppercase; color:#3e5a53; } .ds-nav-word b { font:500 1.25rem/1.25rem var(--font-display); letter-spacing:0; text-transform:none; color:#1f3d36; } .ds-nav ul { display:flex; gap:4px; list-style:none; margin:0; padding:0; } .ds-nav a { position:relative; display:inline-flex; align-items:center; min-height:44px; padding:0 14px; font:500 1rem/1.3125rem var(--font-sans); color:#1f3d36; text-decoration:none; } .ds-nav a::after { content:''; position:absolute; left:14px; right:14px; bottom:6px; height:1.5px; background:#2a8c83; transform:scaleX(0); transition: transform 240ms cubic-bezier(0.16,1,0.3,1); } .ds-nav a:hover::after, .ds-nav a[aria-current='page']::after { transform:scaleX(1); } .ds-nav a:focus-visible { outline:2px solid #1d6f68; outline-offset:3px; }"
     },
     {
-      "name": "Insignia",
+      "name": "Píldora de enlace",
       "kind": "chip",
-      "refersTo": "badge",
-      "description": "Especialidades del equipo y etiquetas como «Sin coste».",
-      "html": "<span class=\"ds-badge\">Odontopediatría</span> <span class=\"ds-badge\">Sin coste</span>",
-      "css": ".ds-badge { display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 999px; font: 600 14px/19px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); background: var(--surface-tint, #e4f3f2); color: var(--brand-strong, #1d4f4b); }"
+      "refersTo": "pill-link",
+      "description": "Enlace de una etapa a su tratamiento.",
+      "html": "<a class=\"ds-pill\" href=\"#\">Odontopediatría<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></a>",
+      "css": ".ds-pill { display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:8px 14px 8px 18px; border-radius:999px; background:#e2ebe7; color:#1f3d36; font:500 1rem/1.25rem var(--font-sans); text-decoration:none; transition: background-color 160ms ease, color 160ms ease; } .ds-pill svg { transition: translate 160ms cubic-bezier(0.16,1,0.3,1); } .ds-pill:hover { background:#1f3d36; color:#faf6ec; } .ds-pill:hover svg { translate:3px 0; } .ds-pill:focus-visible { outline:2px solid #1d6f68; outline-offset:3px; }"
     },
     {
-      "name": "Tarjeta de especialidad",
+      "name": "Registro",
       "kind": "card",
-      "refersTo": "specialty-card",
-      "description": "Foto a sangre con etiqueta flotante y flecha; firma de la portada.",
-      "html": "<a class=\"ds-spec\" href=\"#\"><span class=\"ds-spec-photo\"></span><span class=\"ds-spec-label\"><span><b>Odontopediatría</b><small>Dentista para los peques</small></span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></span></a>",
-      "css": ".ds-spec { position: relative; display: block; width: 280px; height: 260px; overflow: hidden; border-radius: 20px; background: var(--surface-tint, #e4f3f2); color: var(--ink, #14201f); text-decoration: none; box-shadow: var(--shadow-sm, 0 1px 2px rgba(20,32,31,.06)); transition: box-shadow 240ms ease; } .ds-spec-photo { position: absolute; inset: 0; background: linear-gradient(160deg, #c1e4e2, #9bd9dd 55%, #38918b); transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-spec:hover { box-shadow: var(--shadow-md, 0 12px 32px -12px rgba(20,32,31,.18)); } .ds-spec:hover .ds-spec-photo { transform: scale(1.03); } .ds-spec-label { position: absolute; left: 12px; right: 12px; bottom: 12px; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 14px; border-radius: 12px; background: rgba(255,255,255,.94); } .ds-spec-label b { display: block; font: 600 17px/21px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); } .ds-spec-label small { display: block; font: 500 14px/17px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); color: var(--ink-muted, #3d4f4d); } .ds-spec-label svg { color: var(--brand-strong, #1d4f4b); flex: none; transition: transform 160ms; } .ds-spec:hover .ds-spec-label svg { transform: translateX(3px); } .ds-spec:focus-visible { outline: 2px solid var(--focus-ring, #1d4f4b); outline-offset: 3px; }"
+      "description": "Lista de contenido como registro con filetes, en lugar de tarjetas iguales (aquí sobre pino).",
+      "html": "<dl class=\"ds-registro\"><div><dt>Exploración completa</dt><dd>Te exploramos y te explicamos qué vemos, sin prisas.</dd></div><div><dt>Radiografías aquí mismo</dt><dd>Las hacemos en la clínica y las revisamos contigo.</dd></div><div><dt>Presupuesto por escrito</dt><dd>Sabes qué necesitas y cuánto cuesta antes de decidir.</dd></div></dl>",
+      "css": ".ds-registro { margin:0; padding:24px; background:#1f3d36; border-top:1px solid color-mix(in srgb, #b8cfc8 40%, transparent); } .ds-registro > div { display:grid; grid-template-columns:minmax(0,16rem) minmax(0,1fr); gap:2px 32px; align-items:baseline; padding:16px 0; border-bottom:1px solid color-mix(in srgb, #b8cfc8 40%, transparent); } .ds-registro dt { font:400 1.5rem/1.9rem var(--font-display); color:#faf6ec; } .ds-registro dd { margin:0; font:400 1rem/1.5625rem var(--font-sans); color:#b8cfc8; }"
     },
     {
-      "name": "Retrato del equipo",
+      "name": "Línea con parada",
       "kind": "custom",
-      "refersTo": null,
-      "description": "Retrato del equipo en el marco de 20 px sobre Turquesa Up, con nombre y especialidades.",
-      "html": "<a class=\"ds-cutout\" href=\"#\"><span class=\"ds-cutout-photo\"></span><b>Dra. Cristina Umérez García</b><small>Odontología general · Odontopediatría</small></a>",
-      "css": ".ds-cutout { display: flex; flex-direction: column; gap: 8px; width: 220px; color: var(--ink, #14201f); text-decoration: none; } .ds-cutout-photo { display: block; aspect-ratio: 3 / 4; border-radius: 20px; overflow: hidden; background: var(--aqua, #c1e4e2); } .ds-cutout b { font: 600 19px/26px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); transition: color 160ms; } .ds-cutout:hover b { color: var(--brand-strong, #1d4f4b); } .ds-cutout small { font: 500 14px/19px var(--font-sans, \"Figtree Variable\", Figtree, system-ui, sans-serif); color: var(--ink-muted, #3d4f4d); } .ds-cutout:focus-visible { outline: 2px solid var(--focus-ring, #1d4f4b); outline-offset: 3px; border-radius: 20px; }"
+      "description": "El trazo de 1,5 px en el margen y un punto de etapa que se rellena al llegar la línea, con la edad en Label.",
+      "html": "<div class=\"ds-rail\"><svg class=\"ds-rail-line\" width=\"2\" height=\"100%\" aria-hidden=\"true\"><line x1=\"1\" y1=\"0\" x2=\"1\" y2=\"100%\"/></svg><span class=\"ds-dot\"></span><p class=\"ds-edad\">De 0 a 6 años</p><h3 class=\"ds-h2\">Su primer diente</h3></div>",
+      "css": ".ds-rail { position:relative; padding:24px 24px 48px 112px; background:#faf6ec; } .ds-rail-line { position:absolute; left:55px; top:0; height:100%; overflow:visible; } .ds-rail-line line { stroke:#2a8c83; stroke-width:1.5px; stroke-linecap:round; } .ds-dot { position:absolute; left:56px; top:calc(24px + 1.1rem); translate:-50% -50%; width:15px; height:15px; border-radius:50%; background:#faf6ec; border:1.5px solid #2a8c83; } .ds-dot::after { content:''; position:absolute; inset:3px; border-radius:50%; background:#2a8c83; } .ds-edad { margin:0 0 8px; font:500 0.8125rem/1.125rem var(--font-sans); letter-spacing:0.16em; text-transform:uppercase; color:#1d6f68; } .ds-h2 { margin:0; font:400 clamp(1.75rem,3vw,2.375rem)/1.12 var(--font-display); letter-spacing:-0.012em; color:#1f3d36; }"
     },
     {
-      "name": "Titular de sección",
+      "name": "Bocadillo del mensaje",
       "kind": "custom",
-      "refersTo": null,
-      "description": "Titular serif en redonda que abre la sección, con la entradilla debajo; sin antetítulo ni palabras resaltadas.",
-      "html": "<div class=\"ds-sh\"><h2 class=\"ds-h2\">Todo tu tratamiento, en la misma clínica</h2><p class=\"ds-lead\">De la revisión de los peques a los implantes o la ortodoncia invisible, con especialistas que trabajan juntos.</p></div>",
-      "css": ".ds-sh { display: flex; flex-direction: column; gap: 12px; } .ds-h2 { margin: 0; font: 400 36px/1.17 var(--font-display, \"Playfair Display Variable\", Georgia, serif); letter-spacing: -.01em; color: var(--ink, #14201f); } .ds-lead { margin: 0; max-width: 34em; font: 400 19px/30px var(--font-sans, \"Figtree Variable\", system-ui, sans-serif); color: var(--ink-muted, #3d4f4d); }"
+      "description": "El mensaje de WhatsApp que se va a enviar, en serif, sobre la hoja crema.",
+      "html": "<div class=\"ds-hoja\"><p class=\"ds-msg\">Hola, quería pedir la revisión gratuita para mi peque.</p></div>",
+      "css": ".ds-hoja { background:#faf6ec; padding:24px; } .ds-msg { margin:0; padding:12px 16px; max-width:30rem; background:#e2ebe7; color:#1f3d36; font:400 1.0625rem/1.5rem var(--font-display); border-radius:2px 14px 14px 14px; }"
     }
   ],
   "narrative": {
-    "northStar": "La puerta abierta del barrio",
-    "overview": "La web es la entrada a una clínica a la que se llega andando. Las fotos reales de la clínica y de su equipo, enmarcadas con el mismo rectángulo suave, invitan a pasar; el turquesa pastel de la marca baña la primera banda como la luz de un local a pie de calle, y una banda de madera clara recuerda la recepción. Todo es luminoso, cercano y sereno: mucho aire, fotos reales de la clínica y de su gente, y nada que intimide a quien llega con un niño de la mano o con miedo al dentista.\n\nLa tipografía mezcla una serif de revista (Playfair Display) con una sans redonda y amable (Figtree). Los titulares van en redonda, en un solo color de tinta: el peso de la serif basta, sin palabras resaltadas. Los controles son suaves y acogedores: botones en píldora, esquinas generosas, nada anguloso. La web solo tiene tema claro (`color-scheme: light`).",
+    "northStar": "La línea de la sonrisa",
+    "overview": "Una sola línea, el trazo fino de diente de las publicaciones de Up, recorre la web de arriba abajo y une las etapas de la boca de una familia: nace dibujando un diente junto al titular de la portada, baja por un margen propio a la izquierda, se detiene en cada etapa con un punto que se rellena cuando el trazo llega y termina dibujando el corazón de la marca junto al cierre de cita. Es el único gesto propio del sistema; todo lo demás está quieto o responde a lo que hace la persona.\n\nEl mundo sale de las redes de la clínica (Instagram y Canva, ver `docs/marca/investigacion-redes.md`): campos enteros de salvia y verde pino sobre un suelo crema, la madera clara de la recepción como tercera superficie y el turquesa del logotipo como trazo. Cada sección es un campo de color entero que marca territorio, y la profundidad la dan solo los planos de color superpuestos: una hoja crema sobre el campo salvia, una nota de papel sobre la foto. Sin sombras ni degradados. Los titulares van en una serif de cartel de principios del siglo XX (Brygada 1918), en redonda; el texto y los rótulos, en una sans limpia (Albert Sans), con rótulos en mayúsculas finas y espaciadas como los de Canva.\n\nLas fotos son reales y van con esquinas rectas; lo que se pulsa va en píldora. Las listas de contenido no se reparten en tarjetas iguales: se escriben como un registro, con filetes finos entre líneas. La web solo tiene tema claro (`color-scheme: light`).",
     "keyCharacteristics": [
-      "Un solo marco de foto: rectángulo con esquinas de 20 px, el mismo en la foto principal, los retratos, las especialidades y el collage.",
-      "Turquesa Up abre y cierra la portada (cabecera y banda final de cita); arena y tinta nocturna marcan el ritmo entre medias, y el pie es la única banda oscura del final.",
-      "Titulares en redonda y en tinta, sin cursivas ni palabras de acento.",
-      "Botones en píldora; el principal, en tinta, no en turquesa.",
-      "Fotos reales siempre; nada de ilustraciones genéricas ni imágenes de banco."
+      "Una línea continua de 1,5 px que cambia de color según el campo que cruza: turquesa sobre crema, blanca sobre salvia, salvia sobre pino.",
+      "Un campo de color por sección (crema, salvia, pino, madera); dos secciones seguidas no comparten campo.",
+      "Fotos reales a sangre o en su hueco, con esquinas rectas; controles en píldora.",
+      "Sin sombras ni degradados: profundidad por planos.",
+      "Registros con filetes en lugar de rejillas de tarjetas iguales.",
+      "Titulares en Brygada 1918 redonda, nunca en cursiva."
     ],
     "rules": [
       {
-        "name": "The Turquesa-Is-Light Rule",
-        "body": "Turquesa Up y Turquesa de acento son luz, no texto: sobre fondo claro, el texto de acento siempre va en Pino profundo. Turquesa de acento como texto solo sobre Tinta nocturna.",
+        "name": "The One Field Rule",
+        "body": "Cada sección es un campo de color entero (crema, salvia, pino o madera), y dos secciones seguidas nunca comparten campo. La sección dice dónde empieza por su color, no por un filete ni por una tarjeta.",
         "section": "colors"
       },
       {
-        "name": "The Ink Button Rule",
-        "body": "El botón principal es de tinta (`tinta-texto`) con texto blanco, como en la web oficial. El turquesa no se usa como fondo de botón sobre superficies claras.",
+        "name": "The Lit Turquoise Rule",
+        "body": "El turquesa es trazo o luz, no texto corrido. Sobre claro, el texto de acento va en Turquesa de texto; sobre madera, en pino; sobre pino, en Turquesa del logo (claro).",
         "section": "colors"
       },
       {
@@ -576,67 +540,53 @@
       },
       {
         "name": "The No Italics Rule",
-        "body": "Sin cursivas en toda la web, ni en titulares ni en texto (decisión de noviembre de 2026). Los titulares no resaltan palabras: van enteros en Tinta de texto (Sobre noche fuerte en bandas oscuras). Por eso solo se carga la Playfair redonda.",
+        "body": "Sin cursivas en toda la web, ni en titulares ni en texto. Los titulares no resaltan palabras: van enteros en un solo color de tinta. Solo se carga la Brygada redonda.",
         "section": "typography"
       },
       {
         "name": "The Rem Rule",
-        "body": "Tamaños de letra y alturas de línea en rem, nunca en px: así la web respeta el tamaño de letra que cada persona elige en su navegador. Los puntos de corte van en em por lo mismo (los px de este documento divididos entre 16, también en las clases `sm:`, `md:` y `lg:` de Tailwind): con la letra al doble, una pantalla de 1280 px se compone como una de 640 px y nada se sale. Por debajo de 20em de ancho, que solo se da con la letra ampliada en el móvil, las palabras largas pueden partirse y las rejillas de dos columnas pasan a una.",
+        "body": "Tamaños de letra y alturas de línea en rem, nunca en px, para respetar el tamaño de letra que cada persona elige en su navegador. Los puntos de corte van en em (también los `sm:` 40em, `md:` 48em, `lg:` 64em, `xl:` 80em de Tailwind): con la letra al doble, una pantalla de 1280 px se compone como una de 640 px. Por debajo de 20em de ancho las palabras largas pueden partirse.",
         "section": "typography"
       },
       {
         "name": "The Heading Speaks Rule",
-        "body": "Sin antetítulos: el titular en serif abre la sección y se explica solo. Si hace falta contexto, va en la entradilla (Lead), a la derecha en escritorio (cabecera partida 1,1fr / 1fr desde 900 px). Una etiqueta en Label solo encabeza una tarjeta o un dato, o indica una posición («Parada 1 de 6»).",
+        "body": "Ningún antetítulo encima de un titular: el titular en serif abre la sección y se explica solo; el contexto va en la entradilla. Las mayúsculas espaciadas solo nombran un dato, un grupo de controles o una edad en la línea.",
         "section": "typography"
       },
       {
-        "name": "The Breathing Room Rule",
-        "body": "Ante la duda, más aire: una sección nunca encaja más de un mensaje principal, y entre bloques se usan los pasos de 48, 64 o 96 px, no valores intermedios.",
+        "name": "The Rail Rule",
+        "body": "En una sección que cruza la línea, nada invade el margen salvo la propia línea, sus puntos, sus glifos y las edades. La línea va por encima de los fondos y por debajo de todo lo que se pulsa.",
         "section": "layout"
       },
       {
-        "name": "The Soft Lift Rule",
-        "body": "Las sombras son siempre difusas y teñidas de tinta, nunca negras ni duras. Un elemento sube como mucho un nivel al interactuar, y solo si es clicable: una tarjeta informativa no se mueve al pasar el ratón.",
+        "name": "The Flat Layers Rule",
+        "body": "Sin sombras ni degradados decorativos. Si algo tiene que destacar, se pone sobre otro campo de color, no se levanta.",
         "section": "elevation"
       },
       {
-        "name": "The One Frame Rule",
-        "body": "Todas las fotos comparten el rectángulo de 20 px. Nada de arcos, círculos ni formas recortadas en fotos; el círculo queda para iconos y avatares.",
+        "name": "The Straight Photo Rule",
+        "body": "Las fotos van rectas, sin radio, ni arcos, ni recortes; el redondeo es solo de lo que se pulsa.",
         "section": "shapes"
-      },
-      {
-        "name": "The No Scroll Reveal Rule",
-        "body": "Nada entra al hacer scroll: ni fotos, ni tarjetas, ni titulares. La única pieza ligada al scroll es la línea de los pasos del tratamiento, porque ahí el scroll es el recorrido.",
-        "section": "motion"
-      },
-      {
-        "name": "The Visible By Default Rule",
-        "body": "El estado por defecto es el contenido visible. Una animación de entrada parte de ahí: si el CSS moderno o el script no están, la página se ve completa y quieta.",
-        "section": "motion"
-      },
-      {
-        "name": "The Less Motion Rule",
-        "body": "Con `prefers-reduced-motion` no hay entradas, desplazamientos ni escalados, y el retrato no viaja; quedan los fundidos y los cambios de color y sombra que confirman un estado (hover, foco, capa abierta, «Enviando…»). El indicador de envío no gira: late despacio con la opacidad (1,2 s).",
-        "section": "motion"
       }
     ],
     "dos": [
-      "**Do** enmarcar todas las fotos en el rectángulo de 20 px sobre fondo Turquesa Up o Bruma turquesa.",
-      "**Do** abrir cada sección directamente con el titular en serif, en redonda; el contexto, en la entradilla.",
-      "**Do** usar el botón principal en tinta y el WhatsApp como acción más visible de cada llamada a la acción.",
-      "**Do** usar fotos reales de la clínica, el equipo y los pacientes con permiso.",
-      "**Do** mantener el foco visible: 2 px sólido en Pino profundo (Turquesa de acento sobre noche).",
-      "**Do** respetar `prefers-reduced-motion`: sin entradas, escalados ni desplazamientos cuando se pide menos movimiento; los cambios de color, opacidad y sombra se mantienen.",
-      "**Do** partir siempre del contenido visible: una animación de entrada es un añadido, nunca la condición para ver la página."
+      "**Do** dar a cada sección un campo entero (crema, salvia, pino, madera) distinto del de la sección anterior.",
+      "**Do** dejar el margen de la línea (`--rail-pad`) en toda sección que la línea cruza, y marcar sus paradas con un punto de 15 px sobre `--rail-x`.",
+      "**Do** cambiar el color del trazo según el campo: turquesa sobre crema, blanco sobre salvia, salvia sobre pino.",
+      "**Do** escribir las listas de contenido como registros con filetes, no como rejillas de tarjetas iguales.",
+      "**Do** usar fotos reales de la clínica y del equipo, rectas, sobre salvia clara mientras cargan.",
+      "**Do** dar a todo lo que se pulsa 44 px de alto como mínimo (48 px los botones y campos).",
+      "**Do** mantener el foco visible: 2 px sólido en Turquesa de texto (Turquesa del logo sobre pino).",
+      "**Do** respetar `prefers-reduced-motion`: sin trazos que se dibujan, escalados ni desplazamientos; la línea se ve entera y quedan los cambios de color y opacidad."
     ],
     "donts": [
-      "**Don't** poner un antetítulo en mayúsculas encima de un titular: repite lo que el titular ya dice y aplana el ritmo de la página.",
-      "**Don't** poner texto en Turquesa Up ni en Turquesa de acento sobre fondos claros.",
-      "**Don't** usar esquinas vivas ni radios fuera de 6, 12, 20 px y píldora.",
+      "**Don't** poner sombras ni degradados decorativos: la profundidad es de planos.",
+      "**Don't** redondear fotos ni paneles; el redondeo es de píldora y solo para controles.",
+      "**Don't** poner texto corrido en Turquesa sobre claro ni Turquesa de texto sobre madera.",
+      "**Don't** poner un antetítulo en mayúsculas encima de un titular.",
       "**Don't** usar cursivas ni resaltar palabras de un titular con otro color.",
-      "**Don't** usar sombras negras, duras o de varios niveles; como mucho, reposo y elevada.",
+      "**Don't** añadir otro movimiento ligado al scroll: la línea (y los pasos del tratamiento, que son su propio recorrido) es el único gesto.",
       "**Don't** dar por hecho un tema oscuro: la web es solo clara.",
-      "**Don't** animar la entrada de fotos, texto o tarjetas al hacer scroll, ni repetir la misma entrada en cada sección: el único momento es la entrada de la portada.",
       "**Don't** escribir colores en hex dentro de componentes; siempre tokens."
     ]
   }

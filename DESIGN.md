@@ -1,99 +1,106 @@
 ---
 name: Up Estudio Dental y Estética
-description: Clínica dental familiar en Móstoles; una web luminosa, cercana y serena que invita a entrar.
+description: Clínica dental familiar en Móstoles; una sola línea de trazo fino recorre la vida de la boca de una familia, campo de color a campo de color.
 colors:
-  turquesa-up: "#c1e4e2"
-  turquesa-logo: "#9bd9dd"
-  pino-profundo: "#1d4f4b"
-  pino-medio: "#38918b"
-  turquesa-acento: "#70cac5"
-  turquesa-acento-hover: "#8fd3ce"
-  sobre-acento: "#0e1413"
-  arena: "#f3eee7"
-  papel: "#fbfcfc"
-  blanco: "#ffffff"
-  bruma-turquesa: "#e4f3f2"
-  linea: "#d5e3e1"
-  borde-control: "#6f8582"
-  tinta-texto: "#14201f"
-  tinta-suave: "#3d4f4d"
-  tinta-nocturna: "#111716"
-  noche-elevada: "#1b2423"
-  sobre-noche-fuerte: "#f2f5f4"
-  sobre-noche: "#e3e3e3"
-  sobre-noche-suave: "#a7b5b3"
-  accion-hover: "#24645f"
-  peligro: "#b42318"
-  exito: "#2e7d4f"
+  crema: "#faf6ec"
+  papel: "#fffdf8"
+  salvia: "#b8cfc8"
+  salvia-clara: "#e2ebe7"
+  pino: "#1f3d36"
+  pino-suave: "#3e5a53"
+  pino-hondo: "#17302a"
+  pino-pulsado: "#10241f"
+  madera: "#e8d9c3"
+  turquesa: "#2a8c83"
+  turquesa-texto: "#1d6f68"
+  turquesa-logo: "#3cb4a8"
+  turquesa-logo-claro: "#6fcbc0"
+  trazo-sobre-salvia: "#ffffff"
+  sobre-pino: "#efe9dc"
+  linea: "#d8d3c4"
+  borde-control: "#6d7b74"
+  peligro: "#a3291c"
+  exito: "#2c6e4a"
 typography:
   display:
-    fontFamily: "Playfair Display Variable, Playfair Display, Georgia, serif"
-    fontSize: "clamp(2.625rem, 6vw, 4.75rem)"
+    fontFamily: "Brygada 1918 Variable, Brygada 1918, Georgia, serif"
+    fontSize: "clamp(2.75rem, 6.4vw, 5.5rem)"
     fontWeight: 400
-    lineHeight: 1.02
-    letterSpacing: "-0.02em"
+    lineHeight: 1
+    letterSpacing: "-0.025em"
+  display-portada:
+    fontFamily: "Brygada 1918 Variable, Brygada 1918, Georgia, serif"
+    fontSize: "clamp(2.5rem, 4.6vw, 4.25rem)"
+    fontWeight: 400
+    lineHeight: 1
+    letterSpacing: "-0.025em"
   headline:
-    fontFamily: "Playfair Display Variable, Playfair Display, Georgia, serif"
-    fontSize: "clamp(2.125rem, 4.6vw, 3rem)"
+    fontFamily: "Brygada 1918 Variable, Brygada 1918, Georgia, serif"
+    fontSize: "clamp(2.25rem, 4.6vw, 3.625rem)"
+    fontWeight: 400
+    lineHeight: 1.05
+    letterSpacing: "-0.02em"
+  headline-section:
+    fontFamily: "Brygada 1918 Variable, Brygada 1918, Georgia, serif"
+    fontSize: "clamp(1.75rem, 3vw, 2.375rem)"
     fontWeight: 400
     lineHeight: 1.12
-    letterSpacing: "-0.015em"
-  headline-section:
-    fontFamily: "Playfair Display Variable, Playfair Display, Georgia, serif"
-    fontSize: "clamp(1.75rem, 3.4vw, 2.25rem)"
-    fontWeight: 400
-    lineHeight: 1.17
-    letterSpacing: "-0.01em"
+    letterSpacing: "-0.012em"
   title:
-    fontFamily: "Playfair Display Variable, Playfair Display, Georgia, serif"
+    fontFamily: "Brygada 1918 Variable, Brygada 1918, Georgia, serif"
     fontSize: "1.5rem"
     fontWeight: 500
+    lineHeight: "1.9rem"
+  registro:
+    fontFamily: "Brygada 1918 Variable, Brygada 1918, Georgia, serif"
+    fontSize: "1.5rem"
+    fontWeight: 400
+    lineHeight: "1.9rem"
+  cita:
+    fontFamily: "Brygada 1918 Variable, Brygada 1918, Georgia, serif"
+    fontSize: "1.25rem"
+    fontWeight: 400
     lineHeight: "1.875rem"
   title-sans:
-    fontFamily: "Figtree Variable, Figtree, Segoe UI, system-ui, sans-serif"
+    fontFamily: "Albert Sans Variable, Albert Sans, Segoe UI, system-ui, sans-serif"
     fontSize: "1.1875rem"
     fontWeight: 600
     lineHeight: "1.625rem"
-  body:
-    fontFamily: "Figtree Variable, Figtree, Segoe UI, system-ui, sans-serif"
-    fontSize: "1.125rem"
-    fontWeight: 400
-    lineHeight: "1.8125rem"
   lead:
-    fontFamily: "Figtree Variable, Figtree, Segoe UI, system-ui, sans-serif"
+    fontFamily: "Albert Sans Variable, Albert Sans, Segoe UI, system-ui, sans-serif"
     fontSize: "1.1875rem"
     fontWeight: 400
     lineHeight: "1.875rem"
+  body:
+    fontFamily: "Albert Sans Variable, Albert Sans, Segoe UI, system-ui, sans-serif"
+    fontSize: "1.125rem"
+    fontWeight: 400
+    lineHeight: "1.8125rem"
   small:
-    fontFamily: "Figtree Variable, Figtree, Segoe UI, system-ui, sans-serif"
+    fontFamily: "Albert Sans Variable, Albert Sans, Segoe UI, system-ui, sans-serif"
     fontSize: "1rem"
     fontWeight: 400
     lineHeight: "1.5625rem"
   label:
-    fontFamily: "Figtree Variable, Figtree, Segoe UI, system-ui, sans-serif"
-    fontSize: "0.875rem"
-    fontWeight: 600
-    lineHeight: "1rem"
-    letterSpacing: "0.12em"
-  caption:
-    fontFamily: "Figtree Variable, Figtree, Segoe UI, system-ui, sans-serif"
-    fontSize: "0.875rem"
+    fontFamily: "Albert Sans Variable, Albert Sans, Segoe UI, system-ui, sans-serif"
+    fontSize: "0.8125rem"
     fontWeight: 500
-    lineHeight: "1.1875rem"
+    lineHeight: "1.125rem"
+    letterSpacing: "0.16em"
+  button:
+    fontFamily: "Albert Sans Variable, Albert Sans, Segoe UI, system-ui, sans-serif"
+    fontSize: "1rem"
+    fontWeight: 600
+    lineHeight: "1.3125rem"
+    letterSpacing: "0.005em"
   control:
-    fontFamily: "Figtree Variable, Figtree, Segoe UI, system-ui, sans-serif"
+    fontFamily: "Albert Sans Variable, Albert Sans, Segoe UI, system-ui, sans-serif"
     fontSize: "1.0625rem"
     fontWeight: 400
     lineHeight: "1.4375rem"
-  button-sm:
-    fontFamily: "Figtree Variable, Figtree, Segoe UI, system-ui, sans-serif"
-    fontSize: "0.9375rem"
-    fontWeight: 600
-    lineHeight: "1.1875rem"
 rounded:
-  sm: "6px"
-  md: "12px"
-  lg: "20px"
+  none: "0px"
+  sm: "2px"
   pill: "999px"
 spacing:
   "1": "4px"
@@ -107,256 +114,247 @@ spacing:
   "24": "96px"
 components:
   button-primary:
-    backgroundColor: "{colors.tinta-texto}"
-    textColor: "{colors.blanco}"
-    typography: "{typography.title-sans}"
+    backgroundColor: "{colors.pino}"
+    textColor: "{colors.crema}"
+    typography: "{typography.button}"
     rounded: "{rounded.pill}"
-    padding: "12px 22px"
+    padding: "12px 24px"
     height: "48px"
   button-primary-hover:
-    backgroundColor: "{colors.accion-hover}"
-    textColor: "{colors.blanco}"
+    backgroundColor: "{colors.pino-hondo}"
+    textColor: "{colors.crema}"
+  button-primary-active:
+    backgroundColor: "{colors.pino-pulsado}"
+    textColor: "{colors.crema}"
   button-secondary:
     backgroundColor: "transparent"
-    textColor: "{colors.tinta-texto}"
+    textColor: "{colors.pino}"
+    typography: "{typography.button}"
     rounded: "{rounded.pill}"
-    padding: "12px 22px"
+    padding: "12px 24px"
     height: "48px"
   button-secondary-hover:
-    textColor: "{colors.pino-profundo}"
-  button-ghost:
-    backgroundColor: "transparent"
-    textColor: "{colors.pino-profundo}"
+    backgroundColor: "{colors.pino}"
+    textColor: "{colors.crema}"
+  button-light:
+    backgroundColor: "{colors.crema}"
+    textColor: "{colors.pino}"
+    typography: "{typography.button}"
     rounded: "{rounded.pill}"
-    padding: "12px 8px"
-  button-ghost-hover:
-    backgroundColor: "{colors.bruma-turquesa}"
-  button-night:
-    backgroundColor: "{colors.turquesa-acento}"
-    textColor: "{colors.tinta-nocturna}"
-    rounded: "{rounded.pill}"
-    padding: "12px 22px"
+    padding: "12px 24px"
     height: "48px"
-  badge:
-    backgroundColor: "{colors.bruma-turquesa}"
-    textColor: "{colors.pino-profundo}"
-    typography: "{typography.caption}"
+  button-light-hover:
+    backgroundColor: "{colors.salvia}"
+    textColor: "{colors.pino}"
+  chip:
+    backgroundColor: "transparent"
+    textColor: "{colors.pino}"
     rounded: "{rounded.pill}"
-    padding: "4px 12px"
+    padding: "10px 18px"
+    height: "44px"
+  chip-selected:
+    backgroundColor: "{colors.pino}"
+    textColor: "{colors.crema}"
+  pill-link:
+    backgroundColor: "{colors.salvia-clara}"
+    textColor: "{colors.pino}"
+    rounded: "{rounded.pill}"
+    padding: "8px 14px 8px 18px"
+    height: "44px"
+  pill-link-hover:
+    backgroundColor: "{colors.pino}"
+    textColor: "{colors.crema}"
   input:
-    backgroundColor: "{colors.blanco}"
-    textColor: "{colors.tinta-texto}"
+    backgroundColor: "{colors.papel}"
+    textColor: "{colors.pino}"
+    typography: "{typography.control}"
     rounded: "{rounded.sm}"
     padding: "12px 14px"
     height: "48px"
-  panel:
-    backgroundColor: "{colors.blanco}"
-    textColor: "{colors.tinta-texto}"
-    rounded: "{rounded.md}"
-    padding: "32px"
-  notice:
-    backgroundColor: "{colors.bruma-turquesa}"
-    textColor: "{colors.tinta-texto}"
-    rounded: "{rounded.md}"
-    padding: "16px 24px"
-  specialty-card:
-    backgroundColor: "{colors.bruma-turquesa}"
-    textColor: "{colors.tinta-texto}"
-    rounded: "{rounded.lg}"
   nav:
-    backgroundColor: "{colors.papel}"
-    textColor: "{colors.tinta-texto}"
+    backgroundColor: "{colors.crema}"
+    textColor: "{colors.pino}"
     height: "76px"
+  photo:
+    backgroundColor: "{colors.salvia-clara}"
+    rounded: "{rounded.none}"
 ---
 
 # Design System: Up Estudio Dental y Estética
 
 ## Overview
 
-**Creative North Star: "La puerta abierta del barrio"**
+**Creative North Star: "La línea de la sonrisa"**
 
-La web es la entrada a una clínica a la que se llega andando. Las fotos reales de la clínica y de su equipo, enmarcadas con el mismo rectángulo suave, invitan a pasar; el turquesa pastel de la marca baña la primera banda como la luz de un local a pie de calle, y una banda de madera clara recuerda la recepción. Todo es luminoso, cercano y sereno: mucho aire, fotos reales de la clínica y de su gente, y nada que intimide a quien llega con un niño de la mano o con miedo al dentista.
+Una sola línea, el trazo fino de diente de las publicaciones de Up, recorre la web de arriba abajo y une las etapas de la boca de una familia: nace dibujando un diente junto al titular de la portada, baja por un margen propio a la izquierda, se detiene en cada etapa con un punto que se rellena cuando el trazo llega y termina dibujando el corazón de la marca junto al cierre de cita. Es el único gesto propio del sistema; todo lo demás está quieto o responde a lo que hace la persona.
 
-La tipografía mezcla una serif de revista (Playfair Display) con una sans redonda y amable (Figtree). Los titulares van en redonda, en un solo color de tinta: el peso de la serif basta, sin palabras resaltadas. Los controles son suaves y acogedores: botones en píldora, esquinas generosas, nada anguloso. La web solo tiene tema claro (`color-scheme: light`).
+El mundo sale de las redes de la clínica (Instagram y Canva, ver `docs/marca/investigacion-redes.md`): campos enteros de salvia y verde pino sobre un suelo crema, la madera clara de la recepción como tercera superficie y el turquesa del logotipo como trazo. Cada sección es un campo de color entero que marca territorio, y la profundidad la dan solo los planos de color superpuestos: una hoja crema sobre el campo salvia, una nota de papel sobre la foto. Sin sombras ni degradados. Los titulares van en una serif de cartel de principios del siglo XX (Brygada 1918), en redonda; el texto y los rótulos, en una sans limpia (Albert Sans), con rótulos en mayúsculas finas y espaciadas como los de Canva.
+
+Las fotos son reales y van con esquinas rectas; lo que se pulsa va en píldora. Las listas de contenido no se reparten en tarjetas iguales: se escriben como un registro, con filetes finos entre líneas. La web solo tiene tema claro (`color-scheme: light`).
 
 **Key Characteristics:**
-- Un solo marco de foto: rectángulo con esquinas de 20 px, el mismo en la foto principal, los retratos, las especialidades y el collage.
-- Turquesa Up abre y cierra la portada (cabecera y banda final de cita); arena y tinta nocturna marcan el ritmo entre medias, y el pie es la única banda oscura del final.
-- Titulares en redonda y en tinta, sin cursivas ni palabras de acento.
-- Botones en píldora; el principal, en tinta, no en turquesa.
-- Fotos reales siempre; nada de ilustraciones genéricas ni imágenes de banco.
+- Una línea continua de 1,5 px que cambia de color según el campo que cruza: turquesa sobre crema, blanca sobre salvia, salvia sobre pino.
+- Un campo de color por sección (crema, salvia, pino, madera); dos secciones seguidas no comparten campo.
+- Fotos reales a sangre o en su hueco, con esquinas rectas; controles en píldora.
+- Sin sombras ni degradados: profundidad por planos.
+- Registros con filetes en lugar de rejillas de tarjetas iguales.
+- Titulares en Brygada 1918 redonda, nunca en cursiva.
 
 ## Colors
 
-Una paleta de agua y madera: turquesas pastel de la marca, un verde pino profundo para lo que hay que leer y pulsar, y neutros fríos casi blancos.
+Una paleta de papel y planta: crema, salvia y verde pino de las publicaciones de la clínica, madera clara de la recepción y el turquesa del logotipo como trazo y acento.
 
 ### Primary
-- **Turquesa Up** (`turquesa-up`): el turquesa pastel de la marca. Banda de firma de la portada, fondo de los marcos de retrato y de las cabeceras que presentan a la clínica. Es fondo, nunca texto.
-- **Pino profundo** (`pino-profundo`): el color de lo que se lee como acento y se pulsa sin ser botón: enlaces, etiquetas de tarjeta, iconos de apoyo, insignias y el anillo de foco. Contraste 6,8:1 sobre Turquesa Up.
+- **Verde pino** (`pino`): la tinta de toda la web (titulares, texto, iconos), el botón principal y el campo oscuro (revisión gratuita, pie). 10,9:1 sobre crema, 7,2:1 sobre salvia, 8,5:1 sobre madera. Al pasar, el botón baja a **Pino hondo** (`pino-hondo`) y, mientras se pulsa, a **Pino pulsado** (`pino-pulsado`).
+- **Salvia** (`salvia`): el campo de firma. Cabecera de la portada y de las páginas interiores, banda de cita del cierre, menú móvil, bloque de beneficios de la ficha de tratamiento. Es fondo; sobre pino hace de texto secundario y de trazo (7,2:1).
+- **Trazo sobre salvia** (`trazo-sobre-salvia`): el blanco del trazo de las publicaciones. Solo para la línea, el diente, el corazón y el filete de las cabeceras interiores cuando cruzan el campo salvia; decorativo (1,6:1), nunca texto ni borde de control.
 
 ### Secondary
-- **Turquesa de acento** (`turquesa-acento`): el turquesa vivo de la web oficial. Solo sobre Tinta nocturna: etiquetas y el botón principal de las bandas oscuras, con texto en **Sobre acento** (`sobre-acento`) y hover en **Turquesa de acento hover** (`turquesa-acento-hover`). Sobre fondo claro no llega a 2:1.
-- **Pino medio** (`pino-medio`): para números grandes de acento sobre fondo claro (paradas de la visita guiada). 3,6:1 sobre papel; solo en tamaños grandes.
-- **Turquesa del logo** (`turquesa-logo`): el azulejo del logotipo y detalles puntuales (el halo al pasar por la tarjeta de la nota de Google).
+- **Turquesa** (`turquesa`): el color de la línea sobre crema, de los puntos de etapa, las estrellas de las reseñas, los números de la visita guiada y el subrayado de la navegación. 3,8:1 sobre crema: solo trazos, gráficos y números grandes, nunca texto corrido.
+- **Turquesa de texto** (`turquesa-texto`): enlaces, edades de las etapas, color del cursor y anillo de foco sobre fondos claros (5,5:1 sobre crema). Sobre madera se queda en 4,3:1, así que ahí los enlaces van en pino.
+- **Turquesa del logo** (`turquesa-logo`): lo «encendido» sobre pino: el paso activo del índice de la visita guiada (4,7:1 sobre pino). **Turquesa del logo claro** (`turquesa-logo-claro`): enlaces al pasar y el enlace de urgencias en el pie (6,2:1 sobre pino).
 
 ### Tertiary
-- **Arena** (`arena`): la madera de la clínica. Banda cálida puntual (sección de familia, paradas alternas de la visita guiada) para romper el frío de los turquesas.
+- **Madera** (`madera`): la madera clara de la recepción. Tercer campo: la sección de la clínica en la portada, «Otros tratamientos» en la ficha (bajo la banda salvia de cita, así nunca comparten campo) y las bandas `up-band-sand`.
 
 ### Neutral
-- **Papel** (`papel`): fondo de página.
-- **Blanco** (`blanco`): tarjetas, paneles, formularios y el texto sobre botones en tinta.
-- **Bruma turquesa** (`bruma-turquesa`): fondo de insignias, avisos, iconos en círculo y tarjetas sobre turquesa.
-- **Línea** (`linea`): bordes de tarjetas y separadores.
-- **Borde de control** (`borde-control`): borde de campos y botones secundarios; 3:1 o más sobre papel.
-- **Tinta de texto** (`tinta-texto`): titulares, texto principal y fondo del botón principal.
-- **Tinta suave** (`tinta-suave`): texto secundario, entradillas y pies.
-- **Tinta nocturna** (`tinta-nocturna`): bandas oscuras (tecnología, llamada a la acción, pie), con **Sobre noche** (`sobre-noche`) y **Sobre noche suave** (`sobre-noche-suave`) para el texto encima, **Sobre noche fuerte** (`sobre-noche-fuerte`) para titulares y estados activos, y **Noche elevada** (`noche-elevada`) como reserva de las fotos.
-- Estados: **Peligro** (`peligro`) y **Éxito** (`exito`) solo para errores y confirmaciones del formulario.
+- **Crema** (`crema`): el suelo de la página, la hoja del preparador de cita sobre salvia, la cabecera fija, la barra fija del móvil, el texto sobre el botón principal y los titulares sobre pino. Es el crema real de las publicaciones de Instagram y Canva (muestreado en #fbf7ec), fijado a petición de la clínica.
+- **Papel** (`papel`): campos de formulario, paneles y el hover de la nota de Google.
+- **Salvia clara** (`salvia-clara`): reserva de las fotos mientras cargan, píldoras de enlace, bocadillo del mensaje sobre la hoja crema, avisos.
+- **Pino suave** (`pino-suave`): texto secundario, entradillas, rótulos (7:1 sobre crema, 4,6:1 sobre salvia, 5,4:1 sobre madera).
+- **Sobre pino** (`sobre-pino`): texto corrido sobre el campo pino.
+- **Línea** (`linea`): filetes de los registros y separadores sobre crema.
+- **Borde de control** (`borde-control`): borde de los campos de formulario (4,1:1 sobre crema).
+- Estados: **Peligro** (`peligro`) para errores y para el punto y el teléfono de urgencias; **Éxito** (`exito`) para confirmaciones del formulario.
 
 ### Named Rules
-**The Turquesa-Is-Light Rule.** Turquesa Up y Turquesa de acento son luz, no texto: sobre fondo claro, el texto de acento siempre va en Pino profundo. Turquesa de acento como texto solo sobre Tinta nocturna.
+**The One Field Rule.** Cada sección es un campo de color entero (crema, salvia, pino o madera), y dos secciones seguidas nunca comparten campo. La sección dice dónde empieza por su color, no por un filete ni por una tarjeta. En la portada, «Somos del barrio» y la fila de opiniones de Google son una sola sección crema (prueba social del barrio), sin filete entre ellas.
 
-**The Ink Button Rule.** El botón principal es de tinta (`tinta-texto`) con texto blanco, como en la web oficial. El turquesa no se usa como fondo de botón sobre superficies claras.
+**The Lit Turquoise Rule.** El turquesa es trazo o luz, no texto corrido. Sobre claro, el texto de acento va en Turquesa de texto; sobre madera, en pino; sobre pino, en Turquesa del logo (claro).
 
 **The Token-Only Rule.** Todo color sale de `src/styles/tokens.css` vía `var(--…)` o de las clases de Tailwind que apuntan a esos tokens. Nada de hex sueltos en componentes nuevos.
 
 ## Typography
 
-**Display Font:** Playfair Display Variable (con Georgia, serif)
-**Body Font:** Figtree Variable (con Segoe UI, system-ui, sans-serif)
+**Display Font:** Brygada 1918 Variable (con Georgia, serif)
+**Body Font:** Albert Sans Variable (con Segoe UI, system-ui, sans-serif)
 
-**Character:** La serif de alto contraste da el aire editorial y cuidado de «Estética»; Figtree, redonda y abierta, pone la voz cercana de clínica de barrio. Juntas suenan a revista local amable, no a hospital.
+**Character:** Brygada 1918 es una serif de cartel antiguo, algo ancha y de contraste moderado: da a la clínica un aire de comercio de barrio con oficio. Albert Sans, geométrica y clara, pone la voz práctica de los rótulos de Canva y del texto que se lee en el móvil.
 
 ### Hierarchy
-- **Display** (`display`): solo el titular de la portada.
-- **Headline** (`headline`): el titular de cada página interior.
-- **Headline de sección** (`headline-section`): titulares de sección.
-- **Title** (`title`): subtítulos en serif dentro de una sección (bloques del formulario, «Qué incluye», «Preguntas frecuentes»).
-- **Title sans** (`title-sans`): nombres en tarjetas (equipo, pasos, especialidades) y títulos de elementos de lista.
-- **Body** (`body`): texto corrido; ancho máximo de unos 74 caracteres (`--measure`, 34em).
-- **Lead** (`lead`): entradillas bajo un titular, en Tinta suave, con el mismo ancho de lectura (`--measure`).
-- **Small** (`small`): textos de apoyo en tarjetas y paneles.
-- **Label** (`label`): mayúsculas espaciadas en Pino profundo (Turquesa de acento sobre noche) para etiquetar una tarjeta o un dato («Horario», «Dirección», «Parada 1 de 6»), nunca como antetítulo encima de un titular.
-- **Caption** (`caption`): especialidades bajo un nombre, insignias y metadatos (el «Error 404» al pie de su página).
-- **Control** (`control`): texto de campos de formulario y de los teléfonos destacados; 17 px para que el móvil no haga zoom al enfocar un campo.
-- **Botón pequeño** (`button-sm`): botón compacto de la cabecera y etiquetas de las tarjetas de especialidad en móvil.
+- **Display** (`display`): titular del cierre de cita. En la portada, **Display de portada** (`display-portada`), un punto más contenido para que la foto del equipo entre en la primera pantalla.
+- **Headline** (`headline`): titular de cada sección de la portada y de cada página interior.
+- **Headline de sección** (`headline-section`): titulares de cada etapa y de los bloques de la ficha de tratamiento; ancho máximo de unos 18 caracteres en las etapas.
+- **Title** (`title`): subtítulos en serif («Qué incluye», «Preguntas frecuentes»), «Somos del barrio».
+- **Registro** (`registro`): el término de cada línea de un registro sobre pino o madera (revisión gratuita, otros tratamientos).
+- **Cita** (`cita`): el texto de una reseña, en serif.
+- **Title sans** (`title-sans`): títulos de elementos de lista en sans.
+- **Lead** (`lead`): entradillas bajo un titular, en pino suave (en pino sobre salvia, en salvia sobre pino), con el ancho de lectura `--measure` (34em).
+- **Body** (`body`): texto corrido, hasta `--measure`.
+- **Small** (`small`): textos de apoyo y las descripciones de los registros.
+- **Label** (`label`): mayúsculas espaciadas (0,16em) en pino suave, pino o salvia según el campo. Nombra un dato o un grupo de controles («Horario», «Dirección», «¿Para quién es la cita?») o marca la edad de una etapa en el margen de la línea.
+- **Button** (`button`) y **Control** (`control`): botones y campos; los campos a 17 px para que el móvil no haga zoom al enfocarlos.
 
 ### Named Rules
-**The No Italics Rule.** Sin cursivas en toda la web, ni en titulares ni en texto (decisión de noviembre de 2026). Los titulares no resaltan palabras: van enteros en Tinta de texto (Sobre noche fuerte en bandas oscuras). Por eso solo se carga la Playfair redonda.
+**The No Italics Rule.** Sin cursivas en toda la web, ni en titulares ni en texto. Los titulares no resaltan palabras: van enteros en un solo color de tinta. Solo se carga la Brygada redonda.
 
-**The Rem Rule.** Tamaños de letra y alturas de línea en rem, nunca en px: así la web respeta el tamaño de letra que cada persona elige en su navegador. Los puntos de corte van en em por lo mismo (los px de este documento divididos entre 16, también en las clases `sm:`, `md:` y `lg:` de Tailwind): con la letra al doble, una pantalla de 1280 px se compone como una de 640 px y nada se sale. Por debajo de 20em de ancho, que solo se da con la letra ampliada en el móvil, las palabras largas pueden partirse y las rejillas de dos columnas pasan a una.
+**The Rem Rule.** Tamaños de letra y alturas de línea en rem, nunca en px, para respetar el tamaño de letra que cada persona elige en su navegador. Los puntos de corte van en em (también los `sm:` 40em, `md:` 48em, `lg:` 64em, `xl:` 80em de Tailwind): con la letra al doble, una pantalla de 1280 px se compone como una de 640 px. Por debajo de 20em de ancho las palabras largas pueden partirse.
 
-**The Heading Speaks Rule.** Sin antetítulos: el titular en serif abre la sección y se explica solo. Si hace falta contexto, va en la entradilla (Lead), a la derecha en escritorio (cabecera partida 1,1fr / 1fr desde 900 px). Una etiqueta en Label solo encabeza una tarjeta o un dato, o indica una posición («Parada 1 de 6»).
+**The Heading Speaks Rule.** Ningún antetítulo encima de un titular: el titular en serif abre la sección y se explica solo; el contexto va en la entradilla. Las mayúsculas espaciadas solo nombran un dato, un grupo de controles o una edad en la línea.
 
 ## Layout
 
-Contenedor de 1200 px con márgenes laterales de 16 px en móvil y 32 px desde 768 px (respetando las zonas seguras del móvil). Las secciones respiran: 64 px arriba y abajo en móvil y 96 px desde 900 px. El texto corrido no pasa de unos 74 caracteres por línea (`--measure: 34em`; se mide en em porque el `ch` de Figtree, el ancho del «0», es mayor que el de la letra media).
+Contenedor de 1240 px (`--container`) con márgenes de 16 px en móvil y 32 px desde 48em, respetando las zonas seguras. Las secciones de la portada respiran 64 px arriba y abajo en móvil y 96 px desde 60em. El texto corrido no pasa de 34em.
 
-Las rejillas crecen por pasos: una columna en móvil, dos desde 640 px y tres o cuatro desde 900–1000 px. La rejilla de especialidades es un mosaico de 4 columnas con filas de 260 px y una tarjeta grande de 2×2; la última tarjeta se ensancha para cerrar su fila. Las rejillas de personas centran la última fila incompleta. Cabecera fija de 76 px con desenfoque; en móvil (menos de 768 px) aparece una barra inferior fija con «Llamar» y «WhatsApp» al bajar.
+**El margen de la línea.** Las secciones que recorre la línea dejan a la izquierda un margen (`--rail-pad`) y la línea corre por `--rail-x` dentro de él: 14 / 44 px en móvil, 56 / 112 px desde 48em y 164 / 216 px desde 64em. Desde 64em, las edades de las etapas van dentro de ese margen, alineadas a la derecha y a la altura de su punto; por debajo, bajo el titular de la etapa. Todo contenido de una sección con línea empieza después del margen.
 
-**The Breathing Room Rule.** Ante la duda, más aire: una sección nunca encaja más de un mensaje principal, y entre bloques se usan los pasos de 48, 64 o 96 px, no valores intermedios.
+Las etapas alternan composición desde 60em: texto ancho y foto vertical (4:5), y en las pares foto apaisada (4:3) a la izquierda y algo más baja. La portada abre con el campo salvia a sangre: titular y entradilla a la izquierda, preparador de cita a la derecha (1,15fr / 0,85fr) y debajo la foto del equipo a sangre (3:2 en móvil, 16:9 desde 48em, 21:9 desde 80em); en móvil y tableta la foto sube antes del preparador. Cabecera fija de 76 px; por debajo de 48em, barra fija inferior con «Llamar» y «WhatsApp».
+
+**The Rail Rule.** En una sección que cruza la línea, nada invade el margen salvo la propia línea, sus puntos, sus glifos y las edades. La línea va por encima de los fondos y por debajo de todo lo que se pulsa.
 
 ## Elevation & Depth
 
-Decisión de noviembre de 2026: el sistema gana relieve. Tarjetas y paneles (paneles de tratamiento, horario, formulario, reseñas, tarjetas de servicio y de especialidad) llevan una sombra suave en reposo; las que son enlaces suben un nivel al pasar el ratón. La cabecera, al hacer scroll, y las tarjetas que flotan sobre una foto (la nota de Google) usan la sombra media. La profundidad se apoya también en las bandas de color (turquesa, arena, noche) y en bordes finos de Línea.
-
-### Shadow Vocabulary
-- **Reposo** (`box-shadow: 0 1px 2px rgba(20,32,31,.06), 0 1px 1px rgba(20,32,31,.04)`, token `--shadow-sm`): tarjetas, paneles y botón principal en reposo.
-- **Elevada** (`box-shadow: 0 12px 32px -12px rgba(20,32,31,.18)`, token `--shadow-md`): hover de tarjetas y botones, cabecera con scroll, tarjetas flotantes sobre fotos.
+Plano por completo: `--shadow-sm` y `--shadow-md` valen `none`, y los componentes heredados que los usan quedan planos. La profundidad la dan los planos de color superpuestos: la hoja crema del preparador sobre el campo salvia, el bocadillo salvia clara sobre esa hoja, la nota de Google como una etiqueta crema pegada a la esquina de la foto, la foto del equipo por encima de la línea. Nada se eleva al pasar el ratón; los botones no se desplazan.
 
 ### Named Rules
-**The Soft Lift Rule.** Las sombras son siempre difusas y teñidas de tinta, nunca negras ni duras. Un elemento sube como mucho un nivel al interactuar, y solo si es clicable: una tarjeta informativa no se mueve al pasar el ratón.
+**The Flat Layers Rule.** Sin sombras ni degradados decorativos. Si algo tiene que destacar, se pone sobre otro campo de color, no se levanta.
 
 ## Shapes
 
-Formas suaves y acogedoras: nada de esquinas vivas. Tres radios (6 px en campos, 12 px en paneles y avisos, 20 px en tarjetas de foto) y la píldora para todo lo pulsable o etiquetable (botones, insignias, chips de datos). Toda foto va en el mismo **marco**: rectángulo con 20 px en las cuatro esquinas (`.up-frame`, `.up-cutout-photo`, `.up-spec`, collage, fotos de tratamiento y de la visita guiada), sobre Bruma turquesa como reserva (Turquesa Up en los retratos, Noche elevada en la banda oscura). Decisión de noviembre de 2026: se retira el arco de medio punto, que leía como una ventana; un único radio para las fotos da un aire más sobrio y profesional. Una foto solo se amplía al pasar el ratón si es un enlace o un botón. Los iconos van en círculo de Bruma turquesa.
+Dos familias de forma y nada entre medias. Rectas: fotos, campos de sección, paneles, reseñas, avisos, la nota de Google y las tarjetas heredadas (0 px); los campos de formulario y el contorno de foco apenas redondeados (2 px). Píldora: todo lo que se pulsa o se elige (botones, chips del preparador, píldoras de enlace). Círculo: los puntos de la línea (15 px), los avatares, el botón de menú y los iconos sociales (44 px). Una sola excepción con nombre: el bocadillo del mensaje de WhatsApp (2 px arriba a la izquierda, 14 px en las demás esquinas).
 
-**The One Frame Rule.** Todas las fotos comparten el rectángulo de 20 px. Nada de arcos, círculos ni formas recortadas en fotos; el círculo queda para iconos y avatares.
+Las líneas de la marca (la línea, el diente, el corazón) son trazos sin relleno, con extremos y uniones redondeados: 1,5 px la línea, 1,6 px los glifos sin escalar con el tamaño. El logotipo se tiñe con el color del texto que lo rodea (máscara sobre `currentColor`).
 
-## Motion
-
-**Tesis: una entrada y respuestas.** El movimiento tiene un solo momento propio: la portada entra una vez al cargar. Nada aparece al hacer scroll (ni fotos, ni tarjetas, ni texto), salvo la línea de los pasos del tratamiento. Todo lo demás responde a la persona o explica un cambio de estado: hover, foco, capas, acordeón, envío. Las reglas están en `src/styles/motion.css`; los tiempos y la curva, en `src/styles/tokens.css`.
-
-- **Momento principal:** al entrar en la portada, el titular, la entradilla, las ventajas y los botones suben 16 px en cascada (700 ms, 70 ms entre uno y otro) y la foto se desvela en 1,1 s: parte de un rectángulo un 5 % menor, con el mismo radio de 20 px, y se posa de un 106 % a su tamaño. La nota de Google entra a los 600 ms, cuando llega del servidor.
-- **Hover:** las fotos que son enlace o botón se amplían un 3 % dentro de su marco (600 ms, `--ease-out`); las tarjetas enlace suben 2 px con la sombra elevada; los botones suben 1 px y vuelven al pulsar; la flecha de una tarjeta avanza 3 px; el subrayado de la navegación crece desde el centro.
-- **Cambio de página:** fundido de 240 ms entre páginas (View Transitions, sin JavaScript). El retrato de una persona viaja de su tarjeta (portada y `/equipo`) a su ficha y vuelve, en 420 ms (`portraitTransition` en `src/constants/pages.ts`).
-- **Capas:** el menú móvil y el visor de fotos entran con un fundido de 240 ms y salen en 160 ms; los enlaces del menú entran como lista. En el visor, la foto entra desde el lado hacia el que se avanza, cuando ya ha cargado; con el dedo se pasa de foto deslizando, y la foto acompaña al dedo.
-- **Acordeón:** la respuesta se despliega en 420 ms.
-- **Pasos del tratamiento:** la línea que une los pasos se dibuja con el scroll y cada número se activa al llegar a él. Es el único movimiento ligado al scroll, porque ahí el scroll es el recorrido.
-- **Formulario:** los errores aparecen con un fundido; al enviar, el botón pasa a «Enviando…» con un indicador y no admite un segundo envío.
-
-### Tiempos
-- `--duration-fast` (160 ms): respuesta inmediata y salidas.
-- `--duration-base` (240 ms): cambios de estado y entrada de capas.
-- `--duration-slow` (420 ms): acordeón y viaje del retrato.
-- `--ease-out` (`cubic-bezier(0.16, 1, 0.3, 1)`): todas las llegadas. Sin rebotes ni curvas elásticas.
-
-### Named Rules
-**The No Scroll Reveal Rule.** Nada entra al hacer scroll: ni fotos, ni tarjetas, ni titulares. La única pieza ligada al scroll es la línea de los pasos del tratamiento, porque ahí el scroll es el recorrido.
-
-**The Visible By Default Rule.** El estado por defecto es el contenido visible. Una animación de entrada parte de ahí: si el CSS moderno o el script no están, la página se ve completa y quieta.
-
-**The Less Motion Rule.** Con `prefers-reduced-motion` no hay entradas, desplazamientos ni escalados, y el retrato no viaja; quedan los fundidos y los cambios de color y sombra que confirman un estado (hover, foco, capa abierta, «Enviando…»). El indicador de envío no gira: late despacio con la opacidad (1,2 s).
+**The Straight Photo Rule.** Las fotos van rectas, sin radio, ni arcos, ni recortes; el redondeo es solo de lo que se pulsa.
 
 ## Components
 
-Todos suaves y acogedores: redondeados, con estados que responden con calma (160–240 ms) y un foco siempre visible (contorno sólido de 2 px en Pino profundo, separado 2–3 px; en Turquesa de acento sobre noche).
+Planos y tranquilos: estados por cambio de color en 160–240 ms y foco siempre visible (contorno sólido de 2 px en Turquesa de texto separado 3 px; en Turquesa del logo sobre pino; en pino en los chips).
 
 ### Buttons
-- **Shape:** píldora completa, 48 px de alto (40 px en la variante pequeña; 44 px en pantallas táctiles, igual que las paradas de la visita guiada y los enlaces de la cabecera). Por debajo de 480 px el texto puede pasar a dos líneas en vez de salirse.
-- **Primary:** fondo Tinta de texto, texto blanco, Figtree 600 16 px; al pasar, fondo Acción hover y sombra elevada; sube 1 px. «Pedir cita» abre WhatsApp con el mensaje ya escrito y lleva su icono; el formulario queda como alternativa secundaria.
-- **Secondary:** transparente con borde de 1,5 px en Borde de control; al pasar, borde y texto en Pino profundo.
-- **Ghost:** texto en Pino profundo, sin borde; al pasar, fondo Bruma turquesa. Para «Ver todos…» con flecha.
-- **Night:** sobre bandas oscuras, fondo Turquesa de acento con texto en tinta; el secundario de noche es transparente con borde claro. La banda final de cita ya no es oscura: va en Turquesa Up con el botón principal en tinta.
+- **Shape:** píldora completa, 48 px de alto (44 px en pantallas táctiles para la variante pequeña), 24 px de relleno lateral, Albert Sans 600.
+- **Primary:** pino con texto crema; al pasar, pino hondo; al pulsar, pino pulsado. Es la acción de WhatsApp, con su icono.
+- **Secondary:** transparente con borde de 1,5 px en pino; al pasar se rellena de pino con texto crema.
+- **Light (sobre pino):** crema con texto pino; al pasar, salvia. **Outline night:** borde crema al 55 %, se rellena de crema al pasar.
+- **Ghost:** texto en Turquesa de texto; al pasar, fondo salvia clara.
+- **Hover / Focus:** sin desplazamiento ni sombra; la flecha final avanza 3 px.
 
 ### Chips
-- **Insignia:** píldora en Bruma turquesa con texto Pino profundo (Caption): especialidades del equipo, «Sin coste».
-- **Dato (fact chip):** píldora blanca con borde de Línea y un icono en círculo de Bruma turquesa; etiqueta pequeña en mayúsculas y valor en negrita («Precio · Presupuesto tras el estudio»).
+- **Style:** píldora transparente de 44 px de alto con borde de 1 px en pino al 55 %, Albert Sans 500 16 px. Son radios nativos ocultos dentro de un `label`.
+- **State:** al pasar, borde pino y un velo crema; elegido, relleno pino con texto crema (el único color «encendido» del preparador).
+
+### Píldoras de enlace
+Enlaces de una etapa a sus tratamientos: píldora salvia clara de 44 px con texto pino y flecha; al pasar, pino con texto crema y la flecha avanza 3 px.
 
 ### Cards / Containers
-- **Corner Style:** 12 px en paneles y avisos, 20 px en tarjetas con foto.
-- **Background:** Blanco sobre papel; Bruma turquesa como reserva de foto.
-- **Shadow Strategy:** sombra de reposo y elevada al pasar (ver Elevation & Depth).
-- **Border:** 1 px en Línea.
-- **Internal Padding:** 32 px en paneles, 16–24 px en avisos.
+- **Corner Style:** rectas (0 px).
+- **Background:** los paneles y el formulario en papel con borde de Línea; las tarjetas de servicio heredadas, transparentes con un filete superior de 1 px en pino.
+- **Shadow Strategy:** ninguna (ver Elevation & Depth).
+- **Internal Padding:** 24–32 px en paneles.
 
 ### Inputs / Fields
-- **Style:** fondo blanco, borde de 1,5 px en Borde de control, radio de 6 px, 48 px de alto, Figtree 17 px.
-- **Focus:** contorno sólido de 2 px en Pino profundo separado 2 px; el borde también pasa a Pino.
-- **Error:** borde en Peligro y mensaje con icono debajo, asociado al campo solo mientras se ve.
+- **Style:** fondo papel, borde de 1,5 px en Borde de control, radio de 2 px, 48 px de alto, Albert Sans 17 px.
+- **Focus:** contorno de 2 px en Turquesa de texto separado 2 px; el borde también cambia.
+- **Error:** borde en Peligro y mensaje debajo.
 
 ### Navigation
-- **Escritorio:** logotipo en azulejo turquesa a la izquierda, enlaces Figtree 600 con un subrayado de 2 px que crece desde el centro (Pino profundo al pasar y en la página actual), teléfono y botón «Pedir cita» a la derecha.
-- **Al hacer scroll:** fondo blanco translúcido, borde de Línea y sombra elevada.
-- **Móvil:** botón de menú circular que abre un panel a pantalla completa con enlaces grandes y flecha; barra inferior fija «Llamar / WhatsApp».
+- **Escritorio:** logotipo teñido en pino con el nombre en Brygada y «Estudio dental» en mayúsculas espaciadas; enlaces Albert Sans 500 con un subrayado turquesa de 1,5 px que crece desde el centro; teléfono y botón de cita a la derecha.
+- **Al hacer scroll:** sigue crema, sin desenfoque ni sombra; solo aparece un filete inferior de Línea.
+- **Móvil:** el nombre se oculta por debajo de 30em; el botón de cita se queda hasta 21em. El menú abre un campo salvia a pantalla completa con enlaces en Brygada de 2rem; barra inferior fija crema con filete pino.
 
-### Tarjeta de especialidad (signature)
-Foto a sangre con radio de 20 px y una etiqueta blanca translúcida que flota abajo (radio de 12 px) con el nombre, una línea de apoyo y una flecha en Pino que se desplaza 3 px al pasar; la foto escala un 3 % en 600 ms.
+### La línea (signature)
+SVG absoluto sobre el contenedor de la portada que une, por orden vertical, todo elemento marcado como punto de paso: el diente de la cabecera, cada etapa, la revisión, el equipo, la clínica y el corazón. Curvas suaves entre puntos, con una ondulación leve en los tramos largos y rectos. Se recorta por campos: turquesa sobre crema y madera, blanca sobre salvia, salvia sobre pino. Delante, una guía punteada (1 / 7) al 55 % muestra el camino que falta; detrás, el trazo continuo avanza con el scroll hasta el 62 % de la pantalla. Sin JavaScript, un filete recto turquesa al 60 % ocupa su sitio en el margen; con movimiento reducido, la línea aparece entera. Es decorativa (`aria-hidden`).
 
-### Tarjetas informativas (signature)
-Tarjetas blancas con sombra de reposo y radio de 12 px sobre un bloque en Bruma turquesa: un icono de 24 px en Pino profundo dentro de un círculo de 48 px en Bruma turquesa, el título (Title sans) y el texto (Small). Son informativas: no se elevan al pasar el ratón ni van numeradas. El icono se elige en Keystatic de una lista cerrada (`src/constants/iconosTarjeta.ts`): Lucide con trazo de 1,75 y un diente dibujado para la web con el mismo trazo.
+### Puntos de etapa (signature)
+Círculo de 15 px centrado en la línea: anillo turquesa de 1,5 px sobre crema con el centro relleno (rojo Peligro en urgencias); sobre pino, un disco salvia. Hasta que el trazo llega están reducidos al 60 % y vacíos, y la edad en pino suave; al llegar crecen, se rellenan y la edad se enciende en Turquesa de texto.
 
-### Pasos del tratamiento (signature)
-Lista vertical con números en círculo de 40 px (serif 18 px en Pino, borde de 1,5 px en Turquesa de acento) unidos por una línea de 1,5 px en Línea.
+### Diente y corazón (signature)
+El diente de trazo fino abre: en la cabecera de la portada (64–80 px) y en la de cada página interior (40–52 px), en blanco sobre salvia, con la raíz sobre `--rail-x`; se dibuja una vez al cargar desde la raíz (1,1 s). En las interiores, un filete blanco recto baja desde él. El corazón cierra: en blanco sobre la banda salvia del cierre, se dibuja cuando la línea lo alcanza (900 ms).
+
+### Preparador de WhatsApp (signature)
+Hoja crema sobre el campo salvia: dos grupos de chips («¿Para quién es la cita?», «¿Qué necesitas?») con su leyenda en Label, el bocadillo con el mensaje que se va a enviar (Brygada 1,0625rem sobre salvia clara; al cambiar, el texto se escribe de izquierda a derecha en 320 ms), el botón principal y el teléfono como enlace subrayado. Sin JavaScript, el botón abre WhatsApp con la opción marcada por defecto.
+
+### Registros (signature)
+Las listas de contenido se escriben como un registro, no como tarjetas: un filete superior y uno bajo cada línea, término y descripción en dos columnas desde 40em. Revisión gratuita sobre pino (término en Brygada crema, descripción en salvia, filetes salvia al 40 %); tecnología de la clínica y ficha de tratamiento sobre madera o crema (término en Albert Sans 600 pino); «Otros tratamientos» como registro de enlaces en Brygada con flecha que avanza 4 px al pasar. Las reseñas siguen la misma idea: filete superior pino y la cita en serif, sin caja.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** enmarcar todas las fotos en el rectángulo de 20 px sobre fondo Turquesa Up o Bruma turquesa.
-- **Do** abrir cada sección directamente con el titular en serif, en redonda; el contexto, en la entradilla.
-- **Do** usar el botón principal en tinta y el WhatsApp como acción más visible de cada llamada a la acción.
-- **Do** usar fotos reales de la clínica, el equipo y los pacientes con permiso.
-- **Do** mantener el foco visible: 2 px sólido en Pino profundo (Turquesa de acento sobre noche).
-- **Do** respetar `prefers-reduced-motion`: sin entradas, escalados ni desplazamientos cuando se pide menos movimiento; los cambios de color, opacidad y sombra se mantienen.
-- **Do** partir siempre del contenido visible: una animación de entrada es un añadido, nunca la condición para ver la página.
+- **Do** dar a cada sección un campo entero (crema, salvia, pino, madera) distinto del de la sección anterior.
+- **Do** dejar el margen de la línea (`--rail-pad`) en toda sección que la línea cruza, y marcar sus paradas con un punto de 15 px sobre `--rail-x`.
+- **Do** cambiar el color del trazo según el campo: turquesa sobre crema, blanco sobre salvia, salvia sobre pino.
+- **Do** escribir las listas de contenido como registros con filetes, no como rejillas de tarjetas iguales.
+- **Do** usar fotos reales de la clínica y del equipo, rectas, sobre salvia clara mientras cargan.
+- **Do** dar a todo lo que se pulsa 44 px de alto como mínimo (48 px los botones y campos).
+- **Do** mantener el foco visible: 2 px sólido en Turquesa de texto (Turquesa del logo sobre pino).
+- **Do** respetar `prefers-reduced-motion`: sin trazos que se dibujan, escalados ni desplazamientos; la línea se ve entera y quedan los cambios de color y opacidad.
 
 ### Don't:
-- **Don't** poner un antetítulo en mayúsculas encima de un titular: repite lo que el titular ya dice y aplana el ritmo de la página.
-- **Don't** poner texto en Turquesa Up ni en Turquesa de acento sobre fondos claros.
-- **Don't** usar esquinas vivas ni radios fuera de 6, 12, 20 px y píldora.
+- **Don't** poner sombras ni degradados decorativos: la profundidad es de planos.
+- **Don't** redondear fotos ni paneles; el redondeo es de píldora y solo para controles.
+- **Don't** poner texto corrido en Turquesa sobre claro ni Turquesa de texto sobre madera.
+- **Don't** poner un antetítulo en mayúsculas encima de un titular.
 - **Don't** usar cursivas ni resaltar palabras de un titular con otro color.
-- **Don't** usar sombras negras, duras o de varios niveles; como mucho, reposo y elevada.
+- **Don't** añadir otro movimiento ligado al scroll: la línea (y los pasos del tratamiento, que son su propio recorrido) es el único gesto.
 - **Don't** dar por hecho un tema oscuro: la web es solo clara.
-- **Don't** animar la entrada de fotos, texto o tarjetas al hacer scroll, ni repetir la misma entrada en cada sección: el único momento es la entrada de la portada.
-- **Don't** volver al arco de medio punto ni a otras formas recortadas en las fotos.
 - **Don't** escribir colores en hex dentro de componentes; siempre tokens.

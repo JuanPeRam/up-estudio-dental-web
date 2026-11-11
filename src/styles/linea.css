@@ -291,7 +291,7 @@ a.up-hero2-card:hover b { text-decoration: underline; text-decoration-thickness:
 .up-registro dd { margin: 0; font-size: 1rem; line-height: 1.5rem; color: var(--pino-suave); }
 
 /* ---------- Del barrio ---------- */
-.up-barrio { background: var(--crema); padding-block: var(--space-12); border-bottom: 1px solid var(--line); }
+.up-barrio { background: var(--crema); padding-block: var(--space-12) var(--space-8); }
 .up-barrio-in { display: grid; gap: var(--space-6); }
 @media (min-width: 64em) { .up-barrio-in { grid-template-columns: 12rem minmax(0, 1fr); align-items: start; } }
 .up-barrio ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-4) var(--space-8); grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); }
@@ -333,7 +333,9 @@ a.up-hero2-card:hover b { text-decoration: underline; text-decoration-thickness:
 .up-rating { border-radius: 0; border-color: var(--pino); background: transparent; }
 .up-reviews-empty { border-radius: 0; background: transparent; border: 0; padding: 0; justify-content: flex-start; gap: var(--space-3) var(--space-8); }
 @media (min-width: 64em) { .up-reviews-empty { display: grid; grid-template-columns: 12rem minmax(0, 1fr); } .up-reviews-empty .up-btn { justify-self: start; } }
-.up-review-skeleton { background: linear-gradient(90deg, var(--crema), var(--salvia-clara), var(--crema)); background-size: 200% 100%; border-top: 1px solid var(--line); }
+.up-review-skeleton { background: var(--salvia-clara); border-top: 1px solid var(--line); animation: up-respira 1.6s ease-in-out infinite alternate; }
+@keyframes up-respira { to { opacity: 0.5; } }
+@media (prefers-reduced-motion: reduce) { .up-review-skeleton { animation: none; } }
 
 /* ---------- Pie ---------- */
 .up-footer { background: var(--pino); color: var(--salvia); border-top: 0; }

@@ -13,7 +13,7 @@ Modo: Persuade. Visitante: madre o padre de Móstoles, casi siempre en el móvil
 
 THESIS: Una sola línea, el trazo fino de diente de las publicaciones de Up, recorre la vida de la boca de una familia: del primer diente a los implantes, con una parada en cada etapa. Rechaza la portada de clínica de catálogo (foto, botón y rejilla de tarjetas de tratamiento iguales).
 
-OWN-WORLD: Campos enteros de salvia (#b8cfc8) y verde pino (#1f3d36) sobre suelo crema (#faf6ec), madera clara de la recepción como tercera superficie. Serif Brygada 1918 en redonda para titulares; Albert Sans para texto y rótulos en mayúsculas finas espaciadas (como los de Canva). Una línea continua de 1,5 px: turquesa del logo sobre crema, blanca sobre salvia, crema sobre pino. Paradas como puntos sobre la línea con la edad en versalitas. Fotos reales con esquinas rectas. Sin sombras ni degradados: la profundidad la dan los planos de color superpuestos.
+OWN-WORLD: Campos enteros de salvia (#b8cfc8) y verde pino (#1f3d36) sobre suelo crema (#faf6ec), madera clara de la recepción como tercera superficie. Serif Brygada 1918 en redonda para titulares; Albert Sans para texto y rótulos en mayúsculas finas espaciadas (como los de Canva). Una línea continua de 1,5 px: turquesa del logo sobre crema, blanca sobre salvia, salvia sobre pino. Paradas como puntos sobre la línea con la edad en versalitas. Fotos reales con esquinas rectas. Sin sombras ni degradados: la profundidad la dan los planos de color superpuestos.
 
 STORY: El visitante entiende en una pantalla que aquí se trata a toda la familia, cada etapa con su especialista; cree porque ve al equipo real y lo que incluye la revisión gratuita; actúa eligiendo para quién es la cita y enviando el WhatsApp ya escrito.
 
