@@ -1,0 +1,146 @@
+/* ============================================================
+   Movimiento — «Las puertas se abren»
+   Una sola idea: las fotos de personas y espacios se abren como una puerta (el arco crece desde
+   el suelo y la foto se posa). El texto no se anima al hacer scroll. El resto del movimiento
+   explica un cambio de estado: una capa que entra, un paso al que se llega, un envío en curso.
+   Se carga después de tailwind.css (ver Layout.astro). Tiempos y curva en tokens.css.
+   ============================================================ */
+
+/* ---------- Radio de la abertura de cada marco de foto ---------- */
+[data-reveal], .up-arch { --reveal-r: var(--radius-md); }
+.up-spec, .up-collage > * { --reveal-r: var(--radius-lg); }
+.up-hero2-media .up-arch { --reveal-r: 50% 50% var(--radius-lg) var(--radius-lg) / 40% 40% var(--radius-lg) var(--radius-lg); }
+.up-tech .up-arch, .up-cutout-photo { --reveal-r: 50% 50% var(--radius-lg) var(--radius-lg) / 37.5% 37.5% var(--radius-lg) var(--radius-lg); }
+.up-collage > :first-child { --reveal-r: 50cqi 50cqi var(--radius-lg) var(--radius-lg); }
+
+@keyframes up-open {
+  from { clip-path: inset(16% 10% 0% 10% round var(--reveal-r)); scale: 1.08; }
+  to { clip-path: inset(0% 0% 0% 0% round var(--reveal-r)); scale: 1; }
+}
+@keyframes up-fade { from { opacity: 0; } }
+@keyframes up-rise { from { opacity: 0; translate: 0 16px; } }
+@keyframes up-pop { from { opacity: 0; translate: 0 10px; scale: 0.94; } }
+@keyframes up-spin { to { rotate: 1turn; } }
+@keyframes up-line-draw { from { transform: scaleY(0); } }
+@keyframes up-step-on { from { border-color: var(--line); color: var(--ink-muted); scale: 0.86; } }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* ---------- Fotos que se abren al llegar a ellas ----------
+     El script de Layout.astro marca con .is-pending solo las que están por debajo de la primera
+     pantalla y les pone .is-in al entrar: sin script, o con menos movimiento, se ven desde el principio. */
+  [data-reveal].is-pending img { opacity: 0; }
+  [data-reveal].is-in img {
+    animation:
+      up-open var(--duration-reveal) var(--ease-out) var(--reveal-delay, 0ms) backwards,
+      up-fade var(--duration-base) ease var(--reveal-delay, 0ms) backwards;
+  }
+
+  /* ---------- Portada: la puerta se abre una vez, al entrar ---------- */
+  .up-hero2 > :first-child > * { animation: up-rise 800ms var(--ease-out) backwards; }
+  .up-hero2 > :first-child > :nth-child(2) { animation-delay: 80ms; }
+  .up-hero2 > :first-child > :nth-child(3) { animation-delay: 160ms; }
+  .up-hero2 > :first-child > :nth-child(4) { animation-delay: 240ms; }
+  /* La foto es lo más grande de la primera pantalla: se ve desde el primer fotograma, sin fundido. */
+  .up-hero2-media .up-arch img { animation: up-open 1200ms var(--ease-out) backwards; }
+  /* La nota de Google llega después (server island): entra cuando la foto ya está abierta. */
+  .up-hero2-card { animation: up-pop var(--duration-slow) var(--ease-out) 500ms backwards; }
+
+  /* ---------- Contenido que llega después de cargar ---------- */
+  .up-reviews > .up-review, .up-rating { animation: up-rise 600ms var(--ease-out) backwards; }
+  .up-reviews > .up-review:nth-child(2) { animation-delay: 70ms; }
+  .up-reviews > .up-review:nth-child(3) { animation-delay: 140ms; }
+  .up-notice[data-autofocus] { animation: up-rise 500ms var(--ease-out) backwards; }
+
+  /* ---------- Menú móvil: los enlaces entran como lista ---------- */
+  .up-menu:not([hidden]) .up-menu-links li,
+  .up-menu:not([hidden]) .up-menu-links + div { animation: up-rise 500ms var(--ease-out) backwards; }
+  .up-menu-links li:nth-child(1) { animation-delay: 40ms; }
+  .up-menu-links li:nth-child(2) { animation-delay: 80ms; }
+  .up-menu-links li:nth-child(3) { animation-delay: 120ms; }
+  .up-menu-links li:nth-child(4) { animation-delay: 160ms; }
+  .up-menu-links li:nth-child(n + 5) { animation-delay: 200ms; }
+  .up-menu-links + div { animation-delay: 240ms; }
+
+  /* ---------- Acordeón: la respuesta se despliega en vez de aparecer de golpe ----------
+     Solo donde se puede animar hasta `auto`; un navegador que no conozca ::details-content
+     descarta esas reglas y la respuesta aparece de golpe, como antes. */
+  @supports (interpolate-size: allow-keywords) {
+    .up-acc details { interpolate-size: allow-keywords; }
+    .up-acc details::details-content {
+      block-size: 0;
+      overflow-y: clip;
+      opacity: 0;
+      transition:
+        block-size var(--duration-slow) var(--ease-out),
+        opacity var(--duration-base) ease,
+        content-visibility var(--duration-slow) allow-discrete;
+    }
+    .up-acc details[open]::details-content { block-size: auto; opacity: 1; }
+  }
+
+  /* ---------- Pasos del tratamiento: la línea avanza con el scroll ----------
+     Aquí el scroll sí significa algo: es el recorrido del tratamiento, paso a paso. */
+  @supports (animation-timeline: view()) {
+    .up-step::after { transform-origin: top; animation: up-line-draw linear both; }
+    .up-step::before { animation: up-step-on linear both; }
+    /* La línea de tiempo va en una regla aparte, con otro selector: el minificador de producción la
+       metía dentro de `animation`, y ahí los navegadores no la admiten (descartan la declaración). */
+    .up-steps > .up-step::after { animation-timeline: view(); animation-range: entry 0% cover 45%; }
+    .up-steps > .up-step::before { animation-timeline: view(); animation-range: entry 0% cover 30%; }
+  }
+
+  /* ---------- Cambio de página: el retrato viaja de la tarjeta a la ficha ---------- */
+  .up-nav { view-transition-name: site-nav; }
+  .up-mbar { view-transition-name: site-mbar; }
+  .up-cutout-photo { view-transition-name: var(--vt, none); view-transition-class: retrato; }
+  ::view-transition-group(.retrato) { animation-duration: var(--duration-slow); animation-timing-function: var(--ease-out); }
+}
+
+/* Fundido entre páginas (sin JavaScript). Con menos movimiento queda solo el fundido. */
+@view-transition { navigation: auto; }
+::view-transition-group(root) { animation-duration: var(--duration-base); }
+
+/* ---------- Capas que entran y salen: menú móvil y visor de fotos ----------
+   Entran en --duration-base y salen más rápido. Un navegador que no anima `display` descarta la
+   declaración entera y la capa aparece de golpe, como antes. */
+.up-menu, .up-lightbox {
+  transition: opacity var(--duration-fast) ease, display var(--duration-fast) allow-discrete;
+}
+.up-menu[hidden], .up-lightbox[hidden] { opacity: 0; pointer-events: none; }
+.up-menu:not([hidden]), .up-lightbox:not([hidden]) { opacity: 1; transition-duration: var(--duration-base); }
+@starting-style {
+  .up-menu:not([hidden]), .up-lightbox:not([hidden]) { opacity: 0; }
+}
+
+/* ---------- Formulario: errores que aparecen y envío en curso ---------- */
+.up-error { transition: opacity var(--duration-base) ease, translate var(--duration-base) var(--ease-out); }
+@starting-style {
+  .up-error:not([hidden]) { opacity: 0; translate: 0 -4px; }
+}
+.up-spinner {
+  display: none;
+  width: 18px;
+  height: 18px;
+  flex: none;
+  border-radius: 50%;
+  border: 2px solid color-mix(in srgb, currentColor 30%, transparent);
+  border-top-color: currentColor;
+}
+.up-btn.is-loading { cursor: progress; }
+.up-btn.is-loading:hover { transform: none; }
+.up-btn.is-loading .up-spinner { display: inline-block; animation: up-spin 800ms linear infinite; }
+
+/* ---------- Menos movimiento ----------
+   Se quita el movimiento, no la respuesta: no hay entradas, desplazamientos ni escalados, pero
+   el color, la opacidad y la sombra siguen confirmando cada estado (hover, foco, capa abierta). */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation: none !important;
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, box-shadow, opacity !important;
+  }
+}
+
+@media print {
+  [data-reveal].is-pending img { opacity: 1; }
+}

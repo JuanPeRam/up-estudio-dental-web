@@ -9,7 +9,7 @@ import CTABand from "@/components/UI/CTABand.astro";
 import Checklist from "@/components/UI/Checklist.astro";
 import type { CollectionEntry } from "astro:content";
 import { getEquipo } from "@/lib/contenido";
-import { memberPath } from "@/constants/pages";
+import { memberPath, portraitTransition } from "@/constants/pages";
 import { whatsappLink } from "@/constants/personal";
 
 export async function getStaticPaths() {
@@ -59,7 +59,7 @@ const jsonLd = [
         <a href="/equipo">Equipo</a><span aria-hidden="true">/</span><span aria-current="page">{member.nombre}</span>
       </nav>
       <div class="grid items-start gap-10 md:grid-cols-[minmax(0,380px)_1fr] lg:gap-16">
-        <div class="up-cutout-photo w-full max-w-[320px] md:max-w-none">
+        <div class="up-cutout-photo w-full max-w-[320px] md:max-w-none" style={portraitTransition(member.id)}>
           <Image src={member.retrato} alt={member.retratoAlt} widths={[400, 800, 1100]} sizes="(min-width: 768px) 380px, 320px" loading="eager" />
         </div>
         <div class="flex flex-col gap-6 md:pt-4">

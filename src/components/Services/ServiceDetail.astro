@@ -112,7 +112,7 @@ const citaWhatsApp = whatsappLink(`Hola, me gustaría pedir cita para ${d.titulo
         {
             d.tratamientos.map((t, i) => (
                 <article class:list={["up-treat", i % 2 === 1 && "is-reversed"]}>
-                    <figure class="up-treat-media m-0">
+                    <figure class="up-treat-media m-0" data-reveal>
                         <Image src={t.imagen} alt={t.imagenAlt} widths={[600, 1000]} sizes="(min-width: 1024px) 560px, 100vw" />
                     </figure>
                     <div class="flex flex-col gap-5">
