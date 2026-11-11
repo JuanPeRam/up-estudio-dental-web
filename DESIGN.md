@@ -297,7 +297,7 @@ Formas suaves y acogedoras: nada de esquinas vivas. Tres radios (6 px en campos,
 
 **The Visible By Default Rule.** El estado por defecto es el contenido visible. Una animación de entrada parte de ahí: si el CSS moderno o el script no están, la página se ve completa y quieta.
 
-**The Less Motion Rule.** Con `prefers-reduced-motion` no hay entradas, desplazamientos ni escalados, y el retrato no viaja; quedan los fundidos y los cambios de color y sombra que confirman un estado (hover, foco, capa abierta, «Enviando…»).
+**The Less Motion Rule.** Con `prefers-reduced-motion` no hay entradas, desplazamientos ni escalados, y el retrato no viaja; quedan los fundidos y los cambios de color y sombra que confirman un estado (hover, foco, capa abierta, «Enviando…»). El indicador de envío no gira: late despacio con la opacidad (1,2 s).
 
 ## Components
 

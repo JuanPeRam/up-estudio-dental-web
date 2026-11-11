@@ -139,7 +139,10 @@
     animation: none !important;
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, box-shadow, opacity !important;
   }
+  /* El indicador de envío no gira: late despacio con la opacidad, para que se vea que sigue en marcha. */
+  .up-btn.is-loading .up-spinner { animation: up-breathe 1.2s ease-in-out infinite alternate !important; }
 }
+@keyframes up-breathe { to { opacity: 0.35; } }
 
 @media print {
   [data-reveal].is-pending img { opacity: 1; }
