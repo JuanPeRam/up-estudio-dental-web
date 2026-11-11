@@ -1,0 +1,11 @@
+---
+/**
+ * Logotipo de Up teñido con el color del texto que lo rodea (currentColor): la silueta blanca del PNG
+ * se usa como máscara. Así el mismo archivo sirve en pino sobre crema y en crema sobre pino.
+ * Falta una versión vectorial (TODO.md).
+ */
+interface Props { size?: number; class?: string }
+const { size = 56, class: extra } = Astro.props;
+---
+
+<span class:list={["up-logo", extra]} style={`--logo:${size}px`} aria-hidden="true"></span>

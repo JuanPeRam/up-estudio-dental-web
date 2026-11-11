@@ -36,6 +36,7 @@ Una sola clínica de barrio donde toda la familia se trata con el mismo equipo d
 
 - Tratamientos con ficha propia e indexable: revisiones dentales (sin coste), limpieza bucal, blanqueamiento Philips Zoom, implantes, ortodoncia e Invisalign, odontopediatría, endodoncia, periodoncia y cirugía bucal.
 - Tecnología en clínica: escáner intraoral iTero, radiografía digital propia, blanqueamiento Philips Zoom.
+- Confirmado por el usuario (noviembre de 2026, a partir de las publicaciones de Instagram): **Invisalign First** (ortodoncia con alineadores para niños) y **Rehabilitación Neuro-Oclusal** con pistas directas de composite en dentición temporal y mixta. Investigación de redes en `docs/marca/investigacion-redes.md`.
 - **Urgencias 24 h**: confirmado; se mantiene. Si dejara de ofrecerse, se apaga con `emergencies = null` en `src/constants/personal.ts`.
 - **Primera revisión gratuita** (exploración, radiografías y presupuesto por escrito, sin compromiso): confirmado; se mantiene. Se llama siempre así en toda la web (no «primera visita», «valoración» ni «revisión gratis»), y el botón que la pide dice «Pedir revisión gratuita». «Primera visita al dentista» queda solo para la edad de la primera visita de un niño. Ojo: no solo la primera es gratis; todas las revisiones dentales son gratuitas (web oficial, «Revisiones Dentales Gratuitas», precio «Gratuito»), así que la ficha de revisiones no limita la gratuidad a la primera.
 - **Política de cancelación**: confirmar o anular la cita con al menos 24 horas de antelación.
@@ -48,11 +49,12 @@ Una sola clínica de barrio donde toda la familia se trata con el mismo equipo d
 
 - Nombre: Up Estudio Dental y Estética («Up»). Logotipo en `src/img/up-logo*.png` (falta versión vectorial SVG).
 - Voz: cercana, en tuteo, sencilla y sin tecnicismos innecesarios («los peques», «te explicamos», «sin sorpresas»). Explica el tratamiento paso a paso y lo que incluye.
-- Pertenencia al barrio confirmada: descuento con el **Carné Joven Madrid**, empresa asociada a **Móstoles Empresa** y reconocimiento en **«Lo mejor del barrio» de Móstoles**.
+- Pertenencia al barrio confirmada: descuento con el **Carné Joven Madrid**, empresa asociada a **Móstoles Empresa**, reconocimiento en **«Lo mejor del barrio» de Móstoles** y **patrocinador oficial de la III Media Maratón Nocturna de Móstoles** (14 de noviembre de 2026; la promoción del 10 % para participantes no se publica en la web).
+- Identidad en redes (Instagram, hecha en Canva): salvia, crema y verde pino, serif de titulares en redonda, rótulos en mayúsculas finas espaciadas y el trazo fino de diente y corazón. La web la adopta (DESIGN.md). Canva aún no se ha consultado directamente.
 
 ## Evidence on Hand
 
-- Fotos reales de la clínica, el equipo, la zona infantil y la tecnología: `src/img/up/`, `src/img/UP-Gallery/`, `src/assets/cms/`.
+- Fotos reales de la clínica, el equipo, la zona infantil y la tecnología: `src/img/up/`, `src/img/UP-Gallery/`, `src/assets/cms/`. Las imágenes de redes guardadas en `docs/marca/redes/` son referencia de marca; la de la recepción con el logotipo en la pared (Instagram, 30/10/2026) parece un render y no se usa como foto real.
 - Retratos y biografías del equipo: `src/content/equipo/*.yaml` (Dra. Cristina Umérez, más de 25 años en odontopediatría y ortodoncia; Dr. Rafael Sosa, cirujano e implantólogo con más de 30 años; Dra. Isabel Sosa, implantoprótesis; Dra. Nilyam, periodoncia).
 - Reseñas de Google en vivo (hasta 5 de Google; se muestran 3 de 4 estrellas o más). No hay testimonios guardados en la web: no inventarlos ni copiarlos de forma permanente.
 - No hay precios, casos clínicos con antes/después ni cifras de pacientes publicadas: no fabricarlos.

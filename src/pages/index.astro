@@ -2,15 +2,15 @@
 export const prerender = true;
 
 import Layout from "@/layouts/Layout.astro";
+import Linea from "@/components/Marca/Linea.astro";
 import Hero from "@/components/Home/Hero.astro";
-import TrustBar from "@/components/Home/TrustBar.astro";
-import ServicesPreview from "@/components/Home/ServicesPreview.astro";
-import ClinicIntro from "@/components/Home/ClinicIntro.astro";
+import Etapas from "@/components/Home/Etapas.astro";
 import FirstVisit from "@/components/Home/FirstVisit.astro";
-import Technology from "@/components/Home/Technology.astro";
 import TeamPreview from "@/components/Home/TeamPreview.astro";
+import ClinicIntro from "@/components/Home/ClinicIntro.astro";
+import TrustBar from "@/components/Home/TrustBar.astro";
 import Opinions from "@/components/Comments/Opinions.astro";
-import CTABand from "@/components/UI/CTABand.astro";
+import Cierre from "@/components/Home/Cierre.astro";
 import { emergencies } from "@/constants/personal";
 ---
 
@@ -18,14 +18,17 @@ import { emergencies } from "@/constants/personal";
   title="Inicio"
   description={`Clínica dental familiar en Móstoles: odontopediatría, ortodoncia e Invisalign, implantes y blanqueamiento Philips Zoom. Primera revisión gratuita${emergencies ? " y urgencias 24 h" : ""}.`}
 >
-  <Hero />
-  <TrustBar />
-  {/* Primero lo que diferencia a la clínica para una familia y la primera revisión gratuita; luego el catálogo. */}
-  <ClinicIntro />
-  <FirstVisit />
-  <ServicesPreview />
-  <Technology />
-  <TeamPreview />
-  <Opinions />
-  <CTABand title="Pide cita para toda la familia" description="Escríbenos por WhatsApp o llámanos. Te contestamos en horario de clínica." />
+  {/* La línea de la sonrisa une, por este orden: el diente de la cabecera, cada etapa, la revisión
+      gratuita, el equipo, la clínica y el corazón del cierre. */}
+  <div class="up-linea-host">
+    <Linea />
+    <Hero />
+    <Etapas />
+    <FirstVisit />
+    <TeamPreview />
+    <ClinicIntro />
+    <TrustBar />
+    <div data-linea-campo="claro"><Opinions /></div>
+    <Cierre />
+  </div>
 </Layout>

@@ -1,12 +1,11 @@
 ---
-import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import { paths } from "@/constants/pages";
 import { contact, whatsappLink } from "@/constants/personal";
 
 // La cita se pide por WhatsApp (objetivo principal en PRODUCT.md); el formulario sigue en /contacto.
 const citaWhatsApp = whatsappLink("Hola, me gustaría pedir cita.");
-import upLogo from "@/img/up-logo-white.png";
+import Logo from "@/components/Marca/Logo.astro";
 
 let path = Astro.url.pathname.replace(/\/$/, "");
 if (path === "") path = "/";
@@ -17,7 +16,8 @@ const isCurrent = (href: string) =>
 <header class="up-nav" id="site-nav">
   <div class="up-wrap up-nav-in">
     <a class="up-nav-logo" href="/" aria-label="Up Estudio Dental y Estética, ir al inicio">
-      <Image src={upLogo} alt="" width={120} loading="eager" />
+      <Logo size={52} />
+      <span class="up-nav-word" aria-hidden="true"><b>Up Estudio Dental</b>Móstoles</span>
     </a>
 
     <nav aria-label="Principal">
@@ -49,7 +49,7 @@ const isCurrent = (href: string) =>
 <div class="up-menu" id="site-menu" role="dialog" aria-modal="true" aria-label="Menú" hidden>
   <div class="up-wrap up-nav-in">
     <a class="up-nav-logo" href="/" aria-label="Ir al inicio">
-      <Image src={upLogo} alt="" width={120} />
+      <Logo size={52} />
     </a>
     <button class="up-nav-menu" style="display:inline-flex" type="button" aria-label="Cerrar menú" data-menu-close>
       <Icon name="close" class="up-icon" />

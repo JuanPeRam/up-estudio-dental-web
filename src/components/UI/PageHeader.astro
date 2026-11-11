@@ -1,4 +1,6 @@
 ---
+import Diente from "@/components/Marca/Diente.astro";
+
 interface Props {
   title: string;
   lead?: string;
@@ -8,7 +10,9 @@ const { title, lead, crumb } = Astro.props;
 ---
 
 <section class="up-ph">
-  <div class="up-wrap up-ph-in">
+  <div class="up-wrap">
+  <div class="up-railed up-ph-in">
+    <Diente class="up-ph-diente" />
     <div class="flex flex-col gap-3">
       {
         crumb && (
@@ -25,5 +29,6 @@ const { title, lead, crumb } = Astro.props;
       {lead && <p class="up-lead">{lead}</p>}
       <slot />
     </div>
+  </div>
   </div>
 </section>

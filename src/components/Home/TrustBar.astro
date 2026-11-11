@@ -1,14 +1,30 @@
 ---
-// Franja de pertenencia (web oficial): descuento Carné Joven, empresa asociada y directorio local.
+// Del barrio: pertenencia confirmada (PRODUCT.md) y el patrocinio de la Media Maratón Nocturna de
+// Móstoles (Instagram, 16/10/2026; confirmado por la clínica en noviembre de 2026).
+const items = [
+  { title: "Carné Joven Madrid", text: "Descuento para quien lo tenga.", href: "https://carnejovenmadrid.com/ventajas/up-estudio-dental" },
+  { title: "Móstoles Empresa", text: "Empresa asociada." },
+  { title: "«Lo mejor del barrio»", text: "Reconocidos en el directorio de Móstoles." },
+  { title: "Media Maratón Nocturna", text: "Patrocinadores oficiales de la III edición, en 2026." },
+];
 ---
 
-<section class="up-wrap" aria-label="Ventajas y reconocimientos">
-  <div class="up-partners">
-    <span>Forma parte de tu barrio:</span>
-    <ul>
-      <li><a class="up-link up-link-tap [--tap-keep:4px]" href="https://carnejovenmadrid.com/ventajas/up-estudio-dental" target="_blank" rel="noopener noreferrer">Descuento con el Carné Joven Madrid</a></li>
-      <li>Empresa asociada a Móstoles Empresa</li>
-      <li>En «Lo mejor del barrio» de Móstoles</li>
-    </ul>
+<section class="up-barrio" data-linea-campo="claro" aria-labelledby="barrio-titulo">
+  <div class="up-wrap">
+    <div class="up-railed up-barrio-in">
+      <h2 class="up-h3" id="barrio-titulo">Somos del barrio</h2>
+      <ul>
+        {items.map((it) => (
+          <li>
+            {it.href ? (
+              <a class="up-barrio-link" href={it.href} target="_blank" rel="noopener noreferrer">{it.title}<span class="sr-only"> (se abre en otra pestaña)</span></a>
+            ) : (
+              <b>{it.title}</b>
+            )}
+            <span>{it.text}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
   </div>
 </section>

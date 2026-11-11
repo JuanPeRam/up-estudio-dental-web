@@ -1,48 +1,40 @@
 ---
-// Familia: lo que más diferencia a Up en la web oficial (niños, peluche, zona de juegos), con fotos reales.
+// La clínica: el campo de madera clara de la recepción. Fotos reales del local y la tecnología que
+// se usa en consulta, como un registro de tres líneas.
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
-import Button from "@/components/UI/Button.astro";
-import { whatsappLink } from "@/constants/personal";
-import nino from "@/img/up/nino-sonrisa.webp";
-import zona from "@/img/up/zona-infantil-nino.webp";
-import equipo from "@/img/up/equipo-asomado.webp";
+import recepcion from "@/img/up/recepcion-equipo.webp";
+import gabinete from "@/img/up/tratamiento-sonrisa.webp";
+import rx from "@/img/up/radiografia-digital.webp";
 
-const points = [
-  { icon: "smile", title: "Odontopediatría", text: "La Dra. Cristina Umérez lleva más de 25 años tratando a niños y es ortodoncista." },
-  { icon: "users", title: "Toda la familia, una visita", text: "Niños y adultos en la misma clínica y con el mismo equipo." },
-  { icon: "sparkle", title: "Un rincón para jugar", text: "En la sala de espera tienen tipi, cuentos y juguetes, y suena música tranquila." },
+const tecnologia = [
+  { title: "Escáner intraoral iTero", text: "Las medidas de tu boca en 3D, sin moldes de pasta. Lo ves en pantalla al momento." },
+  { title: "Radiografía digital", text: "La panorámica se hace en la clínica y la revisamos contigo, sin ir a otro centro." },
+  { title: "Blanqueamiento Philips Zoom", text: "En consulta, en una sesión de una hora y siempre supervisado por el equipo." },
 ];
 ---
 
-<section class="up-section up-band-sand" id="familia">
-  <div class="up-wrap grid items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
-    <div class="up-collage">
-      <div><Image src={nino} alt="Niño sonriendo con una maqueta de dientes en la mano" widths={[600, 900, 1200]} sizes="(min-width: 1024px) 580px, (min-width: 640px) 720px, 95vw" quality={80} /></div>
-      <div><Image src={zona} alt="Niño jugando en la zona infantil de la sala de espera" widths={[400, 700]} sizes="(min-width: 1024px) 280px, 45vw" quality={80} /></div>
-      <div><Image src={equipo} alt="Parte del equipo asomándose a una puerta con peluches de diente" widths={[400, 700]} sizes="(min-width: 1024px) 280px, 45vw" quality={80} /></div>
-    </div>
-    <div class="flex flex-col gap-8">
-      <div class="up-sh">
-        <h2 class="up-h2">Aquí los peques vienen contentos</h2>
-        <p class="up-lead">Atendemos a niños desde su primer diente y vamos a su ritmo: si algo les da miedo, se lo explicamos paso a paso y, si hace falta, repartimos el tratamiento en visitas más cortas.</p>
+<section class="up-clinica" id="clinica" data-linea-campo="claro" aria-labelledby="clinica-titulo">
+  <div class="up-wrap">
+    <div class="up-railed up-clinica-in">
+      <span class="up-clinica-punto" data-linea-punto aria-hidden="true"></span>
+      <div class="up-clinica-fotos">
+        <figure class="is-grande"><Image src={recepcion} alt="Dos profesionales del equipo en la recepción de la clínica" widths={[500, 800, 1100]} sizes="(min-width: 64em) 34vw, 60vw" quality={76} /></figure>
+        <figure><Image src={gabinete} alt="Una doctora atiende a un paciente en el gabinete" widths={[400, 700]} sizes="(min-width: 64em) 20vw, 40vw" quality={76} /></figure>
+        <figure><Image src={rx} alt="Una doctora señala una radiografía panorámica en la pantalla" widths={[400, 700]} sizes="(min-width: 64em) 20vw, 40vw" quality={76} /></figure>
       </div>
-      <ul class="m-0 flex list-none flex-col gap-5 p-0">
-        {
-          points.map((p) => (
-            <li class="flex gap-4">
-              <span class="up-fact-ico bg-raised"><Icon name={p.icon} class="up-icon" /></span>
-              <div class="flex flex-col gap-1">
-                <h3 class="up-h4">{p.title}</h3>
-                <p class="up-small">{p.text}</p>
-              </div>
-            </li>
-          ))
-        }
-      </ul>
-      <div class="flex flex-wrap gap-3">
-        <Button href={whatsappLink("Hola, me gustaría pedir cita para mi hijo/a.")} icon="whatsapp" external aria-label="Pedir cita para tu peque por WhatsApp (se abre en otra pestaña)">Pedir cita para tu peque</Button>
-        <Button href="/clinica" variant="secondary" iconAfter="arrow-right">Recorre la clínica</Button>
+      <div class="up-clinica-texto">
+        <h2 class="up-h1" id="clinica-titulo">Una clínica a pie de calle</h2>
+        <p class="up-lead">En la calle Andrómeda de Móstoles, desde 2022: luz, madera clara y una sala de espera con rincón de juegos para los peques.</p>
+        <dl class="up-registro">
+          {tecnologia.map((t) => (
+            <div>
+              <dt>{t.title}</dt>
+              <dd>{t.text}</dd>
+            </div>
+          ))}
+        </dl>
+        <a class="up-btn up-btn-secondary" href="/clinica">Recorre la clínica<Icon name="arrow-right" class="up-icon" /></a>
       </div>
     </div>
   </div>

@@ -5,8 +5,6 @@
  */
 import type { CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
-import { Icon } from "astro-icon/components";
-import { iconoTarjetaPorDefecto } from "@/constants/iconosTarjeta";
 import ServiceIntro from "./ServiceIntro.astro";
 import ProcessSteps from "@/components/UI/ProcessSteps.astro";
 import Checklist from "@/components/UI/Checklist.astro";
@@ -32,9 +30,8 @@ const preguntas = (d.preguntas?.items ?? []).map((p) => ({ question: p.pregunta,
 
 // Con pasos, la columna derecha lleva «Qué incluye» o, si no hay, las preguntas frecuentes.
 const preguntasJuntoAPasos = pasos.length > 0 && incluye.length === 0 && preguntas.length > 0;
-// Bajo un h1 (ficha propia) los bloques son h2/h3; dentro de otra página, h3/h4.
+// Bajo un h1 (ficha propia) los bloques son h2; dentro de otra página, h3.
 const Sub = headingLevel === "h1" ? "h2" : "h3";
-const SubSub = headingLevel === "h1" ? "h3" : "h4";
 // La cita se pide por WhatsApp con el tratamiento ya escrito; el formulario queda como alternativa.
 const boton = d.incluye?.boton || "Pedir cita";
 const citaWhatsApp = whatsappLink(`Hola, me gustaría pedir cita para ${d.titulo.toLowerCase()}.`);
@@ -82,24 +79,23 @@ const citaWhatsApp = whatsappLink(`Hola, me gustaría pedir cita para ${d.titulo
 
         {
             tarjetas.length > 0 && (
-                <div class="up-signs">
-                    {d.tarjetas?.titulo && <Sub class="up-h3">{d.tarjetas.titulo}</Sub>}
-                    <ul class="up-grid-4 up-signs-list">
+                <div class="up-ficha-registro">
+                    {d.tarjetas?.titulo && <Sub class="up-h2">{d.tarjetas.titulo}</Sub>}
+                    <dl class="up-registro">
                         {tarjetas.map((t) => (
-                            <li class="up-sign">
-                                <span class="up-sign-ico" aria-hidden="true"><Icon name={t.icono || iconoTarjetaPorDefecto} class="up-icon" /></span>
-                                <SubSub class="up-h4">{t.titulo}</SubSub>
-                                {t.texto && <p class="up-small">{t.texto}</p>}
-                            </li>
+                            <div>
+                                <dt>{t.titulo}</dt>
+                                {t.texto && <dd>{t.texto}</dd>}
+                            </div>
                         ))}
-                    </ul>
+                    </dl>
                 </div>
             )
         }
 
         {
             beneficios.length > 0 && (
-                <div class="grid gap-8 rounded-md bg-tint p-6 sm:p-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
+                <div class="up-ficha-beneficios grid gap-8 p-6 sm:p-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
                     <div class="flex flex-col gap-3">
                         {d.beneficios?.titulo && <Sub class="up-h2">{d.beneficios.titulo}</Sub>}
                         {d.beneficios?.texto && <p class="up-small">{d.beneficios.texto}</p>}

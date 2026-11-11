@@ -1,0 +1,9 @@
+---
+/** El diente de trazo fino de las publicaciones de Up. Decorativo. */
+interface Props { class?: string; [key: string]: unknown }
+const { class: extra, ...rest } = Astro.props;
+---
+
+<svg class:list={["up-glyph", extra]} viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false" {...rest}>
+  <path pathLength="1" d="M31 100 L31 96 C34 93 36 90 37 85 L43 66 C45 59.5 55 59.5 57 66 L63 85 C65 94 72.5 93 74 84 C76 70 80 58 83 48 C87 34 82 21 70 19 C62 18 56 21 50 25 C44 21 38 18 30 19 C18 21 13 34 17 48 C20 58 24 70 26 84 C26.5 88 27 92 30 93" />
+</svg>

@@ -2,13 +2,14 @@
 import NavBar from "@/components/Common/NavBar.astro";
 import Footer from "@/components/Common/Footer.astro";
 import MobileActionBar from "@/components/Common/MobileActionBar.astro";
-import "@fontsource-variable/figtree";
-import "@fontsource-variable/playfair-display";
+import "@fontsource-variable/albert-sans";
+import "@fontsource-variable/brygada-1918";
 // Las fuentes que se ven nada más entrar se precargan: si llegan tarde, el titular cambia de ancho al
 // sustituir a la de reserva, gana una línea y empuja el resto de la cabecera (CLS).
-import playfairUrl from "@fontsource-variable/playfair-display/files/playfair-display-latin-wght-normal.woff2?url";
-import figtreeUrl from "@fontsource-variable/figtree/files/figtree-latin-wght-normal.woff2?url";
+import displayUrl from "@fontsource-variable/brygada-1918/files/brygada-1918-latin-wght-normal.woff2?url";
+import sansUrl from "@fontsource-variable/albert-sans/files/albert-sans-latin-wght-normal.woff2?url";
 import '@/styles/tailwind.css'
+import '@/styles/linea.css'
 import '@/styles/motion.css'
 import { clinic, contact, fixedNumber, openingHours } from "@/constants/personal";
 import socials from "@/constants/socials";
@@ -95,7 +96,7 @@ const schemas = [structuredData, breadcrumbData, ...jsonLd].filter(Boolean);
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#c1e4e2" />
+    <meta name="theme-color" content="#b8cfc8" />
     <meta name="generator" content={Astro.generator} />
     <!-- Misma verificación que la web de Wix: la propiedad de Search Console sigue verificada tras la migración. -->
     <meta name="google-site-verification" content="4ebBHgPfrJOPgCBNzjcEleF1nSa6YK4aMKs4kPYpsQ8" />
@@ -113,8 +114,8 @@ const schemas = [structuredData, breadcrumbData, ...jsonLd].filter(Boolean);
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageURL} />
 
-    <link rel="preload" href={playfairUrl} as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href={figtreeUrl} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={displayUrl} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={sansUrl} as="font" type="font/woff2" crossorigin />
     <link rel="icon" type="image/png" href="/img/up-logo.png" />
     {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonicalURL} />}
 

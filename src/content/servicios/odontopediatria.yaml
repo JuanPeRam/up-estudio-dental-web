@@ -29,7 +29,13 @@ tarjetas:
     texto: Los dientes de leche también se tratan, porque guardan el sitio a los definitivos.
   - icono: scan-face
     titulo: Control de la mordida
-    texto: Vigilamos el crecimiento de la boca para valorar a tiempo si hará falta ortodoncia.
+    texto: Vigilamos el crecimiento de la boca para detectar a tiempo problemas como la mordida cruzada y valorar si hará falta ortodoncia.
+  - icono: puzzle
+    titulo: Rehabilitación Neuro-Oclusal
+    texto: En dientes de leche y en la dentición mixta trabajamos los contactos entre dientes, el movimiento de la mandíbula y la masticación, por ejemplo con pistas directas de composite.
+  - icono: smile
+    titulo: Invisalign First
+    texto: Ortodoncia con alineadores transparentes pensada para niños, cómoda y discreta, cuando conviene empezar pronto.
 beneficios:
   titulo: Aquí los peques vienen contentos
   texto: Las primeras visitas son cortas y sin prisas, para que el niño conozca la consulta y vuelva tranquilo.

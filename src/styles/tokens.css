@@ -1,42 +1,65 @@
-/* Up Estudio Dental — tokens del sistema de diseño.
-   Fuente: artefacto "Up Estudio Dental · Guía de estilo" (tokens.json). */
+/* Up Estudio Dental — tokens del sistema de diseño «La línea de la sonrisa».
+   Paleta tomada de las publicaciones de la clínica (Instagram/Canva): salvia, crema y verde pino,
+   con el turquesa del logotipo como trazo y la madera clara de la recepción como tercera superficie.
+   Contrastes comprobados (WCAG 2.1): ver DESIGN.md. */
 
 :root {
   color-scheme: light;
-  /* v2 — síntesis de la web oficial (turquesa pastel, Playfair, botones en tinta) y del sistema anterior */
-  --surface: #fbfcfc;          /* papel: fondo de página */
-  --surface-raised: #ffffff;   /* tarjetas y formularios */
-  --surface-tint: #e4f3f2;     /* aqua suave: tarjetas sobre aqua, chips */
-  --aqua: #c1e4e2;             /* turquesa pastel de la web oficial: banda de firma */
-  --aqua-logo: #9bd9dd;        /* turquesa del logo: azulejo del logotipo, detalles */
-  --surface-sand: #f3eee7;     /* madera de la clínica: banda cálida puntual */
-  --night: #111716;
-  --on-night: #e3e3e3;
-  --on-night-muted: #a7b5b3;
-  --line: #d5e3e1;
-  --control-border: #6f8582;
-  --ink: #14201f;
-  --ink-muted: #3d4f4d;        /* 6,4:1 sobre aqua, 7,6:1 sobre aqua suave */
-  --brand: #70cac5;            /* turquesa de acento de la web oficial; sobre night */
-  --brand-strong: #1d4f4b;     /* enlaces y antetítulos: 6,8:1 sobre aqua */
-  --brand-mid: #38918b;        /* números grandes de acento: 3,6:1 sobre papel, 3,2:1 sobre arena */
-  --brand-hover: #8fd3ce;      /* hover del botón turquesa sobre noche */
-  --brand-line: color-mix(in srgb, var(--brand-hover) 35%, transparent); /* bordes finos turquesa sobre noche */
-  --on-brand: #0e1413;         /* texto sobre turquesa de acento (botón de noche, selección) */
-  --night-raised: #1b2423;     /* reserva de fotos sobre noche */
-  --on-night-strong: #f2f5f4;  /* titulares y texto activo sobre noche */
-  --action: #14201f;           /* botón principal en tinta, como la web oficial */
-  --action-hover: #24645f;
-  --on-action: #ffffff;
-  --danger: #b42318;
-  --success: #2e7d4f;
-  --focus-ring: #1d4f4b;
 
-  --shadow-sm: 0 1px 2px rgba(20, 32, 31, 0.06), 0 1px 1px rgba(20, 32, 31, 0.04);
-  --shadow-md: 0 12px 32px -12px rgba(20, 32, 31, 0.18);
+  /* ---------- Paleta de marca ---------- */
+  --crema: #faf6ec;            /* suelo de página: el papel crema de las publicaciones */
+  --papel: #fffdf8;            /* formularios y campos */
+  --salvia: #b8cfc8;           /* campo de firma: portada, bandas de marca */
+  --salvia-clara: #e2ebe7;     /* campos suaves, fondos de foto */
+  --pino: #1f3d36;             /* tinta, botón principal y campo oscuro; 10,9:1 sobre crema, 7,2:1 sobre salvia */
+  --pino-suave: #3e5a53;       /* texto secundario; 7:1 sobre crema, 4,6:1 sobre salvia */
+  --pino-hondo: #17302a;       /* hover del botón principal y pie */
+  --madera: #e8d9c3;           /* madera clara de la recepción */
+  --turquesa: #2a8c83;         /* la línea sobre crema (3,8:1) y números grandes */
+  --turquesa-texto: #1d6f68;   /* enlaces sobre fondo claro (5,5:1 sobre crema) */
+  --turquesa-logo: #3cb4a8;    /* el turquesa del logotipo: lo «encendido» sobre pino (4,7:1) */
+  --turquesa-logo-claro: #6fcbc0;
 
-  --font-display: "Playfair Display Variable", "Playfair Display", Georgia, serif;
-  --font-sans: "Figtree Variable", "Figtree", "Segoe UI", system-ui, sans-serif;
+  /* ---------- Roles (los componentes usan estos) ---------- */
+  --surface: var(--crema);
+  --surface-raised: var(--papel);
+  --surface-tint: var(--salvia-clara);
+  --aqua: var(--salvia);
+  --aqua-logo: var(--turquesa-logo);
+  --surface-sand: var(--madera);
+  --night: var(--pino);
+  --night-raised: #2a4c44;
+  --on-night: #efe9dc;
+  --on-night-strong: var(--crema);
+  --on-night-muted: var(--salvia);   /* 7,2:1 sobre pino */
+  --line: #d8d3c4;                   /* filetes sobre crema */
+  --line-strong: #b9b3a2;
+  --control-border: #6d7b74;         /* 4,2:1 sobre crema */
+  --ink: var(--pino);
+  --ink-muted: var(--pino-suave);
+  --brand: var(--turquesa-logo);     /* acento sobre pino */
+  --brand-strong: var(--turquesa-texto);
+  --brand-mid: var(--turquesa);
+  --brand-hover: var(--turquesa-logo-claro);
+  --brand-line: color-mix(in srgb, var(--salvia) 35%, transparent);
+  --on-brand: var(--pino);
+  --action: var(--pino);
+  --action-hover: var(--pino-hondo);
+  --on-action: var(--crema);
+  --danger: #a3291c;
+  --success: #2c6e4a;
+  --focus-ring: var(--turquesa-texto);
+
+  /* La línea: un trazo, tres colores según el campo que cruza. */
+  --trazo: var(--turquesa);
+  --trazo-w: 1.5px;
+
+  /* Sin sombras: la profundidad la dan los planos de color superpuestos. */
+  --shadow-sm: none;
+  --shadow-md: none;
+
+  --font-display: "Brygada 1918 Variable", "Brygada 1918", Georgia, serif;
+  --font-sans: "Albert Sans Variable", "Albert Sans", "Segoe UI", system-ui, sans-serif;
 
   --space-1: 4px;
   --space-2: 8px;
@@ -47,18 +70,20 @@
   --space-12: 48px;
   --space-16: 64px;
   --space-24: 96px;
-  --container: 1200px;
-  --measure: 34em;           /* ~74 caracteres por línea en Figtree (el «0» del ch es más ancho que la letra media) */
+  --space-32: 128px;
+  --container: 1240px;
+  --measure: 34em;
 
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
+  /* Fotos y campos con esquinas rectas; los controles, en píldora. */
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 0px;
   --radius-pill: 999px;
 
   --duration-fast: 160ms;
   --duration-base: 240ms;
-  --duration-slow: 420ms;      /* acordeón y viaje del retrato */
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* llegada con calma: frena pronto y se posa */
+  --duration-slow: 420ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
   --nav-h: 76px;
 }

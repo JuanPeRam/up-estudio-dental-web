@@ -1,0 +1,150 @@
+---
+/**
+ * La línea de la sonrisa: un trazo que une los puntos marcados con `data-linea-punto` dentro del
+ * contenedor que la incluye (la portada). Se dibuja con el scroll: detrás, trazo continuo; delante,
+ * una guía punteada. Cambia de color según el campo que cruza (`data-linea-campo` = claro | salvia | pino).
+ *
+ * Opcional en cada punto: `data-linea-x` y `data-linea-y` (0–1) para engancharla a una zona del
+ * elemento (la raíz del diente, la parte alta del corazón). Por defecto, su centro.
+ *
+ * Sin JavaScript, o con movimiento reducido, se ve entera y quieta. Es decorativa: aria-hidden.
+ */
+---
+
+<svg class="up-linea" data-linea aria-hidden="true" focusable="false">
+  <defs>
+    <clipPath id="linea-claro" clipPathUnits="userSpaceOnUse"></clipPath>
+    <clipPath id="linea-salvia" clipPathUnits="userSpaceOnUse"></clipPath>
+    <clipPath id="linea-pino" clipPathUnits="userSpaceOnUse"></clipPath>
+  </defs>
+  <g class="up-linea-guia">
+    <path data-campo="claro" clip-path="url(#linea-claro)" />
+    <path data-campo="salvia" clip-path="url(#linea-salvia)" />
+    <path data-campo="pino" clip-path="url(#linea-pino)" />
+  </g>
+  <g class="up-linea-trazo">
+    <path data-campo="claro" clip-path="url(#linea-claro)" />
+    <path data-campo="salvia" clip-path="url(#linea-salvia)" />
+    <path data-campo="pino" clip-path="url(#linea-pino)" />
+  </g>
+</svg>
+
+<script>
+  const SVG_NS = "http://www.w3.org/2000/svg";
+
+  function initLinea() {
+    const svg = document.querySelector<SVGSVGElement>("[data-linea]");
+    const root = svg?.parentElement;
+    if (!svg || !root) return;
+    const trazos = [...svg.querySelectorAll<SVGPathElement>(".up-linea-trazo path")];
+    const guias = [...svg.querySelectorAll<SVGPathElement>(".up-linea-guia path")];
+    const quieta = matchMedia("(prefers-reduced-motion: reduce)");
+
+    let largo = 0;
+    let muestras: { l: number; y: number }[] = [];
+    // Cada punto de paso, con la longitud de línea a la que queda: cuando el trazo llega, se marca.
+    let hitos: { el: HTMLElement | SVGElement; l: number }[] = [];
+    let raf = 0;
+
+    const construir = () => {
+      const caja = root.getBoundingClientRect();
+      const w = root.clientWidth;
+      const h = root.scrollHeight;
+      svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+      svg.setAttribute("width", String(w));
+      svg.setAttribute("height", String(h));
+
+      // Puntos de paso, en coordenadas del contenedor. Los que no se ven (display: none) no cuentan.
+      const puntos = [...root.querySelectorAll<HTMLElement>("[data-linea-punto]")]
+        .map((el) => {
+          const r = el.getBoundingClientRect();
+          if (!r.width && !r.height) return null;
+          const fx = Number(el.dataset.lineaX ?? el.getAttribute("data-linea-x") ?? 0.5);
+          const fy = Number(el.dataset.lineaY ?? el.getAttribute("data-linea-y") ?? 0.5);
+          return { el, x: r.left - caja.left + r.width * fx, y: r.top - caja.top + r.height * fy };
+        })
+        .filter((p): p is { el: HTMLElement; x: number; y: number } => p !== null)
+        .sort((a, b) => a.y - b.y);
+      if (puntos.length < 2) return;
+
+      // Curvas suaves entre puntos; en los tramos largos y rectos, una ondulación leve, como el
+      // trazo que sale del diente en las publicaciones.
+      let d = `M${puntos[0].x} ${puntos[0].y}`;
+      puntos.slice(1).forEach((p, i) => {
+        const a = puntos[i];
+        const dy = p.y - a.y;
+        const onda = Math.abs(p.x - a.x) < 4 && dy > 240 ? (i % 2 ? -1 : 1) * Math.min(28, w * 0.03) : 0;
+        d += ` C${a.x + onda} ${a.y + dy * 0.45} ${p.x - onda} ${p.y - dy * 0.45} ${p.x} ${p.y}`;
+      });
+      [...trazos, ...guias].forEach((path) => path.setAttribute("d", d));
+
+      // Recortes por campo de color.
+      (["claro", "salvia", "pino"] as const).forEach((campo) => {
+        const clip = svg.querySelector(`#linea-${campo}`)!;
+        clip.replaceChildren(
+          ...[...root.querySelectorAll<HTMLElement>(`[data-linea-campo="${campo}"]`)].map((el) => {
+            const r = el.getBoundingClientRect();
+            const rect = document.createElementNS(SVG_NS, "rect");
+            rect.setAttribute("x", "0");
+            rect.setAttribute("y", String(r.top - caja.top));
+            rect.setAttribute("width", String(w));
+            rect.setAttribute("height", String(r.height));
+            return rect;
+          }),
+        );
+      });
+
+      largo = trazos[0].getTotalLength();
+      muestras = [];
+      const pasos = Math.max(60, Math.round(largo / 24));
+      for (let i = 0; i <= pasos; i++) {
+        const l = (largo * i) / pasos;
+        muestras.push({ l, y: trazos[0].getPointAtLength(l).y });
+      }
+      trazos.forEach((path) => (path.style.strokeDasharray = `${largo} ${largo}`));
+      hitos = puntos.map((p) => ({ el: p.el, l: muestras.find((m) => m.y >= p.y - 1)?.l ?? largo }));
+      svg.classList.add("is-lista");
+      document.documentElement.classList.add("has-linea");
+      dibujar();
+    };
+
+    const dibujar = () => {
+      raf = 0;
+      if (!largo) return;
+      if (quieta.matches) {
+        trazos.forEach((path) => (path.style.strokeDashoffset = "0"));
+        hitos.forEach((h) => h.el.classList.add("is-alcanzado"));
+        return;
+      }
+      // El trazo llega hasta algo más de la mitad de la pantalla.
+      const caja = root.getBoundingClientRect();
+      const meta = window.innerHeight * 0.62 - caja.top;
+      let hecho = 0;
+      for (const m of muestras) {
+        if (m.y > meta) break;
+        hecho = m.l;
+      }
+      trazos.forEach((path) => (path.style.strokeDashoffset = String(largo - hecho)));
+      // El diente de salida siempre está; el resto se marca al llegar el trazo y se desmarca al volver.
+      hitos.forEach((h, i) => h.el.classList.toggle("is-alcanzado", i === 0 || h.l <= hecho + 2));
+    };
+
+    const pedir = () => {
+      if (!raf) raf = requestAnimationFrame(dibujar);
+    };
+
+    let espera = 0;
+    const rehacer = () => {
+      clearTimeout(espera);
+      espera = window.setTimeout(construir, 120);
+    };
+
+    construir();
+    document.fonts?.ready.then(construir);
+    new ResizeObserver(rehacer).observe(root);
+    window.addEventListener("scroll", pedir, { passive: true });
+    quieta.addEventListener("change", dibujar);
+  }
+
+  initLinea();
+</script>

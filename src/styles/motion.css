@@ -7,6 +7,7 @@
    Se carga después de tailwind.css (ver Layout.astro). Tiempos y curva en tokens.css.
    ============================================================ */
 
+@keyframes up-trazo-inverso { from { stroke-dashoffset: -1; } to { stroke-dashoffset: 0; } }
 @keyframes up-unveil {
   from { clip-path: inset(5% 5% 5% 5% round var(--radius-lg)); scale: 1.06; opacity: 0; }
   40% { opacity: 1; }
@@ -19,14 +20,22 @@
 @keyframes up-step-on { from { border-color: var(--line); color: var(--ink-muted); scale: 0.86; } }
 
 @media (prefers-reduced-motion: no-preference) {
-  /* ---------- Portada: entra una vez, al cargar ---------- */
-  .up-hero2 > :first-child > * { animation: up-rise 700ms var(--ease-out) backwards; }
-  .up-hero2 > :first-child > :nth-child(2) { animation-delay: 70ms; }
-  .up-hero2 > :first-child > :nth-child(3) { animation-delay: 140ms; }
-  .up-hero2 > :first-child > :nth-child(4) { animation-delay: 210ms; }
-  .up-hero2-media .up-frame img { animation: up-unveil 1100ms var(--ease-out) 80ms backwards; }
-  /* La nota de Google llega después (server island): entra cuando la foto ya se ha desvelado. */
-  .up-hero2-card { animation: up-pop var(--duration-slow) var(--ease-out) 600ms backwards; }
+  /* ---------- La línea: el único gesto propio ----------
+     Al cargar, el diente de la cabecera se dibuja desde la raíz; después la línea avanza con el
+     scroll (Linea.astro), cada punto se rellena cuando el trazo llega y el corazón del cierre se
+     dibuja al final. Lo demás solo responde a lo que hace la persona. */
+  .up-hero-diente path, .up-ph-diente path {
+    stroke-dasharray: 1 1;
+    animation: up-trazo-inverso 1100ms var(--ease-out) 150ms backwards;
+  }
+  .has-linea .up-cierre-corazon path { stroke-dasharray: 1 1; stroke-dashoffset: 1; transition: stroke-dashoffset 900ms var(--ease-out); }
+  .has-linea .up-cierre-corazon.is-alcanzado path { stroke-dashoffset: 0; }
+  .has-linea :is(.up-etapa-punto, .up-revision-punto, .up-equipo-punto, .up-clinica-punto) { transition: scale var(--duration-slow) var(--ease-out), background-color var(--duration-base) ease; }
+  .has-linea :is(.up-etapa-punto, .up-revision-punto, .up-equipo-punto, .up-clinica-punto):not(.is-alcanzado) { scale: 0.6; }
+  .has-linea .up-etapa-punto::after { transition: scale var(--duration-slow) var(--ease-out) 60ms; }
+  .has-linea .up-etapa-punto:not(.is-alcanzado)::after { scale: 0; }
+  .has-linea .up-etapa:has(.up-etapa-punto:not(.is-alcanzado)) .up-etapa-edad { color: var(--pino-suave); }
+  .up-etapa-edad { transition: color var(--duration-base) ease; }
 
   /* ---------- Contenido que llega después de cargar ---------- */
   .up-reviews > .up-review, .up-rating { animation: up-rise 600ms var(--ease-out) backwards; }

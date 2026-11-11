@@ -16,8 +16,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				display: ['"Playfair Display Variable"', '"Playfair Display"', 'Georgia', 'serif'],
-				sans: ['"Figtree Variable"', '"Figtree"', '"Segoe UI"', 'system-ui', 'sans-serif'],
+				display: ['"Brygada 1918 Variable"', '"Brygada 1918"', 'Georgia', 'serif'],
+				sans: ['"Albert Sans Variable"', '"Albert Sans"', '"Segoe UI"', 'system-ui', 'sans-serif'],
 			},
 			colors: {
 				surface: 'var(--surface)',
@@ -41,13 +41,13 @@ export default {
 				success: 'var(--success)',
 			},
 			maxWidth: {
-				container: '1200px',
+				container: '1240px',
 				measure: 'var(--measure)',
 			},
 			borderRadius: {
-				sm: '6px',
-				md: '12px',
-				lg: '20px',
+				sm: '2px',
+				md: '2px',
+				lg: '0px',
 			},
 		},
 	},

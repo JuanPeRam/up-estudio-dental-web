@@ -1,42 +1,117 @@
 ---
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
-import Button from "@/components/UI/Button.astro";
+import Diente from "@/components/Marca/Diente.astro";
 import GoogleRatingBadge from "./GoogleRatingBadge.astro";
-import peluche from "@/img/up/peluche-diente.webp";
-import { emergencies, emergencyPhone, whatsappLink } from "@/constants/personal";
+import equipo from "@/img/up/equipo-grupo.webp";
+import { contact, emergencies, whatsappLink } from "@/constants/personal";
+
+// Preparador de WhatsApp: el mensaje se compone con lo que elige la familia. Sin JavaScript, el
+// botón abre WhatsApp con el mensaje de la opción marcada por defecto.
+const quien = [
+  { value: "mi", label: "Para mí", texto: "para mí" },
+  { value: "peque", label: "Para mi peque", texto: "para mi peque" },
+  { value: "familia", label: "Para toda la familia", texto: "para toda la familia" },
+];
+const motivo = [
+  { value: "revision", label: "Revisión gratuita", texto: "pedir la revisión gratuita" },
+  { value: "tratamiento", label: "Un tratamiento", texto: "consultar un tratamiento" },
+  ...(emergencies ? [{ value: "urgencia", label: "Me duele", texto: "pedir cita urgente" }] : []),
+];
+const mensaje = (m: string, q: string) => `Hola, quería ${m} ${q}.`;
+const inicial = mensaje(motivo[0].texto, quien[0].texto);
 ---
 
-<section class="up-band-aqua">
-  <div class="up-wrap up-hero2">
-    <div class="flex flex-col gap-6">
-      <h1 class="up-display">Clínica dental familiar en Móstoles</h1>
+<section class="up-hero" data-linea-campo="salvia">
+  <div class="up-wrap up-hero-in">
+    <div class="up-hero-copy up-railed">
+      <Diente class="up-hero-diente" data-linea-punto data-linea-x="0.31" data-linea-y="1" />
+      <h1 class="up-display">Dentistas de toda la familia, en Móstoles</h1>
       <p class="up-lead">
-        Desde 2022 atendemos a familias de Móstoles: odontología general, odontopediatría y ortodoncia para padres e hijos, con el mismo
-        equipo y un trato cercano.
+        Del primer diente a los implantes, el mismo equipo te acompaña en cada etapa. Tu primera revisión es gratuita:
+        exploración, radiografías y presupuesto por escrito.
       </p>
-      <ul class="up-perks">
-        <li><Icon name="check-circle" class="up-icon" />Primera revisión gratuita</li>
-        {emergencies && emergencyPhone && (
-          <li>
-            {/* Sin aria-label: el nombre del enlace es su texto, para que quien navega por voz pueda decir lo que ve. */}
-            <a href={emergencyPhone.href}>
-              <Icon name="shield" class="up-icon" />{emergencies.short} · <span class="up-perk-tel">{emergencyPhone.display}</span>
-            </a>
-          </li>
-        )}
-        <li><Icon name="smile" class="up-icon" />Zona de juegos infantil</li>
-      </ul>
-      <div class="flex flex-wrap gap-3 pt-2">
-        <Button href={whatsappLink("Hola, me gustaría pedir cita.")} icon="whatsapp" external aria-label="Pedir cita por WhatsApp (se abre en otra pestaña)">Pedir cita por WhatsApp</Button>
-        <Button href="/tratamientos" variant="secondary">Ver tratamientos</Button>
-      </div>
     </div>
-    <div class="up-hero2-media">
-      <div class="up-frame">
-        <Image src={peluche} alt="Miembro del equipo de Up Estudio Dental sonriendo con un peluche de diente" widths={[480, 760, 1040, 1300]} sizes="(min-width: 900px) 520px, 90vw" quality={80} loading="eager" fetchpriority="high" />
-      </div>
+
+    <div class="up-hero-cita">
+      <form class="up-cita" data-cita action={whatsappLink()} method="get" target="_blank">
+        <fieldset>
+          <legend>¿Para quién es la cita?</legend>
+          <div class="up-chips">
+            {quien.map((q, i) => (
+              <label class="up-chip">
+                <input type="radio" name="quien" value={q.value} data-texto={q.texto} checked={i === 0} />
+                <span>{q.label}</span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>¿Qué necesitas?</legend>
+          <div class="up-chips">
+            {motivo.map((m, i) => (
+              <label class="up-chip">
+                <input type="radio" name="motivo" value={m.value} data-texto={m.texto} checked={i === 0} />
+                <span>{m.label}</span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+        <p class="up-cita-msg" aria-live="polite"><span class="sr-only">Mensaje que se enviará: </span><span data-cita-texto class="inline-block">{inicial}</span></p>
+        <div class="up-cita-actions">
+          <a class="up-btn up-btn-primary" data-cita-enviar href={whatsappLink(inicial)} target="_blank" rel="noopener noreferrer">
+            <Icon name="whatsapp" class="up-icon" />Escribir por WhatsApp<span class="sr-only"> (se abre en otra pestaña)</span>
+          </a>
+          <a class="up-cita-tel" href={contact.landline.href}>o llama al{" "}<span class="tabular-nums">{contact.landline.display}</span></a>
+        </div>
+      </form>
+    </div>
+
+    <figure class="up-hero-media">
+      <Image
+        src={equipo}
+        alt="Cinco profesionales del equipo de Up Estudio Dental sonríen con maquetas de dientes en la mano"
+        widths={[640, 900, 1200, 1600, 2000]}
+        sizes="100vw"
+        quality={78}
+        loading="eager"
+        fetchpriority="high"
+      />
       <GoogleRatingBadge server:defer />
-    </div>
+    </figure>
   </div>
 </section>
+
+<script>
+  import { whatsappLink } from "@/constants/personal";
+
+  function initCita() {
+    const form = document.querySelector<HTMLFormElement>("[data-cita]");
+    if (!form) return;
+    const texto = form.querySelector<HTMLElement>("[data-cita-texto]")!;
+    const enviar = form.querySelector<HTMLAnchorElement>("[data-cita-enviar]")!;
+    const actualizar = () => {
+      const q = form.querySelector<HTMLInputElement>('input[name="quien"]:checked')?.dataset.texto ?? "";
+      const m = form.querySelector<HTMLInputElement>('input[name="motivo"]:checked')?.dataset.texto ?? "";
+      const msg = `Hola, quería ${m} ${q}.`;
+      if (texto.textContent !== msg) {
+        texto.textContent = msg;
+        // El bocadillo confirma el cambio: el texto nuevo se escribe de izquierda a derecha.
+        if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          texto.animate(
+            [{ clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0 0 0)" }],
+            { duration: 320, easing: "cubic-bezier(0.16, 1, 0.3, 1)" },
+          );
+        }
+      }
+      enviar.href = whatsappLink(msg);
+    };
+    form.addEventListener("change", actualizar);
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      enviar.click();
+    });
+    actualizar();
+  }
+  initCita();
+</script>

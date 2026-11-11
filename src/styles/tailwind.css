@@ -420,40 +420,9 @@
   }
 
   /* ---------- Señales («Cuándo conviene consultarlo») ---------- */
-  .up-signs {
-    display: flex; flex-direction: column; gap: var(--space-8);
-    padding: var(--space-8) var(--space-6);
-    background: linear-gradient(160deg, var(--surface-tint) 0%, color-mix(in srgb, var(--aqua) 55%, var(--surface-tint)) 100%);
-    border-radius: var(--radius-lg);
-  }
-  @media (min-width: 40em) { .up-signs { padding: var(--space-12) var(--space-12); } }
-  .up-signs-list { list-style: none; margin: 0; padding: 0; gap: var(--space-4); }
-  @media (min-width: 67.5em) { .up-signs-list { gap: var(--space-6); } }
-  .up-sign {
-    position: relative; overflow: hidden;
-    display: flex; flex-direction: column; gap: var(--space-3);
-    padding: var(--space-6);
-    background: var(--surface-raised);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-  }
-  .up-sign-ico {
-    display: grid; place-items: center;
-    width: 48px; height: 48px; margin-bottom: var(--space-2);
-    border-radius: 50%;
-    background: var(--surface-tint);
-    color: var(--brand-strong);
-  }
-  .up-sign-ico .up-icon { width: 24px; height: 24px; }
-  .up-sign .up-h4 { text-wrap: balance; }
-  .up-sign .up-small { text-wrap: pretty; }
   /* Primera visita: el bloque de tarjetas informativas con cabecera de sección y su propia llamada. */
-  .up-first { display: flex; flex-direction: column; gap: var(--space-8); }
   @media (max-width: 39.9375em) {
-    .up-first .up-sign { display: grid; grid-template-columns: 48px minmax(0, 1fr); column-gap: var(--space-4); row-gap: var(--space-1); padding: var(--space-4); }
-    .up-first .up-sign-ico { grid-row: span 2; margin-bottom: 0; }
   }
-  .up-first-cta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-6); }
 
   /* ---------- Accordion ---------- */
   .up-acc { display: flex; flex-direction: column; gap: var(--space-2); }
@@ -675,31 +644,9 @@
   a:hover > .up-frame img { transform: scale(1.03); }
 
   /* héroe v2 */
-  .up-hero2 { display: grid; gap: var(--space-8); grid-template-columns: 1fr; align-items: center; padding-block: var(--space-8) var(--space-12); }
-  @media (min-width: 56.25em) { .up-hero2 { grid-template-columns: 1.1fr 0.9fr; gap: var(--space-16); padding-block: var(--space-12) var(--space-16); } }
-  .up-hero2-media { position: relative; max-width: 520px; width: 100%; justify-self: center; }
-  .up-hero2-media .up-frame { aspect-ratio: 4 / 5; }
-  .up-hero2-card { position: absolute; left: calc(-1 * var(--space-8)); bottom: var(--space-12); display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4) var(--space-3) var(--space-3); background: var(--surface-raised); border-radius: var(--radius-pill); box-shadow: var(--shadow-md); }
-  a.up-hero2-card { text-decoration: none; transition: box-shadow var(--duration-fast); }
-  a.up-hero2-card:hover { box-shadow: var(--shadow-md), 0 0 0 2px var(--aqua-logo); }
-  .up-hero2-card b { font: 400 1.625rem/1 var(--font-display); color: var(--ink); }
-  .up-hero2-card span { font-size: 0.875rem; line-height: 1.0625rem; color: var(--ink-muted); }
-  .up-hero2-card .up-g { width: 28px; height: 28px; }
-  @media (max-width: 56.1875em) { .up-hero2-card { left: var(--space-4); bottom: var(--space-4); } }
-  .up-perks { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: 0; padding: 0; list-style: none; }
-  .up-perks li { display: inline-flex; align-items: center; gap: var(--space-2); padding: 8px 14px; border-radius: var(--radius-pill); background: color-mix(in srgb, var(--surface-raised) 60%, transparent); font: 600 0.9375rem/1.1875rem var(--font-sans); color: var(--ink); }
-  .up-perks .up-icon { width: 18px; height: 18px; color: var(--brand-strong); }
   /* La píldora de urgencias es un enlace de llamada: toda la píldora se pulsa y el número va subrayado. */
-  .up-perks li:has(> a) { padding: 0; }
-  .up-perks li > a { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px; padding: 8px 14px; border-radius: var(--radius-pill); color: inherit; text-decoration: none; transition: background-color var(--duration-fast); }
-  .up-perks li > a:hover { background: var(--surface-raised); }
-  .up-perk-tel { text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 45%, transparent); text-underline-offset: 3px; font-variant-numeric: tabular-nums; }
 
   /* franja de pertenencia: Carné Joven, Móstoles Empresa, Lo mejor del barrio */
-  .up-partners { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-4) var(--space-8); padding-block: var(--space-6); border-bottom: 1px solid var(--line); font-size: 1rem; line-height: 1.4375rem; color: var(--ink-muted); }
-  .up-partners ul { display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-8); margin: 0; padding: 0; list-style: none; }
-  .up-partners li { display: inline-flex; align-items: center; gap: var(--space-2); font-weight: 600; color: var(--ink); }
-  .up-partners li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--brand); }
 
   /* especialidades: rejilla de fotos con el nombre encima de un velo inferior sólido */
   .up-specs { display: grid; gap: var(--space-3); grid-template-columns: repeat(2, 1fr); }
@@ -731,18 +678,8 @@
 
   /* tecnología: banda night con fotos y nombre de cada equipo */
   /* Tecnología: en móvil, foto y texto en fila; desde tablet, tres columnas. */
-  .up-tech { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--space-8); grid-template-columns: minmax(0, 1fr); }
-  .up-tech li { display: grid; grid-template-columns: 38% minmax(0, 1fr); gap: var(--space-4); align-items: center; }
-  .up-tech .up-frame { aspect-ratio: 3 / 4; background: var(--night-raised); }
-  .up-tech-text { display: flex; flex-direction: column; gap: var(--space-2); }
-  .up-tech-tag { align-self: flex-start; padding: 2px 10px; border: 1px solid var(--brand-line); border-radius: var(--radius-pill); font: 600 0.8125rem/1.25rem var(--font-sans); letter-spacing: 0.06em; text-transform: uppercase; color: var(--brand); }
-  .up-tech h3 { margin: 0; font: 400 1.375rem/1.75rem var(--font-display); color: var(--on-night-strong); }
-  .up-tech p { margin: 0; font-size: 1rem; line-height: 1.5625rem; color: var(--on-night-muted); }
   @media (min-width: 40em) {
-    .up-tech { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-6); }
-    .up-tech li { grid-template-columns: minmax(0, 1fr); align-items: start; align-content: start; }
   }
-  @media (min-width: 62.5em) { .up-tech h3 { font-size: 1.5rem; line-height: 1.875rem; } .up-tech p { font-size: 1.0625rem; line-height: 1.6875rem; } }
 
   /* retrato recortado sobre aqua (los retratos oficiales tienen ese fondo) */
   .up-cutout { display: flex; flex-direction: column; gap: var(--space-3); text-decoration: none; color: inherit; }
@@ -752,18 +689,10 @@
   .up-cutout:hover .up-cutout-photo img { transform: scale(1.03); }
   .up-cutout .up-h4 { transition: color var(--duration-fast); }
   .up-cutout:hover .up-h4 { color: var(--brand-strong); }
-  @media (min-width: 48em) { .up-grid-5 { --cols: 3; } }
-  @media (min-width: 68.75em) { .up-grid-5 { --cols: 5; --gx: var(--space-6); row-gap: var(--space-6); } }
 
   /* collage familia: una foto alta y dos apiladas */
-  .up-collage { display: grid; gap: var(--space-4); grid-template-columns: 1.2fr 1fr; grid-template-rows: 1fr 1fr; min-height: 520px; }
-  .up-collage > :first-child { grid-row: span 2; }
-  .up-collage > * { overflow: hidden; border-radius: var(--radius-lg); background: var(--surface-tint); }
-  .up-collage img { width: 100%; height: 100%; object-fit: cover; }
-  @media (max-width: 39.9375em) { .up-collage { min-height: 420px; } }
   /* En tablet la columna es ancha y las filas crecían con la altura de las fotos (más de 1000px),
      obligando a ampliar la imagen grande. Altura fija y filas iguales. */
-  @media (min-width: 40em) and (max-width: 63.9375em) { .up-collage { height: 640px; grid-template-rows: repeat(2, minmax(0, 1fr)); } }
 
   /* ---------- Letra ampliada en el móvil (menos de 20em de ancho) ----------
      Con la letra al doble, un móvil de 390 px se compone como una pantalla de 195 px. Además de dejar

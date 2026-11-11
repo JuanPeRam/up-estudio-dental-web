@@ -1,10 +1,9 @@
 ---
-import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import socials from "@/constants/socials";
 import { paths, politicsPaths } from "@/constants/pages";
 import { contact, emergencies, emergencyPhone } from "@/constants/personal";
-import upLogo from "@/img/up-logo-white.png";
+import Logo from "@/components/Marca/Logo.astro";
 
 const year = new Date().getFullYear();
 const socialLabel: Record<string, string> = { instagram: "Instagram", tiktok: "TikTok", linkedin: "LinkedIn" };
@@ -14,7 +13,7 @@ const socialLabel: Record<string, string> = { instagram: "Instagram", tiktok: "T
   <div class="up-wrap">
     <div class="up-footer-grid">
       <div>
-        <Image class="up-footer-logo" src={upLogo} alt="Up Estudio Dental y Estética" width={192} />
+        <Logo size={88} class="up-footer-marca" /><p class="sr-only">Up Estudio Dental y Estética</p>
         <p class="m-0 max-w-[32ch]">Odontología para toda la familia, en Móstoles desde 2022.</p>
       </div>
 

@@ -1,0 +1,41 @@
+---
+// Cierre de la portada: la línea termina dibujando el corazón de la marca junto a la cita.
+import { Icon } from "astro-icon/components";
+import Corazon from "@/components/Marca/Corazon.astro";
+import { contact, whatsappLink } from "@/constants/personal";
+---
+
+<section class="up-cierre up-cta" data-linea-campo="salvia" aria-labelledby="cierre-titulo">
+  <div class="up-wrap">
+    <div class="up-railed up-cierre-in">
+      <Corazon class="up-cierre-corazon" data-linea-punto data-linea-x="0.5" data-linea-y="0.06" />
+      <div class="up-cierre-texto">
+        <h2 class="up-display up-cierre-titulo" id="cierre-titulo">Pide cita para toda la familia</h2>
+        <p class="up-lead">Escríbenos por WhatsApp o llámanos. Te contestamos en horario de clínica.</p>
+        <div class="up-cierre-acciones">
+          <a class="up-btn up-btn-primary" href={whatsappLink("Hola, me gustaría pedir cita.")} target="_blank" rel="noopener noreferrer">
+            <Icon name="whatsapp" class="up-icon" />Pedir cita por WhatsApp<span class="sr-only"> (se abre en otra pestaña)</span>
+          </a>
+          <a class="up-btn up-btn-secondary" href="/contacto">Escribir por el formulario</a>
+        </div>
+      </div>
+      <dl class="up-cierre-datos">
+        <div>
+          <dt>Teléfonos</dt>
+          <dd>
+            <a href={contact.mobile.href} class="tabular-nums">{contact.mobile.display}</a> móvil y WhatsApp<br />
+            <a href={contact.landline.href} class="tabular-nums">{contact.landline.display}</a> fijo
+          </dd>
+        </div>
+        <div>
+          <dt>Horario</dt>
+          <dd>{contact.hours.map((h) => <span class="block tabular-nums">{h.days}: {h.times.join(" y ")}</span>)}</dd>
+        </div>
+        <div>
+          <dt>Dirección</dt>
+          <dd>{contact.address}<br /><a href={contact.mapsUrl} target="_blank" rel="noopener noreferrer">Cómo llegar<span class="sr-only"> (abre Google Maps en otra pestaña)</span></a></dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>

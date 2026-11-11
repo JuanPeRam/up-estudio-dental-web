@@ -1,0 +1,9 @@
+---
+/** El corazón de trazo fino con el que cierran las publicaciones de Up. Decorativo. */
+interface Props { class?: string; [key: string]: unknown }
+const { class: extra, ...rest } = Astro.props;
+---
+
+<svg class:list={["up-glyph", extra]} viewBox="0 0 100 100" fill="none" aria-hidden="true" focusable="false" {...rest}>
+  <path pathLength="1" d="M50 6 C50 14 50 20 50 30 C56 18 74 16 82 30 C90 44 80 62 50 86 C20 62 10 44 18 30 C26 16 44 18 50 32" />
+</svg>
