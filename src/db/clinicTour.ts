@@ -66,7 +66,7 @@ const tour: TourStop[] = [
         id: "gabinetes",
         label: "Gabinetes",
         title: "Pasas a tu gabinete",
-        text: "Los gabinetes están a lo largo del pasillo. Cada uno tiene un sillón de última generación y una pantalla donde te enseñamos tus radiografías mientras te explicamos el tratamiento. Hay una butaca para que quien te acompañe pueda quedarse contigo, y la radiografía panorámica se hace aquí mismo.",
+        text: "Los gabinetes están a lo largo del pasillo. Cada uno tiene su sillón y una pantalla donde te enseñamos tus radiografías mientras te explicamos el tratamiento. Hay una butaca para que quien te acompañe pueda quedarse contigo, y la radiografía panorámica se hace aquí mismo.",
         details: ["Pantalla para ver tus pruebas", "Butaca para el acompañante", "Radiografía panorámica en la clínica"],
         photos: [
             { src: gabinete, alt: "Gabinete dental con sillón de tratamiento y ventana" },
@@ -91,7 +91,7 @@ const tour: TourStop[] = [
         id: "aseos",
         label: "Aseos",
         title: "Y si lo necesitas, el aseo",
-        text: "Para antes o después de la cita, un aseo para pacientes cuidado al detalle, con espejo iluminado y papel pintado vegetal.",
+        text: "Para antes o después de la cita, un aseo para pacientes, con espejo iluminado y papel pintado de hojas.",
         details: ["Aseo para pacientes"],
         photos: [
             { src: aseo, alt: "Aseo de pacientes con lavabo y espejo redondo iluminado" },

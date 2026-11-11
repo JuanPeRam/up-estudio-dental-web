@@ -36,14 +36,14 @@ const items = [
   <div class="up-wrap flex flex-col gap-12">
     <SectionHeader
       align="split"
-      title="Tecnología que se <em>ve</em> y se entiende"
+      title="Tecnología que se ve y se entiende"
       lead="Equipos digitales para diagnosticar mejor y explicarte cada paso con tu boca en pantalla."
     />
     <ul class="up-tech">
       {
         items.map((t) => (
           <li>
-            <div class="up-arch" data-reveal>
+            <div class="up-frame">
               <Image src={t.img} alt={t.alt} widths={[400, 700, 1000, 1400]} sizes="(min-width: 1000px) 690px, (min-width: 640px) 60vw, 64vw" quality={80} />
             </div>
             <div class="up-tech-text">

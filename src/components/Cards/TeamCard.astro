@@ -13,7 +13,7 @@ const d = member.data;
 {/* Sin transición compartida: estas tarjetas quedan por debajo de la primera pantalla de la ficha y,
      con nombre, los retratos de la página anterior saldrían volando hacia abajo al entrar. */}
 <a class="up-cutout" href={`/equipo/${member.id}`}>
-  <div class="up-cutout-photo" data-reveal>
+  <div class="up-cutout-photo">
     <Image src={d.retrato} alt="" widths={[360, 700, 1000]} sizes="(min-width: 1000px) 380px, 45vw" />
   </div>
   <div class="flex flex-col gap-2">

@@ -8,7 +8,7 @@ entradilla: La periodoncia se ocupa de las encías y del hueso que sujetan los d
 datos:
 - icono: euro
   etiqueta: Precio
-  valor: Según valoración
+  valor: Presupuesto tras la revisión
 - icono: clock
   etiqueta: Duración
   valor: Según el estado de las encías
@@ -40,7 +40,7 @@ pasos:
   - titulo: Reevaluación
     texto: Tras unas semanas comprobamos cómo ha respondido la encía y decidimos si hace falta algo más.
   - titulo: Mantenimiento
-    texto: Te citamos para revisiones y limpiezas periódicas, que son la clave para que el problema no vuelva.
+    texto: Te citamos para revisiones y limpiezas periódicas. Son lo que evita que el problema vuelva.
 preguntas:
   titulo: Preguntas frecuentes
   items:
@@ -51,5 +51,5 @@ preguntas:
 avisoCancelacion: false
 cierre:
   titulo: Revisa tus encías
-  texto: En la revisión gratuita comprobamos el estado de tus encías y te decimos si necesitas tratamiento.
+  texto: En la primera revisión gratuita comprobamos el estado de tus encías y te decimos si necesitas tratamiento.
   mensajeWhatsapp: una revisión de encías

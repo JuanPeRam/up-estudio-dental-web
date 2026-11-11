@@ -1,6 +1,6 @@
 import { sendContactEmail } from "@/lib/contactEmail";
 
-export const subjects = ["Pedir cita", "Revisión gratuita", "Limpieza bucal", "Blanqueamiento dental", "Otra consulta"];
+export const subjects = ["Pedir cita", "Primera revisión gratuita", "Limpieza bucal", "Blanqueamiento dental", "Otra consulta"];
 
 /**
  * - "invalid": faltan datos o están mal.

@@ -1,23 +1,17 @@
 /* ============================================================
-   Movimiento — «Las puertas se abren»
-   Una sola idea: las fotos de personas y espacios se abren como una puerta (el arco crece desde
-   el suelo y la foto se posa). El texto no se anima al hacer scroll. El resto del movimiento
-   explica un cambio de estado: una capa que entra, un paso al que se llega, un envío en curso.
+   Movimiento — una entrada y respuestas
+   Un solo momento propio: la portada entra una vez al cargar (el texto sube en cascada y la foto se
+   desvela desde un rectángulo algo menor, con el mismo radio de 20 px que su marco). Nada aparece al
+   hacer scroll salvo la línea de los pasos del tratamiento, que es el recorrido del propio tratamiento.
+   El resto explica un cambio de estado: hover, una capa que entra, un envío en curso.
    Se carga después de tailwind.css (ver Layout.astro). Tiempos y curva en tokens.css.
    ============================================================ */
 
-/* ---------- Radio de la abertura de cada marco de foto ---------- */
-[data-reveal], .up-arch { --reveal-r: var(--radius-md); }
-.up-spec, .up-collage > * { --reveal-r: var(--radius-lg); }
-.up-hero2-media .up-arch { --reveal-r: 50% 50% var(--radius-lg) var(--radius-lg) / 40% 40% var(--radius-lg) var(--radius-lg); }
-.up-tech .up-arch, .up-cutout-photo { --reveal-r: 50% 50% var(--radius-lg) var(--radius-lg) / 37.5% 37.5% var(--radius-lg) var(--radius-lg); }
-.up-collage > :first-child { --reveal-r: 50cqi 50cqi var(--radius-lg) var(--radius-lg); }
-
-@keyframes up-open {
-  from { clip-path: inset(16% 10% 0% 10% round var(--reveal-r)); scale: 1.08; }
-  to { clip-path: inset(0% 0% 0% 0% round var(--reveal-r)); scale: 1; }
+@keyframes up-unveil {
+  from { clip-path: inset(5% 5% 5% 5% round var(--radius-lg)); scale: 1.06; opacity: 0; }
+  40% { opacity: 1; }
+  to { clip-path: inset(0 round var(--radius-lg)); scale: 1; opacity: 1; }
 }
-@keyframes up-fade { from { opacity: 0; } }
 @keyframes up-rise { from { opacity: 0; translate: 0 16px; } }
 @keyframes up-pop { from { opacity: 0; translate: 0 10px; scale: 0.94; } }
 @keyframes up-spin { to { rotate: 1turn; } }
@@ -25,25 +19,14 @@
 @keyframes up-step-on { from { border-color: var(--line); color: var(--ink-muted); scale: 0.86; } }
 
 @media (prefers-reduced-motion: no-preference) {
-  /* ---------- Fotos que se abren al llegar a ellas ----------
-     El script de Layout.astro marca con .is-pending solo las que están por debajo de la primera
-     pantalla y les pone .is-in al entrar: sin script, o con menos movimiento, se ven desde el principio. */
-  [data-reveal].is-pending img { opacity: 0; }
-  [data-reveal].is-in img {
-    animation:
-      up-open var(--duration-reveal) var(--ease-out) var(--reveal-delay, 0ms) backwards,
-      up-fade var(--duration-base) ease var(--reveal-delay, 0ms) backwards;
-  }
-
-  /* ---------- Portada: la puerta se abre una vez, al entrar ---------- */
-  .up-hero2 > :first-child > * { animation: up-rise 800ms var(--ease-out) backwards; }
-  .up-hero2 > :first-child > :nth-child(2) { animation-delay: 80ms; }
-  .up-hero2 > :first-child > :nth-child(3) { animation-delay: 160ms; }
-  .up-hero2 > :first-child > :nth-child(4) { animation-delay: 240ms; }
-  /* La foto es lo más grande de la primera pantalla: se ve desde el primer fotograma, sin fundido. */
-  .up-hero2-media .up-arch img { animation: up-open 1200ms var(--ease-out) backwards; }
-  /* La nota de Google llega después (server island): entra cuando la foto ya está abierta. */
-  .up-hero2-card { animation: up-pop var(--duration-slow) var(--ease-out) 500ms backwards; }
+  /* ---------- Portada: entra una vez, al cargar ---------- */
+  .up-hero2 > :first-child > * { animation: up-rise 700ms var(--ease-out) backwards; }
+  .up-hero2 > :first-child > :nth-child(2) { animation-delay: 70ms; }
+  .up-hero2 > :first-child > :nth-child(3) { animation-delay: 140ms; }
+  .up-hero2 > :first-child > :nth-child(4) { animation-delay: 210ms; }
+  .up-hero2-media .up-frame img { animation: up-unveil 1100ms var(--ease-out) 80ms backwards; }
+  /* La nota de Google llega después (server island): entra cuando la foto ya se ha desvelado. */
+  .up-hero2-card { animation: up-pop var(--duration-slow) var(--ease-out) 600ms backwards; }
 
   /* ---------- Contenido que llega después de cargar ---------- */
   .up-reviews > .up-review, .up-rating { animation: up-rise 600ms var(--ease-out) backwards; }
@@ -139,8 +122,7 @@
     animation: none !important;
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, box-shadow, opacity !important;
   }
+  /* El indicador de envío no gira: late despacio con la opacidad, para que se vea que sigue en marcha. */
+  .up-btn.is-loading .up-spinner { animation: up-breathe 1.2s ease-in-out infinite alternate !important; }
 }
-
-@media print {
-  [data-reveal].is-pending img { opacity: 1; }
-}
+@keyframes up-breathe { to { opacity: 0.35; } }

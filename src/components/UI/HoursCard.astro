@@ -23,6 +23,6 @@ const { compact = false, class: extra } = Astro.props;
   </dl>
   <hr />
   {!compact && emergencies && emergencyPhone && <a class="up-hours-urg" href={emergencyPhone.href}>{emergencies.short}: llama al {emergencyPhone.display}</a>}
-  <a class="up-tel" href={contact.mobile.href}><Icon name="phone" class="up-icon" />{contact.mobile.display}<small>Móvil y WhatsApp</small></a>
-  <a class="up-tel" href={contact.landline.href}><Icon name="landline" class="up-icon" />{contact.landline.display}<small>Fijo</small></a>
+  <a class="up-tel" href={contact.mobile.href} aria-label={`Llamar al móvil ${contact.mobile.display} (también WhatsApp)`}><Icon name="phone" class="up-icon" />{contact.mobile.display}<small>Móvil y WhatsApp</small></a>
+  <a class="up-tel" href={contact.landline.href} aria-label={`Llamar al fijo ${contact.landline.display}`}><Icon name="landline" class="up-icon" />{contact.landline.display}<small>Fijo</small></a>
 </aside>

@@ -11,21 +11,21 @@ import equipo from "@/img/up/equipo-asomado.webp";
 const points = [
   { icon: "smile", title: "Odontopediatría", text: "La Dra. Cristina Umérez lleva más de 25 años tratando a niños y es ortodoncista." },
   { icon: "users", title: "Toda la familia, una visita", text: "Niños y adultos en la misma clínica y con el mismo equipo." },
-  { icon: "sparkle", title: "Una espera que no lo parece", text: "Zona de juegos, música relajante y un ambiente cálido." },
+  { icon: "sparkle", title: "Un rincón para jugar", text: "En la sala de espera tienen tipi, cuentos y juguetes, y suena música tranquila." },
 ];
 ---
 
 <section class="up-section up-band-sand" id="familia">
   <div class="up-wrap grid items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
     <div class="up-collage">
-      <div data-reveal><Image src={nino} alt="Niño sonriendo con una maqueta de dientes en la mano" widths={[600, 900, 1200]} sizes="(min-width: 1024px) 580px, (min-width: 640px) 720px, 95vw" quality={80} /></div>
-      <div data-reveal><Image src={zona} alt="Niño jugando en la zona infantil de la sala de espera" widths={[400, 700]} sizes="(min-width: 1024px) 280px, 45vw" quality={80} /></div>
-      <div data-reveal><Image src={equipo} alt="Parte del equipo asomándose a una puerta con peluches de diente" widths={[400, 700]} sizes="(min-width: 1024px) 280px, 45vw" quality={80} /></div>
+      <div><Image src={nino} alt="Niño sonriendo con una maqueta de dientes en la mano" widths={[600, 900, 1200]} sizes="(min-width: 1024px) 580px, (min-width: 640px) 720px, 95vw" quality={80} /></div>
+      <div><Image src={zona} alt="Niño jugando en la zona infantil de la sala de espera" widths={[400, 700]} sizes="(min-width: 1024px) 280px, 45vw" quality={80} /></div>
+      <div><Image src={equipo} alt="Parte del equipo asomándose a una puerta con peluches de diente" widths={[400, 700]} sizes="(min-width: 1024px) 280px, 45vw" quality={80} /></div>
     </div>
     <div class="flex flex-col gap-8">
       <div class="up-sh">
-        <h2 class="up-h2">Aquí los peques vienen <em>contentos</em></h2>
-        <p class="up-lead">Nuestro espacio está pensado para toda la familia: áreas para los niños, música relajante y un trato que te hace sentir como en casa.</p>
+        <h2 class="up-h2">Aquí los peques vienen contentos</h2>
+        <p class="up-lead">Atendemos a niños desde su primer diente y vamos a su ritmo: si algo les da miedo, se lo explicamos paso a paso y, si hace falta, repartimos el tratamiento en visitas más cortas.</p>
       </div>
       <ul class="m-0 flex list-none flex-col gap-5 p-0">
         {

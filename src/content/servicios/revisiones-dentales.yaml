@@ -1,11 +1,11 @@
 titulo: Revisiones dentales
 orden: 1
-resumen: Revisión, radiografías y presupuesto por escrito, sin coste.
-descripcionSeo: 'Revisión dental gratuita en Móstoles: exploración, radiografías, diagnóstico y presupuesto sin coste. Detecta a tiempo caries y problemas de encías.'
-etiqueta: Sin coste
+resumen: Primera revisión gratuita, con radiografías y presupuesto por escrito.
+descripcionSeo: 'Primera revisión gratuita en Móstoles: exploración, radiografías, diagnóstico y presupuesto por escrito. Detecta a tiempo caries y problemas de encías.'
+etiqueta: Gratuita
 imagen: ../../assets/cms/servicios/revisiones-dentales/imagen.webp
 imagenAlt: Doctora revisando la boca de una paciente en el gabinete
-entradilla: Revisión, estudio radiográfico, diagnóstico y presupuesto totalmente gratuitos. Una visita periódica es la forma más sencilla de detectar a tiempo caries, desgastes o problemas de encías, cuando todavía son fáciles de tratar.
+entradilla: La revisión es gratuita e incluye exploración, estudio radiográfico, diagnóstico y presupuesto. Hacerla una o dos veces al año es la forma más sencilla de detectar a tiempo caries, desgastes o problemas de encías, cuando todavía son fáciles de tratar.
 datos:
 - icono: euro
   etiqueta: Precio
@@ -38,6 +38,6 @@ incluye:
   boton: Pedir revisión gratuita
 avisoCancelacion: true
 cierre:
-  titulo: Reserva tu revisión gratuita
-  texto: La primera visita no te cuesta nada y te llevas un diagnóstico completo con presupuesto por escrito.
+  titulo: Pide tu primera revisión gratuita
+  texto: No te cuesta nada y te llevas un diagnóstico completo con presupuesto por escrito.
   mensajeWhatsapp: una revisión dental

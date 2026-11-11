@@ -175,14 +175,14 @@ components:
 
 **Creative North Star: "La puerta abierta del barrio"**
 
-La web es la entrada a una clínica a la que se llega andando. Los arcos que coronan la foto principal, los retratos del equipo y el collage de la zona infantil son puertas que invitan a pasar; el turquesa pastel de la marca baña la primera banda como la luz de un local a pie de calle, y una banda de madera clara recuerda la recepción. Todo es luminoso, cercano y sereno: mucho aire, fotos reales de la clínica y de su gente, y nada que intimide a quien llega con un niño de la mano o con miedo al dentista.
+La web es la entrada a una clínica a la que se llega andando. Las fotos reales de la clínica y de su equipo, enmarcadas con el mismo rectángulo suave, invitan a pasar; el turquesa pastel de la marca baña la primera banda como la luz de un local a pie de calle, y una banda de madera clara recuerda la recepción. Todo es luminoso, cercano y sereno: mucho aire, fotos reales de la clínica y de su gente, y nada que intimide a quien llega con un niño de la mano o con miedo al dentista.
 
-La tipografía mezcla una serif de revista (Playfair Display) con una sans redonda y amable (Figtree). Cada titular guarda una sola palabra en cursiva verde pino, como un subrayado hablado: «Clínica dental *familiar*», «en la *misma* clínica». Los controles son suaves y acogedores: botones en píldora, esquinas generosas, nada anguloso. La web solo tiene tema claro (`color-scheme: light`).
+La tipografía mezcla una serif de revista (Playfair Display) con una sans redonda y amable (Figtree). Los titulares van en redonda, en un solo color de tinta: el peso de la serif basta, sin palabras resaltadas. Los controles son suaves y acogedores: botones en píldora, esquinas generosas, nada anguloso. La web solo tiene tema claro (`color-scheme: light`).
 
 **Key Characteristics:**
-- Arcos (medio punto arriba, esquinas de 20 px abajo) como marco de las fotos de personas y espacios.
+- Un solo marco de foto: rectángulo con esquinas de 20 px, el mismo en la foto principal, los retratos, las especialidades y el collage.
 - Turquesa Up abre y cierra la portada (cabecera y banda final de cita); arena y tinta nocturna marcan el ritmo entre medias, y el pie es la única banda oscura del final.
-- Una palabra en cursiva verde pino por titular, nunca más.
+- Titulares en redonda y en tinta, sin cursivas ni palabras de acento.
 - Botones en píldora; el principal, en tinta, no en turquesa.
 - Fotos reales siempre; nada de ilustraciones genéricas ni imágenes de banco.
 
@@ -191,11 +191,11 @@ La tipografía mezcla una serif de revista (Playfair Display) con una sans redon
 Una paleta de agua y madera: turquesas pastel de la marca, un verde pino profundo para lo que hay que leer y pulsar, y neutros fríos casi blancos.
 
 ### Primary
-- **Turquesa Up** (`turquesa-up`): el turquesa pastel de la marca. Banda de firma de la portada, fondo de los arcos de retrato y de las cabeceras que presentan a la clínica. Es fondo, nunca texto.
-- **Pino profundo** (`pino-profundo`): el color de lo que se lee como acento y se pulsa sin ser botón: enlaces, etiquetas de tarjeta, la palabra en cursiva de cada titular, iconos de apoyo, insignias y el anillo de foco. Contraste 6,8:1 sobre Turquesa Up.
+- **Turquesa Up** (`turquesa-up`): el turquesa pastel de la marca. Banda de firma de la portada, fondo de los marcos de retrato y de las cabeceras que presentan a la clínica. Es fondo, nunca texto.
+- **Pino profundo** (`pino-profundo`): el color de lo que se lee como acento y se pulsa sin ser botón: enlaces, etiquetas de tarjeta, iconos de apoyo, insignias y el anillo de foco. Contraste 6,8:1 sobre Turquesa Up.
 
 ### Secondary
-- **Turquesa de acento** (`turquesa-acento`): el turquesa vivo de la web oficial. Solo sobre Tinta nocturna: etiquetas, cursivas y el botón principal de las bandas oscuras, con texto en **Sobre acento** (`sobre-acento`) y hover en **Turquesa de acento hover** (`turquesa-acento-hover`). Sobre fondo claro no llega a 2:1.
+- **Turquesa de acento** (`turquesa-acento`): el turquesa vivo de la web oficial. Solo sobre Tinta nocturna: etiquetas y el botón principal de las bandas oscuras, con texto en **Sobre acento** (`sobre-acento`) y hover en **Turquesa de acento hover** (`turquesa-acento-hover`). Sobre fondo claro no llega a 2:1.
 - **Pino medio** (`pino-medio`): para números grandes de acento sobre fondo claro (paradas de la visita guiada). 3,6:1 sobre papel; solo en tamaños grandes.
 - **Turquesa del logo** (`turquesa-logo`): el azulejo del logotipo y detalles puntuales (el halo al pasar por la tarjeta de la nota de Google).
 
@@ -242,11 +242,11 @@ Una paleta de agua y madera: turquesas pastel de la marca, un verde pino profund
 - **Botón pequeño** (`button-sm`): botón compacto de la cabecera y etiquetas de las tarjetas de especialidad en móvil.
 
 ### Named Rules
-**The One Italic Word Rule.** Cada titular en serif lleva como mucho una palabra en cursiva (`<em>`), en Pino profundo (Turquesa de acento sobre noche). Es el acento de la marca; repetirla lo apaga.
+**The No Italics Rule.** Sin cursivas en toda la web, ni en titulares ni en texto (decisión de noviembre de 2026). Los titulares no resaltan palabras: van enteros en Tinta de texto (Sobre noche fuerte en bandas oscuras). Por eso solo se carga la Playfair redonda.
 
 **The Rem Rule.** Tamaños de letra y alturas de línea en rem, nunca en px: así la web respeta el tamaño de letra que cada persona elige en su navegador. Los puntos de corte van en em por lo mismo (los px de este documento divididos entre 16, también en las clases `sm:`, `md:` y `lg:` de Tailwind): con la letra al doble, una pantalla de 1280 px se compone como una de 640 px y nada se sale. Por debajo de 20em de ancho, que solo se da con la letra ampliada en el móvil, las palabras largas pueden partirse y las rejillas de dos columnas pasan a una.
 
-**The Heading Speaks Rule.** Sin antetítulos: el titular en serif abre la sección y se explica solo, con su palabra en cursiva. Si hace falta contexto, va en la entradilla (Lead), a la derecha en escritorio (cabecera partida 1,1fr / 1fr desde 900 px). Una etiqueta en Label solo encabeza una tarjeta o un dato, o indica una posición («Parada 1 de 6»).
+**The Heading Speaks Rule.** Sin antetítulos: el titular en serif abre la sección y se explica solo. Si hace falta contexto, va en la entradilla (Lead), a la derecha en escritorio (cabecera partida 1,1fr / 1fr desde 900 px). Una etiqueta en Label solo encabeza una tarjeta o un dato, o indica una posición («Parada 1 de 6»).
 
 ## Layout
 
@@ -269,16 +269,16 @@ Decisión de noviembre de 2026: el sistema gana relieve. Tarjetas y paneles (pan
 
 ## Shapes
 
-Formas suaves y acogedoras: nada de esquinas vivas. Tres radios (6 px en campos, 12 px en paneles y avisos, 20 px en tarjetas de foto) y la píldora para todo lo pulsable o etiquetable (botones, insignias, chips de datos). La forma propia de la marca es el **arco**: medio punto arriba (radio igual a la mitad del ancho) y 20 px abajo, reservado para fotos de personas y espacios: foto principal, retratos del equipo, fotos de tecnología con el equipo y foto grande del collage. Nunca con `999px`: el navegador reduce todos los radios a la vez y las esquinas de abajo se quedan en 2–5 px. En fotos de proporción fija se usan radios elípticos calculados (`50% 50% 20px 20px / 40% 40% 20px 20px` en 4:5; `/ 37.5% …` en 3:4); si la proporción varía, la caja es contenedor y el radio de arriba es `50cqi`. Una foto en arco solo se amplía al pasar el ratón si es un enlace. Los iconos van en círculo de Bruma turquesa.
+Formas suaves y acogedoras: nada de esquinas vivas. Tres radios (6 px en campos, 12 px en paneles y avisos, 20 px en tarjetas de foto) y la píldora para todo lo pulsable o etiquetable (botones, insignias, chips de datos). Toda foto va en el mismo **marco**: rectángulo con 20 px en las cuatro esquinas (`.up-frame`, `.up-cutout-photo`, `.up-spec`, collage, fotos de tratamiento y de la visita guiada), sobre Bruma turquesa como reserva (Turquesa Up en los retratos, Noche elevada en la banda oscura). Decisión de noviembre de 2026: se retira el arco de medio punto, que leía como una ventana; un único radio para las fotos da un aire más sobrio y profesional. Una foto solo se amplía al pasar el ratón si es un enlace o un botón. Los iconos van en círculo de Bruma turquesa.
 
-**The Arch Is For People Rule.** El arco enmarca personas y lugares de la clínica; no se usa en botones, tarjetas de texto ni iconos.
+**The One Frame Rule.** Todas las fotos comparten el rectángulo de 20 px. Nada de arcos, círculos ni formas recortadas en fotos; el círculo queda para iconos y avatares.
 
 ## Motion
 
-**Tesis: «Las puertas se abren».** El movimiento tiene una sola idea propia: las fotos de personas y espacios se abren como una puerta. La abertura (un arco más pequeño, o un rectángulo redondeado en las fotos sin arco) crece desde el suelo hasta llenar su marco mientras la foto se posa de un 108 % a su tamaño. El texto no se anima al hacer scroll. Todo lo demás explica un cambio de estado. Las reglas están en `src/styles/motion.css`; los tiempos y la curva, en `src/styles/tokens.css`.
+**Tesis: una entrada y respuestas.** El movimiento tiene un solo momento propio: la portada entra una vez al cargar. Nada aparece al hacer scroll (ni fotos, ni tarjetas, ni texto), salvo la línea de los pasos del tratamiento. Todo lo demás responde a la persona o explica un cambio de estado: hover, foco, capas, acordeón, envío. Las reglas están en `src/styles/motion.css`; los tiempos y la curva, en `src/styles/tokens.css`.
 
-- **Momento principal:** al entrar en la portada, el titular, la entradilla, las ventajas y los botones suben 16 px en cascada (80 ms entre uno y otro) y la foto del arco se abre en 1,2 s. La nota de Google entra cuando llega del servidor.
-- **Fotos al llegar a ellas** (`data-reveal` en el marco): se abren en 900 ms; las que entran a la vez, una tras otra con 70 ms de diferencia y un tope de 280 ms. Solo se ocultan las que están por debajo de la primera pantalla, y solo lo hace el script en línea de `Layout.astro`: sin JavaScript la página se ve entera.
+- **Momento principal:** al entrar en la portada, el titular, la entradilla, las ventajas y los botones suben 16 px en cascada (700 ms, 70 ms entre uno y otro) y la foto se desvela en 1,1 s: parte de un rectángulo un 5 % menor, con el mismo radio de 20 px, y se posa de un 106 % a su tamaño. La nota de Google entra a los 600 ms, cuando llega del servidor.
+- **Hover:** las fotos que son enlace o botón se amplían un 3 % dentro de su marco (600 ms, `--ease-out`); las tarjetas enlace suben 2 px con la sombra elevada; los botones suben 1 px y vuelven al pulsar; la flecha de una tarjeta avanza 3 px; el subrayado de la navegación crece desde el centro.
 - **Cambio de página:** fundido de 240 ms entre páginas (View Transitions, sin JavaScript). El retrato de una persona viaja de su tarjeta (portada y `/equipo`) a su ficha y vuelve, en 420 ms (`portraitTransition` en `src/constants/pages.ts`).
 - **Capas:** el menú móvil y el visor de fotos entran con un fundido de 240 ms y salen en 160 ms; los enlaces del menú entran como lista. En el visor, la foto entra desde el lado hacia el que se avanza, cuando ya ha cargado; con el dedo se pasa de foto deslizando, y la foto acompaña al dedo.
 - **Acordeón:** la respuesta se despliega en 420 ms.
@@ -289,15 +289,14 @@ Formas suaves y acogedoras: nada de esquinas vivas. Tres radios (6 px en campos,
 - `--duration-fast` (160 ms): respuesta inmediata y salidas.
 - `--duration-base` (240 ms): cambios de estado y entrada de capas.
 - `--duration-slow` (420 ms): acordeón y viaje del retrato.
-- `--duration-reveal` (900 ms): una foto que se abre.
 - `--ease-out` (`cubic-bezier(0.16, 1, 0.3, 1)`): todas las llegadas. Sin rebotes ni curvas elásticas.
 
 ### Named Rules
-**The Door Rule.** Solo se abren las fotos. Un bloque de texto, una tarjeta informativa o un titular no entran con animación al hacer scroll.
+**The No Scroll Reveal Rule.** Nada entra al hacer scroll: ni fotos, ni tarjetas, ni titulares. La única pieza ligada al scroll es la línea de los pasos del tratamiento, porque ahí el scroll es el recorrido.
 
 **The Visible By Default Rule.** El estado por defecto es el contenido visible. Una animación de entrada parte de ahí: si el CSS moderno o el script no están, la página se ve completa y quieta.
 
-**The Less Motion Rule.** Con `prefers-reduced-motion` no hay entradas, desplazamientos ni escalados, y el retrato no viaja; quedan los fundidos y los cambios de color y sombra que confirman un estado (hover, foco, capa abierta, «Enviando…»).
+**The Less Motion Rule.** Con `prefers-reduced-motion` no hay entradas, desplazamientos ni escalados, y el retrato no viaja; quedan los fundidos y los cambios de color y sombra que confirman un estado (hover, foco, capa abierta, «Enviando…»). El indicador de envío no gira: late despacio con la opacidad (1,2 s).
 
 ## Components
 
@@ -343,8 +342,8 @@ Lista vertical con números en círculo de 40 px (serif 18 px en Pino, borde de 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** enmarcar las fotos de personas y espacios en el arco (`999px 999px 20px 20px`) sobre fondo Turquesa Up o Bruma turquesa.
-- **Do** abrir cada sección directamente con el titular en serif, con una sola palabra en cursiva; el contexto, en la entradilla.
+- **Do** enmarcar todas las fotos en el rectángulo de 20 px sobre fondo Turquesa Up o Bruma turquesa.
+- **Do** abrir cada sección directamente con el titular en serif, en redonda; el contexto, en la entradilla.
 - **Do** usar el botón principal en tinta y el WhatsApp como acción más visible de cada llamada a la acción.
 - **Do** usar fotos reales de la clínica, el equipo y los pacientes con permiso.
 - **Do** mantener el foco visible: 2 px sólido en Pino profundo (Turquesa de acento sobre noche).
@@ -355,8 +354,9 @@ Lista vertical con números en círculo de 40 px (serif 18 px en Pino, borde de 
 - **Don't** poner un antetítulo en mayúsculas encima de un titular: repite lo que el titular ya dice y aplana el ritmo de la página.
 - **Don't** poner texto en Turquesa Up ni en Turquesa de acento sobre fondos claros.
 - **Don't** usar esquinas vivas ni radios fuera de 6, 12, 20 px y píldora.
-- **Don't** usar más de una palabra en cursiva por titular.
+- **Don't** usar cursivas ni resaltar palabras de un titular con otro color.
 - **Don't** usar sombras negras, duras o de varios niveles; como mucho, reposo y elevada.
 - **Don't** dar por hecho un tema oscuro: la web es solo clara.
-- **Don't** animar la entrada de texto o tarjetas al hacer scroll, ni repetir la misma entrada en cada sección: solo se abren las fotos.
+- **Don't** animar la entrada de fotos, texto o tarjetas al hacer scroll, ni repetir la misma entrada en cada sección: el único momento es la entrada de la portada.
+- **Don't** volver al arco de medio punto ni a otras formas recortadas en las fotos.
 - **Don't** escribir colores en hex dentro de componentes; siempre tokens.

@@ -4,7 +4,7 @@ import { contact, whatsappLink } from "@/constants/personal";
 ---
 
 <div class="up-mbar" id="mobile-bar" aria-label="Contacto rápido" role="region">
-  <a class="up-btn up-btn-secondary" href={contact.landline.href}><Icon name="phone" class="up-icon" />Llamar</a>
+  <a class="up-btn up-btn-secondary" href={contact.landline.href} aria-label={`Llamar a la clínica: ${contact.landline.display}`}><Icon name="phone" class="up-icon" />Llamar</a>
   <a class="up-btn up-btn-primary" href={whatsappLink("Hola, me gustaría pedir cita.")} target="_blank" rel="noopener noreferrer" aria-label="Pedir cita por WhatsApp (se abre en otra pestaña)"><Icon name="whatsapp" class="up-icon" />Pedir cita</a>
 </div>
 

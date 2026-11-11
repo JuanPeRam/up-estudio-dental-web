@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import Notice from "@/components/UI/Notice.astro";
-import { clinic, contact } from "@/constants/personal";
+import { clinic, contact, emergencies, emergencyPhone } from "@/constants/personal";
 import { subjects, type ContactFormState } from "@/lib/contactForm";
 
 // El envío se procesa en la página (src/pages/contacto.astro), que es la única que puede redirigir.
@@ -18,7 +18,11 @@ const fields = [
     status === "sent" ? (
         <div class="up-form" id="contact-form">
             <Notice tone="success" tabindex="-1" data-autofocus><b>Mensaje enviado.</b> Te respondemos en horario de clínica, normalmente el mismo día.</Notice>
-            <p class="up-small">Si es urgente, llámanos al <a class="up-link" href={contact.landline.href}>{contact.landline.display}</a>.</p>
+            {emergencies && emergencyPhone ? (
+                <p class="up-small">Si es urgente, llámanos al <a class="up-link" href={emergencyPhone.href}>{emergencyPhone.display}</a>: atendemos urgencias las 24 horas.</p>
+            ) : (
+                <p class="up-small">Si es urgente, llámanos al <a class="up-link" href={contact.landline.href}>{contact.landline.display}</a>.</p>
+            )}
         </div>
     ) : (
         <form method="POST" action="/contacto#contact-form" class="up-form" id="contact-form" novalidate>
@@ -70,7 +74,7 @@ const fields = [
                     <input type="checkbox" id="f-privacy" name="privacy" required checked={values.privacy === "on"} />
                     <span>He leído y acepto la <a class="up-link" href="/politica-privacidad">política de privacidad</a></span>
                 </label>
-                <span class="up-error" id="f-privacy-e" hidden><Icon name="alert" class="up-icon" />Necesitamos tu consentimiento para responderte.</span>
+                <span class="up-error" id="f-privacy-e" hidden><Icon name="alert" class="up-icon" />Marca la casilla para aceptar la política de privacidad: sin tu consentimiento no podemos responderte.</span>
             </div>
 
             <div class="up-form-legal">

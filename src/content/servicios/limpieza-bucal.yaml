@@ -8,7 +8,7 @@ entradilla: Retiramos con ultrasonidos el sarro y la placa adheridos al diente y
 datos:
 - icono: euro
   etiqueta: Precio
-  valor: Según valoración
+  valor: Presupuesto tras la revisión
 - icono: clock
   etiqueta: Duración
   valor: 30 min, una sesión

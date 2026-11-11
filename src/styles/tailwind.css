@@ -31,6 +31,12 @@
     background: var(--brand);
     color: var(--on-brand);
   }
+  /* Toque sin el retraso del doble toque y sin el destello gris del navegador: cada control ya
+     responde con su propio hover y su estado de pulsado. */
+  :where(a, button, summary, label, [role="button"]) {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
   :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
     outline: 2px solid var(--focus-ring);
     outline-offset: 3px;
@@ -280,6 +286,7 @@
     background: var(--surface);
     padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px);
     overflow-y: auto;
+    overscroll-behavior: contain;
   }
   .up-menu[hidden] { display: none; }
   .up-menu-links { list-style: none; margin: 0; padding: var(--space-6) 0; display: flex; flex-direction: column; }
@@ -362,7 +369,7 @@
   .up-scard:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: color-mix(in srgb, var(--brand) 55%, var(--line)); }
   .up-scard[aria-current="true"] { border: 2px solid var(--brand-strong); }
   .up-scard-media { overflow: hidden; aspect-ratio: 4 / 3; background: var(--surface-tint); }
-  .up-scard-media img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--duration-base) ease; }
+  .up-scard-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease-out); }
   .up-scard:hover .up-scard-media img { transform: scale(1.03); }
   .up-scard-body { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-6); flex: 1; }
   .up-scard-body .up-badge { align-self: flex-start; }
@@ -464,9 +471,8 @@
     .up-treat { grid-template-columns: 1fr 1fr; gap: var(--space-12); }
     .up-treat.is-reversed > :first-child { order: 2; }
   }
-  .up-treat-media { overflow: hidden; border-radius: var(--radius-md); background: var(--surface-tint); }
-  .up-treat-media img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: transform var(--duration-base) ease; }
-  .up-treat-media:hover img { transform: scale(1.03); }
+  .up-treat-media { overflow: hidden; border-radius: var(--radius-lg); background: var(--surface-tint); }
+  .up-treat-media img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
 
   /* ---------- TeamCard ---------- */
   .up-team-roles { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -531,9 +537,9 @@
   .up-tour-next { align-self: flex-start; display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px; font: 600 1rem/1.25rem var(--font-sans); color: var(--brand-strong); text-decoration: none; }
   .up-tour-next:hover { text-decoration: underline; text-underline-offset: 4px; }
   .up-tour-photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
-  .up-tour-photos button { position: relative; padding: 0; border: 0; overflow: hidden; border-radius: var(--radius-md); background: var(--surface-tint); cursor: zoom-in; aspect-ratio: 4 / 3; }
+  .up-tour-photos button { position: relative; padding: 0; border: 0; overflow: hidden; border-radius: var(--radius-lg); background: var(--surface-tint); cursor: zoom-in; aspect-ratio: 4 / 3; }
   .up-tour-photos button:first-child { grid-column: span 2; aspect-ratio: 3 / 2; }
-  .up-tour-photos img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform var(--duration-base) ease; }
+  .up-tour-photos img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease-out); }
   .up-tour-photos button:hover img { transform: scale(1.03); }
   /* Dos fotos: una al lado de la otra, la principal más ancha. */
   .up-tour-photos[data-count="2"] { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }
@@ -542,7 +548,7 @@
   .up-lightbox { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: var(--space-4); background: color-mix(in srgb, var(--night) 94%, transparent); }
   .up-lightbox[hidden] { display: none; }
   /* Deslizar en horizontal cambia de foto (ClinicTour.astro); el pellizco para ampliar sigue siendo del navegador. */
-  .up-lightbox { touch-action: pan-y pinch-zoom; }
+  .up-lightbox { touch-action: pan-y pinch-zoom; overscroll-behavior: contain; }
   .up-lightbox img { max-height: 82vh; max-width: 92vw; border-radius: var(--radius-sm); object-fit: contain; user-select: none; -webkit-user-drag: none; }
   .up-lightbox-btn { position: absolute; width: 48px; height: 48px; border-radius: 50%; border: 0; display: grid; place-items: center; color: var(--on-night-strong); background: color-mix(in srgb, var(--surface-raised) 8%, transparent); cursor: pointer; transition: background-color var(--duration-fast); }
   .up-lightbox-btn:hover { background: color-mix(in srgb, var(--surface-raised) 18%, transparent); }
@@ -659,26 +665,20 @@
   @media (max-width: 47.9375em) { .up-footer { padding-bottom: calc(var(--space-6) + 72px + env(safe-area-inset-bottom, 0px)); } }
 
   /* ============================================================ v2: piezas de la síntesis */
-  /* cursiva de acento: una palabra por titular, como la web oficial (Didot/Playfair cursiva) */
-  :is(.up-display, .up-h1, .up-h2, .up-h3) em { font-style: italic; color: var(--brand-strong); }
-  .up-on-night :is(.up-display, .up-h1, .up-h2, .up-h3) em { color: var(--brand); }
   .up-band-aqua { background: var(--aqua); }
   .up-band-aqua .up-lead, .up-band-aqua .up-small, .up-band-aqua .up-body { color: var(--ink-muted); }
 
-  /* el arco: foto con la parte superior redondeada (sonrisa, diente), motivo propio de Up */
-  .up-arch { position: relative; overflow: hidden; border-radius: 999px 999px var(--radius-lg) var(--radius-lg); background: var(--surface-tint); }
-  .up-arch img { width: 100%; height: 100%; object-fit: cover; transition: transform 600ms ease; }
-  /* Solo se amplía si el arco es un enlace: una foto que no se puede pulsar no reacciona al ratón. */
-  a:hover > .up-arch img { transform: scale(1.03); }
-  /* El arco: medio punto arriba (radio = mitad del ancho) y 20 px abajo. Con «999px» el navegador
-     reduce todos los radios a la vez y las esquinas de abajo se quedan en 2–5 px; con radios elípticos
-     calculados para la proporción de cada foto (ancho / alto) no hace falta reducir nada. */
+  /* Marco de foto: rectángulo de 20 px, el mismo radio que las tarjetas de especialidad. */
+  .up-frame { position: relative; overflow: hidden; border-radius: var(--radius-lg); background: var(--surface-tint); }
+  .up-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease-out); }
+  /* Solo se amplía si el marco es un enlace: una foto que no se puede pulsar no reacciona al ratón. */
+  a:hover > .up-frame img { transform: scale(1.03); }
 
   /* héroe v2 */
   .up-hero2 { display: grid; gap: var(--space-8); grid-template-columns: 1fr; align-items: center; padding-block: var(--space-8) var(--space-12); }
   @media (min-width: 56.25em) { .up-hero2 { grid-template-columns: 1.1fr 0.9fr; gap: var(--space-16); padding-block: var(--space-12) var(--space-16); } }
   .up-hero2-media { position: relative; max-width: 520px; width: 100%; justify-self: center; }
-  .up-hero2-media .up-arch { aspect-ratio: 4 / 5; border-radius: 50% 50% var(--radius-lg) var(--radius-lg) / 40% 40% var(--radius-lg) var(--radius-lg); }
+  .up-hero2-media .up-frame { aspect-ratio: 4 / 5; }
   .up-hero2-card { position: absolute; left: calc(-1 * var(--space-8)); bottom: var(--space-12); display: flex; align-items: center; gap: var(--space-3); padding: var(--space-3) var(--space-4) var(--space-3) var(--space-3); background: var(--surface-raised); border-radius: var(--radius-pill); box-shadow: var(--shadow-md); }
   a.up-hero2-card { text-decoration: none; transition: box-shadow var(--duration-fast); }
   a.up-hero2-card:hover { box-shadow: var(--shadow-md), 0 0 0 2px var(--aqua-logo); }
@@ -718,7 +718,7 @@
   @media (min-width: 56.25em) { .up-specs-more { display: none; } }
   @media (min-width: 56.25em) { .up-specs > .is-wide-d { grid-column: span var(--span-d); } }
   .up-spec { position: relative; display: block; overflow: hidden; border-radius: var(--radius-lg); background: var(--surface-tint); min-height: 220px; color: var(--ink); text-decoration: none; }
-  .up-spec img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 600ms ease; }
+  .up-spec img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease-out); }
   .up-spec { box-shadow: var(--shadow-sm); transition: box-shadow var(--duration-base) ease; }
   .up-spec:hover { box-shadow: var(--shadow-md); }
   .up-spec:hover img { transform: scale(1.03); }
@@ -733,7 +733,7 @@
   /* Tecnología: en móvil, foto y texto en fila; desde tablet, tres columnas. */
   .up-tech { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--space-8); grid-template-columns: minmax(0, 1fr); }
   .up-tech li { display: grid; grid-template-columns: 38% minmax(0, 1fr); gap: var(--space-4); align-items: center; }
-  .up-tech .up-arch { aspect-ratio: 3 / 4; background: var(--night-raised); border-radius: 50% 50% var(--radius-lg) var(--radius-lg) / 37.5% 37.5% var(--radius-lg) var(--radius-lg); }
+  .up-tech .up-frame { aspect-ratio: 3 / 4; background: var(--night-raised); }
   .up-tech-text { display: flex; flex-direction: column; gap: var(--space-2); }
   .up-tech-tag { align-self: flex-start; padding: 2px 10px; border: 1px solid var(--brand-line); border-radius: var(--radius-pill); font: 600 0.8125rem/1.25rem var(--font-sans); letter-spacing: 0.06em; text-transform: uppercase; color: var(--brand); }
   .up-tech h3 { margin: 0; font: 400 1.375rem/1.75rem var(--font-display); color: var(--on-night-strong); }
@@ -746,9 +746,9 @@
 
   /* retrato recortado sobre aqua (los retratos oficiales tienen ese fondo) */
   .up-cutout { display: flex; flex-direction: column; gap: var(--space-3); text-decoration: none; color: inherit; }
-  .up-cutout-photo { overflow: hidden; border-radius: 50% 50% var(--radius-lg) var(--radius-lg) / 37.5% 37.5% var(--radius-lg) var(--radius-lg); background: var(--aqua); aspect-ratio: 3 / 4; }
+  .up-cutout-photo { overflow: hidden; border-radius: var(--radius-lg); background: var(--aqua); aspect-ratio: 3 / 4; }
   /* los retratos se recortan a 3:4 con el mismo margen sobre la cabeza (src/img/up/retrato-*.webp) */
-  .up-cutout-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; transition: transform 600ms ease; }
+  .up-cutout-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; transition: transform 600ms var(--ease-out); }
   .up-cutout:hover .up-cutout-photo img { transform: scale(1.03); }
   .up-cutout .up-h4 { transition: color var(--duration-fast); }
   .up-cutout:hover .up-h4 { color: var(--brand-strong); }
@@ -758,11 +758,7 @@
   /* collage familia: una foto alta y dos apiladas */
   .up-collage { display: grid; gap: var(--space-4); grid-template-columns: 1.2fr 1fr; grid-template-rows: 1fr 1fr; min-height: 520px; }
   .up-collage > :first-child { grid-row: span 2; }
-  .up-collage > * { overflow: hidden; border-radius: var(--radius-lg); }
-  /* La foto grande del collage no tiene proporción fija: su caja es contenedor y el radio de arriba
-     es la mitad de su ancho (50cqi), aplicado a la imagen. */
-  .up-collage > :first-child { container-type: inline-size; border-radius: 0; }
-  .up-collage > :first-child img { border-radius: 50cqi 50cqi var(--radius-lg) var(--radius-lg); }
+  .up-collage > * { overflow: hidden; border-radius: var(--radius-lg); background: var(--surface-tint); }
   .up-collage img { width: 100%; height: 100%; object-fit: cover; }
   @media (max-width: 39.9375em) { .up-collage { min-height: 420px; } }
   /* En tablet la columna es ancha y las filas crecían con la altura de las fotos (más de 1000px),

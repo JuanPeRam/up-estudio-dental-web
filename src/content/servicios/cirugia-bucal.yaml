@@ -8,12 +8,12 @@ entradilla: La cirugía bucal resuelve los casos que necesitan una pequeña inte
 datos:
 - icono: euro
   etiqueta: Precio
-  valor: Según valoración
+  valor: Presupuesto tras la revisión
 - icono: clock
   etiqueta: Duración
   valor: Según la intervención
 - icono: calendar
-  etiqueta: Primera visita
+  etiqueta: Primera revisión
   valor: Gratuita
 tarjetas:
   titulo: Qué tratamos

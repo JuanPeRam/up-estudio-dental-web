@@ -20,7 +20,7 @@ El éxito es que el visitante **escriba por WhatsApp** (móvil 649 039 327) para
 
 ## Positioning
 
-Una sola clínica de barrio donde toda la familia se trata con el mismo equipo de especialistas: odontopediatría, ortodoncia e Invisalign, implantes, cirugía, periodoncia y estética, con una zona de juegos infantil y un trato cercano. La primera visita es gratuita e incluye revisión, radiografías y presupuesto por escrito.
+Una sola clínica de barrio donde toda la familia se trata con el mismo equipo de especialistas: odontopediatría, ortodoncia e Invisalign, implantes, cirugía, periodoncia y estética, con una zona de juegos infantil y un trato cercano. La primera revisión gratuita incluye exploración, radiografías y presupuesto por escrito.
 
 ## Operating Context
 
@@ -37,7 +37,8 @@ Una sola clínica de barrio donde toda la familia se trata con el mismo equipo d
 - Tratamientos con ficha propia e indexable: revisiones dentales (sin coste), limpieza bucal, blanqueamiento Philips Zoom, implantes, ortodoncia e Invisalign, odontopediatría, endodoncia, periodoncia y cirugía bucal.
 - Tecnología en clínica: escáner intraoral iTero, radiografía digital propia, blanqueamiento Philips Zoom.
 - **Urgencias 24 h**: confirmado; se mantiene. Si dejara de ofrecerse, se apaga con `emergencies = null` en `src/constants/personal.ts`.
-- **Primera revisión gratis** (revisión, radiografías y presupuesto por escrito, sin compromiso): confirmado; se mantiene.
+- **Primera revisión gratuita** (exploración, radiografías y presupuesto por escrito, sin compromiso): confirmado; se mantiene. Se llama siempre así en toda la web (no «primera visita», «valoración» ni «revisión gratis»), y el botón que la pide dice «Pedir revisión gratuita». «Primera visita al dentista» queda solo para la edad de la primera visita de un niño. Ojo: no solo la primera es gratis; todas las revisiones dentales son gratuitas (web oficial, «Revisiones Dentales Gratuitas», precio «Gratuito»), así que la ficha de revisiones no limita la gratuidad a la primera.
+- **Política de cancelación**: confirmar o anular la cita con al menos 24 horas de antelación.
 - **Precios**: no se publican como dato en la web («presupuesto tras el estudio»). Podrán tratarse más adelante a través de un chatbot, no como cifras en las páginas. Open decision: el enlace de la portada «Ver tratamientos y precios» promete precios que la web no muestra.
 - Horario: lunes a viernes 10:00–13:30 y 16:00–20:30; sábados 10:00–14:00.
 - Sin cookies propias; formulario con consentimiento de privacidad obligatorio.
