@@ -5,12 +5,12 @@
  * confirmados (PRODUCT.md y docs/marca/investigacion-redes.md).
  */
 import type { ImageMetadata } from "astro";
-// Fotos sacadas de Instagram y de las presentaciones de Canva de la clínica (noviembre de 2026),
+// Fotos de Instagram, de las presentaciones de Canva y de la sesión profesional de la clínica,
 // distintas de las del resto de la portada para no repetir imágenes.
 import recepcion from "@/img/up/recepcion-logo.webp";
 import ninoSonrisa from "@/img/up/nino-sonrisa.webp";
 import alineadores from "@/img/up/alineadores-invisalign.webp";
-import revision from "@/img/up/primera-revision.webp";
+import tratamiento from "@/img/up/tratamiento-sonrisa.webp";
 import instrumental from "@/img/up/instrumental.webp";
 
 export type Etapa = {
@@ -78,10 +78,10 @@ export const etapas: Etapa[] = [
       "Las revisiones son gratuitas. Hacemos limpiezas, blanqueamiento Philips Zoom en una sesión de una hora, endodoncias diagnosticadas con radiografía digital y cuidamos tus encías con periodoncia.",
     puntos: ["Radiografía digital en la propia clínica", "Blanqueamiento en consulta, supervisado", "Dra. Nilyam: periodoncia"],
     servicios: ["revisiones-dentales", "limpieza-bucal", "blanqueamiento-dental", "endodoncia", "periodoncia"],
-    imagen: revision,
-    imagenAlt: "Una doctora explora la boca de una paciente durante una revisión",
+    imagen: tratamiento,
+    imagenAlt: "Una higienista de la clínica atiende a un paciente en el gabinete",
     vertical: true,
-    foco: "50% 40%",
+    foco: "50% 45%",
     mensaje: "una revisión para mí",
   },
   {
