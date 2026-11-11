@@ -16,7 +16,7 @@ colors:
   linea: "#d5e3e1"
   borde-control: "#6f8582"
   tinta-texto: "#14201f"
-  tinta-suave: "#3d4f4b"
+  tinta-suave: "#3d4f4d"
   tinta-nocturna: "#111716"
   noche-elevada: "#1b2423"
   sobre-noche-fuerte: "#f2f5f4"
@@ -236,8 +236,8 @@ Una paleta de agua y madera: turquesas pastel de la marca, un verde pino profund
 - **Body** (`body`): texto corrido; ancho máximo de unos 74 caracteres (`--measure`, 34em).
 - **Lead** (`lead`): entradillas bajo un titular, en Tinta suave, con el mismo ancho de lectura (`--measure`).
 - **Small** (`small`): textos de apoyo en tarjetas y paneles.
-- **Label** (`label`): mayúsculas espaciadas en Pino profundo (Turquesa de acento sobre noche) para etiquetar una tarjeta o un dato («Horario», «Dirección», «Parada 1 de 6», «Error 404»), nunca como antetítulo encima de un titular.
-- **Caption** (`caption`): especialidades bajo un nombre, insignias y metadatos.
+- **Label** (`label`): mayúsculas espaciadas en Pino profundo (Turquesa de acento sobre noche) para etiquetar una tarjeta o un dato («Horario», «Dirección», «Parada 1 de 6»), nunca como antetítulo encima de un titular.
+- **Caption** (`caption`): especialidades bajo un nombre, insignias y metadatos (el «Error 404» al pie de su página).
 - **Control** (`control`): texto de campos de formulario y de los teléfonos destacados; 17 px para que el móvil no haga zoom al enfocar un campo.
 - **Botón pequeño** (`button-sm`): botón compacto de la cabecera y etiquetas de las tarjetas de especialidad en móvil.
 
