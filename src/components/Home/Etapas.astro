@@ -1,0 +1,86 @@
+---
+// La línea de la sonrisa, en el estilo de siempre de la web: sale del diente de la cabecera, pasa por
+// cada etapa de la boca y termina en el corazón de la marca. Los datos, en src/constants/etapas.ts.
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import { getCollection } from "astro:content";
+import Linea from "@/components/Marca/Linea.astro";
+import Diente from "@/components/Marca/Diente.astro";
+import Corazon from "@/components/Marca/Corazon.astro";
+import Button from "@/components/UI/Button.astro";
+import { etapas } from "@/constants/etapas";
+import { treatmentPath } from "@/constants/pages";
+import { emergencies, emergencyPhone, whatsappLink } from "@/constants/personal";
+
+const servicios = await getCollection("servicios");
+const porSlug = new Map(servicios.map((s) => [s.id, s]));
+---
+
+<section class="up-section up-etapas" id="etapas" aria-labelledby="etapas-titulo">
+  <div class="up-wrap up-linea-host">
+    <Linea />
+
+    <header class="up-etapas-head up-railed">
+      <Diente class="up-etapas-diente" data-linea-punto data-linea-x="0.31" data-linea-y="0.97" />
+      <h2 class="up-h2" id="etapas-titulo">Una clínica para cada etapa de la boca</h2>
+      <p class="up-lead">Porque las grandes sonrisas empiezan siendo pequeñas. Cada edad tiene sus cuidados; estos son los nuestros, de la primera visita a los implantes, con el mismo equipo de especialistas.</p>
+    </header>
+
+    <ol class="up-etapas-list">
+      {etapas.map((e, i) => {
+        const enlaces = e.servicios.map((slug) => porSlug.get(slug)).filter((s) => s !== undefined);
+        return (
+          <li class:list={["up-etapa", i % 2 && "is-par"]} id={e.id}>
+            <span class="up-etapa-punto" data-linea-punto />
+            <div class="up-etapa-texto">
+              <p class="up-eyebrow">{e.edad}</p>
+              <h3 class="up-h3">{e.titulo}</h3>
+              <p class="up-body">{e.texto}</p>
+              <ul class="up-etapa-checks">
+                {e.puntos.map((p) => <li><Icon name="check" class="up-icon" />{p}</li>)}
+              </ul>
+              <div class="up-etapa-links">
+                {enlaces.map((s) => (
+                  <a class="up-badge up-etapa-pill" href={treatmentPath(s.id)}>
+                    {s.data.titulo}
+                    <Icon name="arrow-right" class="up-icon" />
+                  </a>
+                ))}
+              </div>
+              <a class="up-link up-link-tap" href={whatsappLink(`Hola, quería pedir cita para ${e.mensaje}.`)} target="_blank" rel="noopener noreferrer">
+                Pedir cita para esta etapa<span class="sr-only"> por WhatsApp (se abre en otra pestaña)</span>
+              </a>
+            </div>
+            <figure class="up-etapa-foto">
+              <Image src={e.imagen} alt={e.imagenAlt} widths={[480, 720, 960, 1200]} sizes="(min-width: 60em) 36vw, 90vw" quality={76} />
+            </figure>
+          </li>
+        );
+      })}
+
+      {emergencies && emergencyPhone && (
+        <li class="up-etapa up-etapa-urgencia" id="urgencias">
+          <span class="up-etapa-punto is-alerta" data-linea-punto />
+          <div class="up-etapa-texto">
+            <p class="up-eyebrow">Cualquier día</p>
+            <h3 class="up-h3">Y si te duele hoy</h3>
+            <p class="up-body">Atendemos {emergencies.long.toLowerCase()}. Llámanos al móvil a cualquier hora.</p>
+            <a class="up-etapa-tel" href={emergencyPhone.href}>
+              <Icon name="phone" class="up-icon" />
+              <span class="tabular-nums">{emergencyPhone.display}</span>
+            </a>
+          </div>
+        </li>
+      )}
+    </ol>
+
+    <div class="up-etapas-fin up-railed">
+      <Corazon class="up-etapas-corazon" data-linea-punto data-linea-x="0.5" data-linea-y="0.06" />
+      <p class="up-h3">Y así, toda la vida.</p>
+      <div class="flex flex-wrap gap-3">
+        <Button href={whatsappLink("Hola, me gustaría pedir cita.")} icon="whatsapp" external aria-label="Pedir cita por WhatsApp (se abre en otra pestaña)">Pedir cita por WhatsApp</Button>
+        <Button href="/tratamientos" variant="secondary" iconAfter="arrow-right">Ver todos los tratamientos</Button>
+      </div>
+    </div>
+  </div>
+</section>

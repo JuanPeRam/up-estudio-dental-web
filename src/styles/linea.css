@@ -1,0 +1,100 @@
+/* ============================================================
+   La línea de la sonrisa (sección de etapas de la portada)
+   Con los colores y tipografías de siempre de la web (tokens.css): el trazo va en turquesa, los
+   puntos de cada etapa en el turquesa del logo y las fotos con las esquinas del resto de la web.
+   ============================================================ */
+
+.up-etapas {
+  --trazo-w: 2px;
+  --rail-x: 12px;
+  --rail-pad: 40px;
+  overflow: hidden;
+}
+@media (min-width: 48em) { .up-etapas { --rail-x: 28px; --rail-pad: 80px; } }
+@media (min-width: 64em) { .up-etapas { --rail-x: 40px; --rail-pad: 112px; } }
+
+.up-linea-host { position: relative; isolation: isolate; }
+.up-railed { position: relative; padding-left: var(--rail-pad); }
+
+/* El trazo va por encima de los fondos y por debajo de nada que se pulse. */
+.up-linea { position: absolute; inset: 0 auto auto 0; z-index: 0; pointer-events: none; overflow: visible; }
+.up-linea path { fill: none; stroke-width: var(--trazo-w); stroke-linecap: round; stroke-linejoin: round; }
+.up-linea-trazo { stroke: var(--brand-mid); }
+.up-linea-guia { stroke: var(--brand); stroke-dasharray: 1 7; opacity: 0.7; }
+.up-linea:not(.is-lista) { display: none; }
+/* Sin la línea calculada (sin JavaScript), un filete recto en el margen hace su papel. */
+.up-linea-host:not(.has-linea)::before {
+  content: ""; position: absolute; top: 96px; bottom: 120px;
+  left: calc(max(var(--space-4), env(safe-area-inset-left, 0px)) + var(--rail-x));
+  width: var(--trazo-w); background: var(--aqua-logo);
+}
+@media (min-width: 48em) { .up-linea-host:not(.has-linea)::before { left: calc(var(--space-8) + var(--rail-x)); } }
+
+/* Trazos de marca: diente y corazón */
+.up-glyph { display: block; overflow: visible; }
+.up-glyph path { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+
+/* ---------- Cabecera de la sección: el diente abre la línea ---------- */
+.up-etapas-head { display: flex; flex-direction: column; gap: var(--space-3); max-width: calc(var(--rail-pad) + 44rem); margin-bottom: var(--space-12); }
+.up-etapas-diente {
+  position: absolute; color: var(--brand-mid);
+  width: 56px; height: 56px; top: -4px;
+  left: calc(var(--rail-x) - 56px * 0.31);
+}
+@media (max-width: 47.9375em) {
+  /* En el móvil el margen es estrecho: el diente va encima del titular. */
+  .up-etapas-head { padding-top: 64px; }
+  .up-etapas-diente { width: 44px; height: 44px; top: 0; left: max(0px, calc(var(--rail-x) - 44px * 0.31)); }
+}
+
+/* ---------- Cada etapa ---------- */
+.up-etapas-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-16); }
+@media (min-width: 60em) { .up-etapas-list { gap: var(--space-24); } }
+.up-etapa { position: relative; padding-left: var(--rail-pad); display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-6); align-items: center; }
+@media (min-width: 60em) {
+  .up-etapa { grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); gap: var(--space-12); }
+  .up-etapa.is-par { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr); }
+  .up-etapa.is-par .up-etapa-foto { order: -1; }
+}
+
+.up-etapa-punto {
+  position: absolute; left: var(--rail-x); top: 0.55rem; translate: -50% 0;
+  width: 18px; height: 18px; border-radius: 50%; z-index: 1;
+  background: var(--surface); border: 2px solid var(--brand-mid);
+  transition: background-color var(--duration-base) ease, transform var(--duration-base) var(--ease-out);
+}
+.up-etapa-punto.is-alcanzado { background: var(--aqua-logo); }
+.up-etapa-punto.is-alerta { border-color: var(--danger); }
+.up-etapa-punto.is-alerta.is-alcanzado { background: color-mix(in srgb, var(--danger) 18%, var(--surface)); }
+/* En escritorio el punto va a la altura del texto, que queda centrado con la foto. */
+@media (min-width: 60em) { .up-etapa:not(.up-etapa-urgencia) .up-etapa-punto { top: 50%; translate: -50% -50%; } }
+
+.up-etapa-texto { display: flex; flex-direction: column; gap: var(--space-4); align-items: flex-start; min-width: 0; }
+.up-etapa-texto .up-h3 { font-size: clamp(1.5rem, 2.6vw, 2rem); line-height: 1.2; max-width: 20ch; }
+.up-etapa-checks { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+.up-etapa-checks li { display: flex; gap: var(--space-2); align-items: flex-start; font-size: 1rem; line-height: 1.5rem; color: var(--ink); }
+.up-etapa-checks .up-icon { width: 18px; height: 18px; margin-top: 3px; color: var(--brand-mid); }
+.up-etapa-links { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.up-etapa-pill { min-height: 40px; padding: 8px 12px 8px 16px; text-decoration: none; transition: background-color var(--duration-fast) ease, color var(--duration-fast) ease; }
+.up-etapa-pill .up-icon { width: 16px; height: 16px; transition: translate var(--duration-fast) var(--ease-out); }
+.up-etapa-pill:hover { background: var(--aqua); }
+.up-etapa-pill:hover .up-icon { translate: 3px 0; }
+@media (pointer: coarse) { .up-etapa-pill { min-height: 44px; } }
+
+.up-etapa-foto { margin: 0; overflow: hidden; border-radius: var(--radius-lg); background: var(--surface-tint); aspect-ratio: 4 / 3; }
+.up-etapa-foto img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 59.9375em) { .up-etapa-foto { aspect-ratio: 3 / 2; max-width: 40rem; } }
+
+.up-etapa-urgencia .up-etapa-texto { max-width: 36rem; }
+.up-etapa-tel { display: inline-flex; align-items: center; gap: var(--space-3); min-height: 48px; color: var(--ink); font: 400 clamp(1.75rem, 3.6vw, 2.5rem)/1.1 var(--font-display); text-decoration: none; }
+.up-etapa-tel .up-icon { width: 24px; height: 24px; color: var(--danger); }
+.up-etapa-tel:hover span { text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 0.15em; }
+
+/* ---------- Final: la línea termina en el corazón ---------- */
+.up-etapas-fin { display: flex; flex-direction: column; gap: var(--space-4); align-items: flex-start; margin-top: var(--space-16); padding-top: var(--space-2); }
+.up-etapas-corazon { position: absolute; color: var(--brand-mid); width: 56px; height: 56px; left: calc(var(--rail-x) - 28px); top: -6px; }
+.up-etapas-fin .up-h3 { margin-top: 0; }
+@media (max-width: 47.9375em) {
+  .up-etapas-fin { padding-top: 60px; }
+  .up-etapas-corazon { width: 44px; height: 44px; top: 0; left: max(0px, calc(var(--rail-x) - 22px)); }
+}

@@ -752,6 +752,63 @@
   .up-cutout:hover .up-cutout-photo img { transform: scale(1.03); }
   .up-cutout .up-h4 { transition: color var(--duration-fast); }
   .up-cutout:hover .up-h4 { color: var(--brand-strong); }
+  /* ---------- Tarjetas del equipo (cuadro médico) ----------
+     Papel blanco con borde fino: retrato sobre aqua arriba y, debajo, especialidad, nombre, colegiado,
+     resto de especialidades y «Ver perfil». En el móvil, retrato a la izquierda y datos a la derecha.
+     Rejilla en flex para que la última fila incompleta quede centrada (el número se edita en Keystatic). */
+  .up-dcards { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; --cols: 1; --gx: var(--space-4); gap: var(--space-4) var(--gx); }
+  .up-dcards > li { flex: 0 0 calc((100% - (var(--cols) - 1) * var(--gx)) / var(--cols)); min-width: 0; display: flex; }
+  @media (min-width: 40em) { .up-dcards { --cols: 2; --gx: var(--space-6); row-gap: var(--space-6); } }
+  @media (min-width: 62.5em) { .up-dcards { --cols: 3; } }
+  @media (min-width: 48em) { .up-dcards.is-5 { --cols: 3; } }
+  @media (min-width: 68.75em) { .up-dcards.is-5 { --cols: 5; --gx: var(--space-4); } }
+
+  .up-dcard {
+    flex: 1; display: flex; flex-direction: column; overflow: hidden;
+    background: var(--surface-raised); border: 1px solid var(--line); border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm); color: inherit; text-decoration: none;
+    transition: border-color var(--duration-fast) ease, box-shadow var(--duration-base) ease, transform var(--duration-base) var(--ease-out);
+  }
+  .up-dcard:hover { border-color: var(--brand); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .up-dcard:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 3px; }
+  .up-dcard-photo { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--aqua); }
+  .up-dcard-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; transition: transform 600ms var(--ease-out); }
+  .up-dcard:hover .up-dcard-photo img { transform: scale(1.03); }
+  .up-dcard-body { flex: 1; display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4) var(--space-6) var(--space-6); }
+  .up-dcard-spec { margin: 0; font: 600 0.8125rem/1.125rem var(--font-sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--brand-strong); }
+  .up-dcard-name { margin: 0; font: 500 1.375rem/1.75rem var(--font-display); color: var(--ink); text-wrap: balance; transition: color var(--duration-fast); }
+  .up-dcard:hover .up-dcard-name { color: var(--brand-strong); }
+  .up-dcard-meta { margin: 0; font-size: 0.875rem; line-height: 1.25rem; color: var(--ink-muted); }
+  .up-dcard-tags { list-style: none; margin: var(--space-1) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+  .up-dcard-tags li { padding: 3px 10px; border-radius: var(--radius-pill); background: var(--surface-tint); font: 600 0.8125rem/1.125rem var(--font-sans); color: var(--brand-strong); }
+  .up-dcard-bio {
+    margin: var(--space-1) 0 0; font-size: 0.9375rem; line-height: 1.5rem; color: var(--ink-muted);
+    display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden;
+  }
+  .up-dcard-more {
+    margin-top: auto; padding-top: var(--space-4); border-top: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: space-between; gap: var(--space-2);
+    font: 600 0.9375rem/1.25rem var(--font-sans); color: var(--brand-strong);
+  }
+  .up-dcard-more .up-icon { width: 18px; height: 18px; transition: translate var(--duration-fast) var(--ease-out); }
+  .up-dcard:hover .up-dcard-more .up-icon { translate: 3px 0; }
+  /* Tarjetas estrechas (cinco en fila en la portada): menos relleno y nombre más pequeño. */
+  .up-dcards.is-5 .up-dcard-body { padding: var(--space-4); }
+  @media (min-width: 68.75em) { .up-dcards.is-5 .up-dcard-name { font-size: 1.1875rem; line-height: 1.5rem; } }
+  /* Móvil: ficha horizontal, el retrato a la izquierda. */
+  @media (max-width: 39.9375em) {
+    .up-dcard { flex-direction: row; }
+    .up-dcard-photo { flex: 0 0 38%; aspect-ratio: auto; min-height: 100%; }
+    .up-dcard-photo img { position: absolute; inset: 0; }
+    .up-dcard-body, .up-dcards.is-5 .up-dcard-body { padding: var(--space-4); }
+    .up-dcard-name { font-size: 1.1875rem; line-height: 1.5rem; }
+    .up-dcard-bio { display: none; }
+  }
+  @media (max-width: 19.9375em) {
+    .up-dcard { flex-direction: column; }
+    .up-dcard-photo { flex: none; aspect-ratio: 4 / 5; }
+  }
+
   @media (min-width: 48em) { .up-grid-5 { --cols: 3; } }
   @media (min-width: 68.75em) { .up-grid-5 { --cols: 5; --gx: var(--space-6); row-gap: var(--space-6); } }
 

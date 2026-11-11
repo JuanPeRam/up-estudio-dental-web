@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import SectionHeader from "@/components/UI/SectionHeader.astro";
 import Button from "@/components/UI/Button.astro";
 import { getEquipo } from "@/lib/contenido";
-import { portraitTransition } from "@/constants/pages";
+import TeamCard from "@/components/Cards/TeamCard.astro";
 import grupo from "@/img/up/equipo-grupo.webp";
 
 const people = (await getEquipo()).filter((m) => m.data.enPortada).slice(0, 5);
@@ -18,19 +18,9 @@ const people = (await getEquipo()).filter((m) => m.data.enPortada).slice(0, 5);
     >
       <div><Button href="/equipo" variant="ghost" iconAfter="arrow-right">Conoce a todo el equipo</Button></div>
     </SectionHeader>
-    <div class="up-grid-5">
-      {
-        people.map((m) => (
-          <a class="up-cutout" href={`/equipo/${m.id}`}>
-            <div class="up-cutout-photo" style={portraitTransition(m.id)}><Image src={m.data.retrato} alt="" widths={[300, 600, 900]} sizes="(min-width: 1100px) 220px, (min-width: 768px) 30vw, 45vw" quality={80} /></div>
-            <div class="flex flex-col gap-1">
-              <h3 class="up-h4">{m.data.nombre}</h3>
-              <p class="up-caption m-0">{m.data.especialidades.slice(0, 3).join(" · ")}</p>
-            </div>
-          </a>
-        ))
-      }
-    </div>
+    <ul class="up-dcards is-5">
+      {people.map((m) => <li><TeamCard member={m} transition sizes="(min-width: 1100px) 230px, (min-width: 768px) 30vw, 90vw" /></li>)}
+    </ul>
     <div class="overflow-hidden rounded-lg">
       <Image src={grupo} alt="El equipo de Up Estudio Dental en la clínica" widths={[800, 1400, 2000]} sizes="(min-width: 1264px) 1200px, 100vw" quality={80} class="aspect-[21/9] w-full object-cover" />
     </div>

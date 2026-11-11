@@ -1,23 +1,46 @@
 ---
+// Tarjeta profesional de cada persona del equipo, como las de un cuadro médico: retrato, especialidad
+// principal, nombre, número de colegiado (si lo hay), resto de especialidades y enlace a la ficha.
+// Toda la tarjeta es un enlace a /equipo/[id]. Los datos se editan en /keystatic (colección «Equipo»).
 import type { CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import { portraitTransition } from "@/constants/pages";
 
 interface Props {
   member: CollectionEntry<"equipo">;
   headingLevel?: "h2" | "h3";
+  /** Muestra un extracto de la biografía (página del equipo). */
+  bio?: boolean;
+  /** Nombre de transición del retrato hacia la ficha; una sola vez por página. */
+  transition?: boolean;
+  sizes?: string;
 }
-const { member, headingLevel: H = "h3" } = Astro.props;
+const {
+  member,
+  headingLevel: H = "h3",
+  bio = false,
+  transition = false,
+  sizes = "(min-width: 1000px) 380px, (min-width: 640px) 45vw, 90vw",
+} = Astro.props;
 const d = member.data;
+const [principal, ...resto] = d.especialidades;
 ---
 
-{/* Sin transición compartida: estas tarjetas quedan por debajo de la primera pantalla de la ficha y,
-     con nombre, los retratos de la página anterior saldrían volando hacia abajo al entrar. */}
-<a class="up-cutout" href={`/equipo/${member.id}`}>
-  <div class="up-cutout-photo">
-    <Image src={d.retrato} alt="" widths={[360, 700, 1000]} sizes="(min-width: 1000px) 380px, 45vw" />
+<a class="up-dcard" href={`/equipo/${member.id}`} id={bio ? member.id : undefined}>
+  <div class="up-dcard-photo" style={transition ? portraitTransition(member.id) : undefined}>
+    <Image src={d.retrato} alt="" widths={[300, 600, 900]} sizes={sizes} quality={80} />
   </div>
-  <div class="flex flex-col gap-2">
-    <H class="up-h4">{d.nombre}</H>
-    {d.especialidades.length > 0 && <div class="up-team-roles">{d.especialidades.slice(0, 3).map((r) => <span class="up-badge">{r}</span>)}</div>}
+  <div class="up-dcard-body">
+    {principal && <p class="up-dcard-spec">{principal}</p>}
+    <H class="up-dcard-name">{d.nombre}</H>
+    {d.colegiado && <p class="up-dcard-meta">Nº de colegiado {d.colegiado}</p>}
+    {resto.length > 0 && (
+      <ul class="up-dcard-tags" aria-label="Otras especialidades">
+        {resto.slice(0, 3).map((r) => <li>{r}</li>)}
+      </ul>
+    )}
+    {bio && d.biografia && <p class="up-dcard-bio">{d.biografia}</p>}
+    <span class="up-dcard-more">Ver perfil<Icon name="arrow-right" class="up-icon" /></span>
   </div>
 </a>

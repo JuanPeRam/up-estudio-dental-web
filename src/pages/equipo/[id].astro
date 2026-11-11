@@ -87,9 +87,9 @@ const jsonLd = [
   <section class="up-section up-band-sand">
     <div class="up-wrap flex flex-col gap-10">
       <h2 class="up-h2">Más del equipo</h2>
-      <div class="up-grid-team">
-        {others.map((m) => <TeamCard member={m} />)}
-      </div>
+      <ul class="up-dcards">
+        {others.map((m) => <li><TeamCard member={m} /></li>)}
+      </ul>
     </div>
   </section>
 

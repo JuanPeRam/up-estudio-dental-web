@@ -1,0 +1,118 @@
+---
+/**
+ * La línea de la sonrisa: un trazo que une los puntos marcados con `data-linea-punto` dentro del
+ * contenedor que la incluye (la sección de etapas de la portada). Se dibuja con el scroll: detrás, una
+ * guía punteada; delante, el trazo continuo que avanza hasta algo más de la mitad de la pantalla.
+ *
+ * Opcional en cada punto: `data-linea-x` y `data-linea-y` (0–1) para engancharla a una zona del
+ * elemento (la raíz del diente, la parte alta del corazón). Por defecto, su centro.
+ *
+ * Sin JavaScript, o con movimiento reducido, se ve entera y quieta. Es decorativa: aria-hidden.
+ */
+---
+
+<svg class="up-linea" data-linea aria-hidden="true" focusable="false">
+  <path class="up-linea-guia" />
+  <path class="up-linea-trazo" />
+</svg>
+
+<script>
+  function initLinea(svg: SVGSVGElement) {
+    const root = svg.parentElement;
+    if (!root) return;
+    const trazo = svg.querySelector<SVGPathElement>(".up-linea-trazo")!;
+    const guia = svg.querySelector<SVGPathElement>(".up-linea-guia")!;
+    const quieta = matchMedia("(prefers-reduced-motion: reduce)");
+
+    let largo = 0;
+    let muestras: { l: number; y: number }[] = [];
+    // Cada punto de paso, con la longitud de línea a la que queda: cuando el trazo llega, se marca.
+    let hitos: { el: Element; l: number }[] = [];
+    let raf = 0;
+
+    const construir = () => {
+      const caja = root.getBoundingClientRect();
+      const w = root.clientWidth;
+      const h = root.scrollHeight;
+      svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+      svg.setAttribute("width", String(w));
+      svg.setAttribute("height", String(h));
+
+      // Puntos de paso, en coordenadas del contenedor. Los que no se ven (display: none) no cuentan.
+      const puntos = [...root.querySelectorAll<HTMLElement | SVGElement>("[data-linea-punto]")]
+        .map((el) => {
+          const r = el.getBoundingClientRect();
+          if (!r.width && !r.height) return null;
+          const fx = Number(el.getAttribute("data-linea-x") ?? 0.5);
+          const fy = Number(el.getAttribute("data-linea-y") ?? 0.5);
+          return { el, x: r.left - caja.left + r.width * fx, y: r.top - caja.top + r.height * fy };
+        })
+        .filter((p): p is { el: HTMLElement | SVGElement; x: number; y: number } => p !== null)
+        .sort((a, b) => a.y - b.y);
+      if (puntos.length < 2) return;
+
+      // Curvas suaves entre puntos; en los tramos largos y rectos, una ondulación leve, como el trazo
+      // que sale del diente en las publicaciones de la clínica.
+      let d = `M${puntos[0].x} ${puntos[0].y}`;
+      puntos.slice(1).forEach((p, i) => {
+        const a = puntos[i];
+        const dy = p.y - a.y;
+        const onda = Math.abs(p.x - a.x) < 4 && dy > 240 ? (i % 2 ? -1 : 1) * Math.min(26, w * 0.03) : 0;
+        d += ` C${a.x + onda} ${a.y + dy * 0.45} ${p.x - onda} ${p.y - dy * 0.45} ${p.x} ${p.y}`;
+      });
+      trazo.setAttribute("d", d);
+      guia.setAttribute("d", d);
+
+      largo = trazo.getTotalLength();
+      muestras = [];
+      const pasos = Math.max(60, Math.round(largo / 24));
+      for (let i = 0; i <= pasos; i++) {
+        const l = (largo * i) / pasos;
+        muestras.push({ l, y: trazo.getPointAtLength(l).y });
+      }
+      trazo.style.strokeDasharray = `${largo} ${largo}`;
+      hitos = puntos.map((p) => ({ el: p.el, l: muestras.find((m) => m.y >= p.y - 1)?.l ?? largo }));
+      svg.classList.add("is-lista");
+      root.classList.add("has-linea");
+      dibujar();
+    };
+
+    const dibujar = () => {
+      raf = 0;
+      if (!largo) return;
+      if (quieta.matches) {
+        trazo.style.strokeDashoffset = "0";
+        hitos.forEach((h) => h.el.classList.add("is-alcanzado"));
+        return;
+      }
+      const caja = root.getBoundingClientRect();
+      const meta = window.innerHeight * 0.62 - caja.top;
+      let hecho = 0;
+      for (const m of muestras) {
+        if (m.y > meta) break;
+        hecho = m.l;
+      }
+      trazo.style.strokeDashoffset = String(largo - hecho);
+      // El diente de salida siempre está; el resto se marca al llegar el trazo y se desmarca al volver.
+      hitos.forEach((h, i) => h.el.classList.toggle("is-alcanzado", i === 0 || h.l <= hecho + 2));
+    };
+
+    const pedir = () => {
+      if (!raf) raf = requestAnimationFrame(dibujar);
+    };
+
+    let espera = 0;
+    const rehacer = () => {
+      clearTimeout(espera);
+      espera = window.setTimeout(construir, 120);
+    };
+
+    construir();
+    document.fonts?.ready.then(construir);
+    new ResizeObserver(rehacer).observe(root);
+    window.addEventListener("scroll", pedir, { passive: true });
+    quieta.addEventListener("change", dibujar);
+  }
+
+  document.querySelectorAll<SVGSVGElement>("[data-linea]").forEach(initLinea);
+</script>
