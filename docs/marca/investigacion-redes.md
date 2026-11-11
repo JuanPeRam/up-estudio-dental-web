@@ -1,6 +1,6 @@
 # Investigación de redes sociales (11 de noviembre de 2026)
 
-Leído de las páginas públicas de inserción de Instagram y TikTok. Canva no se pudo consultar (conector no conectado en la sesión).
+Leído de las páginas públicas de inserción de Instagram y TikTok y, después, de la cuenta de Canva (ver «Canva» al final).
 
 ## Perfiles
 
@@ -117,3 +117,11 @@ Decisión del usuario (11/11/2026): se publican 1, 2 y 3 (sin la promoción del 
 4. **Invisalign Day** (23 y 24 de mayo de 2024) — evento pasado.
 5. Las redes dicen «primera evaluación gratuita»; la web usa siempre «primera revisión gratuita» (decisión de PRODUCT.md).
 6. Un vídeo de TikTok muestra «35€» en pantalla en tono de humor: no es un precio publicado y la web no publica precios.
+
+## Canva (leído el 11/11/2026)
+
+- Kit de marca «Up Estudio Dental» presente. La API no permite leer sus colores y fuentes, así que los valores salen de los diseños.
+- Carrusel «¿Qué es la mordida cruzada?»: fondo salvia `#b8cdc8`, crema `#f6f3ec`, texto blanco y verde salvia oscuro `#6b9e92`; una sola familia sans geométrica (parece Glacial Indifference) en todas las piezas.
+- Anuncio de prensa (26 x 8,5 cm): sistema anterior en verde azulado `#07837c`, turquesa `#71cac5` y amarillo `#ffde59`, con el lema «Porque las grandes sonrisas empiezan siendo pequeñas» y el fijo escrito como «91 993 13 29».
+- Carrusel «Dra. Isabel Sosa»: casos reales de antes y después de la Dra. Isabel Sosa y de la Dra. Cristina Umérez. **No se publican en la web** sin el consentimiento por escrito de los pacientes (son datos de salud); queda como decisión de la clínica.
+- En la misma cuenta hay diseños de otras marcas y documentos personales que no son de la clínica; no se han usado.

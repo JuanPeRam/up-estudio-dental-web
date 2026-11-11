@@ -38,6 +38,7 @@
 - [ ] Confirmar que la clínica atiende urgencias 24 h; si no, poner `emergencies` a null en src/constants/personal.ts.
 - [ ] Confirmar que el teléfono de la ficha de Google Business Profile es el 919 931 329 (el schema de Wix decía 665 015 568).
 - [x] Nueva web «La línea de la sonrisa» con la identidad de Instagram/Canva (DESIGN.md, auditoría en docs/auditoria-impeccable-2026-11.md).
-- [ ] Conectar Canva (claude.ai → Conectores) y revisar la web contra los diseños originales de la marca: tipografías exactas, plantillas y recursos.
+- [x] Conectar Canva y ajustar la web a sus colores exactos (salvia #b8cdc8, crema #f6f3ec). La sans de Canva parece Glacial Indifference; la web usa Albert Sans.
 - [ ] Confirmar si la foto de la recepción con el logotipo en la pared (Instagram, 30/10/2026) es real o un render antes de usarla en la web.
 - [ ] Pasar Lighthouse en el despliegue de Vercel y probar la portada con VoiceOver o NVDA.
+- [ ] Decidir si se publican en la web los casos de antes y después de Canva (Dra. Isabel Sosa, Dra. Cristina Umérez). Solo con el consentimiento por escrito de cada paciente.

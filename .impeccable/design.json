@@ -7,7 +7,7 @@
       "crema": {
         "role": "neutral",
         "displayName": "Crema de las publicaciones",
-        "canonical": "#faf6ec",
+        "canonical": "#f6f3ec",
         "tonalRamp": [
           "#121110",
           "#2c2b28",
@@ -37,7 +37,7 @@
       "salvia": {
         "role": "primary",
         "displayName": "Salvia",
-        "canonical": "#b8cfc8",
+        "canonical": "#b8cdc8",
         "tonalRamp": [
           "#0d1311",
           "#242e2b",
@@ -439,7 +439,7 @@
       "refersTo": "button-primary",
       "description": "La acción de WhatsApp: píldora pino con texto crema, plana.",
       "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 21l1.65-3.8A9 9 0 1 1 7.8 20.4L3 21\"/></svg>Escribir por WhatsApp</a>",
-      "css": ".ds-btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:48px; padding:12px 24px; border-radius:999px; border:1.5px solid transparent; font:600 1rem/1.3125rem var(--font-sans); letter-spacing:0.005em; text-decoration:none; cursor:pointer; transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease; } .ds-btn:focus-visible { outline:2px solid #1d6f68; outline-offset:3px; } .ds-btn-primary { background:#1f3d36; color:#faf6ec; border-color:#1f3d36; } .ds-btn-primary:hover { background:#17302a; } .ds-btn-primary:active { background:#10241f; }"
+      "css": ".ds-btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:48px; padding:12px 24px; border-radius:999px; border:1.5px solid transparent; font:600 1rem/1.3125rem var(--font-sans); letter-spacing:0.005em; text-decoration:none; cursor:pointer; transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease; } .ds-btn:focus-visible { outline:2px solid #1d6f68; outline-offset:3px; } .ds-btn-primary { background:#1f3d36; color:#f6f3ec; border-color:#1f3d36; } .ds-btn-primary:hover { background:#17302a; } .ds-btn-primary:active { background:#10241f; }"
     },
     {
       "name": "Botón secundario",
@@ -447,7 +447,7 @@
       "refersTo": "button-secondary",
       "description": "Contorno pino que se rellena al pasar.",
       "html": "<a class=\"ds-btn-secondary\" href=\"#\">Escribir por el formulario</a>",
-      "css": ".ds-btn-secondary { display:inline-flex; align-items:center; min-height:48px; padding:12px 24px; border-radius:999px; border:1.5px solid #1f3d36; background:transparent; color:#1f3d36; font:600 1rem/1.3125rem var(--font-sans); text-decoration:none; transition: background-color 160ms ease, color 160ms ease; } .ds-btn-secondary:hover { background:#1f3d36; color:#faf6ec; } .ds-btn-secondary:focus-visible { outline:2px solid #1d6f68; outline-offset:3px; }"
+      "css": ".ds-btn-secondary { display:inline-flex; align-items:center; min-height:48px; padding:12px 24px; border-radius:999px; border:1.5px solid #1f3d36; background:transparent; color:#1f3d36; font:600 1rem/1.3125rem var(--font-sans); text-decoration:none; transition: background-color 160ms ease, color 160ms ease; } .ds-btn-secondary:hover { background:#1f3d36; color:#f6f3ec; } .ds-btn-secondary:focus-visible { outline:2px solid #1d6f68; outline-offset:3px; }"
     },
     {
       "name": "Botón claro sobre pino",
@@ -455,7 +455,7 @@
       "refersTo": "button-light",
       "description": "Acción principal dentro del campo pino.",
       "html": "<div class=\"ds-night\"><a class=\"ds-btn-light\" href=\"#\">Pedir revisión gratuita</a></div>",
-      "css": ".ds-night { background:#1f3d36; padding:24px; } .ds-btn-light { display:inline-flex; align-items:center; min-height:48px; padding:12px 24px; border-radius:999px; border:1.5px solid #faf6ec; background:#faf6ec; color:#1f3d36; font:600 1rem/1.3125rem var(--font-sans); text-decoration:none; transition: background-color 160ms ease, border-color 160ms ease; } .ds-btn-light:hover { background:#b8cfc8; border-color:#b8cfc8; } .ds-btn-light:focus-visible { outline:2px solid #3cb4a8; outline-offset:3px; }"
+      "css": ".ds-night { background:#1f3d36; padding:24px; } .ds-btn-light { display:inline-flex; align-items:center; min-height:48px; padding:12px 24px; border-radius:999px; border:1.5px solid #f6f3ec; background:#f6f3ec; color:#1f3d36; font:600 1rem/1.3125rem var(--font-sans); text-decoration:none; transition: background-color 160ms ease, border-color 160ms ease; } .ds-btn-light:hover { background:#b8cdc8; border-color:#b8cdc8; } .ds-btn-light:focus-visible { outline:2px solid #3cb4a8; outline-offset:3px; }"
     },
     {
       "name": "Chips del preparador",
@@ -463,7 +463,7 @@
       "refersTo": "chip",
       "description": "Radios en píldora; el elegido se enciende en pino.",
       "html": "<div class=\"ds-chips\"><label class=\"ds-chip\"><input type=\"radio\" name=\"q\" checked><span>Para mí</span></label><label class=\"ds-chip\"><input type=\"radio\" name=\"q\"><span>Para mi peque</span></label><label class=\"ds-chip\"><input type=\"radio\" name=\"q\"><span>Para toda la familia</span></label></div>",
-      "css": ".ds-chips { display:flex; flex-wrap:wrap; gap:8px; } .ds-chip { position:relative; cursor:pointer; } .ds-chip input { position:absolute; inset:0; opacity:0; margin:0; cursor:pointer; } .ds-chip span { display:inline-flex; align-items:center; min-height:44px; padding:10px 18px; border:1px solid color-mix(in srgb, #1f3d36 55%, transparent); border-radius:999px; font:500 1rem/1.25rem var(--font-sans); color:#1f3d36; transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease; } .ds-chip:hover span { border-color:#1f3d36; } .ds-chip input:checked + span { background:#1f3d36; border-color:#1f3d36; color:#faf6ec; } .ds-chip input:focus-visible + span { outline:2px solid #1f3d36; outline-offset:3px; }"
+      "css": ".ds-chips { display:flex; flex-wrap:wrap; gap:8px; } .ds-chip { position:relative; cursor:pointer; } .ds-chip input { position:absolute; inset:0; opacity:0; margin:0; cursor:pointer; } .ds-chip span { display:inline-flex; align-items:center; min-height:44px; padding:10px 18px; border:1px solid color-mix(in srgb, #1f3d36 55%, transparent); border-radius:999px; font:500 1rem/1.25rem var(--font-sans); color:#1f3d36; transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease; } .ds-chip:hover span { border-color:#1f3d36; } .ds-chip input:checked + span { background:#1f3d36; border-color:#1f3d36; color:#f6f3ec; } .ds-chip input:focus-visible + span { outline:2px solid #1f3d36; outline-offset:3px; }"
     },
     {
       "name": "Campo de formulario",
@@ -479,7 +479,7 @@
       "refersTo": "nav",
       "description": "Cabecera crema plana con subrayado turquesa que crece desde el centro.",
       "html": "<nav class=\"ds-nav\"><span class=\"ds-nav-word\"><b>Up</b>Estudio dental</span><ul><li><a href=\"#\" aria-current=\"page\">Inicio</a></li><li><a href=\"#\">Tratamientos</a></li><li><a href=\"#\">Equipo</a></li></ul></nav>",
-      "css": ".ds-nav { display:flex; align-items:center; justify-content:space-between; height:76px; padding:0 32px; background:#faf6ec; border-bottom:1px solid #d8d3c4; } .ds-nav-word { display:flex; flex-direction:column; font:500 0.75rem/1rem var(--font-sans); letter-spacing:0.18em; text-transform:uppercase; color:#3e5a53; } .ds-nav-word b { font:500 1.25rem/1.25rem var(--font-display); letter-spacing:0; text-transform:none; color:#1f3d36; } .ds-nav ul { display:flex; gap:4px; list-style:none; margin:0; padding:0; } .ds-nav a { position:relative; display:inline-flex; align-items:center; min-height:44px; padding:0 14px; font:500 1rem/1.3125rem var(--font-sans); color:#1f3d36; text-decoration:none; } .ds-nav a::after { content:''; position:absolute; left:14px; right:14px; bottom:6px; height:1.5px; background:#2a8c83; transform:scaleX(0); transition: transform 240ms cubic-bezier(0.16,1,0.3,1); } .ds-nav a:hover::after, .ds-nav a[aria-current='page']::after { transform:scaleX(1); } .ds-nav a:focus-visible { outline:2px solid #1d6f68; outline-offset:3px; }"
+      "css": ".ds-nav { display:flex; align-items:center; justify-content:space-between; height:76px; padding:0 32px; background:#f6f3ec; border-bottom:1px solid #d8d3c4; } .ds-nav-word { display:flex; flex-direction:column; font:500 0.75rem/1rem var(--font-sans); letter-spacing:0.18em; text-transform:uppercase; color:#3e5a53; } .ds-nav-word b { font:500 1.25rem/1.25rem var(--font-display); letter-spacing:0; text-transform:none; color:#1f3d36; } .ds-nav ul { display:flex; gap:4px; list-style:none; margin:0; padding:0; } .ds-nav a { position:relative; display:inline-flex; align-items:center; min-height:44px; padding:0 14px; font:500 1rem/1.3125rem var(--font-sans); color:#1f3d36; text-decoration:none; } .ds-nav a::after { content:''; position:absolute; left:14px; right:14px; bottom:6px; height:1.5px; background:#2a8c83; transform:scaleX(0); transition: transform 240ms cubic-bezier(0.16,1,0.3,1); } .ds-nav a:hover::after, .ds-nav a[aria-current='page']::after { transform:scaleX(1); } .ds-nav a:focus-visible { outline:2px solid #1d6f68; outline-offset:3px; }"
     },
     {
       "name": "Píldora de enlace",
@@ -487,28 +487,28 @@
       "refersTo": "pill-link",
       "description": "Enlace de una etapa a su tratamiento.",
       "html": "<a class=\"ds-pill\" href=\"#\">Odontopediatría<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></a>",
-      "css": ".ds-pill { display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:8px 14px 8px 18px; border-radius:999px; background:#e2ebe7; color:#1f3d36; font:500 1rem/1.25rem var(--font-sans); text-decoration:none; transition: background-color 160ms ease, color 160ms ease; } .ds-pill svg { transition: translate 160ms cubic-bezier(0.16,1,0.3,1); } .ds-pill:hover { background:#1f3d36; color:#faf6ec; } .ds-pill:hover svg { translate:3px 0; } .ds-pill:focus-visible { outline:2px solid #1d6f68; outline-offset:3px; }"
+      "css": ".ds-pill { display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:8px 14px 8px 18px; border-radius:999px; background:#e2ebe7; color:#1f3d36; font:500 1rem/1.25rem var(--font-sans); text-decoration:none; transition: background-color 160ms ease, color 160ms ease; } .ds-pill svg { transition: translate 160ms cubic-bezier(0.16,1,0.3,1); } .ds-pill:hover { background:#1f3d36; color:#f6f3ec; } .ds-pill:hover svg { translate:3px 0; } .ds-pill:focus-visible { outline:2px solid #1d6f68; outline-offset:3px; }"
     },
     {
       "name": "Registro",
       "kind": "card",
       "description": "Lista de contenido como registro con filetes, en lugar de tarjetas iguales (aquí sobre pino).",
       "html": "<dl class=\"ds-registro\"><div><dt>Exploración completa</dt><dd>Te exploramos y te explicamos qué vemos, sin prisas.</dd></div><div><dt>Radiografías aquí mismo</dt><dd>Las hacemos en la clínica y las revisamos contigo.</dd></div><div><dt>Presupuesto por escrito</dt><dd>Sabes qué necesitas y cuánto cuesta antes de decidir.</dd></div></dl>",
-      "css": ".ds-registro { margin:0; padding:24px; background:#1f3d36; border-top:1px solid color-mix(in srgb, #b8cfc8 40%, transparent); } .ds-registro > div { display:grid; grid-template-columns:minmax(0,16rem) minmax(0,1fr); gap:2px 32px; align-items:baseline; padding:16px 0; border-bottom:1px solid color-mix(in srgb, #b8cfc8 40%, transparent); } .ds-registro dt { font:400 1.5rem/1.9rem var(--font-display); color:#faf6ec; } .ds-registro dd { margin:0; font:400 1rem/1.5625rem var(--font-sans); color:#b8cfc8; }"
+      "css": ".ds-registro { margin:0; padding:24px; background:#1f3d36; border-top:1px solid color-mix(in srgb, #b8cdc8 40%, transparent); } .ds-registro > div { display:grid; grid-template-columns:minmax(0,16rem) minmax(0,1fr); gap:2px 32px; align-items:baseline; padding:16px 0; border-bottom:1px solid color-mix(in srgb, #b8cdc8 40%, transparent); } .ds-registro dt { font:400 1.5rem/1.9rem var(--font-display); color:#f6f3ec; } .ds-registro dd { margin:0; font:400 1rem/1.5625rem var(--font-sans); color:#b8cdc8; }"
     },
     {
       "name": "Línea con parada",
       "kind": "custom",
       "description": "El trazo de 1,5 px en el margen y un punto de etapa que se rellena al llegar la línea, con la edad en Label.",
       "html": "<div class=\"ds-rail\"><svg class=\"ds-rail-line\" width=\"2\" height=\"100%\" aria-hidden=\"true\"><line x1=\"1\" y1=\"0\" x2=\"1\" y2=\"100%\"/></svg><span class=\"ds-dot\"></span><p class=\"ds-edad\">De 0 a 6 años</p><h3 class=\"ds-h2\">Su primer diente</h3></div>",
-      "css": ".ds-rail { position:relative; padding:24px 24px 48px 112px; background:#faf6ec; } .ds-rail-line { position:absolute; left:55px; top:0; height:100%; overflow:visible; } .ds-rail-line line { stroke:#2a8c83; stroke-width:1.5px; stroke-linecap:round; } .ds-dot { position:absolute; left:56px; top:calc(24px + 1.1rem); translate:-50% -50%; width:15px; height:15px; border-radius:50%; background:#faf6ec; border:1.5px solid #2a8c83; } .ds-dot::after { content:''; position:absolute; inset:3px; border-radius:50%; background:#2a8c83; } .ds-edad { margin:0 0 8px; font:500 0.8125rem/1.125rem var(--font-sans); letter-spacing:0.16em; text-transform:uppercase; color:#1d6f68; } .ds-h2 { margin:0; font:400 clamp(1.75rem,3vw,2.375rem)/1.12 var(--font-display); letter-spacing:-0.012em; color:#1f3d36; }"
+      "css": ".ds-rail { position:relative; padding:24px 24px 48px 112px; background:#f6f3ec; } .ds-rail-line { position:absolute; left:55px; top:0; height:100%; overflow:visible; } .ds-rail-line line { stroke:#2a8c83; stroke-width:1.5px; stroke-linecap:round; } .ds-dot { position:absolute; left:56px; top:calc(24px + 1.1rem); translate:-50% -50%; width:15px; height:15px; border-radius:50%; background:#f6f3ec; border:1.5px solid #2a8c83; } .ds-dot::after { content:''; position:absolute; inset:3px; border-radius:50%; background:#2a8c83; } .ds-edad { margin:0 0 8px; font:500 0.8125rem/1.125rem var(--font-sans); letter-spacing:0.16em; text-transform:uppercase; color:#1d6f68; } .ds-h2 { margin:0; font:400 clamp(1.75rem,3vw,2.375rem)/1.12 var(--font-display); letter-spacing:-0.012em; color:#1f3d36; }"
     },
     {
       "name": "Bocadillo del mensaje",
       "kind": "custom",
       "description": "El mensaje de WhatsApp que se va a enviar, en serif, sobre la hoja crema.",
       "html": "<div class=\"ds-hoja\"><p class=\"ds-msg\">Hola, quería pedir la revisión gratuita para mi peque.</p></div>",
-      "css": ".ds-hoja { background:#faf6ec; padding:24px; } .ds-msg { margin:0; padding:12px 16px; max-width:30rem; background:#e2ebe7; color:#1f3d36; font:400 1.0625rem/1.5rem var(--font-display); border-radius:2px 14px 14px 14px; }"
+      "css": ".ds-hoja { background:#f6f3ec; padding:24px; } .ds-msg { margin:0; padding:12px 16px; max-width:30rem; background:#e2ebe7; color:#1f3d36; font:400 1.0625rem/1.5rem var(--font-display); border-radius:2px 14px 14px 14px; }"
     }
   ],
   "narrative": {

@@ -7,16 +7,16 @@
   color-scheme: light;
 
   /* ---------- Paleta de marca ---------- */
-  --crema: #faf6ec;            /* suelo de página: el papel crema de las publicaciones */
+  --crema: #f6f3ec;            /* suelo de página: el crema exacto de los diseños de Canva */
   --papel: #fffdf8;            /* formularios y campos */
-  --salvia: #b8cfc8;           /* campo de firma: portada, bandas de marca */
+  --salvia: #b8cdc8;           /* campo de firma: el salvia exacto de los diseños de Canva */
   --salvia-clara: #e2ebe7;     /* campos suaves, fondos de foto */
-  --pino: #1f3d36;             /* tinta, botón principal y campo oscuro; 10,9:1 sobre crema, 7,2:1 sobre salvia */
-  --pino-suave: #3e5a53;       /* texto secundario; 7:1 sobre crema, 4,6:1 sobre salvia */
+  --pino: #1f3d36;             /* tinta, botón principal y campo oscuro; 10,7:1 sobre crema, 7,1:1 sobre salvia */
+  --pino-suave: #3e5a53;       /* texto secundario; 6,8:1 sobre crema, 4,5:1 sobre salvia (justo: no aclarar) */
   --pino-hondo: #17302a;       /* hover del botón principal y pie */
   --madera: #e8d9c3;           /* madera clara de la recepción */
-  --turquesa: #2a8c83;         /* la línea sobre crema (3,8:1) y números grandes */
-  --turquesa-texto: #1d6f68;   /* enlaces sobre fondo claro (5,5:1 sobre crema) */
+  --turquesa: #2a8c83;         /* la línea sobre crema (3,7:1) y números grandes */
+  --turquesa-texto: #1d6f68;   /* enlaces sobre fondo claro (5,4:1 sobre crema) */
   --turquesa-logo: #3cb4a8;    /* el turquesa del logotipo: lo «encendido» sobre pino (4,7:1) */
   --turquesa-logo-claro: #6fcbc0;
 
@@ -34,7 +34,7 @@
   --on-night-muted: var(--salvia);   /* 7,2:1 sobre pino */
   --line: #d8d3c4;                   /* filetes sobre crema */
   --line-strong: #b9b3a2;
-  --control-border: #6d7b74;         /* 4,1:1 sobre crema */
+  --control-border: #6d7b74;         /* 4:1 sobre crema */
   --ink: var(--pino);
   --ink-muted: var(--pino-suave);
   --brand: var(--turquesa-logo);     /* acento sobre pino */

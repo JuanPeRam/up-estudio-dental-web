@@ -2,9 +2,9 @@
 name: Up Estudio Dental y Estética
 description: Clínica dental familiar en Móstoles; una sola línea de trazo fino recorre la vida de la boca de una familia, campo de color a campo de color.
 colors:
-  crema: "#faf6ec"
+  crema: "#f6f3ec"
   papel: "#fffdf8"
-  salvia: "#b8cfc8"
+  salvia: "#b8cdc8"
   salvia-clara: "#e2ebe7"
   pino: "#1f3d36"
   pino-suave: "#3e5a53"
@@ -205,13 +205,13 @@ Las fotos son reales y van con esquinas rectas; lo que se pulsa va en píldora. 
 Una paleta de papel y planta: crema, salvia y verde pino de las publicaciones de la clínica, madera clara de la recepción y el turquesa del logotipo como trazo y acento.
 
 ### Primary
-- **Verde pino** (`pino`): la tinta de toda la web (titulares, texto, iconos), el botón principal y el campo oscuro (revisión gratuita, pie). 10,9:1 sobre crema, 7,2:1 sobre salvia, 8,5:1 sobre madera. Al pasar, el botón baja a **Pino hondo** (`pino-hondo`) y, mientras se pulsa, a **Pino pulsado** (`pino-pulsado`).
-- **Salvia** (`salvia`): el campo de firma. Cabecera de la portada y de las páginas interiores, banda de cita del cierre, menú móvil, bloque de beneficios de la ficha de tratamiento. Es fondo; sobre pino hace de texto secundario y de trazo (7,2:1).
+- **Verde pino** (`pino`): la tinta de toda la web (titulares, texto, iconos), el botón principal y el campo oscuro (revisión gratuita, pie). 10,7:1 sobre crema, 7,1:1 sobre salvia, 8,5:1 sobre madera. Al pasar, el botón baja a **Pino hondo** (`pino-hondo`) y, mientras se pulsa, a **Pino pulsado** (`pino-pulsado`).
+- **Salvia** (`salvia`): el campo de firma, con el valor exacto de los diseños de Canva (`#b8cdc8`). Cabecera de la portada y de las páginas interiores, banda de cita del cierre, menú móvil, bloque de beneficios de la ficha de tratamiento. Es fondo; sobre pino hace de texto secundario y de trazo (7,2:1).
 - **Trazo sobre salvia** (`trazo-sobre-salvia`): el blanco del trazo de las publicaciones. Solo para la línea, el diente, el corazón y el filete de las cabeceras interiores cuando cruzan el campo salvia; decorativo (1,6:1), nunca texto ni borde de control.
 
 ### Secondary
-- **Turquesa** (`turquesa`): el color de la línea sobre crema, de los puntos de etapa, las estrellas de las reseñas, los números de la visita guiada y el subrayado de la navegación. 3,8:1 sobre crema: solo trazos, gráficos y números grandes, nunca texto corrido.
-- **Turquesa de texto** (`turquesa-texto`): enlaces, edades de las etapas, color del cursor y anillo de foco sobre fondos claros (5,5:1 sobre crema). Sobre madera se queda en 4,3:1, así que ahí los enlaces van en pino.
+- **Turquesa** (`turquesa`): el color de la línea sobre crema, de los puntos de etapa, las estrellas de las reseñas, los números de la visita guiada y el subrayado de la navegación. 3,7:1 sobre crema: solo trazos, gráficos y números grandes, nunca texto corrido.
+- **Turquesa de texto** (`turquesa-texto`): enlaces, edades de las etapas, color del cursor y anillo de foco sobre fondos claros (5,4:1 sobre crema). Sobre madera se queda en 4,3:1, así que ahí los enlaces van en pino.
 - **Turquesa del logo** (`turquesa-logo`): lo «encendido» sobre pino: el paso activo del índice de la visita guiada (4,7:1 sobre pino). **Turquesa del logo claro** (`turquesa-logo-claro`): enlaces al pasar y el enlace de urgencias en el pie (6,2:1 sobre pino).
 
 ### Tertiary
@@ -221,10 +221,10 @@ Una paleta de papel y planta: crema, salvia y verde pino de las publicaciones de
 - **Crema** (`crema`): el suelo de la página, la hoja del preparador de cita sobre salvia, la cabecera fija, la barra fija del móvil, el texto sobre el botón principal y los titulares sobre pino. Es el crema real de las publicaciones de Instagram y Canva (muestreado en #fbf7ec), fijado a petición de la clínica.
 - **Papel** (`papel`): campos de formulario, paneles y el hover de la nota de Google.
 - **Salvia clara** (`salvia-clara`): reserva de las fotos mientras cargan, píldoras de enlace, bocadillo del mensaje sobre la hoja crema, avisos.
-- **Pino suave** (`pino-suave`): texto secundario, entradillas, rótulos (7:1 sobre crema, 4,6:1 sobre salvia, 5,4:1 sobre madera).
+- **Pino suave** (`pino-suave`): texto secundario, entradillas, rótulos (6,8:1 sobre crema, 4,5:1 sobre salvia: justo, no aclararlo; 5,4:1 sobre madera).
 - **Sobre pino** (`sobre-pino`): texto corrido sobre el campo pino.
 - **Línea** (`linea`): filetes de los registros y separadores sobre crema.
-- **Borde de control** (`borde-control`): borde de los campos de formulario (4,1:1 sobre crema).
+- **Borde de control** (`borde-control`): borde de los campos de formulario (4:1 sobre crema).
 - Estados: **Peligro** (`peligro`) para errores y para el punto y el teléfono de urgencias; **Éxito** (`exito`) para confirmaciones del formulario.
 
 ### Named Rules
@@ -358,3 +358,11 @@ Las listas de contenido se escriben como un registro, no como tarjetas: un filet
 - **Don't** añadir otro movimiento ligado al scroll: la línea (y los pasos del tratamiento, que son su propio recorrido) es el único gesto.
 - **Don't** dar por hecho un tema oscuro: la web es solo clara.
 - **Don't** escribir colores en hex dentro de componentes; siempre tokens.
+
+## Fuente de la marca en Canva
+
+Valores leídos de los diseños de la clínica en Canva (noviembre de 2026):
+
+- Sistema actual (Instagram): salvia `#b8cdc8`, crema `#f6f3ec`, blanco para el trazo y los rótulos sobre salvia, y un verde salvia oscuro `#6b9e92` para textos grandes. En la web ese verde no se usa como texto porque sobre crema se queda en 2,7:1.
+- La sans de los rótulos de Canva es una geométrica fina (parece Glacial Indifference, que no está en Google Fonts). La web usa Albert Sans, que es la más parecida de las que se pueden servir desde el propio sitio.
+- Sistema anterior (anuncios de prensa): verde azulado `#07837c`, turquesa `#71cac5`, amarillo `#ffde59` y flores. La web no lo usa: lo sustituye el sistema actual de las publicaciones.
