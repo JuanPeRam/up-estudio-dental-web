@@ -113,7 +113,9 @@ const tourSizes = (count: number, index: number) => {
 <div class="up-lightbox up-on-night" id="lightbox" role="dialog" aria-modal="true" aria-label="Visor de fotos de la clínica" hidden>
   <button class="up-lightbox-btn right-4 top-4 md:right-6 md:top-6" type="button" id="lightbox-close" aria-label="Cerrar visor"><Icon name="close" class="up-icon" /></button>
   <button class="up-lightbox-btn left-2 top-1/2 -translate-y-1/2 md:left-6" type="button" id="lightbox-prev" aria-label="Foto anterior"><Icon name="chevron-left" class="up-icon" /></button>
-  <img id="lightbox-image" alt="" draggable="false" />
+  {/* Un <img> sin src no es válido. Nace con la primera foto, oculto y con carga diferida: dentro del
+      visor cerrado el navegador no la descarga, y al abrir se cambia por la foto pulsada. */}
+  <img id="lightbox-image" src={stops[0]?.photos[0]?.large} alt="" loading="lazy" decoding="async" draggable="false" hidden />
   <button class="up-lightbox-btn right-2 top-1/2 -translate-y-1/2 md:right-6" type="button" id="lightbox-next" aria-label="Foto siguiente"><Icon name="chevron-right" class="up-icon" /></button>
   <p class="up-lightbox-count m-0" id="lightbox-counter" aria-live="polite"></p>
 </div>
@@ -173,6 +175,7 @@ const tourSizes = (count: number, index: number) => {
         if (id !== request) return;
         image.src = src;
         image.alt = thumb?.alt ?? "";
+        image.hidden = false;
         exit?.cancel();
         exit = null;
         if (reduceMotion.matches) return;
@@ -193,7 +196,7 @@ const tourSizes = (count: number, index: number) => {
     const open = (i: number, from: HTMLElement) => {
       opener = from;
       // Sin la foto de la vez anterior mientras carga la que se ha pulsado.
-      image.removeAttribute("src");
+      image.hidden = true;
       show(i);
       box.hidden = false;
       document.body.style.overflow = "hidden";
