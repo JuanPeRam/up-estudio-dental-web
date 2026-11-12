@@ -8,7 +8,7 @@ import type { ImageMetadata } from "astro";
 // Fotos de Instagram, de las presentaciones de Canva y de la sesión profesional de la clínica,
 // distintas de las del resto de la portada para no repetir imágenes.
 import recepcion from "@/img/up/recepcion-logo.webp";
-import ninoSonrisa from "@/img/up/nino-sonrisa.webp";
+import revisionSillon from "@/img/up/revision-sillon.webp";
 import alineadores from "@/img/up/alineadores-invisalign.webp";
 import tratamiento from "@/img/up/tratamiento-sonrisa.webp";
 import instrumental from "@/img/up/instrumental.webp";
@@ -54,8 +54,8 @@ export const etapas: Etapa[] = [
       "Es la edad de vigilar cómo crece la boca. Detectamos a tiempo la mordida cruzada, trabajamos la función de la mordida con Rehabilitación Neuro-Oclusal y, si hace falta, empezamos la ortodoncia con Invisalign First.",
     puntos: ["Primera revisión de ortodoncia hacia los 7 años", "Selladores y flúor en las muelas", "Dra. Cristina Umérez: más de 25 años con niños"],
     servicios: ["odontopediatria", "ortodoncia-invisalign"],
-    imagen: ninoSonrisa,
-    imagenAlt: "Un niño sonríe enseñando una maqueta de dientes",
+    imagen: revisionSillon,
+    imagenAlt: "Una dentista de Up revisa a una paciente en el sillón; al fondo, un peluche",
     mensaje: "una revisión de mi hijo o hija (dentición mixta)",
   },
   {
