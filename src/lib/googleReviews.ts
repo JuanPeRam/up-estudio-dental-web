@@ -73,10 +73,22 @@ export async function fetchPlace(fieldMask = "rating,userRatingCount,reviews"): 
   }
 }
 
+/**
+ * Petición a Google en curso. La portada pide dos server islands a la vez (nota y reseñas): si
+ * coinciden en la misma instancia con la caché vacía, comparten una sola llamada (cada una se factura).
+ */
+let pending: Promise<PlaceReviews | null> | null = null;
+
 /** Devuelve null si no hay clave configurada o Google no responde. */
 export async function getPlaceReviews(): Promise<PlaceReviews | null> {
   if (cache && Date.now() - cache.at < CACHE_MS) return cache.data;
+  pending ??= loadPlaceReviews().finally(() => {
+    pending = null;
+  });
+  return pending;
+}
 
+async function loadPlaceReviews(): Promise<PlaceReviews | null> {
   const result = await fetchPlace();
   if (!result.ok) {
     console.error(`Places API (${result.status}): ${result.error}`);
