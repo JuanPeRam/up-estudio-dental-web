@@ -37,4 +37,5 @@
 - [ ] Añadir GOOGLE_PLACES_API_KEY en Vercel (Production y Preview) y comprobar que aparecen las reseñas.
 - [ ] Confirmar que la clínica atiende urgencias 24 h; si no, poner `emergencies` a null en src/constants/personal.ts.
 - [ ] Confirmar que el teléfono de la ficha de Google Business Profile es el 919 931 329 (el schema de Wix decía 665 015 568).
-- [ ] Rendimiento: en Vercel, cambiar la región de las funciones de iad1 (Washington) a cdg1 (París) y redesplegar. Detalles en docs/auditoria-rendimiento.md.
+- [x] Rendimiento: en Vercel, cambiar la región de las funciones de iad1 (Washington) a cdg1 (París) y redesplegar (comprobado el 22/11/2026: `x-vercel-id` con cdg1).
+- [ ] Seguridad: probar /keystatic con sesión de Keystatic Cloud y, si la consola no muestra avisos «[Report Only]», hacer obligatoria su CSP en src/middleware.ts. Detalles en docs/auditoria-rendimiento.md (segunda ronda).

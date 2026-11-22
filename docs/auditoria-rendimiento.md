@@ -134,3 +134,98 @@ Por prioridad:
 5. **`/contacto` estática.** Se podría prerenderizar el GET y mover el POST a un endpoint aparte, pero obliga a
    rehacer el formulario sin JavaScript (errores y valores rellenados en el servidor). Con la región en Europa
    (paso 2) no compensa.
+
+## Segunda ronda (diagnóstico)
+
+Correcciones del diagnóstico del 22/11/2026: vulnerabilidades de `npm audit` y cabeceras de seguridad (hasta ahora
+solo había HSTS, que pone Vercel). No cambia nada de lo de la primera ronda: las cabeceras de caché (`/_astro/*`
+inmutable, HTML `must-revalidate`, islas `s-maxage`, `/contacto` `no-store`) siguen saliendo igual.
+El paso manual de la región ya está hecho: `/contacto` responde con `x-vercel-id: …::cdg1::…`.
+
+### Dependencias (commit `8d3230f`)
+
+`npm audit fix` sin `--force`, dentro de los rangos de `package.json`: `@keystatic/core` 0.6.9 → 0.6.10 y
+`@vercel/nft` 1.11.1 → 1.11.11, que arrastran `minimatch` 11.0.9 y `glob` 14.0.6. Ninguna llegaba al navegador.
+
+| | Total | Moderadas | `--omit=dev` |
+|---|---|---|---|
+| Antes | 4 | 4 | 4 |
+| Después | **0** | 0 | **0** |
+
+Comprobado: `npm run build` (con `astro check`) sin errores y el panel `/keystatic` en `astro dev` (portada, lista de
+servicios y ficha del equipo) sin errores de consola.
+
+### Cabeceras de seguridad (commit `081572c`)
+
+| Cabecera | Dónde | Valor |
+|---|---|---|
+| `Content-Security-Policy` | Astro (`security.csp` en `astro.config.mjs`) | `default-src 'self'; img-src 'self' data: https://lh3.googleusercontent.com; font-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; script-src 'self' 'sha256-…' (14 hashes); style-src 'self' 'unsafe-inline'` |
+| `X-Content-Type-Options` | `vercel.json` | `nosniff` |
+| `X-Frame-Options` | `vercel.json` | `DENY` |
+| `Referrer-Policy` | `vercel.json` | `strict-origin-when-cross-origin` |
+| `Permissions-Policy` | `vercel.json` | `camera=(), microphone=(), geolocation=(), payment=()` |
+| `Strict-Transport-Security` | Vercel (sin cambios) | `max-age=63072000; includeSubDomains; preload` |
+
+Por qué así:
+
+- **La CSP la genera Astro y no `vercel.json`.** La web tiene `<script>` en línea: los pequeños de los componentes y,
+  sobre todo, los cargadores de las server islands, que llevan una clave cifrada distinta en cada build. Un hash fijo
+  en `vercel.json` se rompería en el siguiente despliegue, y `'unsafe-inline'` en `script-src` dejaría la CSP sin
+  efecto contra XSS. Astro calcula los hashes al compilar; con `staticHeaders` del adaptador los escribe como cabecera
+  de cada página estática en `.vercel/output/config.json`, y en lo que genera la función (`/contacto`, islas) los pone
+  en la respuesta.
+- **`scripts/fix-vercel-csp-routes.mjs`** (en `vercel-build`): el adaptador escribe esas rutas sin anclar y sin
+  `continue` (`"src": "/"`). Como en Vercel `src` es una expresión regular, `/` podría casar con cualquier dirección y
+  cortar el enrutado. El script las deja como las de `vercel.json` (`^/$`, `continue: true`). Comprobado con
+  `vercel build` (CLI 66.6) en una copia: las cabeceras de `vercel.json` se fusionan con la salida del adaptador.
+- **`style-src 'unsafe-inline'`**: hay atributos `style` (variables CSS, `object-position`, `view-transition-name`).
+  No hay `<style>` en línea; el riesgo de inyectar estilos es bajo.
+- **Avatares de las reseñas**: Places devuelve fotos de `lh3.googleusercontent.com` que carga el navegador. El
+  `onerror="…"` que ponía la inicial si fallaba la foto lo habría bloqueado la CSP; ahora lo hace un listener en
+  `Opinions.astro` (fase de captura).
+- **Sin iframes ni mapas** (Google Maps va por enlace), **sin fuentes externas** (Fontsource), **sin analítica** y
+  **sin peticiones a terceros desde el navegador** (Places y Resend van desde el servidor): `frame-src 'none'`,
+  `connect-src 'self'`.
+- **`/keystatic`** (Keystatic Cloud en producción) no lleva la CSP estricta: es una aplicación de React que inyecta
+  estilos, pide la fuente Inter a Google Fonts y habla con `api.keystatic.cloud`, y sin una cuenta con acceso no se
+  puede comprobar el panel por dentro. `src/middleware.ts` le pone solo lo que no puede romper nada
+  (`frame-ancestors 'none'; object-src 'none'; base-uri 'self'`) y la política completa en
+  `Content-Security-Policy-Report-Only`, que solo avisa en la consola.
+- **HSTS** no se toca: Vercel ya lo envía con `preload`. Ponerlo a mano con `includeSubDomains` afectaría a todos los
+  subdominios de `upestudiodental.es` cuando se apunte el dominio, que hoy siguen en Wix/Arsys.
+- `markdown.syntaxHighlight: false`: no hay Markdown y Astro avisaba de que Shiki no es compatible con la CSP.
+
+Cómo se ha probado (Playwright, Chromium, móvil 390 px y escritorio 1366 px, 25 rutas: portada con menú móvil y
+«Ver más» de las reseñas, `/tratamientos` y sus 9 fichas, `/equipo` y sus 5 fichas, `/clinica` con el visor de fotos,
+`/contacto` con envío, textos legales, 404, una redirección 301 y `/keystatic`), recogiendo errores de consola y
+eventos `securitypolicyviolation`:
+
+1. **Local**: salida de `vercel build` (con `PUBLIC_KEYSTATIC_CLOUD_PROJECT` de prueba para que exista `/keystatic`)
+   servida con un emulador de las rutas de `config.json` y la función de Astro. **0 violaciones**. Errores de consola
+   solo los esperados: el 503 del envío del formulario sin `RESEND_API_KEY` (la página muestra el aviso), el 404 de la
+   página 404 y el de un avatar roto creado a propósito (se sustituye por las iniciales). Comprobado también que la
+   CSP bloquea un `<script>` en línea y una imagen de otro dominio.
+2. **Producción** (`upestudiodental.vercel.app`) interceptando las respuestas e inyectando las cabeceras nuevas (la
+   CSP con los hashes de los scripts de ese HTML, que es lo que hará Astro al compilar; en las islas se quita el
+   `onerror` que esta rama elimina): **0 violaciones**, con las 3 reseñas reales y sus 3 avatares de Google, la nota
+   y el visor de la clínica. El formulario no se envió en producción (mandaría un correo a la clínica).
+
+Coste: la cabecera CSP ocupa ~1 kB por página HTML (sin efecto medible en LCP/CLS; las páginas no cambian).
+
+### Pasos manuales tras fusionar
+
+1. Fusionar en `master` (Vercel despliega). Ninguna variable de entorno nueva.
+2. Comprobar las cabeceras:
+   ```sh
+   curl -sI https://upestudiodental.vercel.app/ | grep -iE 'content-security|x-frame|x-content|referrer|permissions|strict-transport'
+   curl -sI https://upestudiodental.vercel.app/tratamientos/endodoncia | grep -i content-security
+   curl -sI https://upestudiodental.vercel.app/contacto | grep -iE 'content-security|cache-control'
+   curl -sI https://upestudiodental.vercel.app/keystatic | grep -i content-security
+   ```
+   La portada y las fichas deben traer `script-src 'self' 'sha256-…'`; `/contacto`, la misma política y
+   `private, no-store`; `/keystatic`, la política corta y la `-Report-Only`.
+3. Abrir la portada con las herramientas del navegador: la consola sin errores de CSP y las reseñas con sus fotos.
+4. Entrar en `/keystatic` con una cuenta de Keystatic Cloud, editar algo y mirar la consola. Si no hay avisos
+   `[Report Only]`, se puede pasar esa política a obligatoria en `src/middleware.ts`; si los hay, añadir el origen que
+   indiquen.
+5. Vuelta atrás: revertir el commit `081572c` (o quitar `security: { csp }` de `astro.config.mjs` si solo falla la CSP).
