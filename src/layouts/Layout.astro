@@ -116,7 +116,8 @@ const schemas = [structuredData, breadcrumbData, ...jsonLd].filter(Boolean);
 
     <link rel="preload" href={playfairUrl} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={figtreeUrl} as="font" type="font/woff2" crossorigin />
-    <link rel="icon" type="image/png" href="/img/up-logo.png" />
+    {/* Copia de 64 px del logo (4 kB): la de 500 px (70 kB) se queda solo para los datos estructurados. */}
+    <link rel="icon" type="image/png" sizes="64x64" href="/img/favicon-64.png" />
     {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonicalURL} />}
 
     <title>{pageTitle}</title>
