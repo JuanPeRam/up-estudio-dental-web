@@ -77,3 +77,10 @@ Las reseñas y la nota media se leen en vivo de la ficha de Google (Places API (
 - Sin clave, o si Google no responde, la sección se reduce a una tarjeta compacta con el enlace «Leer las opiniones en Google» (sin titular sobre un hueco).
 - Google devuelve como máximo 5 reseñas; se muestran las 3 más recientes de 4 o más estrellas.
 - Para comprobar la conexión, define en Vercel `DIAGNOSTICO_TOKEN` (una cadena larga al azar) y abre `/api/estado-resenas?token=<ese valor>`. Sin la variable, o con otro token, la ruta responde 404: cada consulta a Places se factura.
+
+## 🔒 Cabeceras de seguridad
+
+- **CSP**: la genera Astro (`security.csp` en `astro.config.mjs`) con el hash de cada `<script>` en línea, así que no hay que tocarla al cambiar un script. En las páginas estáticas Vercel la sirve como cabecera (`staticHeaders` del adaptador, ajustada por `scripts/fix-vercel-csp-routes.mjs` en `vercel-build`); en `/contacto` y las islas la pone la función.
+- **No uses manejadores en línea** (`onerror="…"`, `onclick="…"`) ni scripts o imágenes de otros dominios sin añadirlos a la CSP: la CSP los bloquea en producción y en `astro dev` no se nota, porque en desarrollo no se aplica. Para probarla, `npm run build` y servir `.vercel/output`.
+- **Resto de cabeceras** (`X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`): `vercel.json`. HSTS lo pone Vercel.
+- **`/keystatic`** tiene su propia política en `src/middleware.ts`: solo lo básico obligatorio y la política completa en modo *Report-Only* (avisa en la consola, no bloquea).

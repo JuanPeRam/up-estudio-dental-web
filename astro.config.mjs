@@ -57,9 +57,43 @@ const keystaticPanel = () => {
   };
 };
 
+/**
+ * Content-Security-Policy. La genera Astro en cada build con el hash de cada <script> en línea (los de los
+ * componentes y los cargadores de las server islands, que cambian en cada build), así que no hay que
+ * tocarla al cambiar un script. Con `staticHeaders` del adaptador, Vercel la sirve como cabecera en las
+ * páginas estáticas; en las que genera la función (/contacto, islas…) la pone Astro en la respuesta.
+ * El resto de cabeceras de seguridad están en vercel.json. /keystatic tiene la suya en src/middleware.ts.
+ *
+ * Lo que carga la web de verdad:
+ * - img-src: fotos propias (astro:assets) y los avatares de las reseñas de Google (lh3.googleusercontent.com).
+ * - style-src 'unsafe-inline': hay atributos style (variables CSS, object-position, view-transition-name).
+ *   Con un hash en la directiva el navegador ignoraría 'unsafe-inline', por eso Astro no pone hashes ahí.
+ * - Sin iframes, sin fuentes externas, sin analítica y sin fetch a terceros desde el navegador
+ *   (Places y Resend se llaman desde el servidor).
+ * - Prohibido usar onerror="…" u otros manejadores en línea: no tienen hash y la CSP los bloquea.
+ */
+const csp = {
+  algorithm: 'SHA-256',
+  directives: [
+    "default-src 'self'",
+    "img-src 'self' data: https://lh3.googleusercontent.com",
+    "font-src 'self'",
+    "connect-src 'self'",
+    "frame-src 'none'",
+    "object-src 'none'",
+    "base-uri 'self'",
+    "form-action 'self'",
+    "frame-ancestors 'none'",
+  ],
+  styleDirective: { resources: ["'self'", "'unsafe-inline'"] },
+};
+
 // Tailwind 3 se aplica con PostCSS (postcss.config.mjs) sobre src/styles/tailwind.css.
 // https://astro.build/config
 export default defineConfig({
+  security: { csp },
+  // No hay Markdown en la web; Shiki pinta con estilos en línea y Astro avisa de que choca con la CSP.
+  markdown: { syntaxHighlight: false },
   // Dominio oficial: canonical, sitemap, Open Graph y datos estructurados salen de aquí.
   site: 'https://www.upestudiodental.es',
   trailingSlash: 'never',
@@ -86,5 +120,6 @@ export default defineConfig({
     filter: (page) => !page.includes('/404') && !page.includes('/keystatic'),
   })],
   output: 'server',
-  adapter: vercel()
+  // staticHeaders: la CSP de cada página estática va como cabecera en .vercel/output/config.json.
+  adapter: vercel({ staticHeaders: true })
 });

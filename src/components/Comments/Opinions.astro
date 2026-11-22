@@ -28,6 +28,17 @@ const { limit = 3 } = Astro.props;
   reveal();
   new MutationObserver(reveal).observe(document.body, { childList: true, subtree: true });
 
+  // Si el avatar de Google no carga, se pone la inicial. Va aquí y no en un onerror="…" del <img> porque la
+  // CSP bloquea los manejadores en línea. El evento error no sube por el DOM: se escucha en la fase de captura.
+  document.addEventListener(
+    "error",
+    (event) => {
+      const img = event.target;
+      if (img instanceof HTMLImageElement && img.closest(".up-avatar")) img.replaceWith(img.dataset.initials || "");
+    },
+    true,
+  );
+
   document.addEventListener("click", (event) => {
     const button = (event.target as Element | null)?.closest<HTMLButtonElement>(".up-review-more");
     if (!button) return;
