@@ -1,11 +1,15 @@
 ---
 // Cuadro del equipo con tarjetas profesionales. Los datos se editan en /keystatic (colección «Equipo»).
 import TeamCard from "@/components/Cards/TeamCard.astro";
+import PreloadImage from "@/components/UI/PreloadImage.astro";
 import { getEquipo } from "@/lib/contenido";
+import { retratoTarjeta } from "@/constants/imagenes";
 
 const team = await getEquipo();
 ---
 
+{/* Desde dos columnas (40em) el primer retrato es el LCP de la página; en móvil lo es el texto. */}
+{team[0] && <PreloadImage src={team[0].data.retrato} {...retratoTarjeta} media="(min-width: 40em)" />}
 <ul class="up-dcards">
   {team.map((m) => <li><TeamCard member={m} headingLevel="h2" bio transition /></li>)}
 </ul>
