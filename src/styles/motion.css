@@ -7,12 +7,16 @@
    Se carga después de tailwind.css (ver Layout.astro). Tiempos y curva en tokens.css.
    ============================================================ */
 
+/* Las entradas de la portada parten de opacidad 0.01 y no de 0: a la vista es lo mismo, pero Chrome no
+   cuenta como pintado un elemento con opacidad 0 y retrasaba el LCP (titular, entradilla o foto) hasta
+   el final de la animación: unos 0,8 s en móvil y 1,2 s en escritorio. Con 0.01 cuenta desde el primer
+   fotograma. No volver a 0. */
 @keyframes up-unveil {
-  from { clip-path: inset(5% 5% 5% 5% round var(--radius-lg)); scale: 1.06; opacity: 0; }
+  from { clip-path: inset(5% 5% 5% 5% round var(--radius-lg)); scale: 1.06; opacity: 0.01; }
   40% { opacity: 1; }
   to { clip-path: inset(0 round var(--radius-lg)); scale: 1; opacity: 1; }
 }
-@keyframes up-rise { from { opacity: 0; translate: 0 16px; } }
+@keyframes up-rise { from { opacity: 0.01; translate: 0 16px; } }
 @keyframes up-pop { from { opacity: 0; translate: 0 10px; scale: 0.94; } }
 @keyframes up-spin { to { rotate: 1turn; } }
 @keyframes up-line-draw { from { transform: scaleY(0); } }
