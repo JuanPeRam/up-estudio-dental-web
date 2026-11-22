@@ -1,0 +1,24 @@
+---
+/**
+ * Precarga una foto que es el LCP solo en algunos anchos (media), sin quitarle la carga diferida.
+ * En móvil esas fotos quedan bajo el texto y pedirlas pronto le quita ancho de banda a las fuentes y
+ * retrasa el LCP del texto; en tableta y escritorio son el LCP y conviene pedirlas cuanto antes.
+ * Usa las mismas opciones que el <Image> de la foto: si no coinciden, se descarga dos veces.
+ * Va en el <body>, justo antes de la foto: rel="preload" vale ahí y el escáner del navegador lo encuentra
+ * igual que en el <head>.
+ */
+import { getImage } from "astro:assets";
+
+interface Props {
+  src: ImageMetadata;
+  widths: number[];
+  sizes: string;
+  quality?: number;
+  /** Anchos en los que la foto es el LCP, p. ej. "(min-width: 40em)". */
+  media: string;
+}
+const { src, widths, sizes, quality, media } = Astro.props;
+const image = await getImage({ src, widths, quality });
+---
+
+<link rel="preload" as="image" href={image.src} imagesrcset={image.srcSet.attribute} imagesizes={sizes} media={media} fetchpriority="high" />

@@ -8,14 +8,17 @@ interface Props {
   service: CollectionEntry<"servicios">;
   active?: boolean;
   headingLevel?: "h2" | "h3";
+  /** Solo la primera tarjeta de la página, cuando es el LCP: la foto se pide al cargar y con prioridad alta.
+   *  Más de una con prioridad compite por la red y retrasa el LCP en móvil (medido). */
+  priority?: boolean;
 }
-const { service, active = false, headingLevel: H = "h3" } = Astro.props;
+const { service, active = false, headingLevel: H = "h3", priority = false } = Astro.props;
 const d = service.data;
 ---
 
 <a class="up-scard" href={treatmentPath(service.id)} aria-current={active ? "true" : undefined}>
   <div class="up-scard-media">
-    <Image src={d.imagen} alt={d.imagenAlt} widths={[400, 640, 960, 1280]} sizes="(min-width: 1080px) 380px, (min-width: 900px) 33vw, (min-width: 640px) 42vw, 100vw" />
+    <Image src={d.imagen} alt={d.imagenAlt} widths={[400, 640, 960, 1280]} sizes="(min-width: 1080px) 380px, (min-width: 900px) 33vw, (min-width: 640px) 42vw, 100vw" loading={priority ? "eager" : "lazy"} fetchpriority={priority ? "high" : undefined} />
   </div>
   <div class="up-scard-body">
     {d.etiqueta && <span class="up-badge">{d.etiqueta}</span>}
