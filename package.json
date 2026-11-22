@@ -9,7 +9,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
-    "vercel-build": "astro check && astro build && node scripts/fix-vercel-runtime.mjs",
+    "vercel-build": "astro check && astro build && node scripts/fix-vercel-runtime.mjs && node scripts/fix-vercel-csp-routes.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

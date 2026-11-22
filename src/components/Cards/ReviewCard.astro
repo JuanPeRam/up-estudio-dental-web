@@ -44,7 +44,7 @@ const date = published ? new Intl.DateTimeFormat("es-ES", { month: "long", year:
   )}
   <figcaption>
     <span class="up-avatar" aria-hidden="true">
-      {photoUrl ? <img src={photoUrl} alt="" loading="lazy" referrerpolicy="no-referrer" data-initials={initials} onerror="this.replaceWith(this.dataset.initials || '')" /> : initials}
+      {photoUrl ? <img src={photoUrl} alt="" loading="lazy" referrerpolicy="no-referrer" data-initials={initials} /> : initials}
     </span>
     <div>
       {authorUrl ? <a class="up-review-author" href={authorUrl} target="_blank" rel="noopener noreferrer"><b>{authorName}</b></a> : <b>{authorName}</b>}
